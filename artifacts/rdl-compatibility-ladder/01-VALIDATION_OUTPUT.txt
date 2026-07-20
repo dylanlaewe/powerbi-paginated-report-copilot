@@ -40,5 +40,20 @@ Exit code: 0
 
 Independent Windows validation
 ==============================
-Report Builder open: PENDING
-Report Builder Preview: PENDING
+XML well-formedness: PASS
+XSD validation: PASS
+Report Builder open: PASS
+Design view: PASS
+Embedded data execution: PASS
+Preview: PASS
+Three-row data verification: PASS
+Group interaction: PASS
+Repair or conversion request: NONE
+Candidate 01 acceptance: PASS
+
+Observed rows:
+Central — 300
+East — 100
+West — 200
+
+The inherited Region grouping and expand/collapse controls functioned. The generated execution-time footer rendered. The existing Total row had no aggregate value, as expected because Candidate 01 introduced no total expression. Screenshots were captured independently for Design view, collapsed Preview, and expanded Preview; screenshots are not stored in this repository.

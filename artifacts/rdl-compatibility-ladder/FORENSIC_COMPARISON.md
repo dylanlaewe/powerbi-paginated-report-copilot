@@ -54,3 +54,7 @@ The deterministic output in `COLLECTION_CONSISTENCY.json` verifies:
 - body width does not exceed printable page width.
 
 Both the proven seed and rejected artifact pass these checks. Therefore the evidence does **not** support a collection-count mismatch as the root cause. The compatibility ladder must isolate the Report Builder-specific structural and serialization differences above.
+
+## Candidate 01 outcome
+
+Independent Windows testing confirmed that the minimal seed-derived candidate opened without repair, conversion, upgrade, or exception; loaded Design view; recognized the embedded data source, dataset, and fields; previewed all three rows; supported the inherited Region expand/collapse interaction; and rendered the seed footer. Candidate 01 is accepted. This result supports retaining the Report Builder-authored baseline structures, but it does not isolate a single root cause for the rejected scratch artifact.

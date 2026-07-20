@@ -23,7 +23,11 @@
 ### Added
 
 - Hash-pinned, baseline-derived RDL compatibility ladder tooling with forensic structural comparison and deterministic collection-consistency checks.
-- Candidate 01, derived through minimal content edits to the proven Report Builder seed, containing Region and Revenue with three synthetic rows and the `RDL Compatibility Test` title. Report Builder open and Preview remain pending independent Windows validation.
+- Candidate 01, derived through minimal content edits to the proven Report Builder seed, containing Region and Revenue with three synthetic rows and the `RDL Compatibility Test` title.
+
+### Validated
+
+- Independent Windows testing accepted Candidate 01: Report Builder opened it without repair or conversion, loaded Design view, executed embedded data, previewed all three expected rows, supported inherited group interaction, and rendered the execution-time footer.
 
 ## [0.0.1] - 2026-07-19
 

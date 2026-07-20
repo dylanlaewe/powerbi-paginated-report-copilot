@@ -1,8 +1,12 @@
 # Candidate 01 Windows validation
 
+## Result
+
+**PASS — independently validated on Windows.** Power BI Report Builder opened the candidate without repair, conversion, upgrade, or exception. Design view loaded, embedded `SeedData` was recognized, Preview executed, all three rows appeared, the inherited expand/collapse interaction worked, and the execution-time footer rendered.
+
 ## Acceptance criterion
 
-Power BI Report Builder must open and preview `01-minimal-enter-data-table.rdl` without an exception. No later ladder stage is in scope.
+Power BI Report Builder opened and previewed `01-minimal-enter-data-table.rdl` without an exception. This acceptance gate is complete.
 
 ## File identity
 

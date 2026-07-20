@@ -49,3 +49,5 @@
 - Found that both files pass the implemented collection-count checks; no count mismatch or root cause is asserted. Report Builder-specific metadata/serialization and the scratch file's unproven complexity remain compatibility hypotheses for incremental isolation.
 - Derived candidate 01 through only a third embedded row, matching DesignerState cells/count, and the requested title. All other seed structures remain intact.
 - Passed XML well-formedness, existing XSD validation, collection consistency, deterministic tests, and local repository checks. Report Builder open and Preview remain pending Windows.
+- Independent Windows testing subsequently passed Report Builder open, Design view, embedded-data execution, Preview, three-row verification, inherited group interaction, and footer rendering with no repair, conversion, or upgrade request.
+- Accepted Candidate 01. Its existing Total row intentionally remained blank because the candidate introduced no aggregate expression.

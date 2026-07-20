@@ -43,7 +43,9 @@ No Report Builder metadata, namespace, element ordering, connection structure, d
 Candidate: `artifacts/rdl-compatibility-ladder/01-minimal-enter-data-table.rdl`
 SHA-256: `151274f425f20e1bd88a7a8f892fca799f9efe9184b1df42e9cec53ab2e016a7`
 
-XML well-formedness, the existing XSD check, dataset-to-row checks, tablix collection counts, hierarchy/body counts, duplicate-source checks, ElementPath checks, and body-width validation pass. Report Builder open and Preview remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+XML well-formedness, the existing XSD check, dataset-to-row checks, tablix collection counts, hierarchy/body counts, duplicate-source checks, ElementPath checks, and body-width validation pass.
+
+Independent Windows validation also passed: Report Builder opened the candidate without repair, conversion, upgrade, or exception; Design view loaded; `SeedData` and its Region/Revenue fields were recognized; Preview rendered Central—300, East—100, and West—200; the inherited Region expand/collapse interaction worked; and the execution-time footer rendered. Candidate 01 acceptance is **PASS**. Its intentionally expression-free Total row displayed no aggregate value.
 
 The exact forensic comparison is in `artifacts/rdl-compatibility-ladder/FORENSIC_COMPARISON.md`; raw validation evidence and Windows instructions are stored beside candidate 01.
 
