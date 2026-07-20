@@ -58,3 +58,7 @@ Both the proven seed and rejected artifact pass these checks. Therefore the evid
 ## Candidate 01 outcome
 
 Independent Windows testing confirmed that the minimal seed-derived candidate opened without repair, conversion, upgrade, or exception; loaded Design view; recognized the embedded data source, dataset, and fields; previewed all three rows; supported the inherited Region expand/collapse interaction; and rendered the seed footer. Candidate 01 is accepted. This result supports retaining the Report Builder-authored baseline structures, but it does not isolate a single root cause for the rejected scratch artifact.
+
+## Candidate 02 outcome
+
+Independent Windows testing confirmed that the Candidate 01-derived nine-field detail report opened without repair, conversion, upgrade, or exception; loaded Design view; recognized all fields; executed embedded data; and previewed all six rows with working date and numeric values. Candidate 02 is accepted. Narrow columns clipped some headers and expression placeholders, which is deferred visual polish and not a structural compatibility failure.

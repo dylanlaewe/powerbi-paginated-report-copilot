@@ -59,7 +59,7 @@ Candidate: `artifacts/rdl-compatibility-ladder/02-detail-columns.rdl`
 
 SHA-256: `c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b`
 
-All local structural checks pass. Report Builder open, Design, embedded-data execution, Preview, six-row verification, and nine-field verification remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+All local structural checks pass. Independent Windows validation also passed: Report Builder opened the report without repair/conversion, loaded Design view, recognized all nine fields, executed the embedded data, and previewed all six rows without `#Error` or missing references. Candidate 02 acceptance is **PASS**. Some narrow-column clipping is explicitly deferred as layout polish rather than a compatibility failure.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

@@ -140,7 +140,15 @@
         "body-width"
       ]
     },
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "embeddedDataExecution": "PASS",
+      "reportBuilderPreview": "PASS",
+      "sixRowVerification": "PASS",
+      "nineFieldVerification": "PASS",
+      "fieldReferences": "PASS",
+      "repairOrConversionRequest": "NONE",
+      "layoutPolish": "DEFERRED",
+      "independentWindowsAcceptance": "PASS"
   }
 }

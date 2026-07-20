@@ -59,3 +59,5 @@
 - Replaced only the embedded grid/query/field schema and tablix content needed for nine visible detail fields and six synthetic rows while retaining the validated Report Builder root, data source, section, title, footer, and Region/detail hierarchy strategy.
 - Added compatible date, whole-number, and currency metadata/formatting without totals, page breaks, repeat behavior, parameters, or new header/footer structures.
 - Passed the full local pipeline, XSD validation, collection consistency, type/value validation, print-width validation, and artifact checksums. Independent Windows Report Builder validation remains pending.
+- Independent Windows testing subsequently passed Report Builder open, Design view, embedded-data execution, Preview, six-row verification, nine-field verification, and field references with no repair, conversion, upgrade, or `#Error` result.
+- Accepted Candidate 02. Recorded narrow-column header/expression clipping as deferred layout polish rather than a structural compatibility failure.

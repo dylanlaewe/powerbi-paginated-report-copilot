@@ -54,8 +54,17 @@ Candidate 01 SHA-256 unchanged: PASS
 
 Independent Windows validation
 ==============================
-Report Builder open: PENDING
-Design view: PENDING
-Embedded data execution: PENDING
-Preview: PENDING
-Six-row/nine-field verification: PENDING
+XML well-formedness: PASS
+XSD validation: PASS
+Report Builder open: PASS
+Design view: PASS
+Embedded data execution: PASS
+Preview: PASS
+Six-row verification: PASS
+Nine-field verification: PASS
+Field references: PASS
+Repair or conversion request: NONE
+Layout polish: DEFERRED
+Candidate 02 acceptance: PASS
+
+All six rows and all nine fields rendered. Date, quantity, revenue, and gross-profit values rendered without #Error or missing-field errors. The report remained within the page body. Some narrow-column headers and expression placeholders were visually clipped; this is recorded as deferred layout polish rather than a structural compatibility failure. Screenshots were captured independently and are not stored in this repository.

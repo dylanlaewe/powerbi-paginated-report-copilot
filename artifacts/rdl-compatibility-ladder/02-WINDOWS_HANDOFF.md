@@ -1,8 +1,12 @@
 # Candidate 02 Windows validation
 
+## Result
+
+**PASS — independently validated on Windows.** Report Builder opened the candidate without repair, conversion, upgrade, or exception; loaded Design view; recognized all nine fields; executed embedded data; and previewed all six rows without `#Error` or missing-field errors. The report remained inside the page body. Narrow-column clipping is deferred layout polish.
+
 ## Acceptance criterion
 
-Power BI Report Builder must open and preview `02-detail-columns.rdl` with all six rows and all nine fields displayed correctly. Do not test or advance Candidate 03.
+Power BI Report Builder opened and previewed `02-detail-columns.rdl` with all six rows and all nine fields. This acceptance gate is complete.
 
 ## File identity
 
