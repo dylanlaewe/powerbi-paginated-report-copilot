@@ -10,6 +10,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "setup:electron": "pnpm --filter @powerbi-copilot/desktop exec install-electron",
+    "spike:generate": "tsx packages/pbir-spike/src/cli.ts",
     "test": "vitest run",
     "typecheck": "pnpm -r typecheck"
   },
@@ -21,6 +22,7 @@
     "eslint-config-prettier": "10.1.8",
     "globals": "16.5.0",
     "prettier": "3.8.2",
+    "tsx": "4.20.6",
     "typescript": "6.0.2",
     "typescript-eslint": "8.56.1",
     "vitest": "4.1.0"
