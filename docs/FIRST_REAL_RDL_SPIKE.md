@@ -2,7 +2,32 @@
 
 ## Status
 
-`STRUCTURALLY VALIDATED`; `REPORT BUILDER RENDERING PENDING WINDOWS`.
+`REJECTED`; independent Windows validation found a hard Report Builder open failure.
+
+## Independent Windows validation
+
+Power BI Report Builder launched, but opening `Regional Sales Detail.rdl` failed before Design or Preview mode with:
+
+```text
+Failed to open report 'Regional Sales Detail.rdl'.
+
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+```
+
+Recorded result:
+
+- XML well-formedness: **PASS**
+- Existing XSD validation: **PASS**
+- Report Builder open: **FAIL**
+- Design view: **NOT REACHED**
+- Preview: **NOT REACHED**
+- Embedded data execution: **NOT TESTED**
+- PDF export: **NOT TESTED**
+- Excel export: **NOT TESTED**
+- RDL spike acceptance: **FAIL**
+
+The prior structural and XSD checks were insufficient to establish Report Builder compatibility. The hand-authored-from-scratch strategy is rejected. No root cause is asserted yet; forensic comparison against a Report Builder-authored seed is required. The rejected RDL is retained as failure evidence and must not be treated as a compatible generated report.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
@@ -52,4 +77,4 @@ Output: `artifacts/first-real-rdl-spike/Regional Sales Detail.rdl validates`; ex
 
 Repository validation separately checks well-formed XML, embedded row distribution, absence of external connections, all dataset and expression references, group expressions, subtotal/grand-total expressions, merged tablix widths, repeating headers, pagination expressions, and body width plus margins. The exact generated RDL is protected by a golden test.
 
-The complete independent Windows procedure, Preview expectations, totals, and PDF/Excel export steps are in `artifacts/first-real-rdl-spike/HANDOFF.md`.
+The original Windows procedure, Preview expectations, totals, and PDF/Excel export steps are retained in `artifacts/first-real-rdl-spike/HANDOFF.md` as historical handoff evidence. The report failed before those checks could be performed.

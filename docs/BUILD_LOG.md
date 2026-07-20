@@ -32,3 +32,11 @@
 - Added a grouped eight-column tablix with detail rows, repeating headers, alternating formatting, regional page breaks/subtotals, report grand totals, print-safe dimensions, and page-count footer.
 - Passed well-formedness, the Microsoft XSD compatibility copy, deterministic structure/reference checks, golden output, backup verification, and the full repository test/build pipeline.
 - Packaged the RDL, CSV review copy, backup, manifests, hashes, validator output, and exact Windows Preview/PDF/Excel instructions under `artifacts/first-real-rdl-spike/`.
+
+## 2026-07-20 — Independent RDL rejection
+
+- Independent Windows testing launched Power BI Report Builder but failed to open `Regional Sales Detail.rdl`.
+- Report Builder reported `Index was out of range. Must be non-negative and less than the size of the collection. Parameter name: index` before reaching Design or Preview.
+- Recorded XML well-formedness and existing XSD validation as passing, Report Builder open and spike acceptance as failing, and all downstream runtime/export checks as not reached or not tested.
+- Rejected the hand-authored-from-scratch generation strategy without asserting an unproven root cause.
+- Kept `spike/first-real-rdl-generation` unmerged and untagged. The next candidate must be minimally derived from the canonical Report Builder-authored seed and independently pass the open gate.
