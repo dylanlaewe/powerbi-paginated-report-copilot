@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Safe, read-only PBIP discovery with artifact path containment and desktop folder selection.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

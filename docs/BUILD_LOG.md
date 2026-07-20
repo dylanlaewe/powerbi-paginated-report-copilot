@@ -8,3 +8,8 @@
 - Researched official PBIP/PBIR/TMDL/RDL behavior from Microsoft sources.
 - Built all processes and launched the Electron application successfully on macOS; stopped the smoke test intentionally with SIGINT.
 - Published commit `c9393b6` to `chore/repository-bootstrap`, promoted it to `main`, and set `main` as the remote default branch.
+
+## 2026-07-19 — PBIP project discovery
+
+- Added read-only `.pbip` discovery, runtime JSON validation, artifact resolution, canonical path containment, and symlink escape rejection.
+- Connected a single allowlisted Electron IPC operation to native folder selection and the renderer project summary.
