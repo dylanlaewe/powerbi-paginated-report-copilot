@@ -75,3 +75,6 @@
 - Compared accepted Candidate 02, rejected Candidate 03, and the accepted Report Builder-authored grouped seed across body rows/cells, hierarchy members, group/sort/header placement, optional member properties, designer metadata, nesting depth, and row/leaf relationships.
 - Found that Candidate 03 and the seed are both count-consistent but structurally distinct: the rejected file adds a merged third body row, while Report Builder retains two rows and creates nested row-hierarchy headers plus `Region → Region1 → Details`.
 - Added regression validation that accepts the Report Builder grouping fingerprint and rejects the Candidate 03 hierarchy without claiming a single causal token.
+- Generated Candidate 03b as a byte-for-byte copy of the hash-pinned, independently accepted Report Builder grouped seed.
+- Verified nine fields, six rows, `Region → Region1 → Details`, body-row/hierarchy counts, field and sort references, absence of totals/page breaks/repeat changes, XSD validity, and preservation of Candidates 01, 02, rejected 03, and the grouped seed.
+- Preserved the seed's 7-inch width verbatim rather than introducing an unvalidated layout edit. Independent Windows validation of the separately named Candidate 03b artifact remains pending.

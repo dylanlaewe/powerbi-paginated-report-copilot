@@ -1,0 +1,87 @@
+{
+  "candidate": "03b-region-group-from-seed.rdl",
+  "candidateSha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88",
+  "canonicalGroupedSeed": "samples/report-builder-seeds/KnownGoodRegionGroup.rdl",
+  "groupedSeedSha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88",
+  "derivation": "BYTE_FOR_BYTE_COPY",
+  "fields": [
+    "SaleDate",
+    "Region",
+    "Salesperson",
+    "Customer",
+    "Product",
+    "Category",
+    "Quantity",
+    "Revenue",
+    "GrossProfit"
+  ],
+  "rows": 6,
+  "validation": {
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "03b-region-group-from-seed.rdl validates",
+    "reportBuilderGroupedHierarchyRegression": "PASS",
+    "embeddedDataConsistency": "PASS",
+    "candidates01And02Unchanged": "PASS",
+    "rejectedCandidate03Unchanged": "PASS",
+    "groupedSeedUnchanged": "PASS",
+    "bodyWidth": "7in",
+    "nominalPrintableWidth": "6.5in",
+    "widthDisposition": "PRESERVED_FROM_INDEPENDENTLY_ACCEPTED_REPORT_BUILDER_SEED",
+    "consistency": {
+      "fields": [
+        "SaleDate",
+        "Region",
+        "Salesperson",
+        "Customer",
+        "Product",
+        "Category",
+        "Quantity",
+        "Revenue",
+        "GrossProfit"
+      ],
+      "elementPathFields": [
+        "SaleDate",
+        "Region",
+        "Salesperson",
+        "Customer",
+        "Product",
+        "Category",
+        "Quantity",
+        "Revenue",
+        "GrossProfit"
+      ],
+      "embeddedRows": 6,
+      "tablixes": [
+        {
+          "name": "Tablix1",
+          "columns": 8,
+          "rows": 2,
+          "columnHierarchyLeaves": 8,
+          "rowHierarchyLeaves": 2,
+          "rowCellWidths": [
+            8,
+            8
+          ]
+        }
+      ],
+      "bodyWidthInches": 7,
+      "availablePageWidthInches": 6.5,
+      "checks": [
+        "dataset-field-to-row",
+        "designer-grid-counts",
+        "tablix-column-count",
+        "tablix-row-cell-count",
+        "hierarchy-body-consistency",
+        "duplicate-field-source",
+        "field-reference",
+        "group-expression-reference",
+        "element-path",
+        "date-numeric-compatibility",
+        "body-width"
+      ]
+    },
+    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
+    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+  }
+}

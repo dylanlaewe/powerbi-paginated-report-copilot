@@ -48,6 +48,7 @@
 ### Added
 
 - Three-way grouped-hierarchy forensics and regression validation distinguishing accepted Candidate 02, rejected Candidate 03, and the accepted Report Builder-authored `Region → Region1 → Details` hierarchy without asserting an unproven root cause.
+- Candidate 03b as a byte-for-byte, checksum-pinned copy of the accepted Report Builder-authored grouped seed, with nine fields, six rows, exact hierarchy preservation, regression evidence, and a dedicated Windows handoff.
 
 ## [0.0.1] - 2026-07-19
 

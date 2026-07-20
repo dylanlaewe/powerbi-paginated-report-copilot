@@ -1,0 +1,84 @@
+{
+  "command": "pnpm spike:rdl-compatibility-03b artifacts/rdl-compatibility-ladder",
+  "derivation": "BYTE_FOR_BYTE_COPY",
+  "seed": {
+    "path": "samples/report-builder-seeds/KnownGoodRegionGroup.rdl",
+    "sha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88",
+    "unchanged": "PASS"
+  },
+  "candidate": {
+    "path": "artifacts/rdl-compatibility-ladder/03b-region-group-from-seed.rdl",
+    "sha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88",
+    "byteForByteEqualToSeed": "PASS"
+  },
+  "hierarchy": {
+    "bodyRows": 2,
+    "rowHierarchyLeaves": 2,
+    "groups": [
+      "Region",
+      "Region1",
+      "Details"
+    ],
+    "groupHeaderPlacement": "ROW_HIERARCHY_HEADER",
+    "regionSorts": 2,
+    "detailSorts": [
+      "=Fields!SaleDate.Value",
+      "=Fields!Salesperson.Value"
+    ],
+    "aggregateExpressions": "NONE",
+    "pageBreakDefinitions": "NONE"
+  },
+  "consistency": {
+    "fields": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "elementPathFields": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "embeddedRows": 6,
+    "tablixes": [
+      {
+        "name": "Tablix1",
+        "columns": 8,
+        "rows": 2,
+        "columnHierarchyLeaves": 8,
+        "rowHierarchyLeaves": 2,
+        "rowCellWidths": [
+          8,
+          8
+        ]
+      }
+    ],
+    "bodyWidthInches": 7,
+    "availablePageWidthInches": 6.5,
+    "checks": [
+      "dataset-field-to-row",
+      "designer-grid-counts",
+      "tablix-column-count",
+      "tablix-row-cell-count",
+      "hierarchy-body-consistency",
+      "duplicate-field-source",
+      "field-reference",
+      "group-expression-reference",
+      "element-path",
+      "date-numeric-compatibility",
+      "body-width"
+    ]
+  }
+}

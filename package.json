@@ -13,6 +13,7 @@
     "spike:rdl-compatibility-01": "tsx packages/rdl-spike/src/compatibility-cli.ts",
     "spike:rdl-compatibility-02": "tsx packages/rdl-spike/src/candidate02-cli.ts",
     "spike:rdl-compatibility-03": "tsx packages/rdl-spike/src/candidate03-cli.ts",
+    "spike:rdl-compatibility-03b": "tsx packages/rdl-spike/src/candidate03b-cli.ts",
     "spike:rdl-forensics": "tsx packages/rdl-spike/src/forensics-cli.ts",
     "spike:rdl-group-forensics": "tsx packages/rdl-spike/src/group-forensics-cli.ts",
     "spike:rdl-generate": "tsx packages/rdl-spike/src/cli.ts",

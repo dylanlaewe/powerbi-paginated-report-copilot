@@ -84,6 +84,18 @@ Comparison with accepted Candidate 02 and the accepted Report Builder-authored `
 
 The regression validator accepts the exact Report Builder-authored grouped shape and rejects Candidate 03. Full evidence is in `artifacts/rdl-compatibility-ladder/03-THREE_WAY_FORENSICS.md` and `.json`.
 
+## Candidate 03b — Report Builder grouped seed
+
+Candidate 03b is a byte-for-byte copy of the independently accepted, Report Builder-authored `KnownGoodRegionGroup.rdl` seed. No XML element, namespace, ordering, metadata, hierarchy member, style, width, dataset value, or expression was regenerated or changed.
+
+It preserves all nine fields and six rows, two tablix body rows, eight cells per body row, eight column-hierarchy leaves, two row-hierarchy leaves, and the Report Builder-authored `Region → Region1 → Details` hierarchy. It contains no aggregate, subtotal, grand total, page break, repeat behavior, or new parameter/header/footer.
+
+Candidate: `artifacts/rdl-compatibility-ladder/03b-region-group-from-seed.rdl`
+
+SHA-256: `f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88` — identical to the canonical grouped seed.
+
+The seed's 7-inch width is intentionally preserved despite a nominal 6.5-inch printable width under default margins because changing it would depart from the independently accepted Report Builder structure. Candidate 03b's separately named artifact still requires independent Windows open and Preview validation.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
