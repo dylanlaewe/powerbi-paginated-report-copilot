@@ -37,6 +37,10 @@
 
 - Independent Windows testing accepted Candidate 02: Report Builder opened it without repair or conversion, recognized all nine fields, and previewed all six rows without field errors. Narrow-column clipping is deferred layout polish.
 
+### Added
+
+- Candidate 03, directly derived from accepted Candidate 02, with a visible Region group-header row, explicit Region → Details hierarchy, alphabetical group sorting, SaleDate/Salesperson detail sorting, and deterministic hierarchy/group validation. Independent Report Builder validation remains pending.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

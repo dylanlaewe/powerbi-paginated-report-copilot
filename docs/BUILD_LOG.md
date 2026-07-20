@@ -61,3 +61,11 @@
 - Passed the full local pipeline, XSD validation, collection consistency, type/value validation, print-width validation, and artifact checksums. Independent Windows Report Builder validation remains pending.
 - Independent Windows testing subsequently passed Report Builder open, Design view, embedded-data execution, Preview, six-row verification, nine-field verification, and field references with no repair, conversion, upgrade, or `#Error` result.
 - Accepted Candidate 02. Recorded narrow-column header/expression clipping as deferred layout polish rather than a structural compatibility failure.
+
+## 2026-07-20 — RDL compatibility ladder candidate 03
+
+- Extended generic validation to include group-expression field references and nonempty, unique group names.
+- SHA-256 pinned accepted Candidate 02 as Candidate 03's direct input and verified Candidates 01 and 02 remained unchanged.
+- Added one merged Region group-header row, an explicit Region → Details hierarchy, alphabetical Region sorting, and SaleDate/Salesperson detail sorting while preserving all nine fields, six rows, and existing detail formatting.
+- Added no aggregates, subtotals, grand totals, page breaks, repeat behavior, parameters, or new header/footer structures.
+- Passed XML, XSD, embedded-data, tablix cell, hierarchy leaf, group/sort reference, detail reachability, print-width, test-suite, and checksum validation. Independent Windows Report Builder validation remains pending.

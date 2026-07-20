@@ -61,6 +61,23 @@ SHA-256: `c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b`
 
 All local structural checks pass. Independent Windows validation also passed: Report Builder opened the report without repair/conversion, loaded Design view, recognized all nine fields, executed the embedded data, and previewed all six rows without `#Error` or missing references. Candidate 02 acceptance is **PASS**. Some narrow-column clipping is explicitly deferred as layout polish rather than a compatibility failure.
 
+## Candidate 03 — Region group
+
+Candidate 03 derives directly from accepted Candidate 02 and preserves its nine fields, six rows, embedded Enter Data structures, detail formatting, root metadata, page/footer, and 6-inch print-safe width. It adds only a clear Region group-header row and the corresponding explicit hierarchy/sorts:
+
+- Region group expression: `=Fields!Region.Value`
+- Region sort: `=Fields!Region.Value`
+- Detail sort 1: `=Fields!SaleDate.Value`
+- Detail sort 2: `=Fields!Salesperson.Value`
+
+The eight body columns, three effective body rows, eight column-hierarchy leaves, and three row-hierarchy leaves are consistent. The Details member is nested beneath Region. No aggregate expression, subtotal, grand total, page break, repeat behavior, parameter, or new header/footer was added.
+
+Candidate: `artifacts/rdl-compatibility-ladder/03-region-group.rdl`
+
+SHA-256: `5dd58b2d5acd39a66bc734e16956a592f1c84afa9ae7080101f7003030661c0b`
+
+All local checks pass. Report Builder open, Preview, group organization, and ordering remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
