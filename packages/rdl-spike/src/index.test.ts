@@ -49,6 +49,8 @@ describe("Regional Sales Detail RDL", () => {
     expect(xml.match(/&lt;Row&gt;/g)).toHaveLength(24);
     expect(xml).toContain("<DataProvider>ENTERDATA</DataProvider>");
     expect(xml).toContain("<ConnectString></ConnectString>");
+    expect(xml).toContain("SaleDate(Date)");
+    expect(xml).not.toContain("SaleDate(DateTime)");
     expect([...xml.matchAll(/https?:\/\/[^"<]+/g)].map(([url]) => url)).toEqual(
       [
         "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",

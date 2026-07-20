@@ -10,6 +10,7 @@ The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or interme
 
 - Microsoft Enter Data documentation: <https://learn.microsoft.com/power-bi/paginated-reports/paginated-reports-enter-data>
 - Microsoft RDL documentation: <https://learn.microsoft.com/power-bi/paginated-reports/report-definition-language>
+- Microsoft XML ElementPath type grammar: <https://learn.microsoft.com/sql/reporting-services/report-data/element-path-syntax-for-xml-report-data-ssrs>
 - Microsoft Open Specification and RDL 2016/01 XSD: <https://learn.microsoft.com/openspecs/sql_server_protocols/ms-rdl/52ce3983-2bfc-4e72-9359-42aaf5fe4509>
 - Namespace: `http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition`
 
