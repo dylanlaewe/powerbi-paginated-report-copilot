@@ -78,6 +78,12 @@ SHA-256: `5dd58b2d5acd39a66bc734e16956a592f1c84afa9ae7080101f7003030661c0b`
 
 All local checks passed, but independent Windows validation **FAILED**. Report Builder raised an index-out-of-range exception before Design view; Preview and Region grouping were not reached. Candidate 03 acceptance is **FAIL**. Its hand-modified hierarchy is preserved as rejected evidence and will not be modified further by guesswork.
 
+### Three-way hierarchy finding
+
+Comparison with accepted Candidate 02 and the accepted Report Builder-authored `KnownGoodRegionGroup.rdl` shows that Candidate 03's count-consistent hierarchy is structurally different from Report Builder's output. Candidate 03 adds a third merged body row and nests `Region → Details`; Report Builder retains two body rows, places group headers in nested row-hierarchy headers, and nests `Region → Region1 → Details`. Optional member ordering, `KeepWithGroup`, Visibility, and designer metadata also differ. No single difference is claimed as the root cause.
+
+The regression validator accepts the exact Report Builder-authored grouped shape and rejects Candidate 03. Full evidence is in `artifacts/rdl-compatibility-ladder/03-THREE_WAY_FORENSICS.md` and `.json`.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis

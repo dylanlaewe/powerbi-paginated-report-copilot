@@ -97,6 +97,7 @@ const inches = (raw: string, label: string): number => {
 
 export const validateCollectionConsistency = (
   xml: string,
+  options: { requirePrintSafe?: boolean } = {},
 ): ConsistencyResult => {
   const root = parse(xml);
   const dataSet = required(descendants(root, "DataSet")[0], "DataSet");
@@ -318,7 +319,10 @@ export const validateCollectionConsistency = (
     ? inches(value(child(page, "RightMargin")), "Right margin")
     : 1;
   const availablePageWidthInches = pageWidthInches - leftMargin - rightMargin;
-  if (bodyWidthInches > availablePageWidthInches)
+  if (
+    options.requirePrintSafe !== false &&
+    bodyWidthInches > availablePageWidthInches
+  )
     throw new Error("Body width exceeds printable page width");
 
   return {

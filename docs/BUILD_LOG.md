@@ -72,3 +72,6 @@
 - Independent Windows testing subsequently failed during Report Builder open with an index-out-of-range exception before Design view.
 - Recorded Design and Preview as not reached, Region grouping as not tested, and Candidate 03 acceptance as failed despite passing static checks.
 - Preserved the rejected candidate unchanged and stopped hand-modifying its hierarchy. Candidate 03b must derive from the independently accepted Report Builder-authored grouped seed.
+- Compared accepted Candidate 02, rejected Candidate 03, and the accepted Report Builder-authored grouped seed across body rows/cells, hierarchy members, group/sort/header placement, optional member properties, designer metadata, nesting depth, and row/leaf relationships.
+- Found that Candidate 03 and the seed are both count-consistent but structurally distinct: the rejected file adds a merged third body row, while Report Builder retains two rows and creates nested row-hierarchy headers plus `Region → Region1 → Details`.
+- Added regression validation that accepts the Report Builder grouping fingerprint and rejects the Candidate 03 hierarchy without claiming a single causal token.

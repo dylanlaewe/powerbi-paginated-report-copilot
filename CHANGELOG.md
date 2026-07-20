@@ -45,6 +45,10 @@
 
 - Independent Windows validation rejected Candidate 03: Report Builder raised an index-out-of-range exception before Design view despite passing XML, XSD, and static consistency validation. Its hand-modified hierarchy is preserved unchanged pending comparison with a Report Builder-authored grouped seed.
 
+### Added
+
+- Three-way grouped-hierarchy forensics and regression validation distinguishing accepted Candidate 02, rejected Candidate 03, and the accepted Report Builder-authored `Region → Region1 → Details` hierarchy without asserting an unproven root cause.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

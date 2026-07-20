@@ -1,0 +1,85 @@
+{
+  "command": "pnpm spike:rdl-group-forensics artifacts/rdl-compatibility-ladder/03-THREE_WAY_FORENSICS.json",
+  "files": {
+    "candidate02": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/02-detail-columns.rdl",
+      "sha256": "c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b"
+    },
+    "candidate03": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/03-region-group.rdl",
+      "sha256": "5dd58b2d5acd39a66bc734e16956a592f1c84afa9ae7080101f7003030661c0b"
+    },
+    "groupedSeed": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodRegionGroup.rdl",
+      "sha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88"
+    }
+  },
+  "comparison": {
+    "candidate02": {
+      "tablixBodyRows": 2,
+      "rowHierarchyLeaves": 2,
+      "groupNames": [
+        "Region",
+        "Details"
+      ],
+      "groupHeaderPlacement": "NONE",
+      "regionHierarchyDepth": 2,
+      "keepWithGroupCount": 1,
+      "repeatOnNewPageCount": 0,
+      "fixedDataCount": 0,
+      "dataElementOutputCount": 0,
+      "visibilityCount": 1,
+      "explicitHiddenCount": 1,
+      "selectedDesignerMarkerCount": 0,
+      "bodyWidthInches": 6,
+      "availablePageWidthInches": 6.5
+    },
+    "rejectedCandidate03": {
+      "tablixBodyRows": 3,
+      "rowHierarchyLeaves": 3,
+      "groupNames": [
+        "Region",
+        "Details"
+      ],
+      "groupHeaderPlacement": "BODY_ROW",
+      "regionHierarchyDepth": 2,
+      "keepWithGroupCount": 2,
+      "repeatOnNewPageCount": 0,
+      "fixedDataCount": 0,
+      "dataElementOutputCount": 0,
+      "visibilityCount": 1,
+      "explicitHiddenCount": 1,
+      "selectedDesignerMarkerCount": 0,
+      "bodyWidthInches": 6,
+      "availablePageWidthInches": 6.5
+    },
+    "reportBuilderGroupedSeed": {
+      "tablixBodyRows": 2,
+      "rowHierarchyLeaves": 2,
+      "groupNames": [
+        "Region",
+        "Region1",
+        "Details"
+      ],
+      "groupHeaderPlacement": "ROW_HIERARCHY_HEADER",
+      "regionHierarchyDepth": 3,
+      "keepWithGroupCount": 1,
+      "repeatOnNewPageCount": 0,
+      "fixedDataCount": 0,
+      "dataElementOutputCount": 0,
+      "visibilityCount": 1,
+      "explicitHiddenCount": 0,
+      "selectedDesignerMarkerCount": 1,
+      "bodyWidthInches": 7,
+      "availablePageWidthInches": 6.5
+    },
+    "highConfidenceDiscriminators": [
+      "Candidate 03 adds a third TablixBody row; the accepted grouped seed retains Candidate 02's two body rows.",
+      "Candidate 03 places the Region group header in a merged body cell; Report Builder places it in nested row-hierarchy headers.",
+      "The accepted seed nests Region > Region1 > Details; Candidate 03 nests Region > Details.",
+      "The accepted seed has two body rows and two row-hierarchy leaves; Candidate 03 has three of each. Both are count-consistent, so count equality alone does not establish compatibility.",
+      "The accepted seed has one KeepWithGroup marker, no explicit Hidden value, and one rd:Selected marker; Candidate 03 has two KeepWithGroup markers, Hidden=false, and no rd:Selected marker."
+    ],
+    "conclusion": "The structures are observably different, but no single difference is proven to cause the Report Builder exception."
+  }
+}
