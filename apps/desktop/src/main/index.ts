@@ -1,5 +1,37 @@
-import { app, BrowserWindow, shell } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import { join } from "node:path";
+import {
+  discoverPowerBiProject,
+  ProjectDiscoveryError,
+} from "@powerbi-copilot/project-discovery";
+import {
+  ipcChannels,
+  type ProjectSelectionResult,
+} from "../shared/desktop-api";
+
+ipcMain.handle(
+  ipcChannels.selectProject,
+  async (): Promise<ProjectSelectionResult> => {
+    const choice = await dialog.showOpenDialog({
+      properties: ["openDirectory"],
+      title: "Select a Power BI Project folder",
+    });
+    if (choice.canceled || !choice.filePaths[0]) return { status: "cancelled" };
+    try {
+      return {
+        status: "selected",
+        project: await discoverPowerBiProject(choice.filePaths[0]),
+      };
+    } catch (error) {
+      return {
+        status: "error",
+        code: error instanceof ProjectDiscoveryError ? error.code : "UNKNOWN",
+        message:
+          error instanceof Error ? error.message : "Project inspection failed",
+      };
+    }
+  },
+);
 
 const createWindow = (): void => {
   const window = new BrowserWindow({

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@powerbi-copilot/domain": "workspace:*",
+    "@powerbi-copilot/project-discovery": "workspace:*",
     "@vitejs/plugin-react": "6.0.3",
     "electron": "43.1.1",
     "electron-vite": "5.0.0",
