@@ -76,7 +76,7 @@ Candidate: `artifacts/rdl-compatibility-ladder/03-region-group.rdl`
 
 SHA-256: `5dd58b2d5acd39a66bc734e16956a592f1c84afa9ae7080101f7003030661c0b`
 
-All local checks pass. Report Builder open, Preview, group organization, and ordering remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+All local checks passed, but independent Windows validation **FAILED**. Report Builder raised an index-out-of-range exception before Design view; Preview and Region grouping were not reached. Candidate 03 acceptance is **FAIL**. Its hand-modified hierarchy is preserved as rejected evidence and will not be modified further by guesswork.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

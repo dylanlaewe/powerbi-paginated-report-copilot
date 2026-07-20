@@ -69,3 +69,6 @@
 - Added one merged Region group-header row, an explicit Region → Details hierarchy, alphabetical Region sorting, and SaleDate/Salesperson detail sorting while preserving all nine fields, six rows, and existing detail formatting.
 - Added no aggregates, subtotals, grand totals, page breaks, repeat behavior, parameters, or new header/footer structures.
 - Passed XML, XSD, embedded-data, tablix cell, hierarchy leaf, group/sort reference, detail reachability, print-width, test-suite, and checksum validation. Independent Windows Report Builder validation remains pending.
+- Independent Windows testing subsequently failed during Report Builder open with an index-out-of-range exception before Design view.
+- Recorded Design and Preview as not reached, Region grouping as not tested, and Candidate 03 acceptance as failed despite passing static checks.
+- Preserved the rejected candidate unchanged and stopped hand-modifying its hierarchy. Candidate 03b must derive from the independently accepted Report Builder-authored grouped seed.

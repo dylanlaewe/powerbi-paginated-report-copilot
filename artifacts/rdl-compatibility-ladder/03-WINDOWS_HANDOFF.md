@@ -1,8 +1,12 @@
 # Candidate 03 Windows validation
 
+## Result
+
+**FAIL — independently rejected on Windows.** Report Builder failed before Design view with `Index was out of range. Must be non-negative and less than the size of the collection. Parameter name: index`. Preview and Region grouping were not reached or tested. The candidate remains preserved as failure evidence and must not be modified by hierarchy guesswork.
+
 ## Acceptance criterion
 
-Power BI Report Builder must open and preview `03-region-group.rdl` with all six detail rows correctly organized beneath their Region group headers. Do not generate or test Candidate 04.
+Candidate 03 did not meet its acceptance criterion. Do not use it as a compatibility baseline.
 
 ## File identity
 

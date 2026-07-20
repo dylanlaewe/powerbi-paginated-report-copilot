@@ -81,7 +81,10 @@
         ]
       }
     },
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "reportBuilderOpen": "FAIL",
+      "designView": "NOT_REACHED",
+      "reportBuilderPreview": "NOT_REACHED",
+      "regionGrouping": "NOT_TESTED",
+      "independentWindowsAcceptance": "FAIL"
   }
 }

@@ -62,3 +62,7 @@ Independent Windows testing confirmed that the minimal seed-derived candidate op
 ## Candidate 02 outcome
 
 Independent Windows testing confirmed that the Candidate 01-derived nine-field detail report opened without repair, conversion, upgrade, or exception; loaded Design view; recognized all fields; executed embedded data; and previewed all six rows with working date and numeric values. Candidate 02 is accepted. Narrow columns clipped some headers and expression placeholders, which is deferred visual polish and not a structural compatibility failure.
+
+## Candidate 03 outcome
+
+Independent Windows testing rejected the hand-modified Region hierarchy. Candidate 03 passed XML, XSD, and static consistency checks but Report Builder failed with an index-out-of-range exception before Design view. Preview and grouping were not tested. The candidate is retained unchanged as failure evidence. No root cause is asserted pending comparison with the accepted Report Builder-authored grouped seed.
