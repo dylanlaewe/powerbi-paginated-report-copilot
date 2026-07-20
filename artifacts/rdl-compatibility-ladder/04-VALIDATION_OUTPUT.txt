@@ -1,0 +1,67 @@
+Candidate generation
+====================
+Command:
+pnpm spike:rdl-compatibility-04 artifacts/rdl-compatibility-ladder
+
+Output:
+RDL compatibility ladder — candidate 04
+Report: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/04-region-subtotal.rdl
+Fields preserved: 9
+Detail rows preserved: 6
+Expected Region subtotal rows: 3
+Explicit aggregate scope: "Region"
+Subtotal body/hierarchy consistency: PASS
+Protected artifact checksums: PASS
+Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+
+Exit code: 0
+
+XSD validation
+==============
+Command:
+xmllint --noout --schema packages/rdl-spike/schema/ReportDefinition-2016.xsd artifacts/rdl-compatibility-ladder/04-region-subtotal.rdl
+
+Output:
+artifacts/rdl-compatibility-ladder/04-region-subtotal.rdl validates
+
+Exit code: 0
+
+Subtotal and hierarchy validation
+=================================
+XML well-formedness: PASS
+Existing XSD: PASS
+Embedded data unchanged: PASS
+Fields: 9
+Detail rows: 6
+Distinct Region values: 3
+Subtotal structural rows per Region instance: 1
+Expected rendered subtotal rows: 3
+Tablix body columns: 8
+Effective cells in column-header row: 8
+Effective cells in detail row: 8
+Effective cells in subtotal row: 8
+Column hierarchy leaves: 8
+Tablix body rows: 3
+Row hierarchy leaves: 3
+Group nesting Region > Region1 > Details: PRESERVED
+Subtotal static member after Region1 under Region: PASS
+Subtotal label =Fields!Region.Value & " Total": PASS
+Quantity expression =Sum(Fields!Quantity.Value, "Region"): PASS
+Revenue expression =Sum(Fields!Revenue.Value, "Region"): PASS
+GrossProfit expression =Sum(Fields!GrossProfit.Value, "Region"): PASS
+Aggregate scope exists: PASS
+Quantity format N0: PASS
+Revenue format C2: PASS
+GrossProfit format C2: PASS
+Report-level total: NONE
+Page-break definitions: NONE
+Protected Candidates 01, 02, rejected 03, 03b, and canonical seeds: UNCHANGED
+Body width: 7in, preserved from accepted Candidate 03b
+
+Independent Windows validation
+==============================
+Report Builder open: PENDING
+Design view: PENDING
+Preview: PENDING
+Six-detail-row verification: PENDING
+Three-Region-subtotal verification: PENDING

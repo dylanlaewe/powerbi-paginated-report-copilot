@@ -81,3 +81,7 @@
 - Independent Windows testing subsequently accepted Candidate 03b: checksum, open, Design, Preview, Region grouping, sorting, six-row completeness, and reference checks passed without repair, conversion, upgrade, duplication, omission, or `#Error`.
 - Designated Candidate 03b as the canonical grouped compatibility baseline while keeping generalized programmatic group construction explicitly unproven.
 - Recorded actual pagination as not provided because the submitted validation result retained the literal `[INSERT RESULT]` placeholder.
+- SHA-256 pinned accepted Candidate 03b as Candidate 04's direct input and preserved Candidates 01, 02, rejected 03, 03b, and both canonical seeds.
+- Added one subtotal body row and one matching static hierarchy leaf after Region1 inside the outer Region group without changing embedded data or the accepted nested hierarchy.
+- Added explicitly Region-scoped Quantity, Revenue, and GrossProfit sums with whole-number/currency formatting and a Region-specific total label.
+- Verified three expected runtime subtotal rows, three body rows/leaves, eight effective columns per row, valid scope, six reachable detail rows, no report-level total, no page break, XSD validity, full tests, and checksums. Independent Windows validation remains pending.

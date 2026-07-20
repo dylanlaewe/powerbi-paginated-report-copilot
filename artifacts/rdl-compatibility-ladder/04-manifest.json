@@ -1,0 +1,88 @@
+{
+  "candidate": "04-region-subtotal.rdl",
+  "candidateSha256": "7621061880e0ee201dd34fd5931c1a86dc44dcb0997fc2b530521b069fbba8fe",
+  "derivedDirectlyFrom": "03b-region-group-from-seed.rdl",
+  "candidate03bSha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88",
+  "embeddedDataChanged": false,
+  "fields": 9,
+  "detailRows": 6,
+  "expectedRegionSubtotalRows": 3,
+  "validation": {
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "04-region-subtotal.rdl validates",
+    "subtotalStructureAndScope": "PASS",
+    "protectedArtifactChecksums": "PASS",
+    "subtotalEvidence": {
+      "runtimeRegionInstances": 3,
+      "subtotalRowsPerRegion": 1,
+      "expectedRenderedSubtotalRows": 3,
+      "aggregateScope": "Region",
+      "aggregateExpressions": [
+        "=Sum(Fields!Quantity.Value, \"Region\")",
+        "=Sum(Fields!Revenue.Value, \"Region\")",
+        "=Sum(Fields!GrossProfit.Value, \"Region\")"
+      ],
+      "labelExpression": "=Fields!Region.Value & \" Total\"",
+      "detailsReachableBeneathRegion": "PASS",
+      "reportLevelTotal": "NONE",
+      "pageBreakDefinitions": "NONE",
+      "consistency": {
+        "fields": [
+          "SaleDate",
+          "Region",
+          "Salesperson",
+          "Customer",
+          "Product",
+          "Category",
+          "Quantity",
+          "Revenue",
+          "GrossProfit"
+        ],
+        "elementPathFields": [
+          "SaleDate",
+          "Region",
+          "Salesperson",
+          "Customer",
+          "Product",
+          "Category",
+          "Quantity",
+          "Revenue",
+          "GrossProfit"
+        ],
+        "embeddedRows": 6,
+        "tablixes": [
+          {
+            "name": "Tablix1",
+            "columns": 8,
+            "rows": 3,
+            "columnHierarchyLeaves": 8,
+            "rowHierarchyLeaves": 3,
+            "rowCellWidths": [
+              8,
+              8,
+              8
+            ]
+          }
+        ],
+        "bodyWidthInches": 7,
+        "availablePageWidthInches": 6.5,
+        "checks": [
+          "dataset-field-to-row",
+          "designer-grid-counts",
+          "tablix-column-count",
+          "tablix-row-cell-count",
+          "hierarchy-body-consistency",
+          "duplicate-field-source",
+          "field-reference",
+          "group-expression-reference",
+          "element-path",
+          "date-numeric-compatibility",
+          "body-width"
+        ]
+      }
+    },
+    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
+    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+  }
+}

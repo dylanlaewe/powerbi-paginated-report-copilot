@@ -98,6 +98,20 @@ The seed's 7-inch width is intentionally preserved despite a nominal 6.5-inch pr
 
 Independent Windows validation accepted Candidate 03b: its checksum matched; Report Builder opened without repair/conversion/upgrade; Design view and Preview succeeded; and Central, East, West plus all six correctly sorted detail rows rendered without duplication, omission, `#Error`, or reference failures. Candidate 03b is the canonical grouped compatibility baseline. Generalized programmatic group construction is **NOT YET PROVEN**. Actual pagination was not reported because the supplied result retained `[INSERT RESULT]`.
 
+## Candidate 04 — Region subtotals
+
+Candidate 04 derives directly from accepted Candidate 03b and preserves its embedded data, nine fields, six detail rows, `Region → Region1 → Details` nesting, sorts, formatting, metadata, and 7-inch width. It adds only one subtotal body row and one matching static hierarchy leaf after Region1 inside Region.
+
+The subtotal label is `=Fields!Region.Value & " Total"`. Quantity, Revenue, and GrossProfit use explicit outer Region scope: `=Sum(Fields!Quantity.Value, "Region")`, `=Sum(Fields!Revenue.Value, "Region")`, and `=Sum(Fields!GrossProfit.Value, "Region")`. Formats are `N0`, `C2`, and `C2` respectively.
+
+Static validation expects one subtotal row for each of the three Region instances and confirms three body rows equal three row-hierarchy leaves. No report-level total, page break, parameter, embedded-data change, or later-stage feature is present.
+
+Candidate: `artifacts/rdl-compatibility-ladder/04-region-subtotal.rdl`
+
+SHA-256: `7621061880e0ee201dd34fd5931c1a86dc44dcb0997fc2b530521b069fbba8fe`
+
+All local checks pass. Report Builder open, Preview, preservation of six detail rows, and the three expected Region subtotals remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis

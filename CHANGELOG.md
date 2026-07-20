@@ -54,6 +54,10 @@
 
 - Independent Windows testing accepted Candidate 03b as the canonical grouped compatibility baseline: checksum, open, Design, Preview, Region grouping, sorting, and all six rows passed without repair or field errors. Generalized programmatic group construction remains unproven; pagination was not supplied.
 
+### Added
+
+- Candidate 04, directly derived from canonical Candidate 03b, with one outer-Region subtotal row per Region, explicitly scoped Quantity/Revenue/GrossProfit sums, deterministic hierarchy/scope validation, and no grand total or page break. Independent Report Builder validation remains pending.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added
