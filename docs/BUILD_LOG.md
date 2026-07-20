@@ -40,3 +40,12 @@
 - Recorded XML well-formedness and existing XSD validation as passing, Report Builder open and spike acceptance as failing, and all downstream runtime/export checks as not reached or not tested.
 - Rejected the hand-authored-from-scratch generation strategy without asserting an unproven root cause.
 - Kept `spike/first-real-rdl-generation` unmerged and untagged. The next candidate must be minimally derived from the canonical Report Builder-authored seed and independently pass the open gate.
+
+## 2026-07-20 — RDL compatibility ladder candidate 01
+
+- Pulled and SHA-256 pinned the independently proven Report Builder-authored `KnownGoodEnterDataTable.rdl` seed without modifying it.
+- Compared the seed with the rejected scratch-generated RDL across namespaces, metadata, ordering, data/query/field structures, tablix collections and hierarchies, grouping, sorting, pagination, footer, styles, fonts, and embedded rows.
+- Added deterministic validation for dataset/row order, DesignerState dimensions and coordinates, effective tablix cell counts, hierarchy leaf counts, duplicate field sources and groups, ElementPath declarations, and printable body width.
+- Found that both files pass the implemented collection-count checks; no count mismatch or root cause is asserted. Report Builder-specific metadata/serialization and the scratch file's unproven complexity remain compatibility hypotheses for incremental isolation.
+- Derived candidate 01 through only a third embedded row, matching DesignerState cells/count, and the requested title. All other seed structures remain intact.
+- Passed XML well-formedness, existing XSD validation, collection consistency, deterministic tests, and local repository checks. Report Builder open and Preview remain pending Windows.

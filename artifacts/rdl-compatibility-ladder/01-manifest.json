@@ -1,0 +1,76 @@
+{
+  "candidate": "01-minimal-enter-data-table.rdl",
+  "candidateSha256": "151274f425f20e1bd88a7a8f892fca799f9efe9184b1df42e9cec53ab2e016a7",
+  "canonicalSeed": "samples/report-builder-seeds/KnownGoodEnterDataTable.rdl",
+  "canonicalSeedSha256": "dc3e3f939d0d5f0eb8242681b17c43aa49dd0455a65f4e8cad10fbe24408ab7f",
+  "derivation": [
+    "DesignerState RowNumber changed from 2 to 3",
+    "one DesignerState Region/Revenue row appended",
+    "one matching embedded query Row appended",
+    "ReportTitle value set to RDL Compatibility Test"
+  ],
+  "fields": [
+    "Region",
+    "Revenue"
+  ],
+  "rows": [
+    {
+      "Region": "East",
+      "Revenue": "100"
+    },
+    {
+      "Region": "West",
+      "Revenue": "200"
+    },
+    {
+      "Region": "Central",
+      "Revenue": "300"
+    }
+  ],
+  "validation": {
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "01-minimal-enter-data-table.rdl validates",
+    "collectionConsistency": "PASS",
+    "consistency": {
+      "fields": [
+        "Region",
+        "Revenue"
+      ],
+      "elementPathFields": [
+        "Region",
+        "Revenue"
+      ],
+      "embeddedRows": 3,
+      "tablixes": [
+        {
+          "name": "Tablix1",
+          "columns": 1,
+          "rows": 4,
+          "columnHierarchyLeaves": 1,
+          "rowHierarchyLeaves": 4,
+          "rowCellWidths": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "bodyWidthInches": 6,
+      "availablePageWidthInches": 6.5,
+      "checks": [
+        "dataset-field-to-row",
+        "designer-grid-counts",
+        "tablix-column-count",
+        "tablix-row-cell-count",
+        "hierarchy-body-consistency",
+        "duplicate-field-source",
+        "element-path",
+        "body-width"
+      ]
+    },
+    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
+    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+  }
+}

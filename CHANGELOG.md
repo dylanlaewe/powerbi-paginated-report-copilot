@@ -20,6 +20,11 @@
 
 - Independent Windows validation found that Power BI Report Builder fails to open the generated `Regional Sales Detail.rdl` with an index-out-of-range error. Design, Preview, embedded-data execution, and exports were not reached. The RDL generation mechanism is not proven; future candidates must be derived from a known-good Report Builder seed.
 
+### Added
+
+- Hash-pinned, baseline-derived RDL compatibility ladder tooling with forensic structural comparison and deterministic collection-consistency checks.
+- Candidate 01, derived through minimal content edits to the proven Report Builder seed, containing Region and Revenue with three synthetic rows and the `RDL Compatibility Test` title. Report Builder open and Preview remain pending independent Windows validation.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

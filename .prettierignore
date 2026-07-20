@@ -5,5 +5,7 @@ artifacts/first-real-rdl-spike/.backups/**
 artifacts/first-real-rdl-spike/manifest.json
 artifacts/first-real-rdl-spike/MANIFEST.md
 artifacts/first-real-rdl-spike/regional-sales.csv
+artifacts/rdl-compatibility-ladder/*.json
+artifacts/rdl-compatibility-ladder/*.rdl
 packages/rdl-spike/test-fixtures/**
 packages/rdl-spike/schema/**

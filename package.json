@@ -10,6 +10,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "setup:electron": "pnpm --filter @powerbi-copilot/desktop exec install-electron",
+    "spike:rdl-compatibility-01": "tsx packages/rdl-spike/src/compatibility-cli.ts",
     "spike:rdl-forensics": "tsx packages/rdl-spike/src/forensics-cli.ts",
     "spike:rdl-generate": "tsx packages/rdl-spike/src/cli.ts",
     "spike:generate": "tsx packages/pbir-spike/src/cli.ts",
