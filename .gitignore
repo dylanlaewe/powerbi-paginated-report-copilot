@@ -9,4 +9,4 @@ coverage/
 *.log
 .pnpm-store/
 .powerbi-copilot/
-
+tmp/

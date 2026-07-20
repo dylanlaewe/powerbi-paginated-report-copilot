@@ -1,0 +1,15 @@
+{
+  "name": "@powerbi-copilot/pbir-spike",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@powerbi-copilot/project-discovery": "workspace:*",
+    "zod": "4.4.3"
+  }
+}
