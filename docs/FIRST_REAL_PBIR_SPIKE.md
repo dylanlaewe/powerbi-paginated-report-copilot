@@ -2,9 +2,9 @@
 
 ## Result
 
-`STRUCTURALLY VALIDATED`; `NOT YET RENDERED IN POWER BI DESKTOP`.
+`PBIR AUTHORING MECHANISM PROVEN FOR THIS STAGE`; populated output remains unverified because the fixture could not retrieve its data.
 
-Executed on branch `spike/first-real-pbir-generation`. The CLI copied a known-valid PBIP, inspected its TMDL, created a PBIR page named `AI Generation Spike`, created a model-bound KPI card, clustered-column chart, and date slicer, verified semantic references and unique IDs, and preserved the source fixture. The branch is not merged because Windows rendering and the currently unavailable Microsoft visual schema remain pending.
+Executed on branch `spike/first-real-pbir-generation`. The CLI copied a known-valid PBIP, inspected its TMDL, created a PBIR page named `AI Generation Spike`, created a model-bound KPI card, clustered-column chart, and date slicer, verified semantic references and unique IDs, and preserved the source fixture. Independent Windows testing confirmed that Power BI Desktop opened the project and recognized the generated page, visuals, and semantic model without corruption or repair.
 
 ## Official authoring tooling
 
@@ -116,10 +116,20 @@ Commits pushed:
 - `40eee1f` — first model-bound PBIR generator
 - `68426ce` — focused PBIR authoring failure-mode tests
 
-## Exact Windows check still required
+## Independent Windows result
 
-Minimum environment: Windows 10/11 with a current Power BI Desktop version that supports PBIP/PBIR developer mode. Copy or check out this branch on Windows, run the command above with an output such as `tmp/generated-project`, then open `tmp/generated-project/Roastery.pbip` in Power BI Desktop.
+Reported on 2026-07-20 after independent testing in Power BI Desktop on Windows:
 
-Expected result: the existing coffee-roastery report plus a page named `AI Generation Spike`; a Revenue KPI card; a Revenue-by-Origin Country clustered column chart; and a Date Between slicer. Confirm all visuals render without broken-field indicators and save/reopen the project.
+- PBIP opening: **PASS**
+- Generated page recognition: **PASS**
+- Generated visual recognition: **PASS**
+- Semantic model recognition: **PASS**
+- Corruption/repair check: **PASS**
+- Data retrieval: **BLOCKED BY FIXTURE DATA**
+- Populated visual rendering: **NOT VERIFIED**
+- Interactive filtering: **NOT VERIFIED**
+- Visual design quality: **NOT VERIFIED**
 
-Return the Power BI Desktop version, any dialog/error text, and one screenshot showing the whole generated page. If opening or rendering fails, also return the screenshot and the generated page/visual JSON files. Until that evidence is returned, Desktop rendering remains `PENDING WINDOWS`; do not merge or tag.
+The generated `Roastery.pbip` opened without a corruption warning or report-definition repair request. The `AI Generation Spike` page and its visual objects existed, and semantic-model tables appeared in the Data pane. Desktop displayed a global warning that some tables contained incomplete or no data. The original Page 1 visuals also displayed `Error fetching data for this visual`, so unavailable values were project-wide and attributable to the fixture's source-data/refresh state rather than isolated to generated PBIR content. Actual values, slicer interaction, and design quality were not established. Desktop performance in the macOS-hosted Windows VM was extremely slow.
+
+This evidence is sufficient for the stage's technical PBIR authoring mechanism gate, while explicitly not proving populated rendering or interaction. The complete structural handoff remains under `artifacts/first-real-pbir-spike/`.

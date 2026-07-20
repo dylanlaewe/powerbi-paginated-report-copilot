@@ -1,9 +1,9 @@
 # Status
 
-Current milestone: first real PBIR generation spike — deterministic model-bound page generation executed and structurally validated on the spike branch; Windows rendering and an unavailable Microsoft visual schema remain pending.
+Current milestone: first real PBIR generation spike accepted for this stage after independent Windows testing confirmed project opening and recognition of the generated page, visuals, and semantic model without corruption or repair.
 
 Implemented: secure Electron shell, React status UI, strict workspace configuration, runtime-validated domain seed, automated quality workflow, and truthful documentation baseline.
 
 Spike-only implementation: immutable known-valid fixture, minimum TMDL inventory, disposable copy, verified backup, PBIR page/card/chart/slicer authoring, reference checks, official CLI validation, and evidence manifests.
 
-Not implemented beyond the spike: LLM planning, general authoring abstractions, history, RDL generation, or Windows adapters. Next action is the exact Power BI Desktop check in `FIRST_REAL_PBIR_SPIKE.md`; do not merge before resolving the acceptance evidence.
+Windows limitation: fixture-wide data retrieval failed on both the generated page and original Page 1, so populated rendering, interactive filtering, and visual quality remain unverified. The next product-proof priority is a self-contained, synthetic-data RDL generation spike; standard Power BI report features remain paused.
