@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: project discovery — local acceptance passed on `feat/project-discovery`; publication to `main` is pending.
+Current milestone: first real PBIR generation spike — official skill and CLI loaded; known-valid fixture acquired and baseline validated; generation in progress on the spike branch.
 
 Implemented: secure Electron shell, React status UI, strict workspace configuration, runtime-validated domain seed, automated quality workflow, and truthful documentation baseline.
 

@@ -5,6 +5,7 @@
 ### Added
 
 - Safe, read-only PBIP discovery with artifact path containment and desktop folder selection.
+- Pinned Microsoft PBIR authoring CLI and immutable, MIT-licensed Desktop-produced PBIP spike fixture.
 
 ## [0.0.1] - 2026-07-19
 
