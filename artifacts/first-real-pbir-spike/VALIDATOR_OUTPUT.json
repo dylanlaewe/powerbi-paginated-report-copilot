@@ -1,0 +1,19 @@
+{
+  "data": {
+    "result": "succeededWithWarnings",
+    "errorCount": 0,
+    "warningCount": 1,
+    "reportPath": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report",
+    "diagnostics": {
+      "PBIR_SCHEMA_UNREACHABLE": {
+        "severity": "warning",
+        "items": [
+          {
+            "message": "JSON Schema \"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json\" could not be fetched; schema validation skipped for: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/a1f935c9ad3918c55c49/visuals/17b0cc8e254693190c00/visual.json, /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/a1f935c9ad3918c55c49/visuals/5dd25eb672a72da45096/visual.json, /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/a1f935c9ad3918c55c49/visuals/d6b2b1a59f82b221f25b/visual.json, /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/a1f935c9ad3918c55c49/visuals/e267ae74efe4463bdde6/visual.json, /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/35c79e9d64a94f429d40/visuals/516cc9ba914e784d6a34/visual.json, /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/35c79e9d64a94f429d40/visuals/59412079ef8a0bac9754/visual.json, /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/35c79e9d64a94f429d40/visuals/842764478d170e7e76b3/visual.json",
+            "file": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-pbir-spike/generated-roastery/Roastery.Report/definition/pages/a1f935c9ad3918c55c49/visuals/17b0cc8e254693190c00/visual.json"
+          }
+        ]
+      }
+    }
+  }
+}
