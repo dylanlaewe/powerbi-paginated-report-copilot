@@ -1,2 +1,9 @@
 samples/known-valid-project/**
 artifacts/first-real-pbir-spike/generated-roastery/**
+artifacts/first-real-rdl-spike/Regional Sales Detail.rdl
+artifacts/first-real-rdl-spike/.backups/**
+artifacts/first-real-rdl-spike/manifest.json
+artifacts/first-real-rdl-spike/MANIFEST.md
+artifacts/first-real-rdl-spike/regional-sales.csv
+packages/rdl-spike/test-fixtures/**
+packages/rdl-spike/schema/**

@@ -1,0 +1,54 @@
+{
+  "report": {
+    "path": "Regional Sales Detail.rdl",
+    "sha256": "eb6a60206ca1a936f41c243bb05f8449207fc5b0e32ed1a3a8c7cd9d002b6b49"
+  },
+  "dataset": {
+    "path": "regional-sales.csv",
+    "sha256": "850e75018f3d606e08c05aa97dda1c1c1112f8ee14a592d1440b0d2084d2d068"
+  },
+  "fields": [
+    "SaleDate",
+    "Region",
+    "Salesperson",
+    "Customer",
+    "Product",
+    "Category",
+    "Quantity",
+    "UnitPrice",
+    "Revenue",
+    "Cost",
+    "GrossProfit"
+  ],
+  "rows": 24,
+  "regions": [
+    "Central",
+    "East",
+    "West"
+  ],
+  "salespeople": [
+    "Avery Brooks",
+    "Jordan Lee",
+    "Morgan Chen",
+    "Riley Patel",
+    "Casey Rivera",
+    "Taylor Kim"
+  ],
+  "categories": [
+    "Furniture",
+    "Technology",
+    "Software",
+    "Office Supplies"
+  ],
+  "validation": {
+    "wellFormed": "PASS",
+    "microsoftRdl2016Xsd": "PASS",
+    "xsdOutput": "Regional Sales Detail.rdl validates"
+  },
+  "backup": {
+    "status": "CREATED_AND_HASH_VERIFIED",
+    "path": ".backups/Regional Sales Detail.rdl",
+    "sha256": "eb6a60206ca1a936f41c243bb05f8449207fc5b0e32ed1a3a8c7cd9d002b6b49"
+  },
+  "rendering": "PENDING_WINDOWS"
+}

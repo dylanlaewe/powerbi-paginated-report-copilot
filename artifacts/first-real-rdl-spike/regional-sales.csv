@@ -1,0 +1,25 @@
+SaleDate,Region,Salesperson,Customer,Product,Category,Quantity,UnitPrice,Revenue,Cost,GrossProfit
+"2026-01-05","Central","Avery Brooks","Northwind Health","Ergo Desk","Furniture",2,875,1750,1190,560
+"2026-01-12","Central","Jordan Lee","Summit Foods","Docking Station","Technology",8,190,1520,1040,480
+"2026-01-19","Central","Avery Brooks","Cedar Schools","Task Chair","Furniture",10,285,2850,1900,950
+"2026-02-03","Central","Jordan Lee","Bright Labs","Analytics License","Software",15,140,2100,720,1380
+"2026-02-11","Central","Avery Brooks","Northwind Health","Monitor 27","Technology",6,365,2190,1530,660
+"2026-02-24","Central","Jordan Lee","Summit Foods","Paper Case","Office Supplies",20,48,960,580,380
+"2026-03-08","Central","Avery Brooks","Cedar Schools","Standing Desk","Furniture",3,1020,3060,2190,870
+"2026-03-21","Central","Jordan Lee","Bright Labs","Security Suite","Software",12,165,1980,700,1280
+"2026-01-07","East","Morgan Chen","Atlas Finance","Laptop Pro","Technology",4,1480,5920,4280,1640
+"2026-01-16","East","Riley Patel","Harbor Retail","Printer","Technology",5,420,2100,1510,590
+"2026-01-28","East","Morgan Chen","Greenfield Co","CRM License","Software",18,125,2250,810,1440
+"2026-02-06","East","Riley Patel","Metro Legal","File Cabinet","Furniture",7,330,2310,1610,700
+"2026-02-17","East","Morgan Chen","Atlas Finance","Notebook Pack","Office Supplies",30,22,660,360,300
+"2026-02-26","East","Riley Patel","Harbor Retail","Conference Table","Furniture",1,2250,2250,1590,660
+"2026-03-11","East","Morgan Chen","Greenfield Co","Cloud Backup","Software",25,72,1800,550,1250
+"2026-03-25","East","Riley Patel","Metro Legal","Headset","Technology",14,115,1610,980,630
+"2026-01-09","West","Casey Rivera","Pioneer Energy","Mobile Workstation","Technology",3,1820,5460,3970,1490
+"2026-01-22","West","Taylor Kim","Coastal Hotels","Guest Chair","Furniture",12,240,2880,1980,900
+"2026-02-01","West","Casey Rivera","Redwood Media","Design License","Software",10,210,2100,760,1340
+"2026-02-14","West","Taylor Kim","Orchard Markets","Label Roll","Office Supplies",40,18,720,390,330
+"2026-02-22","West","Casey Rivera","Pioneer Energy","Ultrawide Monitor","Technology",5,690,3450,2460,990
+"2026-03-04","West","Taylor Kim","Coastal Hotels","Reception Desk","Furniture",2,1325,2650,1840,810
+"2026-03-16","West","Casey Rivera","Redwood Media","Archive Storage","Technology",9,275,2475,1675,800
+"2026-03-29","West","Taylor Kim","Orchard Markets","Inventory License","Software",16,135,2160,770,1390
