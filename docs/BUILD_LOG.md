@@ -51,3 +51,11 @@
 - Passed XML well-formedness, existing XSD validation, collection consistency, deterministic tests, and local repository checks. Report Builder open and Preview remain pending Windows.
 - Independent Windows testing subsequently passed Report Builder open, Design view, embedded-data execution, Preview, three-row verification, inherited group interaction, and footer rendering with no repair, conversion, or upgrade request.
 - Accepted Candidate 01. Its existing Total row intentionally remained blank because the candidate introduced no aggregate expression.
+
+## 2026-07-20 — RDL compatibility ladder candidate 02
+
+- Extended deterministic validation to reject unknown field references, incompatible ElementPath/CLR field types, invalid dates, nonnumeric decimal values, and nonintegral integer values.
+- SHA-256 pinned accepted Candidate 01 as Candidate 02's direct input and verified it remained unchanged after generation.
+- Replaced only the embedded grid/query/field schema and tablix content needed for nine visible detail fields and six synthetic rows while retaining the validated Report Builder root, data source, section, title, footer, and Region/detail hierarchy strategy.
+- Added compatible date, whole-number, and currency metadata/formatting without totals, page breaks, repeat behavior, parameters, or new header/footer structures.
+- Passed the full local pipeline, XSD validation, collection consistency, type/value validation, print-width validation, and artifact checksums. Independent Windows Report Builder validation remains pending.

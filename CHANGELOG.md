@@ -29,6 +29,10 @@
 
 - Independent Windows testing accepted Candidate 01: Report Builder opened it without repair or conversion, loaded Design view, executed embedded data, previewed all three expected rows, supported inherited group interaction, and rendered the execution-time footer.
 
+### Added
+
+- Candidate 02, derived directly from the accepted Candidate 01 structure, with nine visible detail fields, six embedded synthetic rows, compatible date/numeric metadata and formatting, expanded field-reference/type/value validation, and a dedicated Windows handoff. Report Builder validation remains pending.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

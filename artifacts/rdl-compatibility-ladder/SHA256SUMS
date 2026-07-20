@@ -1,3 +1,6 @@
 151274f425f20e1bd88a7a8f892fca799f9efe9184b1df42e9cec53ab2e016a7  01-minimal-enter-data-table.rdl
 ce383fb5f39feb09c56c2d4266173ede881b9c6ccf1733de0e8100a66b7cb209  01-manifest.json
 dc3e3f939d0d5f0eb8242681b17c43aa49dd0455a65f4e8cad10fbe24408ab7f  ../../samples/report-builder-seeds/KnownGoodEnterDataTable.rdl
+c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b  02-detail-columns.rdl
+b4c8cba9920d4272ae0ca1acca210860b3a173aac4cb6877ea8b816b446e709d  02-manifest.json
+263afbac3088cfd199634c5e277cbb19505fc3ef3904b4c0eb5d53a697b486a0  02-CONSISTENCY.json

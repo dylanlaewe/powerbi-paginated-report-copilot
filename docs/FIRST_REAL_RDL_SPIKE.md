@@ -49,6 +49,18 @@ Independent Windows validation also passed: Report Builder opened the candidate 
 
 The exact forensic comparison is in `artifacts/rdl-compatibility-ladder/FORENSIC_COMPARISON.md`; raw validation evidence and Windows instructions are stored beside candidate 01.
 
+## Candidate 02 — detail columns
+
+Candidate 02 derives directly from the accepted Candidate 01 SHA-256 and retains its Report Builder root metadata, namespaces, data source, query ordering, report section, title, footer, and Region/detail hierarchy strategy. It adds only a nine-field, six-row embedded dataset and the table columns needed to display SaleDate, Region, Salesperson, Customer, Product, Category, Quantity, Revenue, and GrossProfit.
+
+SaleDate uses compatible `Date`/`System.DateTime` metadata and `yyyy-MM-dd` display formatting. Quantity uses `Integer`/`System.Int32` and `N0`; Revenue and GrossProfit use `Decimal`/`System.Decimal` and `C2`. The 6-inch tablix/body fits the 6.5-inch printable width. No totals, page breaks, repeating-header behavior, parameters, or new header/footer structures were added.
+
+Candidate: `artifacts/rdl-compatibility-ladder/02-detail-columns.rdl`
+
+SHA-256: `c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b`
+
+All local structural checks pass. Report Builder open, Design, embedded-data execution, Preview, six-row verification, and nine-field verification remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis

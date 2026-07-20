@@ -1,0 +1,61 @@
+Candidate generation and repository validation
+==============================================
+Command:
+pnpm spike:rdl-compatibility-02 artifacts/rdl-compatibility-ladder
+
+Output:
+RDL compatibility ladder — candidate 02
+Report: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/02-detail-columns.rdl
+Fields: SaleDate, Region, Salesperson, Customer, Product, Category, Quantity, Revenue, GrossProfit
+Rows: 6
+XML well-formedness: PASS
+Existing XSD validation: PASS
+Collection consistency: PASS
+Accepted Candidate 01 unchanged: PASS
+Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+
+Exit code: 0
+
+XSD validation
+==============
+Command:
+xmllint --noout --schema packages/rdl-spike/schema/ReportDefinition-2016.xsd artifacts/rdl-compatibility-ladder/02-detail-columns.rdl
+
+Output:
+artifacts/rdl-compatibility-ladder/02-detail-columns.rdl validates
+
+Exit code: 0
+
+Consistency result
+==================
+XML well-formedness: PASS
+Embedded row count: 6
+Dataset field count: 9
+Embedded row fields complete and ordered: PASS
+DesignerState row count: PASS
+DesignerState column count: PASS
+DesignerState coordinate completeness and uniqueness: PASS
+Tablix body columns: 8
+Effective cells in header row: 8
+Effective cells in detail row: 8
+Column hierarchy leaves: 8
+Row hierarchy leaves: 2
+Tablix body rows: 2
+Field references: PASS
+Duplicate field sources: PASS
+ElementPath: PASS
+Date compatibility: PASS
+Integer compatibility: PASS
+Decimal compatibility: PASS
+Body width: 6in
+Printable width: 6.5in
+Body width plus margins: PASS
+Candidate 01 SHA-256 unchanged: PASS
+
+Independent Windows validation
+==============================
+Report Builder open: PENDING
+Design view: PENDING
+Embedded data execution: PENDING
+Preview: PENDING
+Six-row/nine-field verification: PENDING
