@@ -102,6 +102,39 @@ describe("RDL collection consistency", () => {
     ).toThrow("Unsupported ElementPath declaration");
   });
 
+  it("rejects references to fields outside the dataset", () => {
+    expect(() =>
+      validateCollectionConsistency(
+        seed.replace("Fields!Revenue.Value", "Fields!Missing.Value"),
+      ),
+    ).toThrow("Invalid field reference Missing");
+  });
+
+  it("rejects incompatible ElementPath and CLR field types", () => {
+    expect(() =>
+      validateCollectionConsistency(
+        seed.replace("Revenue(String)", "Revenue(Decimal)"),
+      ),
+    ).toThrow("TypeName System.String is incompatible with Decimal");
+  });
+
+  it("rejects invalid embedded numeric values", () => {
+    expect(() =>
+      validateCollectionConsistency(
+        seed
+          .replace("Revenue(String)", "Revenue(Decimal)")
+          .replace(
+            "<rd:TypeName>System.String</rd:TypeName>\n          <DataField>Revenue</DataField>",
+            "<rd:TypeName>System.Decimal</rd:TypeName>\n          <DataField>Revenue</DataField>",
+          )
+          .replace(
+            "&lt;Revenue&gt;100&lt;/Revenue&gt;",
+            "&lt;Revenue&gt;not-a-number&lt;/Revenue&gt;",
+          ),
+      ),
+    ).toThrow("invalid Decimal value not-a-number");
+  });
+
   it("rejects a body wider than the printable page", () => {
     expect(() =>
       validateCollectionConsistency(

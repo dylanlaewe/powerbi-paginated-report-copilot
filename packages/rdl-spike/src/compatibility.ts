@@ -115,6 +115,14 @@ export const validateCollectionConsistency = (
   unique(dataFields, "DataField source");
   if (fields.some((field, index) => field !== dataFields[index]))
     throw new Error("Field Name and DataField mappings differ");
+  const fieldReferences = descendants(root, "Value")
+    .flatMap((item) => [
+      ...item.text.matchAll(/Fields!([A-Za-z][A-Za-z0-9]*)\.Value/g),
+    ])
+    .map((match) => match[1]!);
+  for (const reference of fieldReferences)
+    if (!fields.includes(reference))
+      throw new Error(`Invalid field reference ${reference}`);
 
   const commandText = value(descendants(dataSet, "CommandText")[0]);
   const query = parse(commandText);
@@ -131,12 +139,14 @@ export const validateCollectionConsistency = (
     "Date",
     "XML",
   ]);
+  const elementPathTypes: string[] = [];
   const elementPathFields = declarations.map((declaration) => {
     const declarationMatch = /^([A-Za-z_][A-Za-z0-9_]*)\(([A-Za-z]+)\)$/.exec(
       declaration,
     );
     if (!declarationMatch || !supportedTypes.has(declarationMatch[2]!))
       throw new Error(`Unsupported ElementPath declaration: ${declaration}`);
+    elementPathTypes.push(declarationMatch[2]!);
     return declarationMatch[1]!;
   });
   if (elementPathFields.join("|") !== dataFields.join("|"))
@@ -149,6 +159,39 @@ export const validateCollectionConsistency = (
     if (rowFields.join("|") !== dataFields.join("|"))
       throw new Error(
         `Embedded row ${index} field order differs from DataField order`,
+      );
+    for (const [fieldIndex, fieldValue] of row.children.entries()) {
+      const type = elementPathTypes[fieldIndex];
+      const raw = fieldValue.text.trim();
+      if (type === "Date" && Number.isNaN(Date.parse(raw)))
+        throw new Error(`Embedded row ${index} has invalid Date value ${raw}`);
+      if (["Integer", "Decimal", "Float"].includes(type ?? "")) {
+        const numeric = Number(raw);
+        if (
+          !Number.isFinite(numeric) ||
+          (type === "Integer" && !Number.isInteger(numeric))
+        )
+          throw new Error(
+            `Embedded row ${index} has invalid ${type} value ${raw}`,
+          );
+      }
+    }
+  }
+
+  const expectedClrTypes: Record<string, string[]> = {
+    String: ["System.String"],
+    Integer: ["System.Int16", "System.Int32", "System.Int64"],
+    Boolean: ["System.Boolean"],
+    Float: ["System.Single", "System.Double"],
+    Decimal: ["System.Decimal"],
+    Date: ["System.DateTime"],
+    XML: ["System.String"],
+  };
+  for (const [index, field] of fieldNodes.entries()) {
+    const typeName = value(child(field, "TypeName"));
+    if (!expectedClrTypes[elementPathTypes[index]!]!.includes(typeName))
+      throw new Error(
+        `Field ${fields[index]} TypeName ${typeName} is incompatible with ${elementPathTypes[index]}`,
       );
   }
 
@@ -290,7 +333,9 @@ export const validateCollectionConsistency = (
       "tablix-row-cell-count",
       "hierarchy-body-consistency",
       "duplicate-field-source",
+      "field-reference",
       "element-path",
+      "date-numeric-compatibility",
       "body-width",
     ],
   };
