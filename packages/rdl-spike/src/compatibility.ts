@@ -115,7 +115,8 @@ export const validateCollectionConsistency = (
   unique(dataFields, "DataField source");
   if (fields.some((field, index) => field !== dataFields[index]))
     throw new Error("Field Name and DataField mappings differ");
-  const fieldReferences = descendants(root, "Value")
+  const fieldReferences = ["Value", "GroupExpression"]
+    .flatMap((name) => descendants(root, name))
     .flatMap((item) => [
       ...item.text.matchAll(/Fields!([A-Za-z][A-Za-z0-9]*)\.Value/g),
     ])
@@ -295,10 +296,11 @@ export const validateCollectionConsistency = (
     };
   });
   if (tablixes.length === 0) throw new Error("Report contains no Tablix");
-  unique(
-    descendants(root, "Group").map((group) => group.attributes.Name ?? ""),
-    "Group Name",
+  const groupNames = descendants(root, "Group").map(
+    (group) => group.attributes.Name ?? "",
   );
+  if (groupNames.some((name) => !name)) throw new Error("Group Name is empty");
+  unique(groupNames, "Group Name");
 
   const section = required(
     descendants(root, "ReportSection")[0],
@@ -334,6 +336,7 @@ export const validateCollectionConsistency = (
       "hierarchy-body-consistency",
       "duplicate-field-source",
       "field-reference",
+      "group-expression-reference",
       "element-path",
       "date-numeric-compatibility",
       "body-width",

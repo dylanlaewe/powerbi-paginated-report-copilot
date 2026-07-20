@@ -110,6 +110,25 @@ describe("RDL collection consistency", () => {
     ).toThrow("Invalid field reference Missing");
   });
 
+  it("rejects group expressions that reference missing fields", () => {
+    expect(() =>
+      validateCollectionConsistency(
+        seed.replace(
+          "<GroupExpression>=Fields!Region.Value</GroupExpression>",
+          "<GroupExpression>=Fields!Missing.Value</GroupExpression>",
+        ),
+      ),
+    ).toThrow("Invalid field reference Missing");
+  });
+
+  it("rejects empty group names", () => {
+    expect(() =>
+      validateCollectionConsistency(
+        seed.replace('<Group Name="Details" />', "<Group />"),
+      ),
+    ).toThrow("Group Name is empty");
+  });
+
   it("rejects incompatible ElementPath and CLR field types", () => {
     expect(() =>
       validateCollectionConsistency(
