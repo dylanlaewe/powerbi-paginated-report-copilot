@@ -6,6 +6,7 @@
 
 - Safe, read-only PBIP discovery with artifact path containment and desktop folder selection.
 - Pinned Microsoft PBIR authoring CLI and immutable, MIT-licensed Desktop-produced PBIP spike fixture.
+- CLI-first deterministic PBIR spike that authors a real model-bound card, clustered-column chart, and slicer in a disposable PBIP copy, with verified backup, reference checks, official validation, and evidence manifests.
 
 ## [0.0.1] - 2026-07-19
 

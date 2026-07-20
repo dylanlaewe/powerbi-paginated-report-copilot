@@ -1,25 +1,125 @@
 # First real PBIR generation spike
 
+## Result
+
+`STRUCTURALLY VALIDATED`; `NOT YET RENDERED IN POWER BI DESKTOP`.
+
+Executed on branch `spike/first-real-pbir-generation`. The CLI copied a known-valid PBIP, inspected its TMDL, created a PBIR page named `AI Generation Spike`, created a model-bound KPI card, clustered-column chart, and date slicer, verified semantic references and unique IDs, and preserved the source fixture. The branch is not merged because Windows rendering and the currently unavailable Microsoft visual schema remain pending.
+
 ## Official authoring tooling
 
-- Microsoft repository: https://github.com/microsoft/skills-for-fabric
-- Plugin: `powerbi-authoring` release `v0.3.8`
-- Commit: `16903b068f9a7e0180d701f158465f53cd2110ba`
+- Microsoft repository: <https://github.com/microsoft/skills-for-fabric>
+- Release and commit: `v0.3.8`, `16903b068f9a7e0180d701f158465f53cd2110ba`
 - License: MIT
-- Installed skill: `/Users/dylanlaewe/.codex/skills/powerbi-report-authoring`
-- Skill metadata version: `0.1.0`
-- Installed: 2026-07-19
-- Loaded successfully by Codex: yes, directly from the installed pinned files during this session; automatic discovery begins next turn.
-- Validator: `@microsoft/powerbi-report-authoring-cli` 0.1.4, pinned as a repository dev dependency.
+- Installed skill: `/Users/dylanlaewe/.codex/skills/powerbi-report-authoring`, metadata version `0.1.0`
+- Installed and loaded by Codex: 2026-07-19
+- Validator: `@microsoft/powerbi-report-authoring-cli` `0.1.4`, repository-pinned and invoked with `pnpm exec powerbi-report-author`
 
-The global CLI installation prescribed by the skill failed because `/usr/local/lib/node_modules` is not writable. The exact Microsoft package is invoked through `pnpm exec powerbi-report-author` instead. Catalog lookup and offline validation work on macOS. Desktop reload and screenshots require Windows and Power BI Desktop. Local PBIR editing requires neither tenant authentication nor Power BI Desktop.
+The skill exposed PBIR authoring guidance, visual/formatting catalogs, schema-based validation, and version-control precautions. Catalog inspection supplied the binding roles used here: card `Data`, chart `Category` and `Y`, and slicer `Values`. Catalog lookup and validation executed on macOS. Local PBIR editing needs neither tenant authentication nor Desktop. Power BI Desktop reload and rendering require Windows. No tenant or cloud operation was used.
 
 ## Fixture
 
-The immutable baseline is `samples/known-valid-project/Roastery.pbip`. See its `ORIGIN.md`. The fixture is MIT-licensed, explicitly documented upstream as complete and openable in Power BI Desktop, uses fictional inline data, and has no credentials.
+- Source: `C-Kapsalis/pbi-plot-styler`, `examples/coffee-roastery`
+- URL: <https://github.com/C-Kapsalis/pbi-plot-styler/tree/b360e9ade029d7a939efa90697cc2021361ed33a/examples/coffee-roastery>
+- Commit: `b360e9ade029d7a939efa90697cc2021361ed33a`
+- License: MIT, preserved in `samples/known-valid-project/UPSTREAM_LICENSE`
+- Evidence: the upstream README identifies it as a complete PBIP project openable in Power BI Desktop; it contains `.pbip`, enhanced PBIR, and TMDL artifacts with fictional inline data and no credentials.
+- Versions: PBIR report `2.0.0`, page `2.1.0`, visual container `2.10.0`.
 
-Initial official-validator result: zero errors, one warning because the Microsoft-hosted `visualContainer/2.10.0` JSON schema could not be fetched. The spike must preserve and report this limitation.
+The immutable baseline is `samples/known-valid-project/Roastery.pbip`. Byte hashes matched upstream after import and remained unchanged across generation/tests.
 
-## Status
+## Executed command and evidence
 
-Fixture acquisition and baseline validation executed. Deterministic generation is next. Nothing has been rendered in Power BI Desktop; Windows verification remains pending.
+```bash
+pnpm spike:generate \
+  --project ./samples/known-valid-project/Roastery.pbip \
+  --output ./tmp/run-a
+```
+
+Sanitized output:
+
+```text
+Power BI Authoring Spike
+Source project: .../samples/known-valid-project/Roastery.pbip
+Working copy: .../tmp/run-a/Roastery.pbip
+Detected: PBIP yes; PBIR yes; TMDL yes
+Resolved bindings:
+  KPI: Sales Measures[Revenue]
+  Chart category: Beans[Origin Country]
+  Chart value: Sales Measures[Revenue]
+  Slicer: Calendar[Date]
+Backup: Created and verified
+Authored: AI Generation Spike; KPI card; clustered column chart; slicer
+Validation:
+  Microsoft PBIR validator: succeededWithWarnings
+  Microsoft visual schema: UNREACHABLE
+  Semantic references: PASS
+  Desktop rendering: PENDING WINDOWS
+Result: STRUCTURALLY VALIDATED; NOT YET RENDERED IN POWER BI DESKTOP
+```
+
+Detected semantic model: 9 tables, 35 columns, 10 measures, and 4 relationships. Selected objects were the existing measure `Sales Measures[Revenue]` (`SUMX ( Orders, Orders[Bags] * Orders[Unit Price] )`, format `#,##0 EUR`), text column `Beans[Origin Country]`, and date-time column `Calendar[Date]`.
+
+Generated IDs:
+
+- Page: `35c79e9d64a94f429d40`
+- Card: `516cc9ba914e784d6a34`
+- Chart: `59412079ef8a0bac9754`
+- Slicer: `842764478d170e7e76b3`
+
+Modified/created in the disposable copy:
+
+```text
+M Roastery.Report/definition/pages/pages.json
++ Roastery.Report/definition/pages/35c79e9d64a94f429d40/page.json
++ Roastery.Report/definition/pages/35c79e9d64a94f429d40/visuals/516cc9ba914e784d6a34/visual.json
++ Roastery.Report/definition/pages/35c79e9d64a94f429d40/visuals/59412079ef8a0bac9754/visual.json
++ Roastery.Report/definition/pages/35c79e9d64a94f429d40/visuals/842764478d170e7e76b3/visual.json
+```
+
+Machine and human evidence are under `tmp/run-a/.spike-results/<run-id>/result.json` and `diff.txt`. The verified backup is under `tmp/run-a/.spike-backups/<run-id>/`. Two independent runs (`tmp/run-a`, `tmp/run-b`) had no diff after excluding timestamped backup/result evidence.
+
+## Validation and tests
+
+Official command executed by the CLI:
+
+```bash
+pnpm exec powerbi-report-author validate tmp/run-a/Roastery.Report --pretty
+```
+
+Result: `succeededWithWarnings`, 0 errors, 1 warning. The warning was `PBIR_SCHEMA_UNREACHABLE`: Microsoft’s exact `visualContainer/2.10.0` schema URL returned HTTP 404 on 2026-07-19, so the official validator skipped that schema. This is not recorded as a JSON-schema pass. JSON parsing, official metadata validation, identifier uniqueness, and model-reference checks passed.
+
+```bash
+pnpm format
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+```
+
+Results: formatting passed; lint passed; typecheck passed; 25 tests passed in 3 files; build passed. The 21 spike tests cover the directive’s discovery, copying, immutability, TMDL inventory, binding, IDs, three visuals, reference rejection, backup, atomic writes, output files, manifests, diff, and end-to-end cases.
+
+Relevant package tree:
+
+```text
+packages/pbir-spike/
+├── package.json
+├── src/cli.ts
+├── src/index.test.ts
+├── src/index.ts
+└── tsconfig.json
+```
+
+Commits pushed:
+
+- `2cc41fc` — validated Desktop-produced PBIP fixture
+- `40eee1f` — first model-bound PBIR generator
+- `68426ce` — focused PBIR authoring failure-mode tests
+
+## Exact Windows check still required
+
+Minimum environment: Windows 10/11 with a current Power BI Desktop version that supports PBIP/PBIR developer mode. Copy or check out this branch on Windows, run the command above with an output such as `tmp/generated-project`, then open `tmp/generated-project/Roastery.pbip` in Power BI Desktop.
+
+Expected result: the existing coffee-roastery report plus a page named `AI Generation Spike`; a Revenue KPI card; a Revenue-by-Origin Country clustered column chart; and a Date Between slicer. Confirm all visuals render without broken-field indicators and save/reopen the project.
+
+Return the Power BI Desktop version, any dialog/error text, and one screenshot showing the whole generated page. If opening or rendering fails, also return the screenshot and the generated page/visual JSON files. Until that evidence is returned, Desktop rendering remains `PENDING WINDOWS`; do not merge or tag.
