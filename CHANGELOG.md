@@ -50,6 +50,10 @@
 - Three-way grouped-hierarchy forensics and regression validation distinguishing accepted Candidate 02, rejected Candidate 03, and the accepted Report Builder-authored `Region → Region1 → Details` hierarchy without asserting an unproven root cause.
 - Candidate 03b as a byte-for-byte, checksum-pinned copy of the accepted Report Builder-authored grouped seed, with nine fields, six rows, exact hierarchy preservation, regression evidence, and a dedicated Windows handoff.
 
+### Validated
+
+- Independent Windows testing accepted Candidate 03b as the canonical grouped compatibility baseline: checksum, open, Design, Preview, Region grouping, sorting, and all six rows passed without repair or field errors. Generalized programmatic group construction remains unproven; pagination was not supplied.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

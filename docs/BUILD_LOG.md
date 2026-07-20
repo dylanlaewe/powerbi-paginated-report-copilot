@@ -78,3 +78,6 @@
 - Generated Candidate 03b as a byte-for-byte copy of the hash-pinned, independently accepted Report Builder grouped seed.
 - Verified nine fields, six rows, `Region → Region1 → Details`, body-row/hierarchy counts, field and sort references, absence of totals/page breaks/repeat changes, XSD validity, and preservation of Candidates 01, 02, rejected 03, and the grouped seed.
 - Preserved the seed's 7-inch width verbatim rather than introducing an unvalidated layout edit. Independent Windows validation of the separately named Candidate 03b artifact remains pending.
+- Independent Windows testing subsequently accepted Candidate 03b: checksum, open, Design, Preview, Region grouping, sorting, six-row completeness, and reference checks passed without repair, conversion, upgrade, duplication, omission, or `#Error`.
+- Designated Candidate 03b as the canonical grouped compatibility baseline while keeping generalized programmatic group construction explicitly unproven.
+- Recorded actual pagination as not provided because the submitted validation result retained the literal `[INSERT RESULT]` placeholder.

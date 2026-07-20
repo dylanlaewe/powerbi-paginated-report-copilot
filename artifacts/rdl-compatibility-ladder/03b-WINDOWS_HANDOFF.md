@@ -1,8 +1,12 @@
 # Candidate 03b Windows validation
 
+## Result
+
+**PASS — independently accepted on Windows as the canonical grouped compatibility baseline.** The checksum matched; Report Builder opened without repair/conversion/upgrade; Design and Preview succeeded; and Central, East, West plus all six correctly sorted detail rows rendered without duplication, omission, `#Error`, or reference failure. Actual pagination was not supplied—the submitted result retained the literal `[INSERT RESULT]` placeholder. Generalized programmatic group construction remains unproven.
+
 ## Acceptance criterion
 
-Power BI Report Builder must open and preview `03b-region-group-from-seed.rdl` with all six rows under the correct Region headers. Do not generate Candidate 04.
+Power BI Report Builder opened and previewed `03b-region-group-from-seed.rdl` with all six rows under the correct Region headers. This gate is complete.
 
 ## File identity and provenance
 

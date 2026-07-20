@@ -94,7 +94,9 @@ Candidate: `artifacts/rdl-compatibility-ladder/03b-region-group-from-seed.rdl`
 
 SHA-256: `f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88` — identical to the canonical grouped seed.
 
-The seed's 7-inch width is intentionally preserved despite a nominal 6.5-inch printable width under default margins because changing it would depart from the independently accepted Report Builder structure. Candidate 03b's separately named artifact still requires independent Windows open and Preview validation.
+The seed's 7-inch width is intentionally preserved despite a nominal 6.5-inch printable width under default margins because changing it would depart from the independently accepted Report Builder structure.
+
+Independent Windows validation accepted Candidate 03b: its checksum matched; Report Builder opened without repair/conversion/upgrade; Design view and Preview succeeded; and Central, East, West plus all six correctly sorted detail rows rendered without duplication, omission, `#Error`, or reference failures. Candidate 03b is the canonical grouped compatibility baseline. Generalized programmatic group construction is **NOT YET PROVEN**. Actual pagination was not reported because the supplied result retained `[INSERT RESULT]`.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

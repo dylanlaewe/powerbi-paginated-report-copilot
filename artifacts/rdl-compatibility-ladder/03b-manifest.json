@@ -81,7 +81,15 @@
         "body-width"
       ]
     },
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "artifactChecksum": "PASS",
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "reportBuilderPreview": "PASS",
+      "regionGrouping": "PASS",
+      "sixRowVerification": "PASS",
+      "repairConversionOrUpgradeRequest": "NONE",
+      "actualPagination": "NOT_PROVIDED_INPUT_CONTAINED_INSERT_RESULT_PLACEHOLDER",
+      "independentWindowsAcceptance": "PASS",
+      "generalizedProgrammaticGroupConstruction": "NOT_YET_PROVEN"
   }
 }

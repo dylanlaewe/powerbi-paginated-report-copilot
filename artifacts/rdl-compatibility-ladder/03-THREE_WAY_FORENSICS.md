@@ -53,3 +53,7 @@ The regression additionally requires:
 - SaleDate then Salesperson sorting on Details.
 
 These checks distinguish the independently accepted and rejected structures. They establish a compatibility boundary, not proof that any one token caused the exception.
+
+## Candidate 03b outcome
+
+Independent Windows testing accepted the byte-identical 03b artifact. Its checksum matched; Report Builder opened it without repair, conversion, or upgrade; Design and Preview succeeded; and all six rows rendered under Central, East, and West without duplication, omission, sorting errors, `#Error`, or reference failures. Candidate 03b is the canonical grouped compatibility baseline. This proves the preserved Report Builder-authored hierarchy, not generalized programmatic group construction. Actual pagination was not provided because the submitted result contained the literal `[INSERT RESULT]` placeholder.

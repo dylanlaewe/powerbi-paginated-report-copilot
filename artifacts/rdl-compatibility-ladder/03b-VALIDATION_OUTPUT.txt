@@ -73,7 +73,15 @@ Width disposition: PRESERVED VERBATIM FROM INDEPENDENTLY ACCEPTED REPORT BUILDER
 
 Independent Windows validation of artifact path
 ===============================================
-Report Builder open: PENDING
-Design view: PENDING
-Preview: PENDING
-Six rows under correct Region headers: PENDING
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Region grouping: PASS
+Six-row verification: PASS
+Repair, conversion, or upgrade request: NONE
+Candidate 03b acceptance: PASS
+Generalized programmatic group construction: NOT YET PROVEN
+Actual pagination: NOT PROVIDED — submitted result contained the literal placeholder [INSERT RESULT]
+
+Central, East, and West rendered correctly. All six detail rows appeared beneath the correct Region headers, with no duplication, omission, sorting failure, #Error, or reference failure. The Report Builder-authored nested Region hierarchy was recognized.
