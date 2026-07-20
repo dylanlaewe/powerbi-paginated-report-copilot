@@ -1,0 +1,12 @@
+# Changelog
+
+## [Unreleased]
+
+## [0.0.1] - 2026-07-19
+
+### Added
+
+- Secure Electron, React, and Vite application shell.
+- Strict TypeScript workspace, runtime-validated domain seed, Vitest, ESLint, and Prettier.
+- GitHub Actions quality and secret-scanning workflow.
+- Product, architecture, platform, privacy, testing, support, and status documentation baseline.

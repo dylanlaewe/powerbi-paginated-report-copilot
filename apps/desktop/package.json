@@ -1,0 +1,25 @@
+{
+  "name": "@powerbi-copilot/desktop",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./out/main/index.js",
+  "scripts": {
+    "build": "electron-vite build",
+    "dev": "electron-vite dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@powerbi-copilot/domain": "workspace:*",
+    "@vitejs/plugin-react": "6.0.3",
+    "electron": "43.1.1",
+    "electron-vite": "5.0.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "vite": "8.1.5",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3"
+  }
+}
