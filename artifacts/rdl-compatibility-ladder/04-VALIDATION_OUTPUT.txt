@@ -56,6 +56,7 @@ GrossProfit format C2: PASS
 Report-level total: NONE
 Page-break definitions: NONE
 Protected Candidates 01, 02, rejected 03, 03b, and canonical seeds: UNCHANGED
+Cross-platform RDL policy (*.rdl -text): PASS
 Body width: 7in, preserved from accepted Candidate 03b
 
 Independent Windows validation

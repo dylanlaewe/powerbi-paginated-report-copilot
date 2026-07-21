@@ -13,13 +13,18 @@ Power BI Report Builder must open and preview `04-region-subtotal.rdl` with thre
 
 ## Exact Windows steps
 
-1. Clone or update `spike/first-real-rdl-generation` on Windows.
-2. Verify Candidate 03b and Candidate 04 in PowerShell:
+1. Use a fresh clone of `spike/first-real-rdl-generation` after the `.gitattributes` integrity-policy commit. For an existing clone with no local RDL edits, pull and restore the two target RDL files from `HEAD` before hashing.
+2. Verify attribute policy, record the actual Git setting, and hash Candidate 03b and Candidate 04 in PowerShell:
 
    ```powershell
+   git check-attr text -- ".\artifacts\rdl-compatibility-ladder\03b-region-group-from-seed.rdl"
+   git check-attr text -- ".\artifacts\rdl-compatibility-ladder\04-region-subtotal.rdl"
+   git config --show-origin --get-all core.autocrlf
    Get-FileHash ".\artifacts\rdl-compatibility-ladder\03b-region-group-from-seed.rdl" -Algorithm SHA256
    Get-FileHash ".\artifacts\rdl-compatibility-ladder\04-region-subtotal.rdl" -Algorithm SHA256
    ```
+
+   Each attribute result must end in `text: unset`. Candidate 03b must hash to `f85dfd…0b88`; Candidate 04 must hash to `762106…8fe`.
 
 3. Launch Power BI Report Builder and open `04-region-subtotal.rdl` using **File → Open → This PC → Browse**.
 4. Confirm there is no exception, repair, conversion, or upgrade request.

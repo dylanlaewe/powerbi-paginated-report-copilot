@@ -2,7 +2,7 @@
 
 ## Result
 
-**PASS — independently accepted on Windows as the canonical grouped compatibility baseline.** The checksum matched; Report Builder opened without repair/conversion/upgrade; Design and Preview succeeded; and Central, East, West plus all six correctly sorted detail rows rendered without duplication, omission, `#Error`, or reference failure. Actual pagination was not supplied—the submitted result retained the literal `[INSERT RESULT]` placeholder. Generalized programmatic group construction remains unproven.
+**PASS WITH INTEGRITY FOLLOW-UP — functionally accepted on Windows as the canonical grouped compatibility baseline.** Report Builder opened without repair/conversion/upgrade; Design and Preview succeeded on one page; and Central, East, West plus all six correctly sorted detail rows rendered without duplication, omission, `#Error`, or reference failure. The Windows working-tree hash was `347771…047d`, not the repository hash. LF-to-CRLF conversion reproduces that exact value. `.rdl` files are now marked `-text` to preserve raw bytes. Generalized programmatic group construction remains unproven.
 
 ## Acceptance criterion
 

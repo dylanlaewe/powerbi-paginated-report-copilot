@@ -81,15 +81,18 @@
         "body-width"
       ]
     },
-      "artifactChecksum": "PASS",
+      "repositoryBlobChecksum": "PASS",
+      "windowsWorkingTreeChecksumAgainstHandoff": "MISMATCH_VERIFIED_CRLF_CONVERSION",
+      "windowsObservedSha256": "34777160b926c8d8d1c26dd85bc42a272a39b71923f54780d7d1d81d3fb6047d",
+      "crossPlatformPolicy": "RDL_RAW_BYTES_PRESERVED_WITH_GITATTRIBUTES_TEXT_UNSET",
       "reportBuilderOpen": "PASS",
       "designView": "PASS",
       "reportBuilderPreview": "PASS",
       "regionGrouping": "PASS",
       "sixRowVerification": "PASS",
       "repairConversionOrUpgradeRequest": "NONE",
-      "actualPagination": "NOT_PROVIDED_INPUT_CONTAINED_INSERT_RESULT_PLACEHOLDER",
-      "independentWindowsAcceptance": "PASS",
+      "actualPagination": "ONE_PAGE",
+      "independentWindowsAcceptance": "PASS_WITH_INTEGRITY_FOLLOW_UP",
       "generalizedProgrammaticGroupConstruction": "NOT_YET_PROVEN"
   }
 }

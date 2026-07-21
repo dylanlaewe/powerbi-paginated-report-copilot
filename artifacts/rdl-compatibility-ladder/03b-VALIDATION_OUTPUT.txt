@@ -73,15 +73,27 @@ Width disposition: PRESERVED VERBATIM FROM INDEPENDENTLY ACCEPTED REPORT BUILDER
 
 Independent Windows validation of artifact path
 ===============================================
-Artifact checksum: PASS
+Repository blob checksum: PASS
+Windows working-tree checksum against handoff: MISMATCH
+Windows observed SHA-256: 34777160b926c8d8d1c26dd85bc42a272a39b71923f54780d7d1d81d3fb6047d
+LF-to-CRLF simulation SHA-256: 34777160b926c8d8d1c26dd85bc42a272a39b71923f54780d7d1d81d3fb6047d
+Cause: VERIFIED CROSS-PLATFORM LINE-ENDING CONVERSION
+Windows core.autocrlf setting: NOT PROVIDED
 Report Builder open: PASS
 Design view: PASS
 Preview: PASS
 Region grouping: PASS
 Six-row verification: PASS
 Repair, conversion, or upgrade request: NONE
-Candidate 03b acceptance: PASS
+Candidate 03b acceptance: PASS WITH INTEGRITY FOLLOW-UP
 Generalized programmatic group construction: NOT YET PROVEN
-Actual pagination: NOT PROVIDED — submitted result contained the literal placeholder [INSERT RESULT]
+Actual pagination: ONE PAGE
 
 Central, East, and West rendered correctly. All six detail rows appeared beneath the correct Region headers, with no duplication, omission, sorting failure, #Error, or reference failure. The Report Builder-authored nested Region hierarchy was recognized.
+
+Integrity follow-up:
+- The repository initially had no .gitattributes.
+- Repository blob and macOS working-tree SHA-256 both equal f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88.
+- Converting repository LF bytes to CRLF reproduces the exact Windows SHA-256.
+- Policy added: *.rdl -text.
+- Regression tests verify Git attribute resolution, blob/checkout byte identity, exact CRLF reproduction, and diagnostic LF canonicalization.

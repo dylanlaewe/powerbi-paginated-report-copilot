@@ -52,7 +52,11 @@
 
 ### Validated
 
-- Independent Windows testing accepted Candidate 03b as the canonical grouped compatibility baseline: checksum, open, Design, Preview, Region grouping, sorting, and all six rows passed without repair or field errors. Generalized programmatic group construction remains unproven; pagination was not supplied.
+- Independent Windows testing functionally accepted Candidate 03b as the canonical grouped compatibility baseline: open, Design, one-page Preview, Region grouping, sorting, and all six rows passed without repair or field errors. Its Windows working-tree checksum mismatched the repository bytes because of verified CRLF conversion; generalized programmatic grouping remains unproven.
+
+### Fixed
+
+- Disabled Git line-ending conversion for `.rdl` files after LF-to-CRLF conversion reproduced Candidate 03b's exact Windows checksum mismatch. Added raw-byte and canonicalization regression coverage without changing accepted report contents.
 
 ### Added
 

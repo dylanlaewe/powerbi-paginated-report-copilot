@@ -26,6 +26,12 @@ describe("RDL compatibility candidate 04", () => {
     expect(sha256(candidate03b)).toBe(candidate03bSha256);
   });
 
+  it("preserves the baseline BOM and opening bytes", () => {
+    expect(
+      candidate03b.startsWith('﻿<?xml version="1.0" encoding="utf-8"?>'),
+    ).toBe(true);
+  });
+
   it("preserves nine fields, six rows, and embedded data", () => {
     const base = validateCollectionConsistency(candidate03b, {
       requirePrintSafe: false,

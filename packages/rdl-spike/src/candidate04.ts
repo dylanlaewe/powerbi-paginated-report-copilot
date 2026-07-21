@@ -201,6 +201,13 @@ const protectedArtifacts = [
 ] as const;
 
 export const runCandidate04 = async (outputDirectory: string) => {
+  const attributeOutput = execFileSync(
+    "git",
+    ["check-attr", "text", "--", candidate03bPath],
+    { encoding: "utf8" },
+  ).trim();
+  if (!attributeOutput.endsWith(": text: unset"))
+    throw new Error("RDL raw-byte preservation policy is not active");
   const candidate03b = await readFile(candidate03bPath, "utf8");
   const candidate = deriveCandidate04(candidate03b);
   assertWellFormed(candidate);
@@ -234,6 +241,7 @@ export const runCandidate04 = async (outputDirectory: string) => {
       xsdOutput: xsdOutput || `${candidate04FileName} validates`,
       subtotalStructureAndScope: "PASS",
       protectedArtifactChecksums: "PASS",
+      crossPlatformRdlBytes: "GIT_ATTRIBUTE_TEXT_UNSET",
       subtotalEvidence,
       reportBuilderOpen: "PENDING_INDEPENDENT_WINDOWS",
       reportBuilderPreview: "PENDING_INDEPENDENT_WINDOWS",

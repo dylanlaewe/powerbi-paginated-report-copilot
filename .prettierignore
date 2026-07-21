@@ -1,3 +1,4 @@
+.gitattributes
 samples/known-valid-project/**
 artifacts/first-real-pbir-spike/generated-roastery/**
 artifacts/first-real-rdl-spike/Regional Sales Detail.rdl

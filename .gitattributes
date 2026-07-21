@@ -1,0 +1,2 @@
+# RDL evidence is checksum-addressed. Never perform checkout/check-in EOL conversion.
+*.rdl -text

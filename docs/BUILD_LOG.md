@@ -85,3 +85,12 @@
 - Added one subtotal body row and one matching static hierarchy leaf after Region1 inside the outer Region group without changing embedded data or the accepted nested hierarchy.
 - Added explicitly Region-scoped Quantity, Revenue, and GrossProfit sums with whole-number/currency formatting and a Region-specific total label.
 - Verified three expected runtime subtotal rows, three body rows/leaves, eight effective columns per row, valid scope, six reachable detail rows, no report-level total, no page break, XSD validity, full tests, and checksums. Independent Windows validation remains pending.
+
+## 2026-07-20 — Cross-platform RDL checksum integrity
+
+- Recorded Candidate 03b functional validation as passing on one page while its Windows working-tree SHA-256 mismatched the repository handoff hash.
+- Confirmed the repository originally had no `.gitattributes`; the repository blob and macOS working tree both hashed to `f85dfd…0b88`.
+- Reproduced the exact Windows `347771…047d` checksum by converting repository LF bytes to CRLF, verifying line-ending conversion as the byte-level cause. The Windows `core.autocrlf` setting itself was not supplied.
+- Added `*.rdl -text` so Git preserves exact RDL bytes independent of `core.autocrlf` in fresh/restored checkouts.
+- Added regression checks for Git attribute resolution, repository-blob/working-tree identity, exact reproduction of the observed CRLF checksum, and diagnostic CRLF-to-LF canonicalization.
+- Left Candidate 03b's accepted logical contents and all existing RDL blob bytes unchanged. Updated Candidate 04 instructions to require a fresh or restored post-policy checkout.

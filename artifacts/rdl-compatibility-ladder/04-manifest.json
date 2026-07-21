@@ -13,6 +13,7 @@
     "xsdOutput": "04-region-subtotal.rdl validates",
     "subtotalStructureAndScope": "PASS",
     "protectedArtifactChecksums": "PASS",
+    "crossPlatformRdlBytes": "GIT_ATTRIBUTE_TEXT_UNSET",
     "subtotalEvidence": {
       "runtimeRegionInstances": 3,
       "subtotalRowsPerRegion": 1,
