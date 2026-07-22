@@ -1,0 +1,59 @@
+Candidate generation
+====================
+Command:
+pnpm spike:rdl-compatibility-01 artifacts/rdl-compatibility-ladder
+
+Output:
+RDL compatibility ladder — candidate 01
+Report: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/01-minimal-enter-data-table.rdl
+Fields: Region, Revenue
+Rows: 3
+XML well-formedness: PASS
+Existing XSD validation: PASS
+Collection consistency: PASS
+Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+
+Exit code: 0
+
+XSD validation
+==============
+Command:
+xmllint --noout --schema packages/rdl-spike/schema/ReportDefinition-2016.xsd artifacts/rdl-compatibility-ladder/01-minimal-enter-data-table.rdl
+
+Output:
+artifacts/rdl-compatibility-ladder/01-minimal-enter-data-table.rdl validates
+
+Exit code: 0
+
+Collection consistency
+======================
+Command:
+pnpm spike:rdl-forensics artifacts/rdl-compatibility-ladder/COLLECTION_CONSISTENCY.json
+
+Output:
+Collection consistency: PASS
+Seed: /Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodEnterDataTable.rdl
+Rejected: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/first-real-rdl-spike/Regional Sales Detail.rdl
+Output: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/COLLECTION_CONSISTENCY.json
+
+Exit code: 0
+
+Independent Windows validation
+==============================
+XML well-formedness: PASS
+XSD validation: PASS
+Report Builder open: PASS
+Design view: PASS
+Embedded data execution: PASS
+Preview: PASS
+Three-row data verification: PASS
+Group interaction: PASS
+Repair or conversion request: NONE
+Candidate 01 acceptance: PASS
+
+Observed rows:
+Central — 300
+East — 100
+West — 200
+
+The inherited Region grouping and expand/collapse controls functioned. The generated execution-time footer rendered. The existing Total row had no aggregate value, as expected because Candidate 01 introduced no total expression. Screenshots were captured independently for Design view, collapsed Preview, and expanded Preview; screenshots are not stored in this repository.

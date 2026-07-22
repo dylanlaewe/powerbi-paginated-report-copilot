@@ -1,0 +1,72 @@
+Candidate generation and repository validation
+==============================================
+Command:
+pnpm spike:rdl-compatibility-03 artifacts/rdl-compatibility-ladder
+
+Output:
+RDL compatibility ladder — candidate 03
+Report: /Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/03-region-group.rdl
+Fields preserved: 9
+Rows preserved: 6
+Region group and header: PASS
+Region/date/salesperson sorting: PASS
+Hierarchy and group consistency: PASS
+Accepted Candidates 01 and 02 unchanged: PASS
+Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+
+Exit code: 0
+
+XSD validation
+==============
+Command:
+xmllint --noout --schema packages/rdl-spike/schema/ReportDefinition-2016.xsd artifacts/rdl-compatibility-ladder/03-region-group.rdl
+
+Output:
+artifacts/rdl-compatibility-ladder/03-region-group.rdl validates
+
+Exit code: 0
+
+Hierarchy and group consistency
+===============================
+XML well-formedness: PASS
+Existing XSD: PASS
+Embedded rows: 6
+Dataset fields: 9
+Embedded row and field consistency: PASS
+Tablix body columns: 8
+Effective cells in column-header row: 8
+Effective cells in Region-header row: 8
+Effective cells in detail row: 8
+Column hierarchy leaves: 8
+Tablix body rows: 3
+Row hierarchy leaves: 3
+Group name Region unique: PASS
+Group expression =Fields!Region.Value: PASS
+Region sort =Fields!Region.Value: PASS
+Detail sort 1 =Fields!SaleDate.Value: PASS
+Detail sort 2 =Fields!Salesperson.Value: PASS
+Detail member reachable beneath Region: PASS
+Aggregate expressions: NONE
+Page-break definitions: NONE
+Repeating-header additions: NONE
+Body width: 6in
+Printable width: 6.5in
+Candidate 01 checksum preservation: PASS
+Candidate 02 checksum preservation: PASS
+
+Independent Windows validation
+==============================
+XML well-formedness: PASS
+Existing XSD validation: PASS
+Static consistency validation: PASS
+Report Builder open: FAIL
+Design view: NOT REACHED
+Preview: NOT REACHED
+Region grouping: NOT TESTED
+Candidate 03 acceptance: FAIL
+
+Exact error:
+Failed to open report '03-region-group.rdl'.
+
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index

@@ -1,3 +1,3 @@
 # Testing
 
-The bootstrap runs formatting, linting, strict type checking, one runtime-schema unit test, and production builds. Future work adds fixture-based unit, integration, golden-file, safety, UI, and platform-gated Windows suites. A skipped Windows test is unavailable, not passing.
+The repository runs formatting, linting, strict type checking, fixture/golden/structural regression tests, and production builds. RDL tests cover embedded data, field/type references, tablix counts, hierarchy fingerprints, aggregate scope, protected checksums, and Git blob/working-tree byte identity. Windows Report Builder validation remains an independent manual gate; unavailable checks are pending, never passing.

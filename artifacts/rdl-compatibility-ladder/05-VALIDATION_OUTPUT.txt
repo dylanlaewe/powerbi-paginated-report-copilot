@@ -1,0 +1,42 @@
+Exact generation command:
+pnpm spike:rdl-compatibility-05 artifacts/rdl-compatibility-ladder
+
+Candidate 05 generation: PASS
+Derivation: REPORT_BUILDER_GRAND_TOTAL_TEMPLATE_LABEL_INSTANTIATION
+Report: artifacts/rdl-compatibility-ladder/05-grand-total.rdl
+SHA-256: 13a62fcb5858fc53c45cf465de70d53d481c82722e1855c59d6aa2e72378c6dc
+Grand-total seed SHA-256: 2056e175e99364301dcfd07c0e54e7f417e3851ffe5617589f4f707e47b4eba7
+Only seed byte change: Textbox2 Value `Total` -> `Grand Total`
+Grand-total structure regression: PASS
+Four Tablix body rows / four row-hierarchy leaves: PASS
+Final row eight unmerged cells: PASS
+Dataset-context Quantity/Revenue/GrossProfit sums: PASS
+Six replacement rows preserved: PASS
+Three accepted Region subtotal rows preserved: PASS
+Embedded data unchanged from Candidate 04c: PASS
+Expected Region subtotals: Central 17/4050/1610; East 14/5950/2270; West 30/5990/2370
+Expected report grand total: Quantity 61; Revenue 15990; GrossProfit 6250
+Independent grand-total calculation: PASS
+Exactly one report-level Grand Total row: PASS
+Grand total appears after the dynamic Region hierarchy: PASS
+Grand total uses dataset/report context, not Region scope: PASS
+Grand total formats: N0 / C2 / C2
+Grand total label: Grand Total
+Grand total page break: NONE
+Parameters: NONE
+XML well-formedness: PASS
+Existing XSD validation: PASS
+XSD raw success output: 05-grand-total.rdl validates
+RDL Git attribute: text: unset
+Prior candidate and canonical seed checksums: PASS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Six-detail-row preservation: PASS
+Region subtotals: PASS
+Exactly one report-level total: PASS
+Grand Total calculations: PASS
+Repair or conversion request: NONE
+Actual pagination: NOT PROVIDED (literal [INSERT PAGE COUNT] placeholder received)
+Candidate 05 acceptance: PASS

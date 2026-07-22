@@ -1,0 +1,42 @@
+{
+  "candidate": "04b-region-subtotal-from-seed.rdl",
+  "candidateSha256": "5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a",
+  "canonicalSubtotalSeed": "samples/report-builder-seeds/KnownGoodRegionSubtotal.rdl",
+  "subtotalSeedSha256": "5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a",
+  "derivation": "BYTE_FOR_BYTE_COPY",
+  "fields": [
+    "SaleDate",
+    "Region",
+    "Salesperson",
+    "Customer",
+    "Product",
+    "Category",
+    "Quantity",
+    "Revenue",
+    "GrossProfit"
+  ],
+  "rows": 6,
+  "expectedRuntimeRegionSubtotals": 3,
+  "validation": {
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "04b-region-subtotal-from-seed.rdl validates",
+    "reportBuilderSubtotalRegression": "PASS",
+    "seedByteIdentity": "PASS",
+    "protectedArtifactsAndSeedsUnchanged": "PASS",
+    "noGrandTotal": "PASS",
+    "noPageBreaks": "PASS",
+    "noParameters": "PASS",
+      "artifactChecksum": "PASS",
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "reportBuilderPreview": "PASS",
+      "sixDetailRowsPreserved": "PASS",
+      "regionSubtotalStructure": "PASS",
+      "regionSubtotalCalculations": "PASS",
+      "repairConversionOrUpgradeRequest": "NONE",
+      "actualPagination": "NOT_PROVIDED_PLACEHOLDER_RECEIVED",
+      "candidateAcceptance": "PASS",
+      "generalizedSubtotalConstruction": "NOT_YET_PROVEN"
+  }
+}

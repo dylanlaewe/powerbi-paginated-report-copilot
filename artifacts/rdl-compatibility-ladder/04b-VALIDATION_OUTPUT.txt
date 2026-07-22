@@ -1,0 +1,37 @@
+Exact generation command:
+pnpm spike:rdl-compatibility-04b artifacts/rdl-compatibility-ladder
+
+Candidate 04b generation: PASS
+Derivation: BYTE_FOR_BYTE_COPY
+Report: artifacts/rdl-compatibility-ladder/04b-region-subtotal-from-seed.rdl
+SHA-256: 5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a
+XML well-formedness: PASS
+Existing XSD validation: PASS
+XSD raw success output: 04b-region-subtotal-from-seed.rdl validates
+Subtotal structure regression: PASS
+Seed byte identity: PASS
+Nine-field verification: PASS
+Six-row verification: PASS
+Tablix body rows: 3
+Tablix row-hierarchy leaves: 3
+Subtotal physical cells: 8
+Subtotal ColSpan definitions: 0
+Group nesting: Region | Region1 | Details
+Static subtotal header placement: ROW_HIERARCHY_HEADER
+Aggregate expressions: =Sum(Fields!Quantity.Value) | =Sum(Fields!Revenue.Value) | =Sum(Fields!GrossProfit.Value)
+Aggregate explicit scopes: NONE (Report Builder-authored nested member context)
+Grand total: NONE
+Page breaks: NONE
+Parameters: NONE
+Protected candidates and seeds unchanged: PASS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Six-detail-row preservation: PASS
+Region subtotal structure: PASS
+Region subtotal calculations: PASS
+Repair or conversion request: NONE
+Actual pagination: NOT PROVIDED (literal [INSERT PAGE COUNT] placeholder received)
+Candidate 04b acceptance: PASS
+Generalized subtotal construction: NOT YET PROVEN

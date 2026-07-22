@@ -1,0 +1,44 @@
+Exact generation command:
+pnpm spike:rdl-compatibility-06 artifacts/rdl-compatibility-ladder
+
+Candidate 06 generation: PASS
+Derivation: BYTE_FOR_BYTE_PRINT_SAFE_PAGINATION_SEED
+Report: artifacts/rdl-compatibility-ladder/06-production-pagination.rdl
+SHA-256: a9a258a6fab73c0374c4d08dc0c1c923d57e8efd55df2fa04c88215bab06ef2a
+Corrected seed SHA-256: a9a258a6fab73c0374c4d08dc0c1c923d57e8efd55df2fa04c88215bab06ef2a
+Seed byte identity: PASS
+Accepted six-row dataset preserved: PASS
+Region grouping preserved: PASS
+Three Region subtotals preserved: PASS
+Exactly one Grand Total preserved: PASS
+Outer Region BreakLocation=Between: PASS
+RepeatOnNewPage=true: PASS
+Page N of M footer expression: PASS
+Effective page width: 8.5in (RDL Letter default)
+Effective page height: 11in (RDL Letter default)
+Margins: 0.5in / 0.5in / 0.5in / 0.5in
+Body width: 7in
+Printable width: 7.5in
+Print-safe width: PASS
+Unexpected blank pages in corrected seed validation: NO
+Horizontal clipping in corrected seed Preview/PDF validation: NO
+Corrected seed PDF export: PASS
+Corrected seed Excel export: PASS
+Corrected seed reopen validation: PASS
+Corrected seed Preview page count: NOT PROVIDED (placeholder received)
+Corrected seed PDF page count: NOT PROVIDED (placeholder received)
+Corrected seed Excel worksheet count: NOT PROVIDED (placeholder received)
+XML well-formedness: PASS
+Existing XSD validation: PASS
+XSD raw success output: 06-production-pagination.rdl validates
+Cross-platform RDL attribute: text: unset
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Runtime page width: FAIL — 13in
+Runtime page height: FAIL — 0
+Preview: FAIL
+Exact failure: The value of the PageHeight property for report section ReportSection0 is "0", which is not a valid size. The definition of the report is invalid. An error occurred during local report processing.
+PDF export: NOT TESTED
+Excel export: NOT TESTED
+Candidate 06 acceptance: FAIL

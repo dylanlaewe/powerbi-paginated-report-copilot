@@ -1,0 +1,154 @@
+{
+  "candidate": "02-detail-columns.rdl",
+  "candidateSha256": "c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b",
+  "derivedDirectlyFrom": "01-minimal-enter-data-table.rdl",
+  "candidate01Sha256": "151274f425f20e1bd88a7a8f892fca799f9efe9184b1df42e9cec53ab2e016a7",
+  "fields": [
+    "SaleDate",
+    "Region",
+    "Salesperson",
+    "Customer",
+    "Product",
+    "Category",
+    "Quantity",
+    "Revenue",
+    "GrossProfit"
+  ],
+  "rows": [
+    {
+      "SaleDate": "2026-01-05",
+      "Region": "Central",
+      "Salesperson": "Avery Brooks",
+      "Customer": "Northwind Health",
+      "Product": "Ergo Desk",
+      "Category": "Furniture",
+      "Quantity": 2,
+      "Revenue": 1750,
+      "GrossProfit": 560
+    },
+    {
+      "SaleDate": "2026-02-03",
+      "Region": "Central",
+      "Salesperson": "Jordan Lee",
+      "Customer": "Bright Labs",
+      "Product": "Analytics License",
+      "Category": "Software",
+      "Quantity": 15,
+      "Revenue": 2100,
+      "GrossProfit": 1380
+    },
+    {
+      "SaleDate": "2026-01-07",
+      "Region": "East",
+      "Salesperson": "Morgan Chen",
+      "Customer": "Atlas Finance",
+      "Product": "Laptop Pro",
+      "Category": "Technology",
+      "Quantity": 4,
+      "Revenue": 5920,
+      "GrossProfit": 1640
+    },
+    {
+      "SaleDate": "2026-02-06",
+      "Region": "East",
+      "Salesperson": "Riley Patel",
+      "Customer": "Metro Legal",
+      "Product": "File Cabinet",
+      "Category": "Furniture",
+      "Quantity": 7,
+      "Revenue": 2310,
+      "GrossProfit": 700
+    },
+    {
+      "SaleDate": "2026-01-09",
+      "Region": "West",
+      "Salesperson": "Casey Rivera",
+      "Customer": "Pioneer Energy",
+      "Product": "Mobile Workstation",
+      "Category": "Technology",
+      "Quantity": 3,
+      "Revenue": 5460,
+      "GrossProfit": 1490
+    },
+    {
+      "SaleDate": "2026-02-14",
+      "Region": "West",
+      "Salesperson": "Taylor Kim",
+      "Customer": "Orchard Markets",
+      "Product": "Label Roll",
+      "Category": "Office Supplies",
+      "Quantity": 40,
+      "Revenue": 720,
+      "GrossProfit": 330
+    }
+  ],
+  "validation": {
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "02-detail-columns.rdl validates",
+    "collectionConsistency": "PASS",
+    "candidate01Unchanged": "PASS",
+    "consistency": {
+      "fields": [
+        "SaleDate",
+        "Region",
+        "Salesperson",
+        "Customer",
+        "Product",
+        "Category",
+        "Quantity",
+        "Revenue",
+        "GrossProfit"
+      ],
+      "elementPathFields": [
+        "SaleDate",
+        "Region",
+        "Salesperson",
+        "Customer",
+        "Product",
+        "Category",
+        "Quantity",
+        "Revenue",
+        "GrossProfit"
+      ],
+      "embeddedRows": 6,
+      "tablixes": [
+        {
+          "name": "Tablix1",
+          "columns": 8,
+          "rows": 2,
+          "columnHierarchyLeaves": 8,
+          "rowHierarchyLeaves": 2,
+          "rowCellWidths": [
+            8,
+            8
+          ]
+        }
+      ],
+      "bodyWidthInches": 6,
+      "availablePageWidthInches": 6.5,
+      "checks": [
+        "dataset-field-to-row",
+        "designer-grid-counts",
+        "tablix-column-count",
+        "tablix-row-cell-count",
+        "hierarchy-body-consistency",
+        "duplicate-field-source",
+        "field-reference",
+        "element-path",
+        "date-numeric-compatibility",
+        "body-width"
+      ]
+    },
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "embeddedDataExecution": "PASS",
+      "reportBuilderPreview": "PASS",
+      "sixRowVerification": "PASS",
+      "nineFieldVerification": "PASS",
+      "fieldReferences": "PASS",
+      "repairOrConversionRequest": "NONE",
+      "layoutPolish": "DEFERRED",
+      "independentWindowsAcceptance": "PASS"
+  }
+}

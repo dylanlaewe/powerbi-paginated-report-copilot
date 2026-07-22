@@ -1,0 +1,107 @@
+{
+  "command": "pnpm spike:rdl-forensics artifacts/rdl-compatibility-ladder/COLLECTION_CONSISTENCY.json",
+  "seed": {
+    "path": "samples/report-builder-seeds/KnownGoodEnterDataTable.rdl",
+    "sha256": "dc3e3f939d0d5f0eb8242681b17c43aa49dd0455a65f4e8cad10fbe24408ab7f",
+    "consistency": {
+      "fields": [
+        "Region",
+        "Revenue"
+      ],
+      "elementPathFields": [
+        "Region",
+        "Revenue"
+      ],
+      "embeddedRows": 2,
+      "tablixes": [
+        {
+          "name": "Tablix1",
+          "columns": 1,
+          "rows": 4,
+          "columnHierarchyLeaves": 1,
+          "rowHierarchyLeaves": 4,
+          "rowCellWidths": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "bodyWidthInches": 6,
+      "availablePageWidthInches": 6.5,
+      "checks": [
+        "dataset-field-to-row",
+        "designer-grid-counts",
+        "tablix-column-count",
+        "tablix-row-cell-count",
+        "hierarchy-body-consistency",
+        "duplicate-field-source",
+        "element-path",
+        "body-width"
+      ]
+    }
+  },
+  "rejected": {
+    "path": "artifacts/first-real-rdl-spike/Regional Sales Detail.rdl",
+    "sha256": "7474a7ad37a434531b1c9365b9559428891fcd42264af11d836b4a7210cef8a1",
+    "consistency": {
+      "fields": [
+        "SaleDate",
+        "Region",
+        "Salesperson",
+        "Customer",
+        "Product",
+        "Category",
+        "Quantity",
+        "UnitPrice",
+        "Revenue",
+        "Cost",
+        "GrossProfit"
+      ],
+      "elementPathFields": [
+        "SaleDate",
+        "Region",
+        "Salesperson",
+        "Customer",
+        "Product",
+        "Category",
+        "Quantity",
+        "UnitPrice",
+        "Revenue",
+        "Cost",
+        "GrossProfit"
+      ],
+      "embeddedRows": 24,
+      "tablixes": [
+        {
+          "name": "RegionalSalesTablix",
+          "columns": 8,
+          "rows": 5,
+          "columnHierarchyLeaves": 8,
+          "rowHierarchyLeaves": 5,
+          "rowCellWidths": [
+            8,
+            8,
+            8,
+            8,
+            8
+          ]
+        }
+      ],
+      "bodyWidthInches": 7.07,
+      "availablePageWidthInches": 7.199999999999999,
+      "checks": [
+        "dataset-field-to-row",
+        "designer-grid-counts",
+        "tablix-column-count",
+        "tablix-row-cell-count",
+        "hierarchy-body-consistency",
+        "duplicate-field-source",
+        "element-path",
+        "body-width"
+      ]
+    }
+  },
+  "conclusion": "Both files pass the implemented collection-count checks; no collection-count root cause is established."
+}

@@ -1,0 +1,90 @@
+{
+  "candidate": "03-region-group.rdl",
+  "candidateSha256": "5dd58b2d5acd39a66bc734e16956a592f1c84afa9ae7080101f7003030661c0b",
+  "derivedDirectlyFrom": "02-detail-columns.rdl",
+  "candidate02Sha256": "c5c86b7f7f9aa90dbd101f5d8a637c715ae8e3e36d5a6d3a2095f0617a0d5c8b",
+  "preservedFields": 9,
+  "preservedRows": 6,
+  "validation": {
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "03-region-group.rdl validates",
+    "hierarchyAndGroupConsistency": "PASS",
+    "candidate01Unchanged": "PASS",
+    "candidate02Unchanged": "PASS",
+    "groupEvidence": {
+      "groupName": "Region",
+      "groupExpression": "=Fields!Region.Value",
+      "regionSort": [
+        "=Fields!Region.Value"
+      ],
+      "detailSort": [
+        "=Fields!SaleDate.Value",
+        "=Fields!Salesperson.Value"
+      ],
+      "groupHeader": "=Fields!Region.Value",
+      "detailsReachableBeneathGroup": "PASS",
+      "aggregateExpressions": "NONE",
+      "pageBreakDefinitions": "NONE",
+      "consistency": {
+        "fields": [
+          "SaleDate",
+          "Region",
+          "Salesperson",
+          "Customer",
+          "Product",
+          "Category",
+          "Quantity",
+          "Revenue",
+          "GrossProfit"
+        ],
+        "elementPathFields": [
+          "SaleDate",
+          "Region",
+          "Salesperson",
+          "Customer",
+          "Product",
+          "Category",
+          "Quantity",
+          "Revenue",
+          "GrossProfit"
+        ],
+        "embeddedRows": 6,
+        "tablixes": [
+          {
+            "name": "Tablix1",
+            "columns": 8,
+            "rows": 3,
+            "columnHierarchyLeaves": 8,
+            "rowHierarchyLeaves": 3,
+            "rowCellWidths": [
+              8,
+              8,
+              8
+            ]
+          }
+        ],
+        "bodyWidthInches": 6,
+        "availablePageWidthInches": 6.5,
+        "checks": [
+          "dataset-field-to-row",
+          "designer-grid-counts",
+          "tablix-column-count",
+          "tablix-row-cell-count",
+          "hierarchy-body-consistency",
+          "duplicate-field-source",
+          "field-reference",
+          "group-expression-reference",
+          "element-path",
+          "date-numeric-compatibility",
+          "body-width"
+        ]
+      }
+    },
+      "reportBuilderOpen": "FAIL",
+      "designView": "NOT_REACHED",
+      "reportBuilderPreview": "NOT_REACHED",
+      "regionGrouping": "NOT_TESTED",
+      "independentWindowsAcceptance": "FAIL"
+  }
+}

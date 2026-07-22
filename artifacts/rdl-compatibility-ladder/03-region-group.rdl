@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>42eca80e-39b9-4fdd-9647-f60bec6f27ce</rd:ReportID>
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>PBIRB</am:Name>
+      <am:Version>15.7.1819.28</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>PBIRB</am:Name>
+      <am:Version>15.7.1819.28</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2026-07-20T22:33:05.2136659Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="SeedData">
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <ConnectionProperties>
+        <DataProvider>ENTERDATA</DataProvider>
+        <ConnectString />
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:DataSourceID>973b0cc7-0c84-438b-9efa-6e9329ebc215</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="SeedData">
+      <Query>
+        <DataSourceName>SeedData</DataSourceName>
+        <rd:DesignerState>
+          <DataGrid xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="">
+  <RowNumber>6</RowNumber>
+  <ColumnNumber>9</ColumnNumber>
+  <ColumnName ColumnIndex="0" ColumnWidth="100" DataType="DateTime">SaleDate</ColumnName>
+  <ColumnName ColumnIndex="1" ColumnWidth="100" DataType="String">Region</ColumnName>
+  <ColumnName ColumnIndex="2" ColumnWidth="100" DataType="String">Salesperson</ColumnName>
+  <ColumnName ColumnIndex="3" ColumnWidth="100" DataType="String">Customer</ColumnName>
+  <ColumnName ColumnIndex="4" ColumnWidth="100" DataType="String">Product</ColumnName>
+  <ColumnName ColumnIndex="5" ColumnWidth="100" DataType="String">Category</ColumnName>
+  <ColumnName ColumnIndex="6" ColumnWidth="100" DataType="Int32">Quantity</ColumnName>
+  <ColumnName ColumnIndex="7" ColumnWidth="100" DataType="Decimal">Revenue</ColumnName>
+  <ColumnName ColumnIndex="8" ColumnWidth="100" DataType="Decimal">GrossProfit</ColumnName>
+  <Data ColumnIndex="0" RowIndex="0">2026-01-05</Data>
+  <Data ColumnIndex="1" RowIndex="0">Central</Data>
+  <Data ColumnIndex="2" RowIndex="0">Avery Brooks</Data>
+  <Data ColumnIndex="3" RowIndex="0">Northwind Health</Data>
+  <Data ColumnIndex="4" RowIndex="0">Ergo Desk</Data>
+  <Data ColumnIndex="5" RowIndex="0">Furniture</Data>
+  <Data ColumnIndex="6" RowIndex="0">2</Data>
+  <Data ColumnIndex="7" RowIndex="0">1750</Data>
+  <Data ColumnIndex="8" RowIndex="0">560</Data>
+  <Data ColumnIndex="0" RowIndex="1">2026-02-03</Data>
+  <Data ColumnIndex="1" RowIndex="1">Central</Data>
+  <Data ColumnIndex="2" RowIndex="1">Jordan Lee</Data>
+  <Data ColumnIndex="3" RowIndex="1">Bright Labs</Data>
+  <Data ColumnIndex="4" RowIndex="1">Analytics License</Data>
+  <Data ColumnIndex="5" RowIndex="1">Software</Data>
+  <Data ColumnIndex="6" RowIndex="1">15</Data>
+  <Data ColumnIndex="7" RowIndex="1">2100</Data>
+  <Data ColumnIndex="8" RowIndex="1">1380</Data>
+  <Data ColumnIndex="0" RowIndex="2">2026-01-07</Data>
+  <Data ColumnIndex="1" RowIndex="2">East</Data>
+  <Data ColumnIndex="2" RowIndex="2">Morgan Chen</Data>
+  <Data ColumnIndex="3" RowIndex="2">Atlas Finance</Data>
+  <Data ColumnIndex="4" RowIndex="2">Laptop Pro</Data>
+  <Data ColumnIndex="5" RowIndex="2">Technology</Data>
+  <Data ColumnIndex="6" RowIndex="2">4</Data>
+  <Data ColumnIndex="7" RowIndex="2">5920</Data>
+  <Data ColumnIndex="8" RowIndex="2">1640</Data>
+  <Data ColumnIndex="0" RowIndex="3">2026-02-06</Data>
+  <Data ColumnIndex="1" RowIndex="3">East</Data>
+  <Data ColumnIndex="2" RowIndex="3">Riley Patel</Data>
+  <Data ColumnIndex="3" RowIndex="3">Metro Legal</Data>
+  <Data ColumnIndex="4" RowIndex="3">File Cabinet</Data>
+  <Data ColumnIndex="5" RowIndex="3">Furniture</Data>
+  <Data ColumnIndex="6" RowIndex="3">7</Data>
+  <Data ColumnIndex="7" RowIndex="3">2310</Data>
+  <Data ColumnIndex="8" RowIndex="3">700</Data>
+  <Data ColumnIndex="0" RowIndex="4">2026-01-09</Data>
+  <Data ColumnIndex="1" RowIndex="4">West</Data>
+  <Data ColumnIndex="2" RowIndex="4">Casey Rivera</Data>
+  <Data ColumnIndex="3" RowIndex="4">Pioneer Energy</Data>
+  <Data ColumnIndex="4" RowIndex="4">Mobile Workstation</Data>
+  <Data ColumnIndex="5" RowIndex="4">Technology</Data>
+  <Data ColumnIndex="6" RowIndex="4">3</Data>
+  <Data ColumnIndex="7" RowIndex="4">5460</Data>
+  <Data ColumnIndex="8" RowIndex="4">1490</Data>
+  <Data ColumnIndex="0" RowIndex="5">2026-02-14</Data>
+  <Data ColumnIndex="1" RowIndex="5">West</Data>
+  <Data ColumnIndex="2" RowIndex="5">Taylor Kim</Data>
+  <Data ColumnIndex="3" RowIndex="5">Orchard Markets</Data>
+  <Data ColumnIndex="4" RowIndex="5">Label Roll</Data>
+  <Data ColumnIndex="5" RowIndex="5">Office Supplies</Data>
+  <Data ColumnIndex="6" RowIndex="5">40</Data>
+  <Data ColumnIndex="7" RowIndex="5">720</Data>
+  <Data ColumnIndex="8" RowIndex="5">330</Data>
+</DataGrid>
+        </rd:DesignerState>
+        <CommandText>&lt;Query&gt;
+  &lt;XmlData&gt;
+    &lt;Data&gt;
+      &lt;Row&gt;
+        &lt;SaleDate&gt;2026-01-05&lt;/SaleDate&gt;
+        &lt;Region&gt;Central&lt;/Region&gt;
+        &lt;Salesperson&gt;Avery Brooks&lt;/Salesperson&gt;
+        &lt;Customer&gt;Northwind Health&lt;/Customer&gt;
+        &lt;Product&gt;Ergo Desk&lt;/Product&gt;
+        &lt;Category&gt;Furniture&lt;/Category&gt;
+        &lt;Quantity&gt;2&lt;/Quantity&gt;
+        &lt;Revenue&gt;1750&lt;/Revenue&gt;
+        &lt;GrossProfit&gt;560&lt;/GrossProfit&gt;
+      &lt;/Row&gt;
+      &lt;Row&gt;
+        &lt;SaleDate&gt;2026-02-03&lt;/SaleDate&gt;
+        &lt;Region&gt;Central&lt;/Region&gt;
+        &lt;Salesperson&gt;Jordan Lee&lt;/Salesperson&gt;
+        &lt;Customer&gt;Bright Labs&lt;/Customer&gt;
+        &lt;Product&gt;Analytics License&lt;/Product&gt;
+        &lt;Category&gt;Software&lt;/Category&gt;
+        &lt;Quantity&gt;15&lt;/Quantity&gt;
+        &lt;Revenue&gt;2100&lt;/Revenue&gt;
+        &lt;GrossProfit&gt;1380&lt;/GrossProfit&gt;
+      &lt;/Row&gt;
+      &lt;Row&gt;
+        &lt;SaleDate&gt;2026-01-07&lt;/SaleDate&gt;
+        &lt;Region&gt;East&lt;/Region&gt;
+        &lt;Salesperson&gt;Morgan Chen&lt;/Salesperson&gt;
+        &lt;Customer&gt;Atlas Finance&lt;/Customer&gt;
+        &lt;Product&gt;Laptop Pro&lt;/Product&gt;
+        &lt;Category&gt;Technology&lt;/Category&gt;
+        &lt;Quantity&gt;4&lt;/Quantity&gt;
+        &lt;Revenue&gt;5920&lt;/Revenue&gt;
+        &lt;GrossProfit&gt;1640&lt;/GrossProfit&gt;
+      &lt;/Row&gt;
+      &lt;Row&gt;
+        &lt;SaleDate&gt;2026-02-06&lt;/SaleDate&gt;
+        &lt;Region&gt;East&lt;/Region&gt;
+        &lt;Salesperson&gt;Riley Patel&lt;/Salesperson&gt;
+        &lt;Customer&gt;Metro Legal&lt;/Customer&gt;
+        &lt;Product&gt;File Cabinet&lt;/Product&gt;
+        &lt;Category&gt;Furniture&lt;/Category&gt;
+        &lt;Quantity&gt;7&lt;/Quantity&gt;
+        &lt;Revenue&gt;2310&lt;/Revenue&gt;
+        &lt;GrossProfit&gt;700&lt;/GrossProfit&gt;
+      &lt;/Row&gt;
+      &lt;Row&gt;
+        &lt;SaleDate&gt;2026-01-09&lt;/SaleDate&gt;
+        &lt;Region&gt;West&lt;/Region&gt;
+        &lt;Salesperson&gt;Casey Rivera&lt;/Salesperson&gt;
+        &lt;Customer&gt;Pioneer Energy&lt;/Customer&gt;
+        &lt;Product&gt;Mobile Workstation&lt;/Product&gt;
+        &lt;Category&gt;Technology&lt;/Category&gt;
+        &lt;Quantity&gt;3&lt;/Quantity&gt;
+        &lt;Revenue&gt;5460&lt;/Revenue&gt;
+        &lt;GrossProfit&gt;1490&lt;/GrossProfit&gt;
+      &lt;/Row&gt;
+      &lt;Row&gt;
+        &lt;SaleDate&gt;2026-02-14&lt;/SaleDate&gt;
+        &lt;Region&gt;West&lt;/Region&gt;
+        &lt;Salesperson&gt;Taylor Kim&lt;/Salesperson&gt;
+        &lt;Customer&gt;Orchard Markets&lt;/Customer&gt;
+        &lt;Product&gt;Label Roll&lt;/Product&gt;
+        &lt;Category&gt;Office Supplies&lt;/Category&gt;
+        &lt;Quantity&gt;40&lt;/Quantity&gt;
+        &lt;Revenue&gt;720&lt;/Revenue&gt;
+        &lt;GrossProfit&gt;330&lt;/GrossProfit&gt;
+      &lt;/Row&gt;
+    &lt;/Data&gt;
+  &lt;/XmlData&gt;
+  &lt;ElementPath&gt;Data{}/Row{SaleDate(Date),Region(String),Salesperson(String),Customer(String),Product(String),Category(String),Quantity(Integer),Revenue(Decimal),GrossProfit(Decimal)}&lt;/ElementPath&gt;
+&lt;/Query&gt;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SaleDate">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>SaleDate</DataField>
+        </Field>
+        <Field Name="Region">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Region</DataField>
+        </Field>
+        <Field Name="Salesperson">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Salesperson</DataField>
+        </Field>
+        <Field Name="Customer">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Customer</DataField>
+        </Field>
+        <Field Name="Product">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Product</DataField>
+        </Field>
+        <Field Name="Category">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Category</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="Revenue">
+          <rd:TypeName>System.Decimal</rd:TypeName>
+          <DataField>Revenue</DataField>
+        </Field>
+        <Field Name="GrossProfit">
+          <rd:TypeName>System.Decimal</rd:TypeName>
+          <DataField>GrossProfit</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn><Width>0.65in</Width></TablixColumn>
+                <TablixColumn><Width>0.7in</Width></TablixColumn>
+                <TablixColumn><Width>0.75in</Width></TablixColumn>
+                <TablixColumn><Width>0.8in</Width></TablixColumn>
+                <TablixColumn><Width>0.65in</Width></TablixColumn>
+                <TablixColumn><Width>0.45in</Width></TablixColumn>
+                <TablixColumn><Width>0.6in</Width></TablixColumn>
+                <TablixColumn><Width>0.6in</Width></TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                <TablixCell><CellContents><Textbox Name="HeaderSaleDate">
+                          <rd:DefaultName>HeaderSaleDate</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Date</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderSalesperson">
+                          <rd:DefaultName>HeaderSalesperson</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Salesperson</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderCustomer">
+                          <rd:DefaultName>HeaderCustomer</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Customer</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderProduct">
+                          <rd:DefaultName>HeaderProduct</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Product</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderCategory">
+                          <rd:DefaultName>HeaderCategory</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Category</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderQuantity">
+                          <rd:DefaultName>HeaderQuantity</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Qty</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderRevenue">
+                          <rd:DefaultName>HeaderRevenue</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Revenue</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="HeaderGrossProfit">
+                          <rd:DefaultName>HeaderGrossProfit</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Gross Profit</Value>
+                                  <Style><FontWeight>Bold</FontWeight></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="RegionGroupHeader">
+                          <rd:DefaultName>RegionGroupHeader</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns><TextRun><Value>=Fields!Region.Value</Value><Style><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style><Border><Style>None</Style></Border><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+                        </Textbox>
+                        <ColSpan>8</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                <TablixCell><CellContents><Textbox Name="SaleDate">
+                          <rd:DefaultName>SaleDate</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SaleDate.Value</Value>
+                                  <Style><Format>yyyy-MM-dd</Format></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="Salesperson">
+                          <rd:DefaultName>Salesperson</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Salesperson.Value</Value>
+                                  <Style></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="Customer">
+                          <rd:DefaultName>Customer</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Customer.Value</Value>
+                                  <Style></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="Product">
+                          <rd:DefaultName>Product</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Product.Value</Value>
+                                  <Style></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="Category">
+                          <rd:DefaultName>Category</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Category.Value</Value>
+                                  <Style></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="Quantity">
+                          <rd:DefaultName>Quantity</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Quantity.Value</Value>
+                                  <Style><Format>N0</Format></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style><TextAlign>Right</TextAlign></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="Revenue">
+                          <rd:DefaultName>Revenue</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Revenue.Value</Value>
+                                  <Style><Format>C2</Format></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style><TextAlign>Right</TextAlign></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="GrossProfit">
+                          <rd:DefaultName>GrossProfit</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!GrossProfit.Value</Value>
+                                  <Style><Format>C2</Format></Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style><TextAlign>Right</TextAlign></Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox></CellContents></TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy><TablixMembers><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /></TablixMembers></TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader><Size>0.8in</Size><CellContents><Textbox Name="HeaderRegion">
+                          <rd:DefaultName>HeaderRegion</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs><Paragraph><TextRuns><TextRun><Value>Region</Value><Style><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+                          <Style><Border><Style>None</Style></Border><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+                        </Textbox></CellContents></TablixHeader>
+                  <TablixMembers><TablixMember /></TablixMembers>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Region"><GroupExpressions><GroupExpression>=Fields!Region.Value</GroupExpression></GroupExpressions></Group>
+                  <SortExpressions><SortExpression><Value>=Fields!Region.Value</Value></SortExpression></SortExpressions>
+                  <TablixHeader><Size>0.8in</Size><CellContents><Textbox Name="Region">
+                          <rd:DefaultName>Region</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!Region.Value</Value><Style /></TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+                          <Style><Border><Style>None</Style></Border><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom></Style>
+                        </Textbox></CellContents></TablixHeader>
+                  <TablixMembers>
+                    <TablixMember><KeepWithGroup>After</KeepWithGroup></TablixMember>
+                    <TablixMember>
+                      <Group Name="Details" />
+                      <SortExpressions>
+                        <SortExpression><Value>=Fields!SaleDate.Value</Value></SortExpression>
+                        <SortExpression><Value>=Fields!Salesperson.Value</Value></SortExpression>
+                      </SortExpressions>
+                      <Visibility><Hidden>false</Hidden><ToggleItem>Region</ToggleItem></Visibility>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>SeedData</DataSetName>
+            <Top>0.5in</Top><Height>0.8in</Height><Width>6in</Width>
+            <Style><Border><Style>None</Style></Border></Style>
+          </Tablix>
+          <Textbox Name="ReportTitle">
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <rd:DefaultName>ReportTitle</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>RDL Compatibility Test</Value>
+                    <Style>
+                      <FontFamily>Segoe UI Light</FontFamily>
+                      <FontSize>28pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Height>0.5in</Height>
+            <Width>5.5in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>2.25in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>6in</Width>
+      <Page>
+        <PageFooter>
+          <Height>0.45in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="ExecutionTime">
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.2in</Top>
+              <Left>4in</Left>
+              <Height>0.25in</Height>
+              <Width>2in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+</Report>

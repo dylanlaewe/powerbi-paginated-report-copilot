@@ -1,0 +1,46 @@
+Exact generation command:
+pnpm spike:rdl-compatibility-04c artifacts/rdl-compatibility-ladder
+
+Candidate 04c generation: PASS
+Derivation: TEMPLATE_CONTENT_INSTANTIATION
+Report: artifacts/rdl-compatibility-ladder/04c-template-instantiated-subtotal.rdl
+SHA-256: f3844e47c16670a21715c2a476d87f5f01d8018c2f5cb45a37aa3afa6211aa90
+Template SHA-256: 5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a
+Output is not byte-identical to seed: PASS
+Protected Tablix1 subtree byte identity: PASS
+Report title replacement: PASS
+Embedded data replacement: PASS
+Nine field definitions preserved: PASS
+Six rows; three Regions; two details per Region: PASS
+Field references: PASS
+Report Builder-authored contextually Region-scoped aggregate XML preserved: PASS
+Independent expected-total calculation: PASS
+Central: Quantity 17; Revenue 4050; GrossProfit 1610
+East: Quantity 14; Revenue 5950; GrossProfit 2270
+West: Quantity 30; Revenue 5990; GrossProfit 2370
+Grand total: NONE
+Page breaks: NONE
+Parameters: NONE
+XML well-formedness: PASS
+Existing XSD validation: PASS
+XSD raw success output: 04c-template-instantiated-subtotal.rdl validates
+Tablix body rows / hierarchy leaves: 3 / 3
+Tablix columns / column leaves: 8 / 8
+Effective cells per row: 8 / 8 / 8
+RDL Git attribute: text: unset
+Accepted Candidates 01, 02, 03b, 04b and all canonical seed hashes: PASS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Template instantiation: PASS
+Replacement embedded data: PASS
+Six-row verification: PASS
+Region grouping: PASS
+Region subtotal structure: PASS
+Region subtotal calculations: PASS
+Report-level grand total absent: PASS
+Actual pagination: ONE PAGE
+Repair or conversion request: NONE
+Candidate 04c acceptance: PASS
+Layout quality: DEFERRED (title, headers, details, and some currency values wrap in the preserved narrow layout)

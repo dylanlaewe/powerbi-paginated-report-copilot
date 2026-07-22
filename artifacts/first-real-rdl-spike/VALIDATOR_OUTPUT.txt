@@ -1,0 +1,13 @@
+Command:
+xmllint --noout --schema packages/rdl-spike/schema/ReportDefinition-2016.xsd "artifacts/first-real-rdl-spike/Regional Sales Detail.rdl"
+
+Output:
+artifacts/first-real-rdl-spike/Regional Sales Detail.rdl validates
+
+Exit code: 0
+
+Schema source:
+https://learn.microsoft.com/en-us/openspecs/sql_server_protocols/ms-rdl/52ce3983-2bfc-4e72-9359-42aaf5fe4509
+
+Compatibility note:
+ReportDefinition-2016.official.xsd is the verbatim Microsoft XSD extracted from that page. Microsoft's standalone XSD does not compile in libxml because optional AuthoringMetadata references an unimported namespace type. ReportDefinition-2016.xsd changes only that unused declaration's type to xsd:string; the generated report contains no AuthoringMetadata element. No other schema rule is changed.
