@@ -1,14 +1,18 @@
 # Candidate 05 prerequisite: Report Builder grand-total seed
 
+## Resolution
+
+**RESOLVED.** `samples/report-builder-seeds/KnownGoodGrandTotal.rdl` was created, previewed, saved, closed, reopened, previewed again, and committed. SHA-256 is `2056e175e99364301dcfd07c0e54e7f417e3851ffe5617589f4f707e47b4eba7`. The instructions below remain as provenance for how the seed was produced.
+
 ## Repository finding
 
-No accepted Report Builder-authored grand-total seed exists in this branch. The only canonical seeds are:
+At the time of this prerequisite record, no accepted Report Builder-authored grand-total seed existed. The canonical seeds then were:
 
 - `KnownGoodEnterDataTable.rdl`
 - `KnownGoodRegionGroup.rdl`
 - `KnownGoodRegionSubtotal.rdl`
 
-The old rejected `Regional Sales Detail.rdl` contains grand-total text, but it failed to open in Report Builder and is not a compatibility seed. Candidate 05 has therefore **not** been generated. Do not construct its body row or hierarchy member by editing XML.
+The old rejected `Regional Sales Detail.rdl` contains grand-total text, but it failed to open in Report Builder and is not a compatibility seed. It was not used. Candidate 05 now derives from the accepted seed without constructing a hierarchy member.
 
 ## Create the required canonical seed on Windows
 

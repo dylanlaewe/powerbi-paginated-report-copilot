@@ -144,6 +144,10 @@ A filename and content search of the updated branch found no accepted Report Bui
 
 Windows must create and independently reopen `KnownGoodGrandTotal.rdl` from accepted Candidate 04c by using Report Builder's **Add Total → After** command on the outer `Region` group. Exact instructions are in `artifacts/rdl-compatibility-ladder/05-SEED_REQUIRED.md`.
 
+The prerequisite is now resolved. The accepted seed adds the fourth eight-cell body row and matching top-level static hierarchy leaf outside Region, retains the Region subtotals, and uses dataset-context sums. Candidate 05 derives from those exact bytes and changes only the report-level authored label from `Total` to the required `Grand Total`.
+
+Candidate 05 preserves the six Candidate 04c detail rows and expected Region subtotals. Its expected report-level totals are Quantity `61`, Revenue `$15,990.00`, and Gross Profit `$6,250.00`. XML, XSD, hierarchy regression, exact normalized seed identity, field/data consistency, independent math, byte policy, and absence of page breaks/parameters pass locally. Independent Windows open and Preview are pending.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
