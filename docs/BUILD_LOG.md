@@ -184,3 +184,4 @@
 - Pulled seed commit `81861fb` and verified literal `PageWidth=8.5in`, `PageHeight=11in`, four half-inch margins, and raw hash `c2d27f75…e17a`.
 - Updated pagination forensics and strict dimension tests to accept only the explicit final Letter seed.
 - Added Candidate 06b byte-for-byte generation while preserving failed Candidate 06 unchanged and retaining all pagination, data, grouping, subtotal, Grand Total, PDF, and Excel structures.
+- Generated the byte-identical Candidate 06b artifact and a Windows handoff requiring concrete Preview/PDF/Excel counts, no blank pages or clipping, correct totals, and a post-test checksum. Candidate acceptance remains pending.

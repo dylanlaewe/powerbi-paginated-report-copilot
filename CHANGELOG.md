@@ -4,6 +4,7 @@
 
 ### Added
 
+- Candidate 06b as a byte-identical copy of the corrected Report Builder-authored Letter pagination seed, with strict literal page-dimension regression validation and an independent Windows Preview/PDF/Excel handoff.
 - Safe, read-only PBIP discovery with artifact path containment and desktop folder selection.
 - Pinned Microsoft PBIR authoring CLI and immutable, MIT-licensed Desktop-produced PBIP spike fixture.
 - CLI-first deterministic PBIR spike that authors a real model-bound card, clustered-column chart, and slicer in a disposable PBIP copy, with verified backup, reference checks, official validation, and evidence manifests.

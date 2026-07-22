@@ -1,0 +1,41 @@
+Command:
+pnpm spike:rdl-compatibility-06b artifacts/rdl-compatibility-ladder
+
+Output:
+Candidate 06b generation: PASS
+Derivation: BYTE_FOR_BYTE_EXPLICIT_LETTER_SEED
+Report: artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl
+SHA-256: c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a
+Literal PageWidth/PageHeight: PASS
+Seed byte identity: PASS
+Report Builder open/Preview/PDF/Excel: PENDING INDEPENDENT WINDOWS
+
+Independent checks:
+- XML well-formedness: PASS
+- Existing XSD validation: PASS — 06b-production-pagination-letter.rdl validates
+- Literal serialized PageWidth: PASS — 8.5in
+- Literal serialized PageHeight: PASS — 11in
+- PageHeight positive: PASS
+- Left/Right/Top/Bottom margins: PASS — 0.5in each
+- Body width: PASS — 7in <= 7.5in printable width
+- Pagination structure: PASS
+- Repeating-header marker: PASS
+- Outer Region page break: PASS — Between
+- Page N of M expressions: PASS
+- Six embedded rows: PASS
+- Three Region subtotals: PASS
+- Exactly one Grand Total: PASS
+- Seed byte identity: PASS
+- Failed Candidate 06 preservation: PASS
+
+Seed provenance:
+- Commit: 81861fb434547f101f0f455b7ca0ad2bd68cc86e
+- SHA-256: c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a
+- Seed Preview/PDF/Excel numeric counts: NOT PROVIDED (placeholders received)
+
+Candidate 06b Windows status:
+- Report Builder open: PENDING
+- Design view: PENDING
+- Preview: PENDING
+- PDF export: PENDING
+- Excel export: PENDING
