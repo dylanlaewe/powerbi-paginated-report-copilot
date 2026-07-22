@@ -107,3 +107,10 @@
 - Recorded four physical subtotal cells plus a five-column span and a body label in the rejected file, versus eight unmerged cells and a static row-hierarchy `Total` header in the seed.
 - Recorded explicitly scoped generated aggregates versus Report Builder's unscoped nested-member aggregates. Both files are count-consistent; no single difference is claimed as the exception's root cause.
 - Added regression validation that accepts the Report Builder subtotal fingerprint and rejects the failed Candidate 04 structure.
+
+## 2026-07-21 — Candidate 04b subtotal-seed control
+
+- Generated Candidate 04b as a byte-for-byte copy of the SHA-256-pinned Report Builder-authored subtotal seed.
+- Preserved the seed's exact hierarchy, eight unmerged subtotal cells, hierarchy-header label, aggregate serialization, ordering, metadata, six rows, nine fields, and seven-inch layout.
+- Passed XML, XSD, collection, subtotal regression, seed identity, protected-artifact checksum, full test, lint, typecheck, build, and checksum validation.
+- Added an exact clean-clone command and Windows handoff. Report Builder open and Preview remain pending; no Candidate 05 was generated.
