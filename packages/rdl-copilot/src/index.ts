@@ -78,9 +78,9 @@ export const parseNaturalLanguageReportRequest = (
     throw new Error("Request must contain a JSON array of synthetic rows");
 
   let rows: unknown;
+  const json = request.slice(dataStart, dataEnd + 1);
+  rejectDuplicateJsonKeys(json);
   try {
-    const json = request.slice(dataStart, dataEnd + 1);
-    rejectDuplicateJsonKeys(json);
     rows = JSON.parse(json);
   } catch {
     throw new Error("Request dataset is not valid JSON");

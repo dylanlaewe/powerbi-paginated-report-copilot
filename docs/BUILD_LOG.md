@@ -193,3 +193,5 @@
 - Added a runtime-validated, versioned report specification for the accepted nine-field embedded dataset and production-pagination template.
 - Added constrained natural-language parsing for quoted titles and inline synthetic JSON rows, with rejection of unknown templates and malformed data.
 - Documented the narrow MVP flow and explicitly deferred template instantiation, charts, template expansion, parameters, and live data sources.
+- Implemented checksum-pinned template instantiation with XML escaping, protected-structure comparison, XSD checks, independent totals, atomic writes, and a deterministic CLI.
+- Generated the canonical six-row MVP artifact and added security, mathematical-total, byte-determinism, template-integrity, and Windows-handoff evidence.

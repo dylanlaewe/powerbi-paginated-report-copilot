@@ -11,6 +11,32 @@ natural-language request
 → generated RDL for independent Windows verification
 ```
 
-The first implementation unit parses a natural-language request containing a quoted title, the explicit production-pagination template name, and a JSON array of synthetic rows. It produces a versioned specification with the accepted nine-field schema and fixed safe labels. Unknown templates, missing titles, malformed JSON, extra/missing fields, invalid dates, and invalid numeric values are rejected before file access.
+The implemented flow parses a natural-language request containing a quoted title, the explicit production-pagination template name, and a JSON array of synthetic rows. It produces a versioned specification with the accepted nine-field schema and fixed safe labels, instantiates only the accepted template, validates the result, and writes the RDL and manifest atomically.
 
-Template instantiation and artifact generation are the next implementation unit. They must preserve Report Builder-authored hierarchy and pagination subtrees, use atomic writes and pre-write hashes, and run the established deterministic validators. This phase excludes charts, additional templates, parameters, live or enterprise data sources, and broad layout work.
+## Supported request and command
+
+```text
+Create a report titled "Report title" using the production pagination template with data:
+[{"SaleDate":"2026-07-02", ... all nine fields ...}]
+```
+
+```bash
+pnpm copilot:generate \
+  --request examples/regional-sales-request.txt \
+  --output artifacts/copilot-mvp/regional-sales-generated.rdl
+```
+
+The canonical request is in `examples/regional-sales-request.txt`. The command emits the RDL path, checksum, selected template, parsed specification, independently calculated Region subtotals and Grand Total, validation result, and manifest path.
+
+## Security and structural boundaries
+
+- Only `production-pagination-letter` is allowlisted, pinned to SHA-256 `c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a`.
+- Input is runtime-validated with exact keys; duplicate keys, unknown/missing fields, malformed JSON, invalid dates, non-finite numerics, empty strings, and path traversal are rejected.
+- User strings are XML-escaped. Arbitrary XML fragments are never accepted.
+- Only the report title, embedded XML rows, and their Report Builder DesignerState grid are mutable.
+- A normalized protected projection proves the tablix hierarchy, grouping, detail/subtotal/Grand Total members, page breaks, repeated headings, footer, dimensions, margins, and body remain unchanged.
+- XML well-formedness and the existing XSD must pass before atomic output replacement.
+
+## Current constraints
+
+The field set, labels, Region grouping, totals, pagination, Letter layout, and template are fixed. Charts, additional templates, parameters, arbitrary fields/grouping, live databases, tenant integration, LLM calls, Electron UI, report editing, and layout redesign are unsupported.
