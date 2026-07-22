@@ -32,4 +32,13 @@ XML well-formedness: PASS
 Existing XSD validation: PASS
 XSD raw success output: 06-production-pagination.rdl validates
 Cross-platform RDL attribute: text: unset
-Candidate 06 Report Builder open/Preview/PDF/Excel: PENDING INDEPENDENT WINDOWS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Runtime page width: FAIL — 13in
+Runtime page height: FAIL — 0
+Preview: FAIL
+Exact failure: The value of the PageHeight property for report section ReportSection0 is "0", which is not a valid size. The definition of the report is invalid. An error occurred during local report processing.
+PDF export: NOT TESTED
+Excel export: NOT TESTED
+Candidate 06 acceptance: FAIL

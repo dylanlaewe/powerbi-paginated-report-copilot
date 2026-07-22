@@ -65,6 +65,7 @@
 ### Rejected
 
 - Independent Windows validation rejected Candidate 04: its checksum and static checks passed, but Report Builder raised an index-out-of-range exception before Design view. Subtotal execution was not tested, and the generated hierarchy is preserved unchanged.
+- Independent Windows validation rejected Candidate 06: Design opened, but Report Builder resolved width as 13 inches and PageHeight as invalid zero; Preview failed and exports were not tested.
 
 ### Added
 

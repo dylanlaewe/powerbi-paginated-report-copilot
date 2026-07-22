@@ -168,3 +168,5 @@
 - Added deterministic guards for six rows, Region grouping, three subtotals, one Grand Total, outer-Region breaks, repeating headers, Page N of M, effective Letter defaults, half-inch margins, and print-safe width.
 - Preserved the seed's independently verified no-blank/no-clipping, PDF, Excel, and reopen results while keeping Candidate 06's own Windows Preview/export acceptance pending.
 - Generated the byte-identical Candidate 06 artifact, validation manifest, and final Windows Preview/PDF/Excel handoff. Seed numeric page/sheet counts remain unrecorded because placeholders were submitted.
+- Independent Windows validation rejected Candidate 06: checksum and Design passed, but runtime page width was 13 inches and PageHeight was invalid zero. Preview failed before rendering; PDF and Excel were not tested.
+- Recorded that the validator's inferred Letter defaults were unsound. Candidate 06 remains unchanged as failure evidence.

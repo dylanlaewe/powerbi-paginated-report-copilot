@@ -1,8 +1,12 @@
 # Candidate 06 final Windows validation
 
+## Result
+
+**FAIL — independently rejected on Windows.** SHA-256 passed and Design opened, but Report Builder resolved page width as `13in` and page height as invalid `0`. Preview failed before rendering with `ReportSection0` PageHeight invalid-size errors. PDF and Excel exports were not tested. Candidate 06 remains unchanged and rejected.
+
 ## Final compatibility-ladder acceptance criterion
 
-Power BI Report Builder opens and previews Candidate 06 with correct multipage Region pagination, repeated headings, Page N of M, correct totals, no blank pages, no horizontal clipping, and successful PDF and Excel exports.
+Not met. Candidate 06 failed before Preview rendering because physical page dimensions were not serialized as valid explicit RDL sizes.
 
 Do not generate Candidate 07, merge, tag, or start the copilot MVP until this entire checklist passes.
 

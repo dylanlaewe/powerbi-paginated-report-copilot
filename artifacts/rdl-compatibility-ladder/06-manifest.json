@@ -31,10 +31,16 @@
     "existingXsd": "PASS",
     "xsdOutput": "06-production-pagination.rdl validates",
     "crossPlatformRdlBytePolicy": "PASS",
-    "candidateReportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "candidateReportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS",
-    "candidatePdfExport": "PENDING_INDEPENDENT_WINDOWS",
-    "candidateExcelExport": "PENDING_INDEPENDENT_WINDOWS"
+      "artifactChecksum": "PASS",
+      "candidateReportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "runtimePageWidth": "13in_FAIL",
+      "runtimePageHeight": "0_FAIL",
+      "candidateReportBuilderPreview": "FAIL_INVALID_PAGE_HEIGHT",
+      "candidatePdfExport": "NOT_TESTED",
+      "candidateExcelExport": "NOT_TESTED",
+      "candidateAcceptance": "FAIL",
+      "failure": "ReportSection0 PageHeight is 0, which is not a valid size"
   },
   "pagination": {
     "bodyWidthInches": 7,
