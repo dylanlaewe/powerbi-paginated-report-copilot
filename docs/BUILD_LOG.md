@@ -196,3 +196,10 @@
 - Implemented checksum-pinned template instantiation with XML escaping, protected-structure comparison, XSD checks, independent totals, atomic writes, and a deterministic CLI.
 - Generated the canonical six-row MVP artifact and added security, mathematical-total, byte-determinism, template-integrity, and Windows-handoff evidence.
 - Independent Windows validation accepted the first copilot-generated RDL across checksum, open, Design, requested content, Preview, totals, pagination, PDF, and Excel. Numeric page and worksheet counts remain unreported placeholders.
+
+## 2026-07-22 — Minimal Electron RDL generation
+
+- Added strict generate/reveal/copy IPC contracts with request validation, context-isolated preload methods, main-process-only generation, and a controlled application output directory.
+- Added the multiline request workflow, visible generation/error states, structured title/rows/Regions/totals/template/checksum summary, Finder reveal, and path copy.
+- Added CLI/UI byte-parity, rejected-template, invalid-display, IPC strictness, controlled-path, and template-preservation tests plus focused Mac launch instructions.
+- Corrected Electron workspace dependency bundling after the first Mac launch exposed direct TypeScript loading; the second `pnpm dev` launch built main/preload/renderer and started the Electron application successfully.

@@ -39,4 +39,10 @@ The canonical request is in `examples/regional-sales-request.txt`. The command e
 
 ## Current constraints
 
-The field set, labels, Region grouping, totals, pagination, Letter layout, and template are fixed. Charts, additional templates, parameters, arbitrary fields/grouping, live databases, tenant integration, LLM calls, Electron UI, report editing, and layout redesign are unsupported.
+The field set, labels, Region grouping, totals, pagination, Letter layout, and template are fixed. Charts, additional templates, parameters, arbitrary fields/grouping, live databases, tenant integration, LLM calls, report editing, and layout redesign are unsupported.
+
+## Minimal Electron workflow
+
+The accepted pipeline is exposed through a multiline request field and Generate Report button. Typed IPC sends only the bounded request string to the main process. The main process parses, validates, selects the fixed template, writes under the application-controlled `generated-reports` folder, and returns a validated summary. The preload bridge exposes only generate, reveal-current-report, and copy-current-path methods. Context isolation, sandboxing, and disabled renderer Node integration remain enabled.
+
+The UI shows the parsed title, row count, Regions, expected Region subtotals, Grand Total, selected template, output checksum, output path, and validation errors. See `docs/MAC_ELECTRON_MVP_TEST.md` for launch and manual parity verification.
