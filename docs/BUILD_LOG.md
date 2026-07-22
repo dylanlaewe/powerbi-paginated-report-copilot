@@ -159,3 +159,4 @@
 - Pulled and hash-pinned the Report Builder-authored seed and verified its repeating-header marker, outer-Region page break, Page N of M footer, preserved data, and preserved four-row hierarchy.
 - Found explicit `PageWidth=2in` with a `7in` body and `0.5in` side margins, yielding only `1in` printable width and failing the required static print-safe check.
 - Recorded unresolved Preview/PDF/Excel counts, blank-page result, and horizontal-clipping result. Did not generate Candidate 06 or silently change a page dimension that the candidate must preserve.
+- Added a narrowly scoped correction procedure: preserve the supplied seed, create a separate Report Builder-authored `8.5in × 11in` version with existing 0.5-inch margins, reopen it, rerun Preview/PDF/Excel validation, and return concrete counts plus no-clipping/no-blank-page evidence.

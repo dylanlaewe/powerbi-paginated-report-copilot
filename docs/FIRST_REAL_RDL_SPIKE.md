@@ -156,6 +156,8 @@ The accepted canonical seeds contain no proven repeating-member metadata, Region
 
 `artifacts/rdl-compatibility-ladder/06-SEED_REQUIRED.md` provides exact Report Builder instructions to create `KnownGoodProductionPagination.rdl` from accepted Candidate 05, including print-safe Letter settings, outer-Region page breaks, repeating headers, `Page N of M`, close/reopen validation, and PDF/Excel checks.
 
+The delivered seed proves the pagination structures but contains `PageWidth=2in`. With a `7in` body and `0.5in` side margins, only `1in` is printable. Candidate 06 cannot preserve that dimension and pass the required print-safe check. Concrete Preview/PDF/Excel counts, blank-page status, and clipping status were also not supplied. `06-SEED_CORRECTION_REQUIRED.md` requests a Report Builder-authored `8.5in × 11in` corrected seed while preserving all proven structures.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
