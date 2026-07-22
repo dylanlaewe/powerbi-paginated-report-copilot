@@ -150,6 +150,12 @@ Candidate 05 preserves the six Candidate 04c detail rows and expected Region sub
 
 Independent Windows validation accepted Candidate 05. Checksum, open, Design, Preview, six-row preservation, all three Region subtotals, exactly one `Grand Total`, and all report-total calculations passed without repair, conversion, upgrade, blank aggregate, or `#Error`. Pagination was not supplied because the result retained `[INSERT PAGE COUNT]`.
 
+## Candidate 06 — blocked on production-pagination seed
+
+The accepted canonical seeds contain no proven repeating-member metadata, Region page break, or page-number/total-page expression. The rejected original RDL cannot supply those structures. Candidate 06 was not generated because its fragile pagination XML must not be inferred.
+
+`artifacts/rdl-compatibility-ladder/06-SEED_REQUIRED.md` provides exact Report Builder instructions to create `KnownGoodProductionPagination.rdl` from accepted Candidate 05, including print-safe Letter settings, outer-Region page breaks, repeating headers, `Page N of M`, close/reopen validation, and PDF/Excel checks.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
