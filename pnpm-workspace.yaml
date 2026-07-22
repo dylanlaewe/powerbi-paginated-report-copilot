@@ -6,4 +6,5 @@ onlyBuiltDependencies:
   - electron
   - esbuild
 allowBuilds:
+  electron-winstaller: false
   esbuild: true

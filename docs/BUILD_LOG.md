@@ -211,3 +211,9 @@
 - Verified generation from repository-root, `apps/desktop`, compiled-main, and simulated packaged locations; rejected missing, wrong-checksum, and symlink-escaped resources.
 - Drove the actual built Electron renderer over its context bridge with the canonical request. The UI returned to an enabled state and displayed the accepted SHA; the generated file was byte-identical to the CLI artifact.
 - Independent macOS UI validation accepted launch, canonical request generation, visible summary, controlled output creation, expected SHA-256, and byte identity with the accepted CLI artifact. The deterministic RDL copilot MVP checkpoint is complete.
+
+## 2026-07-22 — Packaged Windows validator runtime
+
+- Started `codex/windows-packaged-mvp` from the frozen `rdl-copilot-mvp-v0.1` milestone without changing the accepted feature scope.
+- Replaced the generator's external `xmllint` process invocation with deterministic XSD validation through the application-bundled `libxml2-wasm` runtime.
+- Added valid-schema and invalid-schema regressions and recorded the validation engine in generation manifests. Portable Windows packaging and independent clean-Windows acceptance remain pending.

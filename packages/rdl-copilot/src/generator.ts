@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, isAbsolute, resolve } from "node:path";
@@ -15,6 +14,7 @@ import {
   approvedTemplateSha256,
   type ApprovedReportResources,
 } from "./approved-resources";
+import { validateXmlAgainstXsd } from "./xsd-validator";
 
 export const approvedTemplateId = "production-pagination-letter" as const;
 export { approvedTemplateSha256 } from "./approved-resources";
@@ -183,10 +183,10 @@ export const generateReport = async (
   ])
     if (!report.includes(literal))
       throw new Error(`Required page property missing: ${literal}`);
-  execFileSync("xmllint", ["--noout", "--schema", resources.schemaPath, "-"], {
-    input: report,
-    stdio: ["pipe", "pipe", "pipe"],
-  });
+  const xsdValidation = await validateXmlAgainstXsd(
+    Buffer.from(report),
+    await readFile(resources.schemaPath),
+  );
   const totals = calculateTotals(specification.rows);
   const manifest = {
     template: approvedTemplateId,
@@ -197,7 +197,8 @@ export const generateReport = async (
     expectedGrandTotal: totals.grandTotal,
     validation: {
       xmlWellFormed: "PASS",
-      xsd: "PASS",
+      xsd: xsdValidation.status,
+      xsdEngine: xsdValidation.engine,
       protectedStructure: "PASS",
       titleMatchesSpecification: "PASS",
       embeddedRowsMatchSpecification: "PASS",
