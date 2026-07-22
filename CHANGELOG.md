@@ -72,6 +72,7 @@
 - Candidate 04b as a byte-for-byte, checksum-pinned copy of the accepted Report Builder-authored subtotal seed, with regression evidence and a dedicated Windows handoff.
 - Candidate 04c template-instantiation tooling that replaces only title and embedded data while preserving the accepted Report Builder-authored Tablix subtree byte-for-byte.
 - Candidate 04c artifact, deterministic replacement dataset, independently calculated Region totals, validation evidence, and Windows handoff.
+- Grand-total forensics and regression validation pinning the exact Report Builder-authored fourth body row and top-level hierarchy member required for Candidate 05.
 
 ### Validated
 

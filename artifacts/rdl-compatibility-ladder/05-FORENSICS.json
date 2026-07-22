@@ -1,0 +1,91 @@
+{
+  "command": "pnpm spike:rdl-grand-total-forensics artifacts/rdl-compatibility-ladder/05-FORENSICS.json",
+  "files": {
+    "candidate04c": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/04c-template-instantiated-subtotal.rdl",
+      "sha256": "f3844e47c16670a21715c2a476d87f5f01d8018c2f5cb45a37aa3afa6211aa90"
+    },
+    "grandTotalSeed": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodGrandTotal.rdl",
+      "sha256": "2056e175e99364301dcfd07c0e54e7f417e3851ffe5617589f4f707e47b4eba7"
+    }
+  },
+  "comparison": {
+    "acceptedCandidate04c": {
+      "tablixBodyRows": 3,
+      "rowHierarchyLeaves": 3,
+      "groupNames": [
+        "Region",
+        "Region1",
+        "Details"
+      ],
+      "rowHeights": [
+        "0.3in",
+        "0.25in",
+        "0.25in"
+      ],
+      "finalRowPhysicalCells": 8,
+      "finalRowColSpans": [],
+      "finalRowAggregateExpressions": [
+        "=Sum(Fields!Quantity.Value)",
+        "=Sum(Fields!Revenue.Value)",
+        "=Sum(Fields!GrossProfit.Value)"
+      ],
+      "finalRowAggregateScopes": [
+        null,
+        null,
+        null
+      ],
+      "totalHeaderValues": [
+        "Total"
+      ],
+      "keepWithGroupBeforeCount": 1,
+      "tablixHeight": "0.8in",
+      "pageBreakCount": 0,
+      "parameterCount": 0
+    },
+    "reportBuilderGrandTotalSeed": {
+      "tablixBodyRows": 4,
+      "rowHierarchyLeaves": 4,
+      "groupNames": [
+        "Region",
+        "Region1",
+        "Details"
+      ],
+      "rowHeights": [
+        "0.3in",
+        "0.25in",
+        "0.25in",
+        "0.25in"
+      ],
+      "finalRowPhysicalCells": 8,
+      "finalRowColSpans": [],
+      "finalRowAggregateExpressions": [
+        "=Sum(Fields!Quantity.Value)",
+        "=Sum(Fields!Revenue.Value)",
+        "=Sum(Fields!GrossProfit.Value)"
+      ],
+      "finalRowAggregateScopes": [
+        null,
+        null,
+        null
+      ],
+      "totalHeaderValues": [
+        "Total",
+        "Total"
+      ],
+      "keepWithGroupBeforeCount": 2,
+      "tablixHeight": "1.05in",
+      "pageBreakCount": 0,
+      "parameterCount": 0
+    },
+    "highConfidenceDiscriminators": [
+      "Report Builder adds a fourth eight-cell TablixBody row without merged cells.",
+      "Report Builder adds a fourth top-level row-hierarchy leaf after the dynamic Region member; the existing Region > Region1 > Details and Region subtotal subtree remains present.",
+      "The three final-row sums have no explicit group scope and therefore evaluate in dataset/report context outside the Region member.",
+      "The authored grand-total hierarchy uses Textbox2 with the value Total and a nested blank Textbox12 header, plus KeepWithGroup=Before.",
+      "The Tablix height changes from 0.8in to 1.05in; embedded data and the nine field definitions remain unchanged."
+    ],
+    "conclusion": "The accepted seed supplies the exact Report Builder-authored arrangement required for Candidate 05; no hierarchy construction is inferred."
+  }
+}

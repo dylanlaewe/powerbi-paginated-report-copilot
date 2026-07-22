@@ -132,3 +132,9 @@
 - Searched every tracked RDL filename and content after pulling the current spike branch; found no accepted Report Builder-authored report-level grand-total seed.
 - Excluded the rejected original generated report from baseline use and did not generate Candidate 05 or guess at a new Tablix hierarchy row.
 - Added exact Windows instructions to create, preview, save, reopen, hash, and return `KnownGoodGrandTotal.rdl` using Report Builder's Add Total command on Candidate 04c's outer Region group.
+
+## 2026-07-21 — Candidate 05 grand-total forensics
+
+- Pulled and pinned the reopened, previewed Report Builder-authored grand-total seed.
+- Compared it with accepted Candidate 04c across body rows/cells, hierarchy leaves, member placement, headers, aggregate scopes, KeepWithGroup, height, embedded data, page breaks, and parameters.
+- Added regression validation for the exact four-row/four-leaf, eight-unmerged-cell, dataset-context grand-total structure. No hierarchy arrangement is inferred.
