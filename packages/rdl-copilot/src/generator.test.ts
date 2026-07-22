@@ -4,7 +4,6 @@ import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { parseNaturalLanguageReportRequest } from "./index";
 import {
-  approvedTemplatePath,
   approvedTemplateSha256,
   calculateTotals,
   generateReport,
@@ -12,9 +11,11 @@ import {
   protectedProjection,
   validateOutputPath,
 } from "./generator";
+import { resolveDevelopmentApprovedResources } from "./approved-resources";
 import { createHash } from "node:crypto";
 
 const directories: string[] = [];
+const resources = resolveDevelopmentApprovedResources([import.meta.dirname]);
 const request = `Create a report titled "Safe & <Visible>" using the production pagination template with data: [
 {"SaleDate":"2026-08-01","Region":"Central","Salesperson":"A & B","Customer":"Clinic <One>","Product":"Desk","Category":"Furniture","Quantity":2,"Revenue":100,"GrossProfit":40},
 {"SaleDate":"2026-08-02","Region":"West","Salesperson":"Casey","Customer":"Studio","Product":"Tablet","Category":"Technology","Quantity":3,"Revenue":250,"GrossProfit":90}
@@ -28,7 +29,7 @@ afterEach(async () => {
 
 describe("approved RDL template instantiation", () => {
   it("preserves protected structure, escapes data, and computes totals", async () => {
-    const template = await readFile(approvedTemplatePath, "utf8");
+    const template = await readFile(resources.templatePath, "utf8");
     const specification = parseNaturalLanguageReportRequest(request);
     const report = instantiateApprovedTemplate(template, specification);
     expect(report).not.toBe(template);
@@ -54,10 +55,12 @@ describe("approved RDL template instantiation", () => {
     const first = await generateReport(
       specification,
       join(directory, "first.rdl"),
+      resources,
     );
     const second = await generateReport(
       specification,
       join(directory, "second.rdl"),
+      resources,
     );
     expect(await readFile(first.reportPath)).toEqual(
       await readFile(second.reportPath),

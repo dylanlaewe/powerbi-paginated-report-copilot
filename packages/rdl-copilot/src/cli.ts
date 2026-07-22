@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { generateReport } from "./generator";
+import { resolveDevelopmentApprovedResources } from "./approved-resources";
 import { parseNaturalLanguageReportRequest } from "./index";
 
 const valueAfter = (flag: string): string => {
@@ -14,7 +15,8 @@ const requestPath = resolve(valueAfter("--request"));
 const outputPath = resolve(valueAfter("--output"));
 const request = await readFile(requestPath, "utf8");
 const specification = parseNaturalLanguageReportRequest(request);
-const result = await generateReport(specification, outputPath);
+const resources = resolveDevelopmentApprovedResources([import.meta.dirname]);
+const result = await generateReport(specification, outputPath, resources);
 
 console.log(`Generated RDL: ${result.reportPath}`);
 console.log(`SHA-256: ${result.manifest.reportSha256}`);

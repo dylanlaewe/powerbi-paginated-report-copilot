@@ -12,6 +12,8 @@ pnpm dev
 
 The preload is intentionally self-contained and imports only Electron at runtime. If DevTools reports a preload error or `window.powerBiCopilot` is absent, the Generate action must show `The desktop generation service failed to initialize.` and immediately re-enable the button.
 
+Development template resolution starts from Electron's `app.getAppPath()` and compiled main-module directory, ascends to the nearest `pnpm-workspace.yaml`, and then resolves the fixed repository artifact. It does not use the current working directory. Packaged builds use `process.resourcesPath/approved-report-resources`; the desktop packaging configuration copies the pinned RDL and validation XSD there.
+
 ## Focused procedure
 
 1. Open `examples/regional-sales-request.txt` and copy the complete request.

@@ -206,3 +206,7 @@
 - Reproduced the Mac acceptance failure: emitted preload contained `require("zod")`, sandbox loading failed, the bridge remained undefined, and the renderer lacked rejection cleanup.
 - Removed all non-Electron preload runtime imports, retained Zod validation in main, added missing-bridge and rejected-IPC recovery with `finally`, and verified the built preload contains only `require("electron")`.
 - Added sandbox bridge initialization, emitted-bundle, main-process validation, hardened BrowserWindow, and renderer recovery regressions. A final `pnpm dev` smoke launched without preload errors.
+- Reproduced the second Mac failure: the generator resolved the template and XSD from `process.cwd()`, which Electron set to `apps/desktop`.
+- Added one approved-resource resolver with monorepo-marker discovery for development, explicit `process.resourcesPath` locations and packaging metadata, real-path containment, existence checks, and pinned checksum verification. Electron main now injects the resolved absolute paths.
+- Verified generation from repository-root, `apps/desktop`, compiled-main, and simulated packaged locations; rejected missing, wrong-checksum, and symlink-escaped resources.
+- Drove the actual built Electron renderer over its context bridge with the canonical request. The UI returned to an enabled state and displayed the accepted SHA; the generated file was byte-identical to the CLI artifact.

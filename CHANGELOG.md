@@ -25,6 +25,7 @@
 ### Rejected
 
 - Initial Mac Electron UI acceptance failed because the sandboxed preload externally required Zod, preventing the context bridge from initializing and leaving generation stuck.
+- The next Mac UI attempt reached main but failed because approved resources were incorrectly resolved from Electron's `apps/desktop` working directory.
 
 - Independent Windows validation found that Power BI Report Builder fails to open the generated `Regional Sales Detail.rdl` with an index-out-of-range error. Design, Preview, embedded-data execution, and exports were not reached. The RDL generation mechanism is not proven; future candidates must be derived from a known-good Report Builder seed.
 
@@ -94,6 +95,7 @@
 ### Fixed
 
 - Made the sandboxed preload Electron-only, retained all validation in main, added explicit bridge/rejection recovery in the renderer, and added emitted-bundle security regressions preventing external Zod imports.
+- Replaced cwd-based resource lookup with centralized development/packaged resolution, root containment and checksum checks, main-process path injection, and a controlled missing-template error.
 
 ### Validated
 

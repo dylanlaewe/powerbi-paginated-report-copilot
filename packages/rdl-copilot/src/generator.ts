@@ -11,18 +11,13 @@ import {
   rdlReportSpecificationSchema,
 } from "@powerbi-copilot/domain";
 import { assertWellFormed } from "@powerbi-copilot/rdl-spike";
+import {
+  approvedTemplateSha256,
+  type ApprovedReportResources,
+} from "./approved-resources";
 
 export const approvedTemplateId = "production-pagination-letter" as const;
-export const approvedTemplateSha256 =
-  "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a";
-export const approvedTemplatePath = resolve(
-  process.cwd(),
-  "artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl",
-);
-const schemaPath = resolve(
-  process.cwd(),
-  "packages/rdl-spike/schema/ReportDefinition-2016.xsd",
-);
+export { approvedTemplateSha256 } from "./approved-resources";
 const originalTitle = "Regional Sales Subtotal Compatibility Test";
 
 const sha256 = (value: string): string =>
@@ -173,9 +168,10 @@ export const validateOutputPath = (path: string): string => {
 export const generateReport = async (
   specification: RdlReportSpecification,
   outputPath: string,
+  resources: ApprovedReportResources,
 ) => {
   const target = validateOutputPath(outputPath);
-  const template = await readFile(approvedTemplatePath, "utf8");
+  const template = await readFile(resources.templatePath, "utf8");
   const report = instantiateApprovedTemplate(template, specification);
   for (const literal of [
     "<PageWidth>8.5in</PageWidth>",
@@ -187,7 +183,7 @@ export const generateReport = async (
   ])
     if (!report.includes(literal))
       throw new Error(`Required page property missing: ${literal}`);
-  execFileSync("xmllint", ["--noout", "--schema", schemaPath, "-"], {
+  execFileSync("xmllint", ["--noout", "--schema", resources.schemaPath, "-"], {
     input: report,
     stdio: ["pipe", "pipe", "pipe"],
   });
