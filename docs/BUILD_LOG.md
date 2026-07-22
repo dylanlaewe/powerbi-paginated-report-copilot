@@ -160,3 +160,4 @@
 - Found explicit `PageWidth=2in` with a `7in` body and `0.5in` side margins, yielding only `1in` printable width and failing the required static print-safe check.
 - Recorded unresolved Preview/PDF/Excel counts, blank-page result, and horizontal-clipping result. Did not generate Candidate 06 or silently change a page dimension that the candidate must preserve.
 - Added a narrowly scoped correction procedure: preserve the supplied seed, create a separate Report Builder-authored `8.5in × 11in` version with existing 0.5-inch margins, reopen it, rerun Preview/PDF/Excel validation, and return concrete counts plus no-clipping/no-blank-page evidence.
+- Pulled the corrected seed and extended the comparison to all three artifacts. The only substantive correction from the first production seed is removal of explicit `PageWidth=2in`; RDL defaults now resolve to Letter `8.5in × 11in`, giving `7.5in` printable width for the `7in` body while preserving pagination structures.

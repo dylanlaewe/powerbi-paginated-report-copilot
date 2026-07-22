@@ -3,7 +3,9 @@ import { validateCollectionConsistency } from "./compatibility";
 export interface PaginationFingerprint {
   bodyWidthInches: number;
   pageWidthInches: number;
-  pageHeightInches: number | null;
+  pageHeightInches: number;
+  pageWidthSource: "EXPLICIT" | "RDL_DEFAULT";
+  pageHeightSource: "EXPLICIT" | "RDL_DEFAULT";
   leftMarginInches: number;
   rightMarginInches: number;
   printableWidthInches: number;
@@ -36,8 +38,10 @@ export const fingerprintPagination = (xml: string): PaginationFingerprint => {
   const consistency = validateCollectionConsistency(xml, {
     requirePrintSafe: false,
   });
-  const pageWidth = inches(xml, "PageWidth", 8.5)!;
-  const pageHeight = inches(xml, "PageHeight", null);
+  const explicitPageWidth = inches(xml, "PageWidth", null);
+  const explicitPageHeight = inches(xml, "PageHeight", null);
+  const pageWidth = explicitPageWidth ?? 8.5;
+  const pageHeight = explicitPageHeight ?? 11;
   const left = inches(xml, "LeftMargin", 1)!;
   const right = inches(xml, "RightMargin", 1)!;
   const printable = pageWidth - left - right;
@@ -46,6 +50,8 @@ export const fingerprintPagination = (xml: string): PaginationFingerprint => {
     bodyWidthInches: consistency.bodyWidthInches,
     pageWidthInches: pageWidth,
     pageHeightInches: pageHeight,
+    pageWidthSource: explicitPageWidth === null ? "RDL_DEFAULT" : "EXPLICIT",
+    pageHeightSource: explicitPageHeight === null ? "RDL_DEFAULT" : "EXPLICIT",
     leftMarginInches: left,
     rightMarginInches: right,
     printableWidthInches: printable,
@@ -85,9 +91,11 @@ export const assertReportBuilderPaginationStructure = (xml: string): void => {
 export const comparePaginationStructures = (
   candidate05: string,
   seed: string,
+  correctedSeed: string,
 ) => ({
   acceptedCandidate05: fingerprintPagination(candidate05),
   reportBuilderProductionSeed: fingerprintPagination(seed),
+  reportBuilderPrintSafeSeed: fingerprintPagination(correctedSeed),
   observedDeltas: [
     "Report Builder adds RepeatOnNewPage=true to the existing static header member; it does not add FixedData.",
     "Report Builder adds BreakLocation=Between inside the outer Region group.",
@@ -97,5 +105,5 @@ export const comparePaginationStructures = (
   blockingFinding:
     "The seed's 7in body plus 0.5in left/right margins requires at least 8in page width, but explicit PageWidth is 2in. Static print-safe validation fails, and the submitted horizontal-clipping/blank-page fields were placeholders.",
   conclusion:
-    "Pagination structures are proven, but Candidate 06 cannot preserve this page dimension and also satisfy the required print-safe-width condition. A corrected Report Builder-authored seed is required.",
+    "The corrected seed removes the erroneous explicit 2in width, uses the RDL Letter defaults of 8.5in x 11in with 0.5in margins, passes the 7in body-width check, and preserves the proven pagination structures.",
 });

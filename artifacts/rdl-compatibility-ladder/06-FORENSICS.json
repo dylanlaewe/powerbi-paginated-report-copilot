@@ -8,13 +8,19 @@
     "productionSeed": {
       "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodProductionPagination.rdl",
       "sha256": "53c8dc9dac7e53830673c13f50363e69d1a6f528bf8d3e0199eda348e01db196"
+    },
+    "correctedSeed": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodProductionPaginationPrintSafe.rdl",
+      "sha256": "a9a258a6fab73c0374c4d08dc0c1c923d57e8efd55df2fa04c88215bab06ef2a"
     }
   },
   "comparison": {
     "acceptedCandidate05": {
       "bodyWidthInches": 7,
       "pageWidthInches": 8.5,
-      "pageHeightInches": null,
+      "pageHeightInches": 11,
+      "pageWidthSource": "RDL_DEFAULT",
+      "pageHeightSource": "RDL_DEFAULT",
       "leftMarginInches": 1,
       "rightMarginInches": 1,
       "printableWidthInches": 6.5,
@@ -32,11 +38,33 @@
     "reportBuilderProductionSeed": {
       "bodyWidthInches": 7,
       "pageWidthInches": 2,
-      "pageHeightInches": null,
+      "pageHeightInches": 11,
+      "pageWidthSource": "EXPLICIT",
+      "pageHeightSource": "RDL_DEFAULT",
       "leftMarginInches": 0.5,
       "rightMarginInches": 0.5,
       "printableWidthInches": 1,
       "printSafe": false,
+      "repeatOnNewPageCount": 1,
+      "fixedDataCount": 0,
+      "regionPageBreakLocation": "Between",
+      "pageNumberExpressionCount": 2,
+      "executionTimeExpressionCount": 1,
+      "footerTextboxCount": 2,
+      "tablixBodyRows": 4,
+      "rowHierarchyLeaves": 4,
+      "embeddedRows": 6
+    },
+    "reportBuilderPrintSafeSeed": {
+      "bodyWidthInches": 7,
+      "pageWidthInches": 8.5,
+      "pageHeightInches": 11,
+      "pageWidthSource": "RDL_DEFAULT",
+      "pageHeightSource": "RDL_DEFAULT",
+      "leftMarginInches": 0.5,
+      "rightMarginInches": 0.5,
+      "printableWidthInches": 7.5,
+      "printSafe": true,
       "repeatOnNewPageCount": 1,
       "fixedDataCount": 0,
       "regionPageBreakLocation": "Between",
@@ -54,6 +82,6 @@
       "Margins change from 1in to 0.5in and an explicit PageWidth=2in is added; PageHeight remains unspecified."
     ],
     "blockingFinding": "The seed's 7in body plus 0.5in left/right margins requires at least 8in page width, but explicit PageWidth is 2in. Static print-safe validation fails, and the submitted horizontal-clipping/blank-page fields were placeholders.",
-    "conclusion": "Pagination structures are proven, but Candidate 06 cannot preserve this page dimension and also satisfy the required print-safe-width condition. A corrected Report Builder-authored seed is required."
+    "conclusion": "The corrected seed removes the erroneous explicit 2in width, uses the RDL Letter defaults of 8.5in x 11in with 0.5in margins, passes the 7in body-width check, and preserves the proven pagination structures."
   }
 }

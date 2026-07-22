@@ -9,14 +9,21 @@ import {
 
 let candidate05 = "";
 let seed = "";
+let correctedSeed = "";
 beforeAll(async () => {
-  [candidate05, seed] = await Promise.all([
+  [candidate05, seed, correctedSeed] = await Promise.all([
     readFile(
       resolve("artifacts/rdl-compatibility-ladder/05-grand-total.rdl"),
       "utf8",
     ),
     readFile(
       resolve("samples/report-builder-seeds/KnownGoodProductionPagination.rdl"),
+      "utf8",
+    ),
+    readFile(
+      resolve(
+        "samples/report-builder-seeds/KnownGoodProductionPaginationPrintSafe.rdl",
+      ),
       "utf8",
     ),
   ]);
@@ -46,8 +53,25 @@ describe("Report Builder production-pagination forensics", () => {
     });
   });
   it("records the blocking conclusion", () => {
-    expect(comparePaginationStructures(candidate05, seed).conclusion).toContain(
-      "corrected Report Builder-authored seed",
-    );
+    expect(
+      comparePaginationStructures(candidate05, seed, correctedSeed).conclusion,
+    ).toContain("passes the 7in body-width check");
+  });
+  it("accepts the corrected structure and effective Letter defaults", () => {
+    expect(() =>
+      assertReportBuilderPaginationStructure(correctedSeed),
+    ).not.toThrow();
+    expect(fingerprintPagination(correctedSeed)).toMatchObject({
+      bodyWidthInches: 7,
+      pageWidthInches: 8.5,
+      pageHeightInches: 11,
+      pageWidthSource: "RDL_DEFAULT",
+      pageHeightSource: "RDL_DEFAULT",
+      printableWidthInches: 7.5,
+      printSafe: true,
+      repeatOnNewPageCount: 1,
+      regionPageBreakLocation: "Between",
+      pageNumberExpressionCount: 2,
+    });
   });
 });
