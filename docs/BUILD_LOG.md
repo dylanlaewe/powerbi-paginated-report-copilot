@@ -170,3 +170,9 @@
 - Generated the byte-identical Candidate 06 artifact, validation manifest, and final Windows Preview/PDF/Excel handoff. Seed numeric page/sheet counts remain unrecorded because placeholders were submitted.
 - Independent Windows validation rejected Candidate 06: checksum and Design passed, but runtime page width was 13 inches and PageHeight was invalid zero. Preview failed before rendering; PDF and Excel were not tested.
 - Recorded that the validator's inferred Letter defaults were unsound. Candidate 06 remains unchanged as failure evidence.
+
+## 2026-07-21 — Explicit page-dimension regression
+
+- Removed production validation's unsafe reliance on omitted PageWidth/PageHeight defaults.
+- Added exact assertions for positive valid `PageWidth=8.5in`, `PageHeight=11in`, all four `0.5in` margins, and body width within printable width.
+- Added regressions that reject failed Candidate 06 and the newly supplied Letter seed because both omit physical dimensions; those two seeds differ only by Report Builder modification timestamp.

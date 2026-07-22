@@ -11,8 +11,11 @@ const paths = {
   correctedSeed: resolve(
     "samples/report-builder-seeds/KnownGoodProductionPaginationPrintSafe.rdl",
   ),
+  letterSeed: resolve(
+    "samples/report-builder-seeds/KnownGoodProductionPaginationLetter.rdl",
+  ),
 };
-const [candidate05, seed, correctedSeed] = await Promise.all(
+const [candidate05, seed, correctedSeed, letterSeed] = await Promise.all(
   Object.values(paths).map((path) => readFile(path, "utf8")),
 );
 const sha256 = (value: string): string =>
@@ -30,8 +33,14 @@ const evidence = {
       path: paths.correctedSeed,
       sha256: sha256(correctedSeed!),
     },
+    letterSeed: { path: paths.letterSeed, sha256: sha256(letterSeed!) },
   },
-  comparison: comparePaginationStructures(candidate05!, seed!, correctedSeed!),
+  comparison: comparePaginationStructures(
+    candidate05!,
+    seed!,
+    correctedSeed!,
+    letterSeed!,
+  ),
 };
 await mkdir(dirname(outputPath), { recursive: true });
 const temporary = `${outputPath}.${process.pid}.tmp`;
@@ -43,7 +52,6 @@ console.log("Production-pagination structure forensics: PASS");
 console.log(
   "Original production seed print-safe validation: FAIL (PageWidth 2in)",
 );
-console.log(
-  "Corrected production seed print-safe validation: PASS (effective Letter 8.5in x 11in)",
-);
+console.log("First corrected seed explicit dimensions: FAIL (both omitted)");
+console.log("New Letter seed explicit dimensions: FAIL (both omitted)");
 console.log(`Output: ${outputPath}`);

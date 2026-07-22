@@ -57,6 +57,7 @@
 ### Fixed
 
 - Disabled Git line-ending conversion for `.rdl` files after LF-to-CRLF conversion reproduced Candidate 03b's exact Windows checksum mismatch. Added raw-byte and canonicalization regression coverage without changing accepted report contents.
+- Production pagination validation now requires explicit positive Letter dimensions and half-inch margins instead of assuming defaults for omitted PageWidth/PageHeight.
 
 ### Added
 

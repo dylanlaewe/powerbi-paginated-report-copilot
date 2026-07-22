@@ -5,13 +5,7 @@ import {
   deriveCandidate06,
   printSafePaginationSeedSha256,
 } from "./candidate06";
-import { validateCollectionConsistency } from "./compatibility";
-import { assertReportBuilderGrandTotalStructure } from "./grand-total-forensics";
 import { sha256 } from "./ladder";
-import {
-  assertReportBuilderPaginationStructure,
-  fingerprintPagination,
-} from "./pagination-forensics";
 
 let seed = "";
 beforeAll(async () => {
@@ -22,40 +16,14 @@ beforeAll(async () => {
     "utf8",
   );
 });
-describe("Candidate 06", () => {
-  it("is a byte-identical copy of the corrected Report Builder seed", () => {
-    const candidate = deriveCandidate06(seed);
-    expect(candidate).toBe(seed);
-    expect(sha256(candidate)).toBe(printSafePaginationSeedSha256);
+describe("Candidate 06 rejected dimension regression", () => {
+  it("pins the unchanged failed artifact input", () => {
+    expect(sha256(seed)).toBe(printSafePaginationSeedSha256);
   });
-  it("preserves data, subtotal, grand-total, and pagination structures", () => {
-    const candidate = deriveCandidate06(seed);
-    expect(() =>
-      assertReportBuilderGrandTotalStructure(candidate, {
-        allowPageBreaks: true,
-      }),
-    ).not.toThrow();
-    expect(() =>
-      assertReportBuilderPaginationStructure(candidate),
-    ).not.toThrow();
-    expect(validateCollectionConsistency(candidate)).toMatchObject({
-      embeddedRows: 6,
-      bodyWidthInches: 7,
-      availablePageWidthInches: 7.5,
-    });
-  });
-  it("uses effective Letter portrait dimensions and half-inch margins", () => {
-    expect(fingerprintPagination(deriveCandidate06(seed))).toMatchObject({
-      pageWidthInches: 8.5,
-      pageHeightInches: 11,
-      leftMarginInches: 0.5,
-      rightMarginInches: 0.5,
-      printableWidthInches: 7.5,
-      printSafe: true,
-      repeatOnNewPageCount: 1,
-      regionPageBreakLocation: "Between",
-      pageNumberExpressionCount: 2,
-    });
+  it("rejects the dimensionless seed instead of assuming Letter defaults", () => {
+    expect(() => deriveCandidate06(seed)).toThrow(
+      "Explicit PageWidth is required for production pagination",
+    );
   });
   it("rejects any seed mutation", () => {
     expect(() =>

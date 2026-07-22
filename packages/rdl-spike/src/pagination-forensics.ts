@@ -92,10 +92,12 @@ export const comparePaginationStructures = (
   candidate05: string,
   seed: string,
   correctedSeed: string,
+  letterSeed: string,
 ) => ({
   acceptedCandidate05: fingerprintPagination(candidate05),
   reportBuilderProductionSeed: fingerprintPagination(seed),
   reportBuilderPrintSafeSeed: fingerprintPagination(correctedSeed),
+  reportBuilderLetterSeed: fingerprintPagination(letterSeed),
   observedDeltas: [
     "Report Builder adds RepeatOnNewPage=true to the existing static header member; it does not add FixedData.",
     "Report Builder adds BreakLocation=Between inside the outer Region group.",
@@ -105,5 +107,5 @@ export const comparePaginationStructures = (
   blockingFinding:
     "The seed's 7in body plus 0.5in left/right margins requires at least 8in page width, but explicit PageWidth is 2in. Static print-safe validation fails, and the submitted horizontal-clipping/blank-page fields were placeholders.",
   conclusion:
-    "The corrected seed removes the erroneous explicit 2in width, uses the RDL Letter defaults of 8.5in x 11in with 0.5in margins, passes the 7in body-width check, and preserves the proven pagination structures.",
+    "Both the first correction and the newly supplied Letter seed omit PageWidth and PageHeight and differ only by Report Builder modification timestamp. Independent Windows validation resolved those omissions to 13in x 0 and failed. Production candidates must serialize explicit positive PageWidth=8.5in and PageHeight=11in.",
 });

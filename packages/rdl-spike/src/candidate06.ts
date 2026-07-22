@@ -48,7 +48,9 @@ export const deriveCandidate06 = (seed: string): string => {
     throw new Error(
       "Canonical production seed is not effective Letter print-safe",
     );
-  const consistency = validateCollectionConsistency(seed);
+  const consistency = validateCollectionConsistency(seed, {
+    requireExplicitLetterPage: true,
+  });
   if (
     consistency.embeddedRows !== 6 ||
     consistency.fields.join("|") !== requiredFields.join("|")
@@ -91,7 +93,9 @@ export const runCandidate06 = async (outputDirectory: string) => {
       stdio: ["ignore", "pipe", "pipe"],
     },
   );
-  const consistency = validateCollectionConsistency(candidate);
+  const consistency = validateCollectionConsistency(candidate, {
+    requireExplicitLetterPage: true,
+  });
   const pagination = fingerprintPagination(candidate);
   const manifest = {
     candidate: candidate06FileName,

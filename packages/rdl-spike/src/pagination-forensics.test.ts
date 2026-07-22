@@ -10,8 +10,9 @@ import {
 let candidate05 = "";
 let seed = "";
 let correctedSeed = "";
+let letterSeed = "";
 beforeAll(async () => {
-  [candidate05, seed, correctedSeed] = await Promise.all([
+  [candidate05, seed, correctedSeed, letterSeed] = await Promise.all([
     readFile(
       resolve("artifacts/rdl-compatibility-ladder/05-grand-total.rdl"),
       "utf8",
@@ -23,6 +24,12 @@ beforeAll(async () => {
     readFile(
       resolve(
         "samples/report-builder-seeds/KnownGoodProductionPaginationPrintSafe.rdl",
+      ),
+      "utf8",
+    ),
+    readFile(
+      resolve(
+        "samples/report-builder-seeds/KnownGoodProductionPaginationLetter.rdl",
       ),
       "utf8",
     ),
@@ -54,8 +61,15 @@ describe("Report Builder production-pagination forensics", () => {
   });
   it("records the blocking conclusion", () => {
     expect(
-      comparePaginationStructures(candidate05, seed, correctedSeed).conclusion,
-    ).toContain("passes the 7in body-width check");
+      comparePaginationStructures(candidate05, seed, correctedSeed, letterSeed)
+        .conclusion,
+    ).toContain("omit PageWidth and PageHeight");
+  });
+  it("records that the new Letter seed still omits physical dimensions", () => {
+    expect(fingerprintPagination(letterSeed)).toMatchObject({
+      pageWidthSource: "RDL_DEFAULT",
+      pageHeightSource: "RDL_DEFAULT",
+    });
   });
   it("accepts the corrected structure and effective Letter defaults", () => {
     expect(() =>

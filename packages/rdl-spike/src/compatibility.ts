@@ -97,7 +97,10 @@ const inches = (raw: string, label: string): number => {
 
 export const validateCollectionConsistency = (
   xml: string,
-  options: { requirePrintSafe?: boolean } = {},
+  options: {
+    requirePrintSafe?: boolean;
+    requireExplicitLetterPage?: boolean;
+  } = {},
 ): ConsistencyResult => {
   const root = parse(xml);
   const dataSet = required(descendants(root, "DataSet")[0], "DataSet");
@@ -309,6 +312,30 @@ export const validateCollectionConsistency = (
   );
   const bodyWidthInches = inches(value(child(section, "Width")), "Body width");
   const page = required(child(section, "Page"), "Page");
+  if (options.requireExplicitLetterPage) {
+    const requiredSizes = {
+      PageWidth: "8.5in",
+      PageHeight: "11in",
+      LeftMargin: "0.5in",
+      RightMargin: "0.5in",
+      TopMargin: "0.5in",
+      BottomMargin: "0.5in",
+    } as const;
+    const validRdlSize =
+      /^(?:0*[1-9]\d*(?:\.\d+)?|0*\.\d*[1-9]\d*)(?:in|cm|mm|pt|pc)$/;
+    for (const [name, expected] of Object.entries(requiredSizes)) {
+      const node = child(page, name);
+      if (!node)
+        throw new Error(
+          `Explicit ${name} is required for production pagination`,
+        );
+      const raw = value(node);
+      if (!validRdlSize.test(raw))
+        throw new Error(`${name} is not a positive valid RdlSize: ${raw}`);
+      if (raw !== expected)
+        throw new Error(`${name} must be exactly ${expected}; received ${raw}`);
+    }
+  }
   const pageWidthInches = child(page, "PageWidth")
     ? inches(value(child(page, "PageWidth")), "Page width")
     : 8.5;
