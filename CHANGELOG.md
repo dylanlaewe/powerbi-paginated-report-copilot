@@ -11,6 +11,7 @@
 
 ### Validated
 
+- Independent Windows testing accepted Candidate 06b: explicit physical dimensions, checksum, open, Design, Preview, multipage Region pagination, repeating headings, Page N of M, all rows and totals, no blank pages or clipping, PDF export, and Excel export passed. The RDL compatibility ladder is complete.
 - Independent Power BI Desktop testing opened the generated PBIP and recognized its generated page, visual objects, and semantic model without corruption or repair. Fixture-wide data retrieval remained blocked, so populated rendering and interaction are not claimed.
 
 ### Added

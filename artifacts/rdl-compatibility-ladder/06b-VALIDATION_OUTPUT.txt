@@ -8,7 +8,7 @@ Report: artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl
 SHA-256: c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a
 Literal PageWidth/PageHeight: PASS
 Seed byte identity: PASS
-Report Builder open/Preview/PDF/Excel: PENDING INDEPENDENT WINDOWS
+Report Builder open/Preview/PDF/Excel: PASS INDEPENDENT WINDOWS
 
 Independent checks:
 - XML well-formedness: PASS
@@ -34,8 +34,19 @@ Seed provenance:
 - Seed Preview/PDF/Excel numeric counts: NOT PROVIDED (placeholders received)
 
 Candidate 06b Windows status:
-- Report Builder open: PENDING
-- Design view: PENDING
-- Preview: PENDING
-- PDF export: PENDING
-- Excel export: PENDING
+- Report Builder open: PASS
+- Design view: PASS
+- Preview: PASS
+- Preview page count: NOT PROVIDED (placeholder received)
+- Multipage Region pagination: PASS
+- Repeating column headings: PASS
+- Page N of M: PASS
+- No blank Preview pages: PASS
+- No horizontal clipping in Preview: PASS
+- PDF export: PASS
+- PDF page count: NOT PROVIDED (placeholder received)
+- No blank or horizontally clipped PDF pages: PASS
+- Excel export: PASS
+- Excel worksheet count: NOT PROVIDED (placeholder received)
+- Excel repair warning: NONE
+- Candidate 06b acceptance: PASS

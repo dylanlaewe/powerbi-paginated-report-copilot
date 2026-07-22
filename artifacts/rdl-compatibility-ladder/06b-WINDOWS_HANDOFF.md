@@ -1,6 +1,6 @@
 # Candidate 06b independent Windows handoff
 
-Candidate 06b is a byte-identical control copy of the corrected, Report Builder-authored Letter seed. It is not accepted until this exact candidate passes independent Windows validation.
+Candidate 06b is a byte-identical control copy of the corrected, Report Builder-authored Letter seed. Independent Windows validation passed; the final evidence is recorded in `06b-WINDOWS_ACCEPTANCE.md`.
 
 ## Integrity
 
@@ -38,4 +38,4 @@ Return screenshots of Design view with page properties, every Preview page, ever
 
 ## Acceptance criterion
 
-Candidate 06b passes only if Report Builder opens and previews it with correct multipage Region pagination, repeated headings, Page N of M, correct totals, no blank pages, no horizontal clipping, and successful PDF and Excel exports, while preserving the expected SHA-256.
+**MET.** Report Builder opened and previewed Candidate 06b with correct multipage Region pagination, repeated headings, Page N of M, correct totals, no blank pages, no horizontal clipping, and successful PDF and Excel exports while preserving the expected SHA-256. Numeric page and worksheet counts were not provided.

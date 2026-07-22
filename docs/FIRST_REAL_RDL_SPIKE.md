@@ -164,7 +164,9 @@ Local XML, XSD, data, hierarchy, pagination, effective-page-size, print-width, b
 
 Independent Windows validation rejected Candidate 06. Design opened, but Report Builder resolved the page as `13in` wide with PageHeight `0`; Preview failed before rendering because `ReportSection0` had an invalid PageHeight. PDF and Excel were not tested. This disproves the local validator's assumption that omitted dimensions safely implied Letter defaults. Candidate 06 remains unchanged and failed.
 
-Earlier `KnownGoodProductionPaginationLetter.rdl` revisions were ineligible because they omitted PageWidth/PageHeight. Seed commit `81861fb434547f101f0f455b7ca0ad2bd68cc86e` resolves the blocker: the repository blob explicitly contains positive `8.5in` and `11in` page sizes, four exact `0.5in` margins, and a print-safe `7in` body. Candidate 06b is a byte-identical control copy with SHA-256 `c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a`; independent Windows validation remains pending.
+Earlier `KnownGoodProductionPaginationLetter.rdl` revisions were ineligible because they omitted PageWidth/PageHeight. Seed commit `81861fb434547f101f0f455b7ca0ad2bd68cc86e` resolves the blocker: the repository blob explicitly contains positive `8.5in` and `11in` page sizes, four exact `0.5in` margins, and a print-safe `7in` body. Candidate 06b is a byte-identical control copy with SHA-256 `c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a`.
+
+Independent Windows validation accepted Candidate 06b: checksum, open, Design, Preview, six details, three Region subtotals, one Grand Total, Region page breaks, repeated headings, Page N of M, no blank pages, no clipping, PDF export, and Excel export all passed. Numeric Preview/PDF page counts and Excel worksheet count were not provided. The RDL compatibility ladder is complete; no Candidate 07 was generated.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

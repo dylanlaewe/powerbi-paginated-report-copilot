@@ -185,3 +185,5 @@
 - Updated pagination forensics and strict dimension tests to accept only the explicit final Letter seed.
 - Added Candidate 06b byte-for-byte generation while preserving failed Candidate 06 unchanged and retaining all pagination, data, grouping, subtotal, Grand Total, PDF, and Excel structures.
 - Generated the byte-identical Candidate 06b artifact and a Windows handoff requiring concrete Preview/PDF/Excel counts, no blank pages or clipping, correct totals, and a post-test checksum. Candidate acceptance remains pending.
+- Independent Windows validation accepted Candidate 06b: checksum, explicit dimensions, open, Design, Preview, hierarchy, rows, subtotals, Grand Total, Region pagination, repeated headings, Page N of M, no blank pages, no clipping, PDF, and Excel passed.
+- Closed the compatibility ladder without generating Candidate 07. Numeric Preview/PDF page counts and Excel worksheet count remain unreported placeholders.
