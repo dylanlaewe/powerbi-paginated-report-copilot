@@ -1,0 +1,41 @@
+Windows packaged MVP local build validation
+Date: 2026-07-22
+Branch: codex/windows-packaged-mvp
+
+Commands executed from repository root:
+  pnpm install
+  pnpm test
+  pnpm lint
+  pnpm typecheck
+  pnpm package:win:dir
+  pnpm package:win
+
+Results:
+  Vitest: PASS — 31 files, 159 tests
+  ESLint: PASS
+  TypeScript: PASS — all workspace typechecks
+  Electron production build: PASS
+  Windows x64 unpacked build: PASS
+  Windows x64 portable build: PASS
+
+Portable artifact:
+  Path: /Users/dylanlaewe/powerbi-paginated-report-copilot/dist/windows/Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe
+  Bytes: 89624083
+  SHA-256: 5e47a34583a09d2669d5220ed58c70ca9ff7e7ac59403066534fcd0fa051c50b
+
+Inspected unpacked runtime:
+  resources/app.asar: PRESENT
+  resources/approved-report-resources/06b-production-pagination-letter.rdl: PRESENT
+  resources/approved-report-resources/ReportDefinition-2016.xsd: PRESENT
+  Production modules in app.asar: libxml2-wasm, zod
+  Emitted main contains dynamic import("libxml2-wasm"): PASS
+  Emitted main contains xmllint: NO
+  Emitted preload externally requires only Electron: PASS
+
+Approved resource integrity:
+  Template SHA-256: c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a
+  XSD SHA-256: 7714fc8dd1c803d9eb661518fccfbc01cdd0cc19963fa3f3b45084eadf541b29
+
+Host limitation:
+  The build host is macOS. It cannot execute the Windows binary. Clean-Windows launch,
+  generation, Report Builder Preview, PDF export, and Excel export remain pending.

@@ -9,6 +9,6 @@ Independent acceptance:
 - Windows Report Builder: canonical generated RDL passed checksum, open, Design, Preview, requested content, six details, three Region subtotals, Grand Total, Region pagination, repeated headings, Page N of M, no blank pages or clipping, PDF, and Excel.
 - macOS Electron UI: application launch, canonical request generation, visible summary, controlled output creation, expected SHA-256, and byte identity with the accepted CLI artifact passed.
 
-The accepted `rdl-copilot-mvp-v0.1` tag is frozen. The active branch packages that exact narrow workflow for a clean Windows customer path. The generator now performs deterministic XSD validation with an application-bundled WebAssembly libxml2 runtime instead of invoking an end-user `xmllint` installation. Portable-build and clean-Windows acceptance remain pending.
+The accepted `rdl-copilot-mvp-v0.1` tag is frozen. The active branch packages that exact narrow workflow for a clean Windows customer path. The generator performs deterministic XSD validation with an application-bundled WebAssembly libxml2 runtime instead of invoking an end-user `xmllint` installation. An unsigned x64 portable EXE has been built and inspected locally; independent clean-Windows launch, generation, Report Builder, PDF, and Excel acceptance remain pending.
 
-See `KNOWN_LIMITATIONS.md`, `ARCHITECTURE.md`, `RDL_COPILOT_MVP.md`, and `MAC_ELECTRON_MVP_TEST.md` for scope and operation.
+See `KNOWN_LIMITATIONS.md`, `ARCHITECTURE.md`, `RDL_COPILOT_MVP.md`, `MAC_ELECTRON_MVP_TEST.md`, and `WINDOWS_PACKAGED_MVP_TEST.md` for scope and operation.
