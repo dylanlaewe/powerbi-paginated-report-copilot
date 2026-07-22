@@ -2,7 +2,6 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, isAbsolute, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import type {
   RdlDatasetRow,
   RdlReportSpecification,
@@ -16,14 +15,13 @@ import { assertWellFormed } from "@powerbi-copilot/rdl-spike";
 export const approvedTemplateId = "production-pagination-letter" as const;
 export const approvedTemplateSha256 =
   "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a";
-export const approvedTemplatePath = fileURLToPath(
-  new URL(
-    "../../../artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl",
-    import.meta.url,
-  ),
+export const approvedTemplatePath = resolve(
+  process.cwd(),
+  "artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl",
 );
-const schemaPath = fileURLToPath(
-  new URL("../../rdl-spike/schema/ReportDefinition-2016.xsd", import.meta.url),
+const schemaPath = resolve(
+  process.cwd(),
+  "packages/rdl-spike/schema/ReportDefinition-2016.xsd",
 );
 const originalTitle = "Regional Sales Subtotal Compatibility Test";
 
