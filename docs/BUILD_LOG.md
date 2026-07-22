@@ -124,3 +124,5 @@
 - Added independent expected-total tests and guards for template hash, nonidentity, exact protected-Tablix identity, field/data consistency, cross-platform byte policy, and absence of grand totals, page breaks, and parameters.
 - Generated the 04c handoff artifact with six replacement rows and expected Central `17 / 4050 / 1610`, East `14 / 5950 / 2270`, and West `30 / 5990 / 2370` subtotals.
 - Passed XML, XSD, full repository checks, checksum policy, and protected Candidate/seed hash verification. Independent Windows validation remains pending.
+- Independent Windows validation subsequently passed checksum, open, Design, one-page Preview, replacement-title/data verification, six-row completeness, grouping, and all three expected subtotals without repair, stale data, duplicates, omissions, blank aggregates, `#Error`, or grand total.
+- Accepted Candidate 04c as proof of the template-instantiation architecture. Recorded narrow-layout wrapping as deferred presentation work.

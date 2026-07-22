@@ -1,8 +1,14 @@
 # Candidate 04c Windows validation
 
+## Result
+
+**PASS — independently accepted on Windows.** Report Builder opened the artifact without exception, repair, conversion, or upgrade; Design and one-page Preview passed; the replacement title and all six replacement rows rendered exactly once; no prior data remained; and all three Region subtotals matched. No grand total, `#Error`, or blank aggregate appeared.
+
+The title, several headers/details, and some currency values wrap in the preserved narrow layout. Region and Region1 are both visible. These are deferred presentation issues, not structural or calculation failures.
+
 ## Acceptance criterion
 
-Power BI Report Builder opens and previews `04c-template-instantiated-subtotal.rdl` with its replacement six-row dataset and three mathematically correct Region subtotals. Do not test or generate Candidate 05.
+Met. Power BI Report Builder opened and previewed `04c-template-instantiated-subtotal.rdl` with its replacement six-row dataset and three mathematically correct Region subtotals.
 
 ## Identity and reproduction
 

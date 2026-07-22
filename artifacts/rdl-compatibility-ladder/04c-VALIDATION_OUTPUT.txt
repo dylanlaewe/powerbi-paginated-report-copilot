@@ -29,4 +29,18 @@ Tablix columns / column leaves: 8 / 8
 Effective cells per row: 8 / 8 / 8
 RDL Git attribute: text: unset
 Accepted Candidates 01, 02, 03b, 04b and all canonical seed hashes: PASS
-Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Template instantiation: PASS
+Replacement embedded data: PASS
+Six-row verification: PASS
+Region grouping: PASS
+Region subtotal structure: PASS
+Region subtotal calculations: PASS
+Report-level grand total absent: PASS
+Actual pagination: ONE PAGE
+Repair or conversion request: NONE
+Candidate 04c acceptance: PASS
+Layout quality: DEFERRED (title, headers, details, and some currency values wrap in the preserved narrow layout)

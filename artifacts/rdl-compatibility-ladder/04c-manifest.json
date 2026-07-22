@@ -105,8 +105,21 @@
     "xmlWellFormedness": "PASS",
     "existingXsd": "PASS",
     "xsdOutput": "04c-template-instantiated-subtotal.rdl validates",
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "artifactChecksum": "PASS",
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "reportBuilderPreview": "PASS",
+      "templateInstantiation": "PASS",
+      "replacementEmbeddedData": "PASS",
+      "sixRowVerification": "PASS",
+      "regionGrouping": "PASS",
+      "regionSubtotalStructure": "PASS",
+      "regionSubtotalCalculations": "PASS",
+      "reportLevelGrandTotalAbsent": "PASS",
+      "actualPagination": "ONE_PAGE",
+      "repairConversionOrUpgradeRequest": "NONE",
+      "candidateAcceptance": "PASS",
+      "layoutQuality": "DEFERRED"
   },
   "consistency": {
     "fields": [
