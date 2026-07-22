@@ -138,3 +138,9 @@
 - Pulled and pinned the reopened, previewed Report Builder-authored grand-total seed.
 - Compared it with accepted Candidate 04c across body rows/cells, hierarchy leaves, member placement, headers, aggregate scopes, KeepWithGroup, height, embedded data, page breaks, and parameters.
 - Added regression validation for the exact four-row/four-leaf, eight-unmerged-cell, dataset-context grand-total structure. No hierarchy arrangement is inferred.
+
+## 2026-07-21 — Candidate 05 template implementation
+
+- Added Candidate 05 generation directly from the hash-pinned Report Builder grand-total seed.
+- Preserved every seed byte except the report-level `Textbox2` visible value, instantiated from `Total` to the required `Grand Total`; no hierarchy XML is constructed.
+- Added tests for exact normalized seed identity, six rows, three Region subtotals, four body rows/leaves, dataset-context aggregate expressions, and independently calculated `61 / 15990 / 6250` grand totals.
