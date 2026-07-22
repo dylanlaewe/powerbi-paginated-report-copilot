@@ -203,3 +203,6 @@
 - Added the multiline request workflow, visible generation/error states, structured title/rows/Regions/totals/template/checksum summary, Finder reveal, and path copy.
 - Added CLI/UI byte-parity, rejected-template, invalid-display, IPC strictness, controlled-path, and template-preservation tests plus focused Mac launch instructions.
 - Corrected Electron workspace dependency bundling after the first Mac launch exposed direct TypeScript loading; the second `pnpm dev` launch built main/preload/renderer and started the Electron application successfully.
+- Reproduced the Mac acceptance failure: emitted preload contained `require("zod")`, sandbox loading failed, the bridge remained undefined, and the renderer lacked rejection cleanup.
+- Removed all non-Electron preload runtime imports, retained Zod validation in main, added missing-bridge and rejected-IPC recovery with `finally`, and verified the built preload contains only `require("electron")`.
+- Added sandbox bridge initialization, emitted-bundle, main-process validation, hardened BrowserWindow, and renderer recovery regressions. A final `pnpm dev` smoke launched without preload errors.

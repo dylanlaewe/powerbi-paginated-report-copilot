@@ -4,6 +4,7 @@ import {
   visibleGenerationError,
   type GenerationResult,
 } from "../shared/desktop-api";
+import { runGeneration } from "./generation-ui";
 import "./style.css";
 
 function Totals({
@@ -23,11 +24,8 @@ function App(): React.JSX.Element {
   const [request, setRequest] = useState("");
   const [result, setResult] = useState<GenerationResult>();
   const [busy, setBusy] = useState(false);
-  const generate = async () => {
-    setBusy(true);
-    setResult(await window.powerBiCopilot.generateReport(request));
-    setBusy(false);
-  };
+  const generate = () =>
+    runGeneration(window.powerBiCopilot, request, setBusy, setResult);
   return (
     <main className="shell">
       <aside>
@@ -124,13 +122,13 @@ function App(): React.JSX.Element {
             <div className="path">
               <code>{result.outputPath}</code>
               <button
-                onClick={() => void window.powerBiCopilot.copyGeneratedPath()}
+                onClick={() => void window.powerBiCopilot?.copyGeneratedPath()}
               >
                 Copy path
               </button>
               <button
                 onClick={() =>
-                  void window.powerBiCopilot.revealGeneratedReport()
+                  void window.powerBiCopilot?.revealGeneratedReport()
                 }
               >
                 Reveal in Finder

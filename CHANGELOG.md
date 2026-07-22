@@ -24,6 +24,8 @@
 
 ### Rejected
 
+- Initial Mac Electron UI acceptance failed because the sandboxed preload externally required Zod, preventing the context bridge from initializing and leaving generation stuck.
+
 - Independent Windows validation found that Power BI Report Builder fails to open the generated `Regional Sales Detail.rdl` with an index-out-of-range error. Design, Preview, embedded-data execution, and exports were not reached. The RDL generation mechanism is not proven; future candidates must be derived from a known-good Report Builder seed.
 
 ### Added
@@ -88,6 +90,10 @@
 - Candidate 06b byte-identical generation from the final explicit-Letter seed with literal page-dimension regression enforcement.
 - Candidate 05 template implementation preserving the Report Builder grand-total arrangement and instantiating only its visible report-level label.
 - Candidate 05 artifact with six accepted details, three Region subtotals, one dataset-context Grand Total, deterministic validation evidence, and a Windows handoff.
+
+### Fixed
+
+- Made the sandboxed preload Electron-only, retained all validation in main, added explicit bridge/rejection recovery in the renderer, and added emitted-bundle security regressions preventing external Zod imports.
 
 ### Validated
 

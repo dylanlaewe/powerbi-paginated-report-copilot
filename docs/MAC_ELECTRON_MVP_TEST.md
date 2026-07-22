@@ -10,6 +10,8 @@ pnpm setup:electron
 pnpm dev
 ```
 
+The preload is intentionally self-contained and imports only Electron at runtime. If DevTools reports a preload error or `window.powerBiCopilot` is absent, the Generate action must show `The desktop generation service failed to initialize.` and immediately re-enable the button.
+
 ## Focused procedure
 
 1. Open `examples/regional-sales-request.txt` and copy the complete request.
