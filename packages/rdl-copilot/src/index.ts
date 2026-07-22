@@ -6,6 +6,62 @@ import {
 
 const titlePattern = /\btitle(?:d)?\s+(?:as\s+)?[“"]([^”"]+)[”"]/iu;
 
+const rejectDuplicateJsonKeys = (json: string): void => {
+  const stack: Array<{ type: "object" | "array"; keys: Set<string> }> = [];
+  let index = 0;
+  let expectingKey = false;
+  while (index < json.length) {
+    const character = json[index];
+    if (/\s/u.test(character ?? "")) {
+      index += 1;
+      continue;
+    }
+    if (character === "{") {
+      stack.push({ type: "object", keys: new Set() });
+      expectingKey = true;
+      index += 1;
+      continue;
+    }
+    if (character === "[") {
+      stack.push({ type: "array", keys: new Set() });
+      expectingKey = false;
+      index += 1;
+      continue;
+    }
+    if (character === "}" || character === "]") {
+      stack.pop();
+      expectingKey = false;
+      index += 1;
+      continue;
+    }
+    if (character === ",") {
+      expectingKey = stack.at(-1)?.type === "object";
+      index += 1;
+      continue;
+    }
+    if (character === '"') {
+      const start = index;
+      index += 1;
+      while (index < json.length) {
+        if (json[index] === "\\") index += 2;
+        else if (json[index] === '"') {
+          index += 1;
+          break;
+        } else index += 1;
+      }
+      if (expectingKey && stack.at(-1)?.type === "object") {
+        const key = JSON.parse(json.slice(start, index)) as string;
+        const keys = stack.at(-1)?.keys;
+        if (keys?.has(key)) throw new Error(`Duplicate JSON key: ${key}`);
+        keys?.add(key);
+        expectingKey = false;
+      }
+      continue;
+    }
+    index += 1;
+  }
+};
+
 export const parseNaturalLanguageReportRequest = (
   request: string,
 ): RdlReportSpecification => {
@@ -23,7 +79,9 @@ export const parseNaturalLanguageReportRequest = (
 
   let rows: unknown;
   try {
-    rows = JSON.parse(request.slice(dataStart, dataEnd + 1));
+    const json = request.slice(dataStart, dataEnd + 1);
+    rejectDuplicateJsonKeys(json);
+    rows = JSON.parse(json);
   } catch {
     throw new Error("Request dataset is not valid JSON");
   }
@@ -37,3 +95,5 @@ export const parseNaturalLanguageReportRequest = (
     rows,
   });
 };
+
+export * from "./generator";

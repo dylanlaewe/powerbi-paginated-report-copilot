@@ -107,6 +107,9 @@ importers:
       "@powerbi-copilot/domain":
         specifier: workspace:*
         version: link:../domain
+      "@powerbi-copilot/rdl-spike":
+        specifier: workspace:*
+        version: link:../rdl-spike
 
   packages/rdl-spike:
     dependencies:

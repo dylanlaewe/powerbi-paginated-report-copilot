@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@powerbi-copilot/domain": "workspace:*"
+    "@powerbi-copilot/domain": "workspace:*",
+    "@powerbi-copilot/rdl-spike": "workspace:*"
   }
 }
