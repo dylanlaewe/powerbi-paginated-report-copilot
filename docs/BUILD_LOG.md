@@ -94,3 +94,9 @@
 - Added `*.rdl -text` so Git preserves exact RDL bytes independent of `core.autocrlf` in fresh/restored checkouts.
 - Added regression checks for Git attribute resolution, repository-blob/working-tree identity, exact reproduction of the observed CRLF checksum, and diagnostic CRLF-to-LF canonicalization.
 - Left Candidate 03b's accepted logical contents and all existing RDL blob bytes unchanged. Updated Candidate 04 instructions to require a fresh or restored post-policy checkout.
+
+## 2026-07-21 — Candidate 04 Windows rejection
+
+- Independent Windows testing verified Candidate 04's post-policy artifact checksum but failed during Report Builder open with an index-out-of-range exception before Design view.
+- Recorded XML, XSD, static repository validation, and checksum as passing; Design and Preview as not reached; Region subtotal execution as not tested; and Candidate 04 acceptance as failed.
+- Preserved Candidate 04 unchanged and stopped generated subtotal hierarchy patching. The replacement must derive from the independently accepted Report Builder-authored subtotal seed.

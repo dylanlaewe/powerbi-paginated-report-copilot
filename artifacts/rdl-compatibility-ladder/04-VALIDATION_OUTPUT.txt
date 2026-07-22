@@ -61,8 +61,18 @@ Body width: 7in, preserved from accepted Candidate 03b
 
 Independent Windows validation
 ==============================
-Report Builder open: PENDING
-Design view: PENDING
-Preview: PENDING
-Six-detail-row verification: PENDING
-Three-Region-subtotal verification: PENDING
+XML well-formedness: PASS
+Existing XSD validation: PASS
+Static repository validation: PASS
+Artifact checksum: PASS
+Report Builder open: FAIL
+Design view: NOT REACHED
+Preview: NOT REACHED
+Region subtotal execution: NOT TESTED
+Candidate 04 acceptance: FAIL
+
+Exact error:
+Failed to open report '04-region-subtotal.rdl'.
+
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index

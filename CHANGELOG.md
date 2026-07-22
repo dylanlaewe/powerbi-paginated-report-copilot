@@ -60,7 +60,11 @@
 
 ### Added
 
-- Candidate 04, directly derived from canonical Candidate 03b, with one outer-Region subtotal row per Region, explicitly scoped Quantity/Revenue/GrossProfit sums, deterministic hierarchy/scope validation, and no grand total or page break. Independent Report Builder validation remains pending.
+- Candidate 04, directly derived from canonical Candidate 03b, with one outer-Region subtotal row per Region, explicitly scoped Quantity/Revenue/GrossProfit sums, deterministic hierarchy/scope validation, and no grand total or page break.
+
+### Rejected
+
+- Independent Windows validation rejected Candidate 04: its checksum and static checks passed, but Report Builder raised an index-out-of-range exception before Design view. Subtotal execution was not tested, and the generated hierarchy is preserved unchanged.
 
 ## [0.0.1] - 2026-07-19
 

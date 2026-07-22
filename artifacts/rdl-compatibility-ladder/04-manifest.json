@@ -83,7 +83,12 @@
         ]
       }
     },
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "artifactChecksum": "PASS",
+      "staticRepositoryValidation": "PASS",
+      "reportBuilderOpen": "FAIL",
+      "designView": "NOT_REACHED",
+      "reportBuilderPreview": "NOT_REACHED",
+      "regionSubtotalExecution": "NOT_TESTED",
+      "independentWindowsAcceptance": "FAIL"
   }
 }

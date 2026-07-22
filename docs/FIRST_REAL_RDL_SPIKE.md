@@ -112,9 +112,9 @@ Candidate: `artifacts/rdl-compatibility-ladder/04-region-subtotal.rdl`
 
 SHA-256: `7621061880e0ee201dd34fd5931c1a86dc44dcb0997fc2b530521b069fbba8fe`
 
-All local checks pass. Report Builder open, Preview, preservation of six detail rows, and the three expected Region subtotals remain **PENDING INDEPENDENT WINDOWS VALIDATION**.
+All local checks passed, but independent Windows validation **FAILED**. Report Builder raised an index-out-of-range exception before Design view. Preview and Region subtotal execution were not reached. Candidate 04 acceptance is **FAIL**, and its generated subtotal hierarchy is preserved unchanged as rejected evidence.
 
-Candidate 04 was generated before the Candidate 03b checksum discrepancy was reported. Its logical contents and checksum remain unchanged; independent Candidate 04 testing must use a fresh or explicitly restored checkout after the `.rdl -text` policy is present.
+Candidate 04 was generated before the Candidate 03b checksum discrepancy was reported. Its bytes remained unchanged and its checksum passed under the `.rdl -text` policy, so line-ending conversion does not explain this Report Builder open failure.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

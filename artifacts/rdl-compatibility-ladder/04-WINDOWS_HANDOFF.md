@@ -1,8 +1,12 @@
 # Candidate 04 Windows validation
 
+## Result
+
+**FAIL — independently rejected on Windows.** The artifact checksum passed, but Report Builder failed before Design view with `Index was out of range. Must be non-negative and less than the size of the collection. Parameter name: index`. Preview and Region subtotal execution were not reached. Candidate 04 is preserved unchanged as failure evidence and must not be patched by guessing at tablix XML.
+
 ## Acceptance criterion
 
-Power BI Report Builder must open and preview `04-region-subtotal.rdl` with three correct Region subtotal rows and all six detail rows preserved. Do not generate Candidate 05.
+Candidate 04 did not meet its acceptance criterion. Do not use it as a subtotal compatibility baseline.
 
 ## File identity
 
