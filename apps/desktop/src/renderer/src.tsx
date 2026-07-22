@@ -1,78 +1,143 @@
 import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
-import type { PowerBiProject } from "@powerbi-copilot/domain";
+import {
+  visibleGenerationError,
+  type GenerationResult,
+} from "../shared/desktop-api";
 import "./style.css";
 
-const nav = ["Projects", "Build", "History", "Backups", "Settings"];
+function Totals({
+  values,
+}: {
+  values: { Quantity: number; Revenue: number; GrossProfit: number };
+}) {
+  return (
+    <span>
+      Qty {values.Quantity} · Revenue ${values.Revenue.toLocaleString()} · GP $
+      {values.GrossProfit.toLocaleString()}
+    </span>
+  );
+}
 
 function App(): React.JSX.Element {
-  const [project, setProject] = useState<PowerBiProject>();
-  const [message, setMessage] = useState("Selection is local and read-only.");
-  const selectProject = async (): Promise<void> => {
-    const result = await window.powerBiCopilot.selectProject();
-    if (result.status === "selected") {
-      setProject(result.project);
-      setMessage("Read-only inspection complete. No files were modified.");
-    }
-    if (result.status === "error") setMessage(result.message);
+  const [request, setRequest] = useState("");
+  const [result, setResult] = useState<GenerationResult>();
+  const [busy, setBusy] = useState(false);
+  const generate = async () => {
+    setBusy(true);
+    setResult(await window.powerBiCopilot.generateReport(request));
+    setBusy(false);
   };
-  const statuses = project
-    ? [
-        ["PBIP project", "Detected"],
-        ["TMDL model", project.format.tmdl ? "Detected" : "Not detected"],
-        ["PBIR report", project.format.pbir ? "Detected" : "Not detected"],
-        ["Validation", "Inspection passed"],
-      ]
-    : [
-        ["PBIP project", "Waiting for a project"],
-        ["TMDL model", "Waiting for a project"],
-        ["PBIR report", "Waiting for a project"],
-        ["Validation", "Not inspected"],
-      ];
   return (
     <main className="shell">
       <aside>
         <div className="mark">RC</div>
         <h1>Report Copilot</h1>
-        <p className="mode">Offline authoring</p>
+        <p className="mode">Offline deterministic authoring</p>
         <nav>
-          {nav.map((item, index) => (
-            <button className={index === 0 ? "active" : ""} key={item}>
-              {item}
-            </button>
-          ))}
+          <button className="active">Generate</button>
+          <button disabled>History</button>
+          <button disabled>Settings</button>
         </nav>
-        <div className="platform">Windows validation pending</div>
+        <div className="platform">Accepted template · Local only</div>
       </aside>
       <section className="content">
         <header>
           <div>
-            <p className="eyebrow">PROJECT WORKSPACE</p>
-            <h2>Choose a Power BI project</h2>
+            <p className="eyebrow">PAGINATED REPORT MVP</p>
+            <h2>Generate a regional sales report</h2>
           </div>
-          <span className="badge">Mode A · Local only</span>
+          <span className="badge">No network · No LLM</span>
         </header>
-        <div className="welcome">
-          <div className="icon">PB</div>
-          <h3>{project?.name ?? "Open a PBIP project"}</h3>
-          <p>
-            {project?.paths.root ??
-              "Inspect its semantic model and report definition before any files are changed."}
-          </p>
-          <button className="primary" onClick={() => void selectProject()}>
-            Select project folder
-          </button>
-          <small>{message}</small>
-        </div>
-        <div className="status-grid">
-          {statuses.map(([label, detail]) => (
-            <article key={label}>
-              <span>{project ? "Inspected" : "Not inspected"}</span>
-              <h4>{label}</h4>
-              <p>{detail}</p>
-            </article>
-          ))}
-        </div>
+        <section className="generator-card">
+          <label htmlFor="request">Constrained report request</label>
+          <textarea
+            id="request"
+            value={request}
+            onChange={(event) => setRequest(event.target.value)}
+            placeholder={
+              'Create a report titled "…" using the production pagination template with data: […]'
+            }
+          />
+          <div className="actions">
+            <button
+              className="primary"
+              disabled={busy || !request.trim()}
+              onClick={() => void generate()}
+            >
+              {busy ? "Generating…" : "Generate Report"}
+            </button>
+            <span>
+              {busy
+                ? "Validating and writing locally"
+                : "Uses the accepted production template"}
+            </span>
+          </div>
+          {result?.status === "error" && (
+            <div className="error" role="alert">
+              {visibleGenerationError(result)}
+            </div>
+          )}
+        </section>
+        {result?.status === "generated" && (
+          <section className="result" aria-live="polite">
+            <div className="result-head">
+              <div>
+                <p className="eyebrow">GENERATION COMPLETE</p>
+                <h3>{result.title}</h3>
+              </div>
+              <span className="success">Validated</span>
+            </div>
+            <div className="summary-grid">
+              <article>
+                <small>Rows</small>
+                <strong>{result.rowCount}</strong>
+              </article>
+              <article>
+                <small>Regions</small>
+                <strong>{result.regions.join(", ")}</strong>
+              </article>
+              <article>
+                <small>Template</small>
+                <strong>{result.template}</strong>
+              </article>
+              <article>
+                <small>SHA-256</small>
+                <code>{result.sha256}</code>
+              </article>
+            </div>
+            <h4>Expected Region subtotals</h4>
+            <div className="totals">
+              {Object.entries(result.regionSubtotals).map(
+                ([region, values]) => (
+                  <div key={region}>
+                    <b>{region}</b>
+                    <Totals values={values} />
+                  </div>
+                ),
+              )}
+              <div className="grand">
+                <b>Grand Total</b>
+                <Totals values={result.grandTotal} />
+              </div>
+            </div>
+            <div className="path">
+              <code>{result.outputPath}</code>
+              <button
+                onClick={() => void window.powerBiCopilot.copyGeneratedPath()}
+              >
+                Copy path
+              </button>
+              <button
+                onClick={() =>
+                  void window.powerBiCopilot.revealGeneratedReport()
+                }
+              >
+                Reveal in Finder
+              </button>
+            </div>
+          </section>
+        )}
       </section>
     </main>
   );
