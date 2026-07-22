@@ -70,6 +70,7 @@
 
 - Three-way subtotal forensics and regression validation distinguishing accepted Candidate 03b, rejected Candidate 04, and the Report Builder-authored subtotal structure without asserting an unproven root cause.
 - Candidate 04b as a byte-for-byte, checksum-pinned copy of the accepted Report Builder-authored subtotal seed, with regression evidence and a dedicated Windows handoff.
+- Candidate 04c template-instantiation tooling that replaces only title and embedded data while preserving the accepted Report Builder-authored Tablix subtree byte-for-byte.
 
 ### Validated
 

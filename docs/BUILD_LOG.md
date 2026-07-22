@@ -116,3 +116,9 @@
 - Added an exact clean-clone command and Windows handoff. Report Builder open and Preview remain pending; no Candidate 05 was generated.
 - Independent Windows validation subsequently passed checksum, open, Design, Preview, six-detail-row preservation, subtotal structure, and all three expected Region calculations with no repair, conversion, upgrade, blank aggregate, `#Error`, or grand total.
 - Accepted Candidate 04b while retaining generalized subtotal construction as not yet proven. Pagination was not recorded because the submitted result contained an unresolved placeholder.
+
+## 2026-07-21 — Candidate 04c template-instantiation implementation
+
+- Added deterministic content instantiation over the hash-pinned Report Builder subtotal template without reconstructing or altering its Tablix subtree.
+- Limited mutable content to the report title, embedded DesignerState data cells, and encoded Enter Data query rows; retained all nine field definitions and Report Builder-authored aggregate XML.
+- Added independent expected-total tests and guards for template hash, nonidentity, exact protected-Tablix identity, field/data consistency, cross-platform byte policy, and absence of grand totals, page breaks, and parameters.
