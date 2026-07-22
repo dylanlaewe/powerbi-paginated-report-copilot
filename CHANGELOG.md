@@ -93,6 +93,7 @@
 - Recorded that Candidate 05 requires a new Report Builder-authored grand-total seed and provided an exact creation/reopen procedure; no guessed Candidate 05 XML was generated.
 - Recorded that Candidate 06 requires a Report Builder-authored production-pagination seed and provided exact repeating-header, Region-break, page-number, page-setup, PDF, Excel, and reopen instructions; no Candidate 06 XML was guessed.
 - Recorded the delivered production seed's blocking 2-inch page width and provided a Report Builder-only print-safe correction and revalidation procedure.
+- Rejected the timestamp-only Candidate 06b seed because it still omits physical dimensions; documented the explicit serialized Letter-size prerequisite.
 
 ## [0.0.1] - 2026-07-19
 

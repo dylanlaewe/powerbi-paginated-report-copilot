@@ -176,3 +176,4 @@
 - Removed production validation's unsafe reliance on omitted PageWidth/PageHeight defaults.
 - Added exact assertions for positive valid `PageWidth=8.5in`, `PageHeight=11in`, all four `0.5in` margins, and body width within printable width.
 - Added regressions that reject failed Candidate 06 and the newly supplied Letter seed because both omit physical dimensions; those two seeds differ only by Report Builder modification timestamp.
+- Stopped Candidate 06b generation and documented byte-level verification for a replacement seed with explicit `PageWidth=8.5in` and `PageHeight=11in`.

@@ -2,7 +2,7 @@
 
 ## Resolution
 
-**RESOLVED.** `KnownGoodProductionPaginationPrintSafe.rdl` was created and validated through Report Builder. SHA-256 is `a9a258a6fab73c0374c4d08dc0c1c923d57e8efd55df2fa04c88215bab06ef2a`. The correction removed the erroneous explicit 2-inch width; effective RDL Letter defaults are `8.5in × 11in`. Candidate 06 is packaged as a byte-identical copy. Instructions below remain as provenance.
+**REOPENED AFTER WINDOWS FAILURE.** `KnownGoodProductionPaginationPrintSafe.rdl` omitted PageWidth/PageHeight. Candidate 06 proved those omissions resolved as runtime `13in × 0` and failed. The later `KnownGoodProductionPaginationLetter.rdl` also omits both dimensions and differs only by timestamp. See `06b-SEED_REJECTED.md` for the explicit replacement requirement.
 
 ## Blocking evidence
 

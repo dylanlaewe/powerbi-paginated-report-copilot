@@ -4,7 +4,7 @@
 
 `KnownGoodProductionPagination.rdl` was delivered and proves repeating headers, outer-Region breaks, Page N of M, Preview, PDF, and Excel structures. Forensics found explicit `PageWidth=2in` against a `7in` body and `0.5in` side margins. Candidate 06 remains blocked on the print-safe correction documented in `06-SEED_CORRECTION_REQUIRED.md`.
 
-The correction is now resolved by `KnownGoodProductionPaginationPrintSafe.rdl`; Candidate 06 has been packaged from its exact bytes and awaits independent Windows validation.
+The first correction produced failed Candidate 06 because PageWidth/PageHeight were omitted. The later Letter seed repeats that omission and is rejected by regression. Candidate 06b requires the explicit-dimension replacement documented in `06b-SEED_REJECTED.md`.
 
 ## Repository finding
 
