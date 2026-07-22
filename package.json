@@ -21,6 +21,7 @@
     "spike:rdl-forensics": "tsx packages/rdl-spike/src/forensics-cli.ts",
     "spike:rdl-group-forensics": "tsx packages/rdl-spike/src/group-forensics-cli.ts",
     "spike:rdl-grand-total-forensics": "tsx packages/rdl-spike/src/grand-total-forensics-cli.ts",
+    "spike:rdl-pagination-forensics": "tsx packages/rdl-spike/src/pagination-forensics-cli.ts",
     "spike:rdl-subtotal-forensics": "tsx packages/rdl-spike/src/subtotal-forensics-cli.ts",
     "spike:rdl-generate": "tsx packages/rdl-spike/src/cli.ts",
     "spike:generate": "tsx packages/pbir-spike/src/cli.ts",

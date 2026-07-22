@@ -153,3 +153,9 @@
 - Inspected all accepted canonical RDL seeds for repeating header metadata, FixedData, group page breaks, page-number globals, total-page globals, page size, and margins.
 - Found no accepted structural precedent for repeating headers, Region page breaks, or `Page N of M`; rejected scratch-generated RDLs were excluded.
 - Did not generate Candidate 06. Added exact Report Builder instructions for a print-safe production-pagination seed plus mandatory close/reopen, Preview, PDF, and Excel verification.
+
+## 2026-07-21 — Production-pagination seed forensics
+
+- Pulled and hash-pinned the Report Builder-authored seed and verified its repeating-header marker, outer-Region page break, Page N of M footer, preserved data, and preserved four-row hierarchy.
+- Found explicit `PageWidth=2in` with a `7in` body and `0.5in` side margins, yielding only `1in` printable width and failing the required static print-safe check.
+- Recorded unresolved Preview/PDF/Excel counts, blank-page result, and horizontal-clipping result. Did not generate Candidate 06 or silently change a page dimension that the candidate must preserve.
