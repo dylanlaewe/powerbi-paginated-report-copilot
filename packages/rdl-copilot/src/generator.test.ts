@@ -67,6 +67,9 @@ describe("approved RDL template instantiation", () => {
       xmlWellFormed: "PASS",
       xsd: "PASS",
       protectedStructure: "PASS",
+      titleMatchesSpecification: "PASS",
+      embeddedRowsMatchSpecification: "PASS",
+      aggregateScopesPreserved: "PASS",
       explicitLetterPage: "PASS",
     });
   });

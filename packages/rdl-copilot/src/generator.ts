@@ -139,6 +139,14 @@ export const instantiateApprovedTemplate = (
     oldTitle,
     `<Value>${escapeXml(specification.title)}</Value>`,
   );
+  if (!output.includes(`<Value>${escapeXml(specification.title)}</Value>`))
+    throw new Error("Generated report title does not match the specification");
+  if (!output.includes(dataGrid(specification.rows, eol)))
+    throw new Error(
+      "Generated DesignerState rows do not match the specification",
+    );
+  if (!output.includes(escapeXml(query(specification.rows, eol))))
+    throw new Error("Generated embedded rows do not match the specification");
   assertWellFormed(output);
   if (protectedProjection(output) !== protectedProjection(template))
     throw new Error("Protected template structure changed");
@@ -197,6 +205,9 @@ export const generateReport = async (
       xmlWellFormed: "PASS",
       xsd: "PASS",
       protectedStructure: "PASS",
+      titleMatchesSpecification: "PASS",
+      embeddedRowsMatchSpecification: "PASS",
+      aggregateScopesPreserved: "PASS",
       explicitLetterPage: "PASS",
     },
   };
