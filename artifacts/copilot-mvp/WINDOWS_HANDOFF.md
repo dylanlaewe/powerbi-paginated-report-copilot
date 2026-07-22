@@ -1,5 +1,7 @@
 # Natural-language RDL MVP Windows handoff
 
+**ACCEPTED.** The exact artifact passed independent Windows open, Design, Preview, generated-content and totals verification, pagination, PDF export, and Excel export. See `WINDOWS_ACCEPTANCE.md`.
+
 Test the exact file `artifacts/copilot-mvp/regional-sales-generated.rdl`.
 
 Expected SHA-256: `ae2ed7f3ef0df988b550ea2f46ed7490d4c6de3d2e67c58646c2a2c61d9669c1`

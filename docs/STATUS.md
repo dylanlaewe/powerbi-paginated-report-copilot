@@ -14,4 +14,4 @@ Candidates 01, 02, 03b, 04b, 04c, 05, and 06b are accepted; Candidates 03, 04, a
 
 The accepted baseline is the Report Builder-authored explicit-Letter template: `PageWidth=8.5in`, `PageHeight=11in`, four `0.5in` margins, and a `7in` body. Candidate 06 remains failed and unchanged. Numeric Preview/PDF page counts and Excel worksheet count were not supplied and are not inferred.
 
-The first natural-language copilot MVP flow is implemented on a focused post-milestone branch. A constrained request becomes a validated specification, selects only the accepted template, safely substitutes title and embedded synthetic rows, runs deterministic validation, and emits an RDL plus manifest. The canonical artifact awaits independent Windows Report Builder acceptance.
+The first natural-language copilot MVP flow is accepted. Independent Windows testing passed checksum, open, Design, requested title/data, Preview, hierarchy, Region subtotals, Grand Total, pagination, repeated headings, Page N of M, no blank pages or clipping, PDF, and Excel. Numeric page and worksheet counts were not provided. Minimal Electron integration is the active implementation unit.

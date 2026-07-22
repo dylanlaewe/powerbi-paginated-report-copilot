@@ -119,6 +119,16 @@
     "titleMatchesSpecification": "PASS",
     "embeddedRowsMatchSpecification": "PASS",
     "aggregateScopesPreserved": "PASS",
-    "explicitLetterPage": "PASS"
+    "explicitLetterPage": "PASS",
+    "windowsReportBuilderOpen": "PASS",
+    "windowsPreview": "PASS",
+    "windowsGeneratedContent": "PASS",
+    "windowsPagination": "PASS",
+    "windowsPdfExport": "PASS",
+    "windowsExcelExport": "PASS",
+    "windowsPreviewPageCount": "NOT_PROVIDED_PLACEHOLDER_RECEIVED",
+    "windowsPdfPageCount": "NOT_PROVIDED_PLACEHOLDER_RECEIVED",
+    "windowsExcelWorksheetCount": "NOT_PROVIDED_PLACEHOLDER_RECEIVED",
+    "endToEndAcceptance": "PASS"
   }
 }

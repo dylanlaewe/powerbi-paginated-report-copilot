@@ -195,3 +195,4 @@
 - Documented the narrow MVP flow and explicitly deferred template instantiation, charts, template expansion, parameters, and live data sources.
 - Implemented checksum-pinned template instantiation with XML escaping, protected-structure comparison, XSD checks, independent totals, atomic writes, and a deterministic CLI.
 - Generated the canonical six-row MVP artifact and added security, mathematical-total, byte-determinism, template-integrity, and Windows-handoff evidence.
+- Independent Windows validation accepted the first copilot-generated RDL across checksum, open, Design, requested content, Preview, totals, pagination, PDF, and Excel. Numeric page and worksheet counts remain unreported placeholders.
