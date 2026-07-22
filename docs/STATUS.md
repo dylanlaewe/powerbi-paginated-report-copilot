@@ -12,6 +12,4 @@ Current RDL result: **FAILED**. Although `Regional Sales Detail.rdl` passed XML 
 
 Candidates 01, 02, 03b, 04b, 04c, and 05 are accepted; Candidates 03, 04, and 06 are rejected and preserved. Candidate 06 passed checksum and opened Design, but runtime width was `13in`, PageHeight was invalid `0`, and Preview failed before rendering; PDF/Excel were not tested. Omitted page dimensions are no longer accepted as Letter defaults. Candidate 06b requires explicit valid dimensions; the branch remains unmerged and untagged.
 
-The supplied `KnownGoodProductionPaginationLetter.rdl` also omits PageWidth/PageHeight and is rejected by the new regression. No Candidate 06b exists. A replacement seed must contain explicit `8.5in × 11in` RDL elements before byte-identical packaging can proceed.
-
-The latest in-place correction commit changed only `LastModifiedTimestamp`; repository bytes still omit both required elements. The explicit-dimension blocker remains.
+Seed commit `81861fb434547f101f0f455b7ca0ad2bd68cc86e` resolves the explicit-dimension blocker. The corrected repository blob serializes `PageWidth=8.5in`, `PageHeight=11in`, four `0.5in` margins, and retains the `7in` body. Candidate 06b is packaged byte-identically and awaits independent Windows validation; Candidate 06 remains failed and unchanged.

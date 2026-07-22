@@ -107,5 +107,5 @@ export const comparePaginationStructures = (
   blockingFinding:
     "The seed's 7in body plus 0.5in left/right margins requires at least 8in page width, but explicit PageWidth is 2in. Static print-safe validation fails, and the submitted horizontal-clipping/blank-page fields were placeholders.",
   conclusion:
-    "Both the first correction and the newly supplied Letter seed omit PageWidth and PageHeight and differ only by Report Builder modification timestamp. Independent Windows validation resolved those omissions to 13in x 0 and failed. Production candidates must serialize explicit positive PageWidth=8.5in and PageHeight=11in.",
+    "The final Letter seed explicitly serializes positive PageWidth=8.5in and PageHeight=11in with four 0.5in margins, passes the 7in body-width check, and preserves all proven pagination structures.",
 });

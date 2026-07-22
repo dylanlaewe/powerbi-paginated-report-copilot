@@ -164,9 +164,7 @@ Local XML, XSD, data, hierarchy, pagination, effective-page-size, print-width, b
 
 Independent Windows validation rejected Candidate 06. Design opened, but Report Builder resolved the page as `13in` wide with PageHeight `0`; Preview failed before rendering because `ReportSection0` had an invalid PageHeight. PDF and Excel were not tested. This disproves the local validator's assumption that omitted dimensions safely implied Letter defaults. Candidate 06 remains unchanged and failed.
 
-The subsequently supplied `KnownGoodProductionPaginationLetter.rdl` is not an eligible Candidate 06b seed: it also omits PageWidth and PageHeight and differs from the failed seed only by modification timestamp. Production validation now requires explicit positive `8.5in` and `11in` page sizes, four exact `0.5in` margins, and a print-safe body. Candidate 06b was not generated; `06b-SEED_REJECTED.md` records the required replacement.
-
-The attempted in-place correction commit `e1d8252` again changed only the modification timestamp. The claimed PageWidth/PageHeight elements are absent from the repository blob. Candidate 06b remains blocked and ungenerated.
+Earlier `KnownGoodProductionPaginationLetter.rdl` revisions were ineligible because they omitted PageWidth/PageHeight. Seed commit `81861fb434547f101f0f455b7ca0ad2bd68cc86e` resolves the blocker: the repository blob explicitly contains positive `8.5in` and `11in` page sizes, four exact `0.5in` margins, and a print-safe `7in` body. Candidate 06b is a byte-identical control copy with SHA-256 `c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a`; independent Windows validation remains pending.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

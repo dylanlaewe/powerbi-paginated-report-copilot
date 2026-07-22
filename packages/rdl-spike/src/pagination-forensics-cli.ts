@@ -53,5 +53,5 @@ console.log(
   "Original production seed print-safe validation: FAIL (PageWidth 2in)",
 );
 console.log("First corrected seed explicit dimensions: FAIL (both omitted)");
-console.log("New Letter seed explicit dimensions: FAIL (both omitted)");
+console.log("Final Letter seed explicit dimensions: PASS (8.5in x 11in)");
 console.log(`Output: ${outputPath}`);

@@ -2,7 +2,7 @@
 
 ## Resolution
 
-**REOPENED AFTER WINDOWS FAILURE.** `KnownGoodProductionPaginationPrintSafe.rdl` omitted PageWidth/PageHeight. Candidate 06 proved those omissions resolved as runtime `13in × 0` and failed. The later `KnownGoodProductionPaginationLetter.rdl` also omits both dimensions and differs only by timestamp. See `06b-SEED_REJECTED.md` for the explicit replacement requirement.
+**RESOLVED FOR CANDIDATE 06B.** `KnownGoodProductionPaginationPrintSafe.rdl` omitted PageWidth/PageHeight. Candidate 06 proved those omissions resolved as runtime `13in × 0` and failed. Seed commit `81861fb434547f101f0f455b7ca0ad2bd68cc86e` now supplies literal `8.5in × 11in` dimensions in `KnownGoodProductionPaginationLetter.rdl`; strict regression validation accepts it for byte-identical Candidate 06b packaging.
 
 ## Blocking evidence
 

@@ -63,12 +63,16 @@ describe("Report Builder production-pagination forensics", () => {
     expect(
       comparePaginationStructures(candidate05, seed, correctedSeed, letterSeed)
         .conclusion,
-    ).toContain("omit PageWidth and PageHeight");
+    ).toContain("explicitly serializes positive PageWidth=8.5in");
   });
-  it("records that the new Letter seed still omits physical dimensions", () => {
+  it("records explicit valid dimensions in the final Letter seed", () => {
     expect(fingerprintPagination(letterSeed)).toMatchObject({
-      pageWidthSource: "RDL_DEFAULT",
-      pageHeightSource: "RDL_DEFAULT",
+      pageWidthInches: 8.5,
+      pageHeightInches: 11,
+      pageWidthSource: "EXPLICIT",
+      pageHeightSource: "EXPLICIT",
+      printableWidthInches: 7.5,
+      printSafe: true,
     });
   });
   it("accepts the corrected structure and effective Letter defaults", () => {

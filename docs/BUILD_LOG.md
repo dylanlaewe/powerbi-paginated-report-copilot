@@ -178,3 +178,9 @@
 - Added regressions that reject failed Candidate 06 and the newly supplied Letter seed because both omit physical dimensions; those two seeds differ only by Report Builder modification timestamp.
 - Stopped Candidate 06b generation and documented byte-level verification for a replacement seed with explicit `PageWidth=8.5in` and `PageHeight=11in`.
 - Audited attempted correction commit `e1d8252`: Git diff shows only `LastModifiedTimestamp`, and the current blob still contains no PageWidth/PageHeight. Regenerated forensic evidence and retained the 06b block.
+
+## 2026-07-22 — Candidate 06b implementation
+
+- Pulled seed commit `81861fb` and verified literal `PageWidth=8.5in`, `PageHeight=11in`, four half-inch margins, and raw hash `c2d27f75…e17a`.
+- Updated pagination forensics and strict dimension tests to accept only the explicit final Letter seed.
+- Added Candidate 06b byte-for-byte generation while preserving failed Candidate 06 unchanged and retaining all pagination, data, grouping, subtotal, Grand Total, PDF, and Excel structures.

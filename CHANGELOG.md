@@ -79,6 +79,7 @@
 - Three-way pagination forensics confirming the corrected seed uses print-safe Letter defaults while preserving Report Builder-authored Region breaks, repeating headers, and Page N of M.
 - Candidate 06 byte-identical generation from the corrected Report Builder production-pagination seed with print-safe and structural regression guards.
 - Candidate 06 artifact, validation evidence, and final Windows Preview/PDF/Excel handoff.
+- Candidate 06b byte-identical generation from the final explicit-Letter seed with literal page-dimension regression enforcement.
 - Candidate 05 template implementation preserving the Report Builder grand-total arrangement and instantiating only its visible report-level label.
 - Candidate 05 artifact with six accepted details, three Region subtotals, one dataset-context Grand Total, deterministic validation evidence, and a Windows handoff.
 

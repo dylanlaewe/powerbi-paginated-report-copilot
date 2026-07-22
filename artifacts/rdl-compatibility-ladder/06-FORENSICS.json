@@ -15,7 +15,7 @@
     },
     "letterSeed": {
       "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodProductionPaginationLetter.rdl",
-      "sha256": "5df87783bd060d812058a57310e5d5c274373ee068bdcd26e0229c12cf665076"
+      "sha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a"
     }
   },
   "comparison": {
@@ -83,8 +83,8 @@
       "bodyWidthInches": 7,
       "pageWidthInches": 8.5,
       "pageHeightInches": 11,
-      "pageWidthSource": "RDL_DEFAULT",
-      "pageHeightSource": "RDL_DEFAULT",
+      "pageWidthSource": "EXPLICIT",
+      "pageHeightSource": "EXPLICIT",
       "leftMarginInches": 0.5,
       "rightMarginInches": 0.5,
       "printableWidthInches": 7.5,
@@ -106,6 +106,6 @@
       "Margins change from 1in to 0.5in and an explicit PageWidth=2in is added; PageHeight remains unspecified."
     ],
     "blockingFinding": "The seed's 7in body plus 0.5in left/right margins requires at least 8in page width, but explicit PageWidth is 2in. Static print-safe validation fails, and the submitted horizontal-clipping/blank-page fields were placeholders.",
-    "conclusion": "Both the first correction and the newly supplied Letter seed omit PageWidth and PageHeight and differ only by Report Builder modification timestamp. Independent Windows validation resolved those omissions to 13in x 0 and failed. Production candidates must serialize explicit positive PageWidth=8.5in and PageHeight=11in."
+    "conclusion": "The final Letter seed explicitly serializes positive PageWidth=8.5in and PageHeight=11in with four 0.5in margins, passes the 7in body-width check, and preserves all proven pagination structures."
   }
 }

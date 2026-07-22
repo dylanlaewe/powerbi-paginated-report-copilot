@@ -35,12 +35,12 @@ describe("explicit production page dimensions", () => {
       }),
     ).toThrow("Explicit PageWidth is required");
   });
-  it("rejects the new Letter seed because its dimensions are also omitted", () => {
-    expect(() =>
+  it("accepts the corrected Letter seed with literal dimensions", () => {
+    expect(
       validateCollectionConsistency(letterSeed, {
         requireExplicitLetterPage: true,
       }),
-    ).toThrow("Explicit PageWidth is required");
+    ).toMatchObject({ bodyWidthInches: 7, availablePageWidthInches: 7.5 });
   });
   it("accepts explicit 8.5in by 11in Letter with all half-inch margins", () => {
     expect(
