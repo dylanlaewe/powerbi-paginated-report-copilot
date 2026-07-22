@@ -126,3 +126,9 @@
 - Passed XML, XSD, full repository checks, checksum policy, and protected Candidate/seed hash verification. Independent Windows validation remains pending.
 - Independent Windows validation subsequently passed checksum, open, Design, one-page Preview, replacement-title/data verification, six-row completeness, grouping, and all three expected subtotals without repair, stale data, duplicates, omissions, blank aggregates, `#Error`, or grand total.
 - Accepted Candidate 04c as proof of the template-instantiation architecture. Recorded narrow-layout wrapping as deferred presentation work.
+
+## 2026-07-21 — Candidate 05 seed prerequisite
+
+- Searched every tracked RDL filename and content after pulling the current spike branch; found no accepted Report Builder-authored report-level grand-total seed.
+- Excluded the rejected original generated report from baseline use and did not generate Candidate 05 or guess at a new Tablix hierarchy row.
+- Added exact Windows instructions to create, preview, save, reopen, hash, and return `KnownGoodGrandTotal.rdl` using Report Builder's Add Total command on Candidate 04c's outer Region group.

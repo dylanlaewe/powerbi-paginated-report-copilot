@@ -78,6 +78,10 @@
 - Independent Windows testing accepted Candidate 04b: checksum, open, Design, Preview, all six details, and three mathematically correct Region subtotals passed without repair or report errors. Generalized subtotal construction remains unproven.
 - Independent Windows testing accepted Candidate 04c: programmatically replaced title and embedded data rendered on one page with all six rows and three recalculated Region subtotals, proving template instantiation over the preserved Report Builder structure.
 
+### Documentation
+
+- Recorded that Candidate 05 requires a new Report Builder-authored grand-total seed and provided an exact creation/reopen procedure; no guessed Candidate 05 XML was generated.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added

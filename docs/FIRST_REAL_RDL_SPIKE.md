@@ -138,6 +138,12 @@ The replacement has six deterministic rows, two each for Central, East, and West
 
 Independent Windows validation accepted Candidate 04c. Report Builder opened it without repair, loaded Design, and previewed the replacement title, all six new rows, and all three correct subtotals on one page. No prior embedded values, duplicates, omissions, blank aggregates, `#Error`, or grand total appeared. This proves content and embedded-data instantiation over the protected Report Builder structure. Narrow-layout wrapping is deferred presentation work.
 
+## Candidate 05 — blocked on canonical grand-total seed
+
+A filename and content search of the updated branch found no accepted Report Builder-authored report-level grand-total seed. The rejected original report is not eligible as a baseline. Candidate 05 was not generated because its new body row and hierarchy member cannot be safely inferred from prior failures.
+
+Windows must create and independently reopen `KnownGoodGrandTotal.rdl` from accepted Candidate 04c by using Report Builder's **Add Total → After** command on the outer `Region` group. Exact instructions are in `artifacts/rdl-compatibility-ladder/05-SEED_REQUIRED.md`.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
