@@ -1,10 +1,12 @@
 # Power BI and Paginated Report Copilot
 
-An early-stage, local-first desktop companion for natural-language creation and modification of real Power BI Project (PBIP/PBIR/TMDL) files and, later, RDL paginated reports.
+A local-first desktop companion for deterministic generation of real RDL paginated reports, with separate PBIP/PBIR/TMDL research retained in the repository.
 
 ## Current status
 
-Milestone `v0.0.1` is the repository and CI bootstrap. The secure Electron shell builds, but project inspection, authoring, backup/restore, and generation are not implemented yet. Power BI Desktop and Report Builder rendering remain pending personal Windows validation.
+The `rdl-copilot-mvp-v0.1` checkpoint is independently accepted. A constrained natural-language request containing a title and fixed-schema synthetic JSON rows generates a checksum-addressed RDL through the CLI or secure Electron UI. The canonical output passed Power BI Report Builder Preview, PDF, and Excel validation on Windows, and the Mac UI output matched it byte-for-byte.
+
+This checkpoint supports one fixed production template and embedded data only. See [known limitations](docs/KNOWN_LIMITATIONS.md) before use.
 
 ## Development
 
@@ -19,6 +21,8 @@ pnpm test
 pnpm build
 pnpm dev
 ```
+
+Canonical demo request: `examples/regional-sales-request.txt`. Detailed steps: [Mac Electron MVP test](docs/MAC_ELECTRON_MVP_TEST.md).
 
 Electron 43 separates its application-binary download into the explicit `setup:electron` command. CI production builds do not need that binary; local launch does.
 

@@ -1,4 +1,11 @@
-import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
+import {
+  app,
+  BrowserWindow,
+  clipboard,
+  dialog,
+  ipcMain,
+  shell,
+} from "electron";
 import { join } from "node:path";
 import {
   discoverPowerBiProject,
@@ -6,8 +13,48 @@ import {
 } from "@powerbi-copilot/project-discovery";
 import {
   ipcChannels,
+  generationRequestSchema,
+  generationResultSchema,
   type ProjectSelectionResult,
 } from "../shared/desktop-api";
+import {
+  controlledOutputDirectory,
+  generateFromUiRequest,
+  resolveElectronApprovedResources,
+} from "./report-generation";
+
+let generatedReportPath: string | undefined;
+
+ipcMain.handle(ipcChannels.generateReport, async (_event, input: unknown) => {
+  const parsed = generationRequestSchema.safeParse(input);
+  if (!parsed.success)
+    return { status: "error", message: "Invalid generation request" };
+  const resolution = resolveElectronApprovedResources(
+    {
+      isPackaged: app.isPackaged,
+      appPath: app.getAppPath(),
+      mainModulePath: __dirname,
+      resourcesPath: process.resourcesPath,
+    },
+    (message, error) => console.error(message, error),
+  );
+  if (resolution.status === "error") return resolution;
+  const result = await generateFromUiRequest(
+    parsed.data.request,
+    controlledOutputDirectory(app.getPath("userData")),
+    resolution.resources,
+  );
+  if (result.status === "generated") generatedReportPath = result.outputPath;
+  return generationResultSchema.parse(result);
+});
+ipcMain.handle(ipcChannels.revealGeneratedReport, () => {
+  if (!generatedReportPath) throw new Error("No generated report is available");
+  shell.showItemInFolder(generatedReportPath);
+});
+ipcMain.handle(ipcChannels.copyGeneratedPath, () => {
+  if (!generatedReportPath) throw new Error("No generated report is available");
+  clipboard.writeText(generatedReportPath);
+});
 
 ipcMain.handle(
   ipcChannels.selectProject,

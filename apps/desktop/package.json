@@ -11,6 +11,7 @@
   "dependencies": {
     "@powerbi-copilot/domain": "workspace:*",
     "@powerbi-copilot/project-discovery": "workspace:*",
+    "@powerbi-copilot/rdl-copilot": "workspace:*",
     "@vitejs/plugin-react": "6.0.3",
     "electron": "43.1.1",
     "electron-vite": "5.0.0",
@@ -22,5 +23,17 @@
   "devDependencies": {
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3"
+  },
+  "build": {
+    "extraResources": [
+      {
+        "from": "../../artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl",
+        "to": "approved-report-resources/06b-production-pagination-letter.rdl"
+      },
+      {
+        "from": "../../packages/rdl-spike/schema/ReportDefinition-2016.xsd",
+        "to": "approved-report-resources/ReportDefinition-2016.xsd"
+      }
+    ]
   }
 }

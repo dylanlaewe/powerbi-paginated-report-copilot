@@ -4,6 +4,9 @@
 
 ### Added
 
+- The first natural-language RDL MVP unit: a versioned, runtime-validated specification and constrained parser that allowlists the accepted production-pagination template and synthetic nine-field rows.
+- End-to-end deterministic MVP generation using the checksum-pinned accepted template, safe embedded-data substitution, protected-structure validation, independently calculated totals, CLI output, canonical artifact, and Windows handoff.
+- Minimal Electron integration with narrow typed IPC, main-process-only controlled generation, structured results and errors, Finder reveal, path copy, and deterministic CLI/UI parity coverage.
 - Candidate 06b as a byte-identical copy of the corrected Report Builder-authored Letter pagination seed, with strict literal page-dimension regression validation and an independent Windows Preview/PDF/Excel handoff.
 - Safe, read-only PBIP discovery with artifact path containment and desktop folder selection.
 - Pinned Microsoft PBIR authoring CLI and immutable, MIT-licensed Desktop-produced PBIP spike fixture.
@@ -11,6 +14,8 @@
 
 ### Validated
 
+- Independent macOS UI testing accepted the minimal Electron workflow: launch, canonical request generation, visible summary, controlled output, expected checksum, and byte identity with the Windows-accepted CLI artifact passed.
+- Independent Windows testing accepted the first deterministic natural-language copilot RDL: checksum, requested title and data, open, Design, Preview, grouping, subtotals, Grand Total, pagination, PDF, and Excel passed.
 - Independent Windows testing accepted Candidate 06b: explicit physical dimensions, checksum, open, Design, Preview, multipage Region pagination, repeating headings, Page N of M, all rows and totals, no blank pages or clipping, PDF export, and Excel export passed. The RDL compatibility ladder is complete.
 - Independent Power BI Desktop testing opened the generated PBIP and recognized its generated page, visual objects, and semantic model without corruption or repair. Fixture-wide data retrieval remained blocked, so populated rendering and interaction are not claimed.
 
@@ -19,6 +24,9 @@
 - CLI-first `Regional Sales Detail.rdl` generation with 24 synthetic embedded `ENTERDATA` rows, grouped tablix, regional and report totals, pagination, deterministic validation, official-XSD preflight, golden tests, backups, checksums, and independent Report Builder handoff.
 
 ### Rejected
+
+- Initial Mac Electron UI acceptance failed because the sandboxed preload externally required Zod, preventing the context bridge from initializing and leaving generation stuck.
+- The next Mac UI attempt reached main but failed because approved resources were incorrectly resolved from Electron's `apps/desktop` working directory.
 
 - Independent Windows validation found that Power BI Report Builder fails to open the generated `Regional Sales Detail.rdl` with an index-out-of-range error. Design, Preview, embedded-data execution, and exports were not reached. The RDL generation mechanism is not proven; future candidates must be derived from a known-good Report Builder seed.
 
@@ -84,6 +92,11 @@
 - Candidate 06b byte-identical generation from the final explicit-Letter seed with literal page-dimension regression enforcement.
 - Candidate 05 template implementation preserving the Report Builder grand-total arrangement and instantiating only its visible report-level label.
 - Candidate 05 artifact with six accepted details, three Region subtotals, one dataset-context Grand Total, deterministic validation evidence, and a Windows handoff.
+
+### Fixed
+
+- Made the sandboxed preload Electron-only, retained all validation in main, added explicit bridge/rejection recovery in the renderer, and added emitted-bundle security regressions preventing external Zod imports.
+- Replaced cwd-based resource lookup with centralized development/packaged resolution, root containment and checksum checks, main-process path injection, and a controlled missing-template error.
 
 ### Validated
 

@@ -1,0 +1,10 @@
+Command:
+pnpm copilot:generate --request examples/regional-sales-request.txt --output artifacts/copilot-mvp/regional-sales-generated.rdl
+
+Generated RDL: artifacts/copilot-mvp/regional-sales-generated.rdl
+SHA-256: ae2ed7f3ef0df988b550ea2f46ed7490d4c6de3d2e67c58646c2a2c61d9669c1
+Template: production-pagination-letter
+Expected Region subtotals: {"Central":{"Quantity":19,"Revenue":5370,"GrossProfit":2170},"East":{"Quantity":10,"Revenue":7590,"GrossProfit":2830},"West":{"Quantity":30,"Revenue":7500,"GrossProfit":2970}}
+Expected Grand Total: {"Quantity":59,"Revenue":20460,"GrossProfit":7970}
+Validation: PASS
+Manifest: artifacts/copilot-mvp/regional-sales-generated.rdl.manifest.json

@@ -1,0 +1,15 @@
+{
+  "name": "@powerbi-copilot/rdl-copilot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@powerbi-copilot/domain": "workspace:*",
+    "@powerbi-copilot/rdl-spike": "workspace:*"
+  }
+}

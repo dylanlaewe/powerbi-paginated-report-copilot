@@ -5,6 +5,7 @@
   "packageManager": "pnpm@11.9.0",
   "scripts": {
     "build": "pnpm -r build",
+    "copilot:generate": "tsx packages/rdl-copilot/src/cli.ts",
     "dev": "pnpm --filter @powerbi-copilot/desktop dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
