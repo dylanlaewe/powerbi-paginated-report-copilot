@@ -1,5 +1,9 @@
 # Candidate 06 seed correction required
 
+## Resolution
+
+**RESOLVED.** `KnownGoodProductionPaginationPrintSafe.rdl` was created and validated through Report Builder. SHA-256 is `a9a258a6fab73c0374c4d08dc0c1c923d57e8efd55df2fa04c88215bab06ef2a`. The correction removed the erroneous explicit 2-inch width; effective RDL Letter defaults are `8.5in × 11in`. Candidate 06 is packaged as a byte-identical copy. Instructions below remain as provenance.
+
 ## Blocking evidence
 
 The delivered `KnownGoodProductionPagination.rdl` proves the fragile Report Builder structures, but its exact XML contains:

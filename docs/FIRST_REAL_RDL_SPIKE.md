@@ -158,6 +158,10 @@ The accepted canonical seeds contain no proven repeating-member metadata, Region
 
 The delivered seed proves the pagination structures but contains `PageWidth=2in`. With a `7in` body and `0.5in` side margins, only `1in` is printable. Candidate 06 cannot preserve that dimension and pass the required print-safe check. Concrete Preview/PDF/Excel counts, blank-page status, and clipping status were also not supplied. `06-SEED_CORRECTION_REQUIRED.md` requests a Report Builder-authored `8.5in × 11in` corrected seed while preserving all proven structures.
 
+The corrected seed is now accepted as the Candidate 06 template. It removes the erroneous explicit width, uses effective Letter `8.5in × 11in` defaults, retains `0.5in` margins and the `7in` body, and preserves all Report Builder pagination structures. Candidate 06 is a byte-for-byte copy with SHA-256 `a9a258a6fab73c0374c4d08dc0c1c923d57e8efd55df2fa04c88215bab06ef2a`.
+
+Local XML, XSD, data, hierarchy, pagination, effective-page-size, print-width, byte-identity, test, build, and checksum checks pass. The corrected seed's no-blank/no-clipping, PDF, Excel, and reopen results passed, but its numeric counts were not supplied. Candidate 06 itself awaits the final independent Windows Preview/PDF/Excel acceptance.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis
