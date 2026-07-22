@@ -24,4 +24,14 @@ Grand total: NONE
 Page breaks: NONE
 Parameters: NONE
 Protected candidates and seeds unchanged: PASS
-Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Six-detail-row preservation: PASS
+Region subtotal structure: PASS
+Region subtotal calculations: PASS
+Repair or conversion request: NONE
+Actual pagination: NOT PROVIDED (literal [INSERT PAGE COUNT] placeholder received)
+Candidate 04b acceptance: PASS
+Generalized subtotal construction: NOT YET PROVEN

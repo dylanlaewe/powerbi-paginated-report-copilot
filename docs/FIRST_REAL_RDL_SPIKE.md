@@ -126,7 +126,9 @@ These differences are evidence, not proof of a causal token. Regression validati
 
 Candidate 04b is a byte-for-byte copy of hash-pinned `KnownGoodRegionSubtotal.rdl`, not a repair of Candidate 04. It preserves Report Builder's exact eight-cell subtotal row, row-hierarchy `Total` header, `Region → Region1 → Details` members, ordering, metadata, six embedded rows, and nine fields.
 
-Generation, XML, XSD, collection consistency, subtotal-fingerprint regression, protected-artifact checks, and seed byte identity pass locally. SHA-256 is `5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a`. Independent Windows open and Preview remain pending; Candidate 05 is prohibited.
+Generation, XML, XSD, collection consistency, subtotal-fingerprint regression, protected-artifact checks, and seed byte identity pass locally. SHA-256 is `5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a`.
+
+Independent Windows validation accepted Candidate 04b. Checksum, open, Design, Preview, six-row preservation, one subtotal per Region, and all expected calculations passed without repair, conversion, upgrade, `#Error`, blank aggregate, or grand total. Actual pagination was not provided because the result retained `[INSERT PAGE COUNT]`. Generalized subtotal construction remains **NOT YET PROVEN**.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

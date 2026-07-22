@@ -114,3 +114,5 @@
 - Preserved the seed's exact hierarchy, eight unmerged subtotal cells, hierarchy-header label, aggregate serialization, ordering, metadata, six rows, nine fields, and seven-inch layout.
 - Passed XML, XSD, collection, subtotal regression, seed identity, protected-artifact checksum, full test, lint, typecheck, build, and checksum validation.
 - Added an exact clean-clone command and Windows handoff. Report Builder open and Preview remain pending; no Candidate 05 was generated.
+- Independent Windows validation subsequently passed checksum, open, Design, Preview, six-detail-row preservation, subtotal structure, and all three expected Region calculations with no repair, conversion, upgrade, blank aggregate, `#Error`, or grand total.
+- Accepted Candidate 04b while retaining generalized subtotal construction as not yet proven. Pagination was not recorded because the submitted result contained an unresolved placeholder.

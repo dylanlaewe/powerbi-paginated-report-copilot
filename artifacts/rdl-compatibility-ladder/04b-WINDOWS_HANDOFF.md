@@ -1,8 +1,14 @@
 # Candidate 04b Windows validation
 
+## Result
+
+**PASS — independently accepted on Windows.** SHA-256 matched. Report Builder opened the artifact without exception, repair, conversion, or upgrade; Design and Preview passed; all six detail rows appeared once; and Central, East, and West each displayed the expected Quantity, Revenue, and GrossProfit subtotal without `#Error` or blank aggregates. No grand total appeared.
+
+Actual pagination was not supplied: the submitted result retained the literal `[INSERT PAGE COUNT]` placeholder. Generalized programmatic subtotal construction remains **NOT YET PROVEN** because this candidate is a byte-identical Report Builder-authored control.
+
 ## Acceptance criterion
 
-Power BI Report Builder opens and previews `04b-region-subtotal-from-seed.rdl` with all six detail rows and three correct Region subtotal rows. This is the only acceptance criterion; do not test Candidate 05.
+Met. Power BI Report Builder opened and previewed `04b-region-subtotal-from-seed.rdl` with all six detail rows and three correct Region subtotal rows.
 
 ## Identity and reproduction
 

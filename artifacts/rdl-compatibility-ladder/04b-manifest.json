@@ -27,7 +27,16 @@
     "noGrandTotal": "PASS",
     "noPageBreaks": "PASS",
     "noParameters": "PASS",
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "artifactChecksum": "PASS",
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "reportBuilderPreview": "PASS",
+      "sixDetailRowsPreserved": "PASS",
+      "regionSubtotalStructure": "PASS",
+      "regionSubtotalCalculations": "PASS",
+      "repairConversionOrUpgradeRequest": "NONE",
+      "actualPagination": "NOT_PROVIDED_PLACEHOLDER_RECEIVED",
+      "candidateAcceptance": "PASS",
+      "generalizedSubtotalConstruction": "NOT_YET_PROVEN"
   }
 }
