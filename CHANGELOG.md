@@ -80,6 +80,7 @@
 
 - Independent Windows testing accepted Candidate 04b: checksum, open, Design, Preview, all six details, and three mathematically correct Region subtotals passed without repair or report errors. Generalized subtotal construction remains unproven.
 - Independent Windows testing accepted Candidate 04c: programmatically replaced title and embedded data rendered on one page with all six rows and three recalculated Region subtotals, proving template instantiation over the preserved Report Builder structure.
+- Independent Windows testing accepted Candidate 05: checksum, open, Design, Preview, all six details, three Region subtotals, and exactly one mathematically correct report Grand Total passed without repair or report errors.
 
 ### Documentation
 

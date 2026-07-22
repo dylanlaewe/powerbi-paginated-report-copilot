@@ -146,7 +146,9 @@ Windows must create and independently reopen `KnownGoodGrandTotal.rdl` from acce
 
 The prerequisite is now resolved. The accepted seed adds the fourth eight-cell body row and matching top-level static hierarchy leaf outside Region, retains the Region subtotals, and uses dataset-context sums. Candidate 05 derives from those exact bytes and changes only the report-level authored label from `Total` to the required `Grand Total`.
 
-Candidate 05 preserves the six Candidate 04c detail rows and expected Region subtotals. Its expected report-level totals are Quantity `61`, Revenue `$15,990.00`, and Gross Profit `$6,250.00`. XML, XSD, hierarchy regression, exact normalized seed identity, field/data consistency, independent math, byte policy, and absence of page breaks/parameters pass locally. Independent Windows open and Preview are pending.
+Candidate 05 preserves the six Candidate 04c detail rows and expected Region subtotals. Its expected report-level totals are Quantity `61`, Revenue `$15,990.00`, and Gross Profit `$6,250.00`. XML, XSD, hierarchy regression, exact normalized seed identity, field/data consistency, independent math, byte policy, and absence of page breaks/parameters pass locally.
+
+Independent Windows validation accepted Candidate 05. Checksum, open, Design, Preview, six-row preservation, all three Region subtotals, exactly one `Grand Total`, and all report-total calculations passed without repair, conversion, upgrade, blank aggregate, or `#Error`. Pagination was not supplied because the result retained `[INSERT PAGE COUNT]`.
 
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 

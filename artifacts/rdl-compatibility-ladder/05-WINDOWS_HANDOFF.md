@@ -1,8 +1,14 @@
 # Candidate 05 Windows validation
 
+## Result
+
+**PASS — independently accepted on Windows.** SHA-256 matched. Report Builder opened without exception, repair, conversion, or upgrade; Design and Preview passed; all six details appeared once; all three Region subtotals remained correct; and exactly one correctly labeled `Grand Total` rendered with `61 / $15,990.00 / $6,250.00`. No blank aggregate or `#Error` appeared.
+
+Actual pagination was not supplied because the submitted result retained the literal `[INSERT PAGE COUNT]` placeholder.
+
 ## Acceptance criterion
 
-Power BI Report Builder opens and previews Candidate 05 with all six detail rows, all three Region subtotals, and one mathematically correct report grand total. Do not generate or test Candidate 06.
+Met. Power BI Report Builder opened and previewed Candidate 05 with all six detail rows, all three Region subtotals, and one mathematically correct report grand total.
 
 ## Identity and reproduction
 

@@ -145,3 +145,5 @@
 - Preserved every seed byte except the report-level `Textbox2` visible value, instantiated from `Total` to the required `Grand Total`; no hierarchy XML is constructed.
 - Added tests for exact normalized seed identity, six rows, three Region subtotals, four body rows/leaves, dataset-context aggregate expressions, and independently calculated `61 / 15990 / 6250` grand totals.
 - Generated Candidate 05 and its Windows handoff. XML, XSD, full tests/build, checksum policy, protected inputs, and exact seed-delta verification pass; independent Report Builder validation remains pending.
+- Independent Windows validation subsequently passed checksum, open, Design, Preview, six-detail preservation, three Region subtotals, exactly one labeled Grand Total, and `61 / 15990 / 6250` calculations without repair, blank aggregates, or `#Error`.
+- Accepted Candidate 05. Actual pagination remains unrecorded because the submitted result contained an unresolved placeholder.

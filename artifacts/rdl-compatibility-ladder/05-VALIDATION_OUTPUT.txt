@@ -29,4 +29,14 @@ Existing XSD validation: PASS
 XSD raw success output: 05-grand-total.rdl validates
 RDL Git attribute: text: unset
 Prior candidate and canonical seed checksums: PASS
-Report Builder open/preview: PENDING INDEPENDENT WINDOWS
+Artifact checksum: PASS
+Report Builder open: PASS
+Design view: PASS
+Preview: PASS
+Six-detail-row preservation: PASS
+Region subtotals: PASS
+Exactly one report-level total: PASS
+Grand Total calculations: PASS
+Repair or conversion request: NONE
+Actual pagination: NOT PROVIDED (literal [INSERT PAGE COUNT] placeholder received)
+Candidate 05 acceptance: PASS

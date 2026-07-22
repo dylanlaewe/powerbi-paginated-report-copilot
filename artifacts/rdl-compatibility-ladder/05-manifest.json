@@ -113,8 +113,17 @@
     "existingXsd": "PASS",
     "xsdOutput": "05-grand-total.rdl validates",
     "crossPlatformRdlBytePolicy": "PASS",
-    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
-    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+      "artifactChecksum": "PASS",
+      "reportBuilderOpen": "PASS",
+      "designView": "PASS",
+      "reportBuilderPreview": "PASS",
+      "sixDetailRowsPreserved": "PASS",
+      "regionSubtotals": "PASS",
+      "exactlyOneReportLevelTotal": "PASS",
+      "grandTotalCalculations": "PASS",
+      "repairConversionOrUpgradeRequest": "NONE",
+      "actualPagination": "NOT_PROVIDED_PLACEHOLDER_RECEIVED",
+      "candidateAcceptance": "PASS"
   },
   "consistency": {
     "fields": [
