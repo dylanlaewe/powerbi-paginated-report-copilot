@@ -74,7 +74,10 @@ export const fingerprintGrandTotal = (xml: string): GrandTotalFingerprint => {
   };
 };
 
-export const assertReportBuilderGrandTotalStructure = (xml: string): void => {
+export const assertReportBuilderGrandTotalStructure = (
+  xml: string,
+  options: { allowPageBreaks?: boolean } = {},
+): void => {
   const value = fingerprintGrandTotal(xml);
   if (value.tablixBodyRows !== 4 || value.rowHierarchyLeaves !== 4)
     throw new Error(
@@ -105,7 +108,10 @@ export const assertReportBuilderGrandTotalStructure = (xml: string): void => {
       throw new Error(
         `Report Builder grand-total structure is missing ${token}`,
       );
-  if (value.pageBreakCount !== 0 || value.parameterCount !== 0)
+  if (
+    (!options.allowPageBreaks && value.pageBreakCount !== 0) ||
+    value.parameterCount !== 0
+  )
     throw new Error("Grand-total seed contains a prohibited later capability");
 };
 
