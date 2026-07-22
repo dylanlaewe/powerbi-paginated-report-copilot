@@ -116,6 +116,12 @@ All local checks passed, but independent Windows validation **FAILED**. Report B
 
 Candidate 04 was generated before the Candidate 03b checksum discrepancy was reported. Its bytes remained unchanged and its checksum passed under the `.rdl -text` policy, so line-ending conversion does not explain this Report Builder open failure.
 
+### Candidate 04 subtotal forensics
+
+Three-way comparison distinguishes accepted Candidate 03b, rejected Candidate 04, and the accepted Report Builder-authored subtotal seed. Candidate 04 uses a four-cell subtotal row with a five-column span, a body-cell total label, and explicitly `Region`-scoped sums. Report Builder emits eight unmerged cells, a `Total` row-hierarchy header, and unscoped sums in the nested member context. Both subtotal files remain count-consistent at three body rows and three hierarchy leaves.
+
+These differences are evidence, not proof of a causal token. Regression validation accepts the Report Builder subtotal structure and rejects Candidate 04. Candidate 04 remains unchanged; Candidate 04b must be a byte-identical seed control.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis

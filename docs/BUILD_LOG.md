@@ -100,3 +100,10 @@
 - Independent Windows testing verified Candidate 04's post-policy artifact checksum but failed during Report Builder open with an index-out-of-range exception before Design view.
 - Recorded XML, XSD, static repository validation, and checksum as passing; Design and Preview as not reached; Region subtotal execution as not tested; and Candidate 04 acceptance as failed.
 - Preserved Candidate 04 unchanged and stopped generated subtotal hierarchy patching. The replacement must derive from the independently accepted Report Builder-authored subtotal seed.
+
+## 2026-07-21 — Candidate 04 subtotal forensics
+
+- Compared accepted Candidate 03b, rejected Candidate 04, and the Report Builder-authored subtotal seed across body rows/cells, hierarchy members, aggregate placement/scope, optional member properties, row heights, designer markers, and row/leaf relationships.
+- Recorded four physical subtotal cells plus a five-column span and a body label in the rejected file, versus eight unmerged cells and a static row-hierarchy `Total` header in the seed.
+- Recorded explicitly scoped generated aggregates versus Report Builder's unscoped nested-member aggregates. Both files are count-consistent; no single difference is claimed as the exception's root cause.
+- Added regression validation that accepts the Report Builder subtotal fingerprint and rejects the failed Candidate 04 structure.

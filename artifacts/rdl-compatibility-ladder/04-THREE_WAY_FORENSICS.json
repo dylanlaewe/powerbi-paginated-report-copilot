@@ -1,0 +1,121 @@
+{
+  "command": "pnpm spike:rdl-subtotal-forensics artifacts/rdl-compatibility-ladder/04-THREE_WAY_FORENSICS.json",
+  "files": {
+    "candidate03b": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/03b-region-group-from-seed.rdl",
+      "sha256": "f85dfd067e037336cb9a7fe7f5245b19a2030b01e2a997f0430a34b1f5090b88"
+    },
+    "candidate04": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/rdl-compatibility-ladder/04-region-subtotal.rdl",
+      "sha256": "7621061880e0ee201dd34fd5931c1a86dc44dcb0997fc2b530521b069fbba8fe"
+    },
+    "subtotalSeed": {
+      "path": "/Users/dylanlaewe/powerbi-paginated-report-copilot/samples/report-builder-seeds/KnownGoodRegionSubtotal.rdl",
+      "sha256": "5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a"
+    }
+  },
+  "comparison": {
+    "acceptedCandidate03b": {
+      "tablixBodyRows": 2,
+      "rowHierarchyLeaves": 2,
+      "groupNames": [
+        "Region",
+        "Region1",
+        "Details"
+      ],
+      "rowHeights": [
+        "0.3in",
+        "0.25in"
+      ],
+      "subtotalPhysicalCells": 0,
+      "subtotalColSpans": [],
+      "subtotalHeaderPlacement": "NONE",
+      "subtotalHeaderValue": null,
+      "aggregateExpressions": [],
+      "aggregateScopes": [],
+      "keepWithGroupBeforeCount": 0,
+      "repeatOnNewPageCount": 0,
+      "dataElementOutputCount": 0,
+      "selectedDesignerMarkerCount": 1,
+      "designerRows": null,
+      "designerColumns": null
+    },
+    "rejectedCandidate04": {
+      "tablixBodyRows": 3,
+      "rowHierarchyLeaves": 3,
+      "groupNames": [
+        "Region",
+        "Region1",
+        "Details"
+      ],
+      "rowHeights": [
+        "0.3in",
+        "0.25in",
+        "0.25in"
+      ],
+      "subtotalPhysicalCells": 4,
+      "subtotalColSpans": [
+        5
+      ],
+      "subtotalHeaderPlacement": "BODY_CELL",
+      "subtotalHeaderValue": "BODY_TOTAL_LABEL",
+      "aggregateExpressions": [
+        "=Sum(Fields!Quantity.Value, \"Region\")",
+        "=Sum(Fields!Revenue.Value, \"Region\")",
+        "=Sum(Fields!GrossProfit.Value, \"Region\")"
+      ],
+      "aggregateScopes": [
+        "Region",
+        "Region",
+        "Region"
+      ],
+      "keepWithGroupBeforeCount": 1,
+      "repeatOnNewPageCount": 0,
+      "dataElementOutputCount": 0,
+      "selectedDesignerMarkerCount": 1,
+      "designerRows": null,
+      "designerColumns": null
+    },
+    "reportBuilderSubtotalSeed": {
+      "tablixBodyRows": 3,
+      "rowHierarchyLeaves": 3,
+      "groupNames": [
+        "Region",
+        "Region1",
+        "Details"
+      ],
+      "rowHeights": [
+        "0.3in",
+        "0.25in",
+        "0.25in"
+      ],
+      "subtotalPhysicalCells": 8,
+      "subtotalColSpans": [],
+      "subtotalHeaderPlacement": "ROW_HIERARCHY_HEADER",
+      "subtotalHeaderValue": "Total",
+      "aggregateExpressions": [
+        "=Sum(Fields!Quantity.Value)",
+        "=Sum(Fields!Revenue.Value)",
+        "=Sum(Fields!GrossProfit.Value)"
+      ],
+      "aggregateScopes": [
+        null,
+        null,
+        null
+      ],
+      "keepWithGroupBeforeCount": 1,
+      "repeatOnNewPageCount": 0,
+      "dataElementOutputCount": 0,
+      "selectedDesignerMarkerCount": 0,
+      "designerRows": null,
+      "designerColumns": null
+    },
+    "highConfidenceDiscriminators": [
+      "The rejected Candidate 04 subtotal body row has four physical cells and a five-column span; the Report Builder-authored seed has eight unmerged physical cells.",
+      "The rejected Candidate 04 places its subtotal label in the body row; Report Builder places the Total header in a static row-hierarchy member.",
+      "The rejected Candidate 04 uses explicitly Region-scoped aggregate expressions; the Report Builder-authored seed uses unscoped aggregates in the nested member context.",
+      "Both subtotal structures have three body rows, three row-hierarchy leaves, and Region > Region1 > Details groups, so collection counts alone do not establish compatibility."
+    ],
+    "conclusion": "The structures are observably different, but no individual difference is proven to cause the Report Builder exception."
+  }
+}

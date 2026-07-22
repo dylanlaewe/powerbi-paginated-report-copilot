@@ -66,6 +66,10 @@
 
 - Independent Windows validation rejected Candidate 04: its checksum and static checks passed, but Report Builder raised an index-out-of-range exception before Design view. Subtotal execution was not tested, and the generated hierarchy is preserved unchanged.
 
+### Added
+
+- Three-way subtotal forensics and regression validation distinguishing accepted Candidate 03b, rejected Candidate 04, and the Report Builder-authored subtotal structure without asserting an unproven root cause.
+
 ## [0.0.1] - 2026-07-19
 
 ### Added
