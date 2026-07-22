@@ -177,3 +177,4 @@
 - Added exact assertions for positive valid `PageWidth=8.5in`, `PageHeight=11in`, all four `0.5in` margins, and body width within printable width.
 - Added regressions that reject failed Candidate 06 and the newly supplied Letter seed because both omit physical dimensions; those two seeds differ only by Report Builder modification timestamp.
 - Stopped Candidate 06b generation and documented byte-level verification for a replacement seed with explicit `PageWidth=8.5in` and `PageHeight=11in`.
+- Audited attempted correction commit `e1d8252`: Git diff shows only `LastModifiedTimestamp`, and the current blob still contains no PageWidth/PageHeight. Regenerated forensic evidence and retained the 06b block.

@@ -94,6 +94,7 @@
 - Recorded that Candidate 06 requires a Report Builder-authored production-pagination seed and provided exact repeating-header, Region-break, page-number, page-setup, PDF, Excel, and reopen instructions; no Candidate 06 XML was guessed.
 - Recorded the delivered production seed's blocking 2-inch page width and provided a Report Builder-only print-safe correction and revalidation procedure.
 - Rejected the timestamp-only Candidate 06b seed because it still omits physical dimensions; documented the explicit serialized Letter-size prerequisite.
+- Recorded that attempted in-place seed correction `e1d8252` again changed only metadata and did not serialize either required page dimension.
 
 ## [0.0.1] - 2026-07-19
 

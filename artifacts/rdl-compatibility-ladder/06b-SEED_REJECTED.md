@@ -4,13 +4,13 @@
 
 `KnownGoodProductionPaginationLetter.rdl` cannot be used for byte-identical Candidate 06b generation.
 
-- SHA-256: `6bd66fadca26d66ad296d347f332485ed15962ad8ae3e7c28a4163406311630c`
+- Current SHA-256: `5df87783bd060d812058a57310e5d5c274373ee068bdcd26e0229c12cf665076`
 - `<PageWidth>`: absent
 - `<PageHeight>`: absent
 - margins: four explicit `0.5in` values
 - pagination, grouping, totals, footer, and data: preserved
 
-Compared with failed Candidate 06's seed, its only byte-level difference is `am:LastModifiedTimestamp`. Candidate 06 independently proved that omitted dimensions can resolve as runtime width `13in` and PageHeight `0`. A timestamp-only change cannot satisfy explicit physical-dimension requirements.
+The in-place correction commit `e1d8252` changed only `am:LastModifiedTimestamp`; `git show`, text search, and raw-byte inspection confirm no page-dimension element was added. Compared with failed Candidate 06's seed, the file still differs only by timestamp. Candidate 06 independently proved that omitted dimensions can resolve as runtime width `13in` and PageHeight `0`. A timestamp-only change cannot satisfy explicit physical-dimension requirements.
 
 Candidate 06b was not generated. Candidate 06 remains unchanged and failed.
 
