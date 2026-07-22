@@ -84,8 +84,8 @@ export const protectedProjection = (xml: string): string => {
     "__COMMAND_TEXT__",
   );
   return projected.replace(
-    /<Value>[^<]*<\/Value>(?=\s*<Style>[\s\S]*?<FontSize>20pt<\/FontSize>)/u,
-    "__REPORT_TITLE__",
+    /(<Textbox Name="ReportTitle">[\s\S]*?<Value>)[^<]*(<\/Value>)/u,
+    "$1__REPORT_TITLE__$2",
   );
 };
 
