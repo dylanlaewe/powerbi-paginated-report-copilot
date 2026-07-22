@@ -1,5 +1,7 @@
 # Natural-language RDL copilot MVP
 
+Checkpoint status: **independently accepted on Windows and macOS**.
+
 The first MVP is deliberately constrained to the independently accepted `production-pagination-letter` Report Builder template.
 
 ```text
@@ -48,3 +50,5 @@ The accepted pipeline is exposed through a multiline request field and Generate 
 The UI shows the parsed title, row count, Regions, expected Region subtotals, Grand Total, selected template, output checksum, output path, and validation errors. See `docs/MAC_ELECTRON_MVP_TEST.md` for launch and manual parity verification.
 
 Approved resources are resolved centrally. Development mode discovers the monorepo marker from stable Electron paths and confines the fixed RDL and XSD to that root. Packaged mode reads the same fixed filenames beneath `process.resourcesPath/approved-report-resources`; packaging metadata stages both files. Real paths are containment-checked to reject traversal and symlink escapes, and the RDL checksum is verified before generation. Neither IPC nor the renderer can provide a resource path.
+
+The independently accepted Mac UI output had SHA-256 `ae2ed7f3ef0df988b550ea2f46ed7490d4c6de3d2e67c58646c2a2c61d9669c1` and matched the independently Windows-validated CLI artifact byte-for-byte.

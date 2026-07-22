@@ -210,3 +210,4 @@
 - Added one approved-resource resolver with monorepo-marker discovery for development, explicit `process.resourcesPath` locations and packaging metadata, real-path containment, existence checks, and pinned checksum verification. Electron main now injects the resolved absolute paths.
 - Verified generation from repository-root, `apps/desktop`, compiled-main, and simulated packaged locations; rejected missing, wrong-checksum, and symlink-escaped resources.
 - Drove the actual built Electron renderer over its context bridge with the canonical request. The UI returned to an enabled state and displayed the accepted SHA; the generated file was byte-identical to the CLI artifact.
+- Independent macOS UI validation accepted launch, canonical request generation, visible summary, controlled output creation, expected SHA-256, and byte identity with the accepted CLI artifact. The deterministic RDL copilot MVP checkpoint is complete.
