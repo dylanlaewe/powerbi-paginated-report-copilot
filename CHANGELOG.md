@@ -5,6 +5,7 @@
 ### Added
 
 - Application-bundled deterministic RDL XML/XSD validation using `libxml2-wasm`, removing the generated-report path's runtime dependency on the external `xmllint` executable.
+- An unsigned x64 Windows portable build with fixed packaged template/XSD resources, production-only runtime dependencies, and packaged-resource generation/parity regressions.
 - The first natural-language RDL MVP unit: a versioned, runtime-validated specification and constrained parser that allowlists the accepted production-pagination template and synthetic nine-field rows.
 - End-to-end deterministic MVP generation using the checksum-pinned accepted template, safe embedded-data substitution, protected-structure validation, independently calculated totals, CLI output, canonical artifact, and Windows handoff.
 - Minimal Electron integration with narrow typed IPC, main-process-only controlled generation, structured results and errors, Finder reveal, path copy, and deterministic CLI/UI parity coverage.

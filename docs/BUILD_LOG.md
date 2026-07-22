@@ -217,3 +217,7 @@
 - Started `codex/windows-packaged-mvp` from the frozen `rdl-copilot-mvp-v0.1` milestone without changing the accepted feature scope.
 - Replaced the generator's external `xmllint` process invocation with deterministic XSD validation through the application-bundled `libxml2-wasm` runtime.
 - Added valid-schema and invalid-schema regressions and recorded the validation engine in generation manifests. Portable Windows packaging and independent clean-Windows acceptance remain pending.
+- Configured an unsigned x64 Electron portable target with ASAR packaging and fixed `approved-report-resources` copies for the pinned template and XSD.
+- Limited packaged Node modules to Zod and `libxml2-wasm`; build tools and bundled renderer/workspace dependencies are development-only.
+- Added packaged discovery, missing-resource, wrong-checksum, repository-independent generation, accepted-byte parity, and emitted-main no-`xmllint` coverage.
+- Built the portable executable locally at `dist/windows/Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe`; independent clean-Windows execution remains pending.

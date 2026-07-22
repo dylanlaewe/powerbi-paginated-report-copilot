@@ -23,6 +23,8 @@ import {
   resolveApprovedReportResources,
   resolvePackagedApprovedResources,
 } from "./approved-resources";
+import { generateReport } from "./generator";
+import { parseNaturalLanguageReportRequest } from "./index";
 
 const repositoryRoot = resolve(import.meta.dirname, "../../..");
 const directories: string[] = [];
@@ -125,6 +127,31 @@ describe("approved report resource resolution", () => {
     );
   });
 
+  it("generates accepted bytes from packaged resources outside the repository", async () => {
+    const root = await mkdtemp(join(tmpdir(), "rdl-packaged-generate-"));
+    directories.push(root);
+    await stagePackagedResources(root);
+    const resources = resolvePackagedApprovedResources(root);
+    const output = join(root, "controlled-output", "generated.rdl");
+    const specification = parseNaturalLanguageReportRequest(
+      await readFile(
+        join(repositoryRoot, "examples/regional-sales-request.txt"),
+        "utf8",
+      ),
+    );
+
+    await generateReport(specification, output, resources);
+
+    expect(await readFile(output)).toEqual(
+      await readFile(
+        join(
+          repositoryRoot,
+          "artifacts/copilot-mvp/regional-sales-generated.rdl",
+        ),
+      ),
+    );
+  });
+
   it("rejects missing and checksum-mismatched templates", async () => {
     const missing = await mkdtemp(join(tmpdir(), "rdl-missing-"));
     directories.push(missing);
@@ -140,6 +167,17 @@ describe("approved report resource resolution", () => {
     expectResourceCode(
       () => resolvePackagedApprovedResources(wrong),
       "TEMPLATE_CHECKSUM_MISMATCH",
+    );
+  });
+
+  it("rejects a missing packaged schema", async () => {
+    const root = await mkdtemp(join(tmpdir(), "rdl-schema-missing-"));
+    directories.push(root);
+    const destination = await stagePackagedResources(root);
+    await unlink(join(destination, approvedSchemaFileName));
+    expectResourceCode(
+      () => resolvePackagedApprovedResources(root),
+      "SCHEMA_MISSING",
     );
   });
 

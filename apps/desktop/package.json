@@ -1,31 +1,59 @@
 {
   "name": "@powerbi-copilot/desktop",
   "version": "0.0.1",
+  "description": "Deterministic desktop generator for approved Power BI paginated-report templates",
+  "author": "Power BI RDL Copilot contributors",
   "private": true,
   "main": "./out/main/index.js",
   "scripts": {
     "build": "electron-vite build",
     "dev": "electron-vite dev",
+    "package:win": "pnpm build && electron-builder --win portable --x64 --publish never",
+    "package:win:dir": "pnpm build && electron-builder --win dir --x64 --publish never",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "libxml2-wasm": "0.7.1",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
     "@powerbi-copilot/domain": "workspace:*",
     "@powerbi-copilot/project-discovery": "workspace:*",
     "@powerbi-copilot/rdl-copilot": "workspace:*",
     "@vitejs/plugin-react": "6.0.3",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "electron": "43.1.1",
+    "electron-builder": "26.15.3",
     "electron-vite": "5.0.0",
-    "libxml2-wasm": "0.7.1",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "vite": "8.1.5",
-    "zod": "4.4.3"
-  },
-  "devDependencies": {
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3"
+    "vite": "8.1.5"
   },
   "build": {
+    "appId": "com.powerbicopilot.rdl",
+    "productName": "Power BI RDL Copilot",
+    "asar": true,
+    "compression": "normal",
+    "directories": {
+      "output": "../../dist/windows"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Power-BI-RDL-Copilot-${version}-windows-${arch}-portable.${ext}",
+      "signExecutable": false
+    },
     "extraResources": [
       {
         "from": "../../artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl",
