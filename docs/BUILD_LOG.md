@@ -122,3 +122,5 @@
 - Added deterministic content instantiation over the hash-pinned Report Builder subtotal template without reconstructing or altering its Tablix subtree.
 - Limited mutable content to the report title, embedded DesignerState data cells, and encoded Enter Data query rows; retained all nine field definitions and Report Builder-authored aggregate XML.
 - Added independent expected-total tests and guards for template hash, nonidentity, exact protected-Tablix identity, field/data consistency, cross-platform byte policy, and absence of grand totals, page breaks, and parameters.
+- Generated the 04c handoff artifact with six replacement rows and expected Central `17 / 4050 / 1610`, East `14 / 5950 / 2270`, and West `30 / 5990 / 2370` subtotals.
+- Passed XML, XSD, full repository checks, checksum policy, and protected Candidate/seed hash verification. Independent Windows validation remains pending.

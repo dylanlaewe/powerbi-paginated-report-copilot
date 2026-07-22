@@ -130,6 +130,12 @@ Generation, XML, XSD, collection consistency, subtotal-fingerprint regression, p
 
 Independent Windows validation accepted Candidate 04b. Checksum, open, Design, Preview, six-row preservation, one subtotal per Region, and all expected calculations passed without repair, conversion, upgrade, `#Error`, blank aggregate, or grand total. Actual pagination was not provided because the result retained `[INSERT PAGE COUNT]`. Generalized subtotal construction remains **NOT YET PROVEN**.
 
+## Candidate 04c — template-instantiated subtotal
+
+Candidate 04c proves a controlled customization path without rebuilding the subtotal hierarchy. The hash-pinned Report Builder subtotal seed is instantiated by replacing only the report title, DesignerState embedded values, and encoded Enter Data query rows. The complete `Tablix1` subtree—including body rows, hierarchy, member nesting, element ordering, static subtotal placement, and aggregate expressions—remains byte-for-byte identical.
+
+The replacement has six deterministic rows, two each for Central, East, and West. Independently calculated expected subtotals are Central `17 / $4,050 / $1,610`, East `14 / $5,950 / $2,270`, and West `30 / $5,990 / $2,370` for Quantity / Revenue / GrossProfit. Local validation passes nonidentity, protected subtree identity, data/field consistency, totals, XML, XSD, byte policy, and absence of later features. Independent Windows open and Preview are pending.
+
 The CLI generates an actual `Regional Sales Detail.rdl`, not a mockup or intermediate model. It embeds 24 fictional regional-sales rows in the RDL through the officially supported `ENTERDATA` provider and uses no external data source, credentials, tenant, gateway, or network request.
 
 ## Official basis

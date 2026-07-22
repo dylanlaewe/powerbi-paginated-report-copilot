@@ -1,0 +1,165 @@
+{
+  "candidate": "04c-template-instantiated-subtotal.rdl",
+  "candidateSha256": "f3844e47c16670a21715c2a476d87f5f01d8018c2f5cb45a37aa3afa6211aa90",
+  "template": "samples/report-builder-seeds/KnownGoodRegionSubtotal.rdl",
+  "templateSha256": "5b670cdd46a820ada82386b1d5dff6d1910e5eb54088d36cecb9e5df3a34555a",
+  "derivation": "TEMPLATE_CONTENT_INSTANTIATION",
+  "title": "Regional Sales Subtotal Compatibility Test",
+  "rows": [
+    {
+      "SaleDate": "2026-03-02",
+      "Region": "Central",
+      "Salesperson": "Dana Ortiz",
+      "Customer": "Cedar Clinic",
+      "Product": "Standing Desk",
+      "Category": "Furniture",
+      "Quantity": 5,
+      "Revenue": 2400,
+      "GrossProfit": 900
+    },
+    {
+      "SaleDate": "2026-04-11",
+      "Region": "Central",
+      "Salesperson": "Eli Turner",
+      "Customer": "Summit Foods",
+      "Product": "Cloud Seats",
+      "Category": "Software",
+      "Quantity": 12,
+      "Revenue": 1650,
+      "GrossProfit": 710
+    },
+    {
+      "SaleDate": "2026-03-08",
+      "Region": "East",
+      "Salesperson": "Fran Okafor",
+      "Customer": "Harbor Schools",
+      "Product": "Tablet Kit",
+      "Category": "Technology",
+      "Quantity": 8,
+      "Revenue": 3200,
+      "GrossProfit": 1280
+    },
+    {
+      "SaleDate": "2026-04-19",
+      "Region": "East",
+      "Salesperson": "Gale Singh",
+      "Customer": "Elm Logistics",
+      "Product": "Storage Rack",
+      "Category": "Furniture",
+      "Quantity": 6,
+      "Revenue": 2750,
+      "GrossProfit": 990
+    },
+    {
+      "SaleDate": "2026-03-15",
+      "Region": "West",
+      "Salesperson": "Harper Wu",
+      "Customer": "Mesa Transit",
+      "Product": "Docking Station",
+      "Category": "Technology",
+      "Quantity": 9,
+      "Revenue": 4100,
+      "GrossProfit": 1530
+    },
+    {
+      "SaleDate": "2026-04-27",
+      "Region": "West",
+      "Salesperson": "Indigo Ross",
+      "Customer": "Juniper Arts",
+      "Product": "Archive Box",
+      "Category": "Office Supplies",
+      "Quantity": 21,
+      "Revenue": 1890,
+      "GrossProfit": 840
+    }
+  ],
+  "expectedSubtotals": {
+    "Central": {
+      "Quantity": 17,
+      "Revenue": 4050,
+      "GrossProfit": 1610
+    },
+    "East": {
+      "Quantity": 14,
+      "Revenue": 5950,
+      "GrossProfit": 2270
+    },
+    "West": {
+      "Quantity": 30,
+      "Revenue": 5990,
+      "GrossProfit": 2370
+    }
+  },
+  "validation": {
+    "outputDiffersFromSeed": "PASS",
+    "protectedTablixSubtreeByteIdentity": "PASS",
+    "embeddedDataReplacement": "PASS",
+    "nineFieldDefinitionsPreserved": "PASS",
+    "fieldReferences": "PASS",
+    "contextualRegionAggregateStructurePreserved": "PASS",
+    "expectedTotalsCalculated": "PASS",
+    "noGrandTotal": "PASS",
+    "noPageBreaks": "PASS",
+    "noParameters": "PASS",
+    "crossPlatformRdlBytePolicy": "PASS",
+    "xmlWellFormedness": "PASS",
+    "existingXsd": "PASS",
+    "xsdOutput": "04c-template-instantiated-subtotal.rdl validates",
+    "reportBuilderOpen": "PENDING_INDEPENDENT_WINDOWS",
+    "reportBuilderPreview": "PENDING_INDEPENDENT_WINDOWS"
+  },
+  "consistency": {
+    "fields": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "elementPathFields": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "embeddedRows": 6,
+    "tablixes": [
+      {
+        "name": "Tablix1",
+        "columns": 8,
+        "rows": 3,
+        "columnHierarchyLeaves": 8,
+        "rowHierarchyLeaves": 3,
+        "rowCellWidths": [
+          8,
+          8,
+          8
+        ]
+      }
+    ],
+    "bodyWidthInches": 7,
+    "availablePageWidthInches": 6.5,
+    "checks": [
+      "dataset-field-to-row",
+      "designer-grid-counts",
+      "tablix-column-count",
+      "tablix-row-cell-count",
+      "hierarchy-body-consistency",
+      "duplicate-field-source",
+      "field-reference",
+      "group-expression-reference",
+      "element-path",
+      "date-numeric-compatibility",
+      "body-width"
+    ]
+  }
+}
