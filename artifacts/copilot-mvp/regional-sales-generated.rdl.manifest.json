@@ -1,0 +1,121 @@
+{
+  "template": "production-pagination-letter",
+  "templateSha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+  "reportSha256": "ae2ed7f3ef0df988b550ea2f46ed7490d4c6de3d2e67c58646c2a2c61d9669c1",
+  "specification": {
+    "version": 1,
+    "template": "production-pagination-letter",
+    "title": "Northwind Field Sales — July 2026",
+    "fields": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "labels": {
+      "regionSubtotal": "Region Total",
+      "grandTotal": "Grand Total"
+    },
+    "rows": [
+      {
+        "SaleDate": "2026-07-02",
+        "Region": "Central",
+        "Salesperson": "Maya Chen",
+        "Customer": "Prairie Health",
+        "Product": "Mobile Workstation",
+        "Category": "Furniture",
+        "Quantity": 4,
+        "Revenue": 3120,
+        "GrossProfit": 1180
+      },
+      {
+        "SaleDate": "2026-07-14",
+        "Region": "Central",
+        "Salesperson": "Noah Bennett",
+        "Customer": "Riverbend Foods",
+        "Product": "Workflow Licenses",
+        "Category": "Software",
+        "Quantity": 15,
+        "Revenue": 2250,
+        "GrossProfit": 990
+      },
+      {
+        "SaleDate": "2026-07-05",
+        "Region": "East",
+        "Salesperson": "Olivia Mensah",
+        "Customer": "Beacon Academy",
+        "Product": "Conference Display",
+        "Category": "Technology",
+        "Quantity": 3,
+        "Revenue": 4650,
+        "GrossProfit": 1710
+      },
+      {
+        "SaleDate": "2026-07-19",
+        "Region": "East",
+        "Salesperson": "Pavel Novak",
+        "Customer": "Granite Freight",
+        "Product": "Ergonomic Chair",
+        "Category": "Furniture",
+        "Quantity": 7,
+        "Revenue": 2940,
+        "GrossProfit": 1120
+      },
+      {
+        "SaleDate": "2026-07-09",
+        "Region": "West",
+        "Salesperson": "Quinn Alvarez",
+        "Customer": "Canyon Transit",
+        "Product": "Rugged Tablet",
+        "Category": "Technology",
+        "Quantity": 6,
+        "Revenue": 5340,
+        "GrossProfit": 2040
+      },
+      {
+        "SaleDate": "2026-07-25",
+        "Region": "West",
+        "Salesperson": "Rina Shah",
+        "Customer": "Sequoia Studio",
+        "Product": "Document Cases",
+        "Category": "Office Supplies",
+        "Quantity": 24,
+        "Revenue": 2160,
+        "GrossProfit": 930
+      }
+    ]
+  },
+  "expectedRegionSubtotals": {
+    "Central": {
+      "Quantity": 19,
+      "Revenue": 5370,
+      "GrossProfit": 2170
+    },
+    "East": {
+      "Quantity": 10,
+      "Revenue": 7590,
+      "GrossProfit": 2830
+    },
+    "West": {
+      "Quantity": 30,
+      "Revenue": 7500,
+      "GrossProfit": 2970
+    }
+  },
+  "expectedGrandTotal": {
+    "Quantity": 59,
+    "Revenue": 20460,
+    "GrossProfit": 7970
+  },
+  "validation": {
+    "xmlWellFormed": "PASS",
+    "xsd": "PASS",
+    "protectedStructure": "PASS",
+    "explicitLetterPage": "PASS"
+  }
+}

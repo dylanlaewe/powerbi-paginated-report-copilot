@@ -1,0 +1,9 @@
+Create a report titled "Northwind Field Sales — July 2026" using the production pagination template with data:
+[
+  {"SaleDate":"2026-07-02","Region":"Central","Salesperson":"Maya Chen","Customer":"Prairie Health","Product":"Mobile Workstation","Category":"Furniture","Quantity":4,"Revenue":3120,"GrossProfit":1180},
+  {"SaleDate":"2026-07-14","Region":"Central","Salesperson":"Noah Bennett","Customer":"Riverbend Foods","Product":"Workflow Licenses","Category":"Software","Quantity":15,"Revenue":2250,"GrossProfit":990},
+  {"SaleDate":"2026-07-05","Region":"East","Salesperson":"Olivia Mensah","Customer":"Beacon Academy","Product":"Conference Display","Category":"Technology","Quantity":3,"Revenue":4650,"GrossProfit":1710},
+  {"SaleDate":"2026-07-19","Region":"East","Salesperson":"Pavel Novak","Customer":"Granite Freight","Product":"Ergonomic Chair","Category":"Furniture","Quantity":7,"Revenue":2940,"GrossProfit":1120},
+  {"SaleDate":"2026-07-09","Region":"West","Salesperson":"Quinn Alvarez","Customer":"Canyon Transit","Product":"Rugged Tablet","Category":"Technology","Quantity":6,"Revenue":5340,"GrossProfit":2040},
+  {"SaleDate":"2026-07-25","Region":"West","Salesperson":"Rina Shah","Customer":"Sequoia Studio","Product":"Document Cases","Category":"Office Supplies","Quantity":24,"Revenue":2160,"GrossProfit":930}
+]
