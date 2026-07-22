@@ -23,7 +23,7 @@ The executable is intentionally outside Git because it is a generated 85 MB bina
 
    The result must be `5e47a34583a09d2669d5220ed58c70ca9ff7e7ac59403066534fcd0fa051c50b`. Stop if it differs.
 
-3. Launch the EXE. Because this development portable is unsigned, Windows may display a reputation warning. Proceed only after the hash matches and record the exact warning shown.
+3. Launch the EXE. Because this development portable is unsigned, Windows may display a reputation warning. Proceed only when the device's normal security policy permits execution after the hash check. Do not bypass SmartScreen, Defender, or managed-device application-control policy. Record the exact warning or block shown.
 4. Paste this complete canonical request into the multiline request field:
 
    ```text
@@ -77,3 +77,5 @@ Return the EXE hash, RDL hash, launch result, Report Builder open/Preview result
 - Only the accepted fixed template and nine-field synthetic-data request shape are supported.
 - No LLM, live source, chart, authentication, telemetry, update, or existing-report editing capability is included.
 - macOS cannot execute the Windows binary; final customer-path acceptance requires the clean-Windows procedure above.
+
+The first independent managed-Windows attempt verified transfer, size, and checksum but was blocked by SmartScreen with no policy-permitted execution option. Application execution and all downstream checks remain untested. See `WINDOWS_CODE_SIGNING_PLAN.md`.

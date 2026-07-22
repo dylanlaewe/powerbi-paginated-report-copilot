@@ -221,3 +221,9 @@
 - Limited packaged Node modules to Zod and `libxml2-wasm`; build tools and bundled renderer/workspace dependencies are development-only.
 - Added packaged discovery, missing-resource, wrong-checksum, repository-independent generation, accepted-byte parity, and emitted-main no-`xmllint` coverage.
 - Built the portable executable locally at `dist/windows/Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe`; independent clean-Windows execution remains pending.
+
+## 2026-07-22 — Windows SmartScreen policy block
+
+- Independent transfer, exact byte size, and SHA-256 verification passed for the unsigned portable EXE.
+- A managed Windows device blocked launch through Microsoft Defender SmartScreen and offered no policy-permitted execution option. Application execution, generation, Report Builder, PDF, and Excel were not reached; packaged acceptance remains pending.
+- Preserved the security policy without bypass instructions and added a production Authenticode signing, signature-verification, deterministic-output, and approved clean-Windows environment plan.
