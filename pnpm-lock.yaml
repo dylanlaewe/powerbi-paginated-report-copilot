@@ -102,6 +102,12 @@ importers:
         specifier: 4.4.3
         version: 4.4.3
 
+  packages/rdl-copilot:
+    dependencies:
+      "@powerbi-copilot/domain":
+        specifier: workspace:*
+        version: link:../domain
+
   packages/rdl-spike:
     dependencies:
       saxes:

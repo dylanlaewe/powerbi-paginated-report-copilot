@@ -187,3 +187,9 @@
 - Generated the byte-identical Candidate 06b artifact and a Windows handoff requiring concrete Preview/PDF/Excel counts, no blank pages or clipping, correct totals, and a post-test checksum. Candidate acceptance remains pending.
 - Independent Windows validation accepted Candidate 06b: checksum, explicit dimensions, open, Design, Preview, hierarchy, rows, subtotals, Grand Total, Region pagination, repeated headings, Page N of M, no blank pages, no clipping, PDF, and Excel passed.
 - Closed the compatibility ladder without generating Candidate 07. Numeric Preview/PDF page counts and Excel worksheet count remain unreported placeholders.
+
+## 2026-07-22 — Natural-language RDL MVP specification
+
+- Added a runtime-validated, versioned report specification for the accepted nine-field embedded dataset and production-pagination template.
+- Added constrained natural-language parsing for quoted titles and inline synthetic JSON rows, with rejection of unknown templates and malformed data.
+- Documented the narrow MVP flow and explicitly deferred template instantiation, charts, template expansion, parameters, and live data sources.

@@ -13,3 +13,5 @@ Current RDL result: **FAILED**. Although `Regional Sales Detail.rdl` passed XML 
 Candidates 01, 02, 03b, 04b, 04c, 05, and 06b are accepted; Candidates 03, 04, and 06 are rejected and preserved. Candidate 06b independently passed checksum, open, Design, Preview, multipage Region pagination, repeating headings, Page N of M, totals, no-blank/no-clipping checks, PDF export, and Excel export. The RDL compatibility ladder is complete.
 
 The accepted baseline is the Report Builder-authored explicit-Letter template: `PageWidth=8.5in`, `PageHeight=11in`, four `0.5in` margins, and a `7in` body. Candidate 06 remains failed and unchanged. Numeric Preview/PDF page counts and Excel worksheet count were not supplied and are not inferred.
+
+Natural-language copilot MVP work has begun on a focused post-milestone branch. The first unit converts a constrained natural-language request plus synthetic JSON rows into a runtime-validated, versioned report specification and allowlists only the accepted production-pagination template. RDL instantiation is not yet claimed.

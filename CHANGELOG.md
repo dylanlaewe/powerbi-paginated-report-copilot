@@ -4,6 +4,7 @@
 
 ### Added
 
+- The first natural-language RDL MVP unit: a versioned, runtime-validated specification and constrained parser that allowlists the accepted production-pagination template and synthetic nine-field rows.
 - Candidate 06b as a byte-identical copy of the corrected Report Builder-authored Letter pagination seed, with strict literal page-dimension regression validation and an independent Windows Preview/PDF/Excel handoff.
 - Safe, read-only PBIP discovery with artifact path containment and desktop folder selection.
 - Pinned Microsoft PBIR authoring CLI and immutable, MIT-licensed Desktop-produced PBIP spike fixture.
