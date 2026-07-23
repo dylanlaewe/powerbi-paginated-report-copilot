@@ -1,5 +1,15 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 5 Electron integration
+
+- Replaced the branch UI's primary new-report screen with a compact, resizable existing-RDL sidecar journey while preserving underlying generation services.
+- Added native `.rdl` selection, XSD-validated sanitized summaries, in-memory opaque report/plan/output sessions, expiration/invalidation, explicit proposal review, and single-use apply.
+- Kept all filesystem, planner, plan, targets, validation, output, clipboard, and reveal authority in main; strict IPC accepts only request text and opaque UUIDs.
+- Reused the Gate 4 transaction under `userData/edited-reports` and added `invocationSurface: electron-sidecar` to the shared manifest schema.
+- Preserved hardened Electron settings and an Electron-only preload bundle; added Finder/Explorer/File Manager labels from trusted platform state.
+- Fixed quoted-title normalization so an em dash is preserved instead of normalized as command punctuation.
+- Automated canonical output passed Gate 2/4 byte identity and development launch smoke. Independent macOS UI click-through remains pending; Gate 6 was not started.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 4 CLI transaction
 
 - Added a narrow noninteractive plan/apply CLI using one shared inspect/context/plan/resolve pipeline.

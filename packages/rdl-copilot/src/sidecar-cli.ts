@@ -93,6 +93,10 @@ export const sidecarAuditManifestSchema = z
     applicationVersion: z.literal("0.1.0"),
     createdAt: z.string().datetime({ offset: true }),
     transactionId: z.string().uuid(),
+    invocationSurface: z
+      .enum(["cli", "electron-sidecar"])
+      .optional()
+      .default("cli"),
     planner: z
       .object({
         implementation: z.literal("LocalSentenceEditPlanner"),
@@ -433,7 +437,7 @@ const resolveTargets = (inventory: RdlInventory, plan: EditPlan) => {
   return targets;
 };
 
-type Prepared = {
+export type PreparedSidecarEdit = {
   source: Awaited<ReturnType<typeof resolveSource>>;
   request: Awaited<ReturnType<typeof readRequestFile>>;
   inventory: RdlInventory;
@@ -445,7 +449,7 @@ type Prepared = {
 export const prepareSidecarEdit = async (input: {
   sourcePath: string;
   requestFilePath: string;
-}): Promise<Prepared> => {
+}): Promise<PreparedSidecarEdit> => {
   const source = await resolveSource(input.sourcePath);
   let inventory: RdlInventory;
   try {
@@ -490,6 +494,51 @@ export const prepareSidecarEdit = async (input: {
     throw new SidecarCliError(code, message);
   }
   return { source, request, inventory, plannerResult, plan, targets };
+};
+
+export const prepareSidecarEditFromText = async (input: {
+  sourcePath: string;
+  request: string;
+}): Promise<PreparedSidecarEdit> => {
+  const source = await resolveSource(input.sourcePath);
+  let inventory: RdlInventory;
+  try {
+    inventory = await inspectRdlFile(source.path);
+  } catch (error) {
+    throw new SidecarCliError(
+      "SOURCE_XML_INVALID",
+      "The source RDL could not be inspected.",
+      { causeCode: error instanceof Error ? error.name : "unknown" },
+    );
+  }
+  if (Buffer.byteLength(input.request, "utf8") > 8192)
+    throw new SidecarCliError(
+      "REQUEST_TOO_LARGE",
+      "The request exceeds 8,192 UTF-8 bytes.",
+    );
+  const plannerResult = new LocalSentenceEditPlanner().plan(
+    input.request,
+    createEditPlannerContext(inventory),
+  );
+  if (plannerResult.status === "rejected")
+    throw new SidecarCliError(
+      "PLANNER_REJECTED",
+      `${plannerResult.code}: ${plannerResult.message}`,
+      {
+        plannerCode: plannerResult.code,
+        unsupportedFragments: plannerResult.unsupportedFragments,
+      },
+    );
+  const plan = editPlanSchema.parse(plannerResult.plan);
+  const targets = resolveTargets(inventory, plan);
+  return {
+    source,
+    request: { path: "(electron input)", value: input.request },
+    inventory,
+    plannerResult,
+    plan,
+    targets,
+  };
 };
 
 const assertInside = (root: string, path: string): void => {
@@ -544,7 +593,7 @@ const reserveOutputName = async (
   );
 };
 
-type TransactionHooks = {
+export type SidecarTransactionHooks = {
   beforeSourceRecheck?: () => Promise<void>;
   beforeRdlTemporaryWrite?: () => Promise<void>;
   beforeManifestTemporaryWrite?: () => Promise<void>;
@@ -591,19 +640,44 @@ export const applyExistingRdlSidecar = async (
     requestFilePath: string;
     startPaths?: readonly string[];
   },
-  hooks: TransactionHooks = {},
+  hooks: SidecarTransactionHooks = {},
 ): Promise<SidecarApplyResult> => {
   const prepared = await prepareSidecarEdit(input);
-  const initialSha256 = hash(prepared.source.bytes);
   const repositoryRoot = findMonorepoRoot(
     input.startPaths ?? [import.meta.dirname, prepared.source.path],
   );
   const outputDirectory = resolve(repositoryRoot, controlledOutputRelativePath);
-  assertInside(repositoryRoot, outputDirectory);
   const schemaPath = resolve(
     repositoryRoot,
     "packages/rdl-spike/schema/ReportDefinition-2016.xsd",
   );
+  return applyPreparedSidecarEdit(
+    prepared,
+    {
+      outputDirectory,
+      controlledRoot: repositoryRoot,
+      schemaPath,
+      invocationSurface: "cli",
+    },
+    hooks,
+  );
+};
+
+export const applyPreparedSidecarEdit = async (
+  prepared: PreparedSidecarEdit,
+  options: {
+    outputDirectory: string;
+    controlledRoot: string;
+    schemaPath: string;
+    invocationSurface: "cli" | "electron-sidecar";
+  },
+  hooks: SidecarTransactionHooks = {},
+): Promise<SidecarApplyResult> => {
+  const initialSha256 = hash(prepared.source.bytes);
+  const outputDirectory = resolve(options.outputDirectory);
+  const controlledRoot = resolve(options.controlledRoot);
+  assertInside(controlledRoot, outputDirectory);
+  const schemaPath = resolve(options.schemaPath);
   await hooks.beforeSourceRecheck?.();
   const sourceBeforeMutation = await readFile(prepared.source.path);
   const sourceBeforeMutationSha256 = hash(sourceBeforeMutation);
@@ -632,7 +706,7 @@ export const applyExistingRdlSidecar = async (
 
   await mkdir(outputDirectory, { recursive: true });
   const [canonicalRepositoryRoot, canonicalOutputDirectory] = await Promise.all(
-    [realpath(repositoryRoot), realpath(outputDirectory)],
+    [realpath(controlledRoot), realpath(outputDirectory)],
   );
   assertInside(canonicalRepositoryRoot, canonicalOutputDirectory);
   const reservation = await reserveOutputName(
@@ -646,6 +720,7 @@ export const applyExistingRdlSidecar = async (
     applicationVersion: "0.1.0",
     createdAt,
     transactionId,
+    invocationSurface: options.invocationSurface,
     planner: { implementation: "LocalSentenceEditPlanner", version: 1 },
     source: {
       resolvedPath: prepared.source.path,

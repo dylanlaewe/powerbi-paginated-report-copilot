@@ -136,3 +136,11 @@ The canonical output is byte-identical to Gate 2 with SHA-256 `d84670ccd232ea9c0
 Gate 4 coverage includes argument allowlisting, stable failure exits, strict UTF-8/BOM/CRLF/LF/curly-quote/em-dash behavior, expected plan and proposal, exact target evidence, no-write planning, planner rejection, manifest validation and sanitization, Gate 2 byte parity, source preservation, duplicate-safe naming, `cwd` independence, deterministic repeated RDL bytes, source-race rejection, and rollback at both temporary-write and rename stages.
 
 Full Gate 4 repository verification: 36 test files and 271 tests passed; all changed text files passed formatting, and ESLint, workspace typecheck, and the production build passed. The pre-existing `pnpm-lock.yaml` formatting baseline was not modified.
+
+## Gate 5 — Electron sidecar
+
+Automated coverage verifies native-selection service behavior, realpath/symlink handling, sanitized inspection summaries, opaque report and plan sessions, expiration/invalidation, canonical proposal and targets, no-write review, planner rejection, Unicode title preservation, request size, single-use apply, source-change rejection, Gate 2/4 byte identity, Gate 4 manifest reuse, Electron invocation context, output handles, platform reveal labels, strict IPC schemas, minimal emitted preload, hardened BrowserWindow settings, renderer states, and narrow-layout wrapping.
+
+Codex launched `pnpm dev` successfully and automated the trusted main-process service flow into the actual macOS user-data directory. The canonical RDL and manifest hashes passed. This is not independent UI acceptance: Dylan must still perform the native-picker and visible button click-through before Gate 6.
+
+Full Gate 5 repository verification: 38 test files and 289 tests passed; changed-file formatting, ESLint, workspace typecheck, production build, and emitted-preload inspection passed.

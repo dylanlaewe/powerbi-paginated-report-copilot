@@ -148,3 +148,15 @@ The CLI accepts only `--source` and `--request-file`. Output paths, XML, XPath, 
 Apply rereads the source immediately before mutation. Both RDL and manifest are written exclusively to synchronized temporary files. A duplicate-safe lock reserves the paired names; the RDL is renamed first and the manifest second. Failure removes temporary files and rolls back either final file, including the RDL when manifest rename fails. Rename durability and directory-entry atomicity retain the host filesystem's normal platform guarantees.
 
 The adjacent strict manifest records source/request/plan hashes, sanitized inspection summary, concrete resolution evidence, expected before/after values, output identity, validation stages, and preservation hashes. It excludes XML, XPath, embedded rows, secrets, commands, and environment data. Its random UUID v4 transaction ID and UTC timestamp are audit correlation values and never affect RDL bytes.
+
+## Gate 5 Electron sidecar
+
+The Electron sidecar calls the shared Gate 4 preparation and apply services directly; it never shells out to the CLI. The main process owns native `.rdl` selection, realpath inspection, XSD validation, sessions, planning, target resolution, mutation, output, clipboard, and reveal actions.
+
+The renderer receives a sanitized report summary and opaque random UUID v4 handles. Planning accepts only `{ reportSessionId, request }`. Apply accepts only `{ reportSessionId, planSessionId }`. Strict main-process schemas reject extra EditPlan, target, path, XML, XPath, and bypass properties.
+
+Report and plan sessions live only in main-process memory and expire after 30 minutes. Selecting another report, detecting source change, clearing the session, closing the window, or exiting invalidates report authority. A new request invalidates the prior plan. Successfully applied plans are single-use.
+
+Electron output is contained beneath `app.getPath("userData")/edited-reports`. Opaque output handles authorize copying the trusted RDL/manifest paths or revealing the trusted RDL; renderer-supplied paths are impossible. The manifest reuses Gate 4 schema version 1 and records `invocationSurface: electron-sidecar`.
+
+The preload imports only Electron and exposes named wrappers. `contextIsolation`, sandboxing, and disabled Node integration remain enforced.

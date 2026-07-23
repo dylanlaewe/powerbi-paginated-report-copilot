@@ -1,0 +1,149 @@
+{
+  "gate": 5,
+  "status": "AUTOMATED_VALIDATION_PASS_MANUAL_UI_PENDING",
+  "electronSidecar": {
+    "implementation": "ExistingRdlSidecarService",
+    "version": 1,
+    "window": {
+      "width": 460,
+      "height": 780,
+      "minimumWidth": 420,
+      "minimumHeight": 680,
+      "resizable": true
+    }
+  },
+  "security": {
+    "contextIsolation": true,
+    "sandbox": true,
+    "nodeIntegration": false,
+    "preloadExternalRuntimeDependencies": ["electron"],
+    "rendererFilesystemAccess": false,
+    "mainProcessFilesystemAccessOnly": true,
+    "genericInvokeExposed": false,
+    "rendererCanSubmitEditPlan": false,
+    "rendererCanSubmitTargets": false,
+    "rendererCanSubmitOutputPath": false
+  },
+  "preloadBridgeMethods": [
+    "selectExistingRdl",
+    "planExistingRdlEdit",
+    "applyExistingRdlEdit",
+    "cancelExistingRdlPlan",
+    "revealEditedRdl",
+    "copyEditedRdlPath",
+    "copyManifestPath",
+    "clearExistingRdlSession"
+  ],
+  "ipcChannels": [
+    "sidecar:select-rdl",
+    "sidecar:plan-edit",
+    "sidecar:apply-edit",
+    "sidecar:cancel-plan",
+    "sidecar:reveal-output",
+    "sidecar:copy-rdl-path",
+    "sidecar:copy-manifest-path",
+    "sidecar:clear-session"
+  ],
+  "reportSession": {
+    "identifier": "opaque random UUID v4",
+    "storage": "main-process memory only",
+    "contains": [
+      "resolved source path",
+      "source SHA-256",
+      "inspection identity",
+      "creation time"
+    ],
+    "defaultLifetimeMinutes": 30,
+    "invalidatedBy": [
+      "different source selection",
+      "source change",
+      "explicit clear",
+      "window close",
+      "application exit",
+      "expiration"
+    ]
+  },
+  "planSession": {
+    "identifier": "opaque random UUID v4",
+    "storage": "main-process memory only",
+    "contains": [
+      "validated prepared EditPlan",
+      "trusted resolution evidence",
+      "report-session association",
+      "creation time",
+      "consumed state"
+    ],
+    "applyPayload": ["reportSessionId", "planSessionId"],
+    "singleUseAfterSuccess": true,
+    "invalidatedBy": ["new request", "different report", "cancel", "expiration"]
+  },
+  "canonical": {
+    "source": "examples/existing-rdl-sidecar/source/regional-sales-existing.rdl",
+    "sourceSha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "request": "Change the report title to \"Weekly Sales Pipeline\", make the title 18-point bold, switch the page to landscape, and format Revenue as currency with no decimal places.",
+    "planSha256": "879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc",
+    "resolvedTargets": [
+      "ReportTitle",
+      "ReportSection0/Page",
+      "Revenue",
+      "Textbox10",
+      "Textbox19"
+    ],
+    "excludedTarget": "HeaderRevenue",
+    "outputPath": "/Users/dylanlaewe/Library/Application Support/@powerbi-copilot/desktop/edited-reports/regional-sales-existing-copilot-edited.rdl",
+    "outputSha256": "d84670ccd232ea9c077e7b438e9bf3ef5a8283a8f8b95968ca91f32fe0cbd5bb",
+    "byteIdenticalToGate2AndGate4": true,
+    "manifestPath": "/Users/dylanlaewe/Library/Application Support/@powerbi-copilot/desktop/edited-reports/regional-sales-existing-copilot-edited.rdl.manifest.json",
+    "manifestVersion": 1,
+    "invocationSurface": "electron-sidecar",
+    "sourceUnchanged": true,
+    "noWriteBeforeApply": true
+  },
+  "inspectedSummary": {
+    "filename": "regional-sales-existing.rdl",
+    "namespaceVersion": "2016/01",
+    "datasets": ["SeedData"],
+    "fieldCount": 9,
+    "tablixes": ["Tablix1"],
+    "groups": ["Region", "Region1", "Details"],
+    "textboxCount": 42,
+    "pageOrientation": "portrait",
+    "currentTitle": "Regional Sales Subtotal Compatibility Test"
+  },
+  "platformRevealLabels": {
+    "darwin": "Reveal in Finder",
+    "win32": "Reveal in Explorer",
+    "linux": "Reveal in File Manager"
+  },
+  "resourceResolution": {
+    "developmentRepositoryRootIndependentOfCwd": "PASS",
+    "packagedProcessResourcesPath": "PASS",
+    "xsdBundled": "PASS",
+    "electronOutputUnderUserData": "PASS",
+    "outputSymlinkEscapeRejection": "PASS"
+  },
+  "validation": {
+    "strictIpcSchemas": "PASS",
+    "nativeSelectionService": "PASS",
+    "reportSessions": "PASS",
+    "planSessions": "PASS",
+    "canonicalPlanning": "PASS",
+    "canonicalApply": "PASS",
+    "sourceChangeRejection": "PASS",
+    "outputHandleActions": "PASS",
+    "manifestSchema": "PASS",
+    "preloadBundleInspection": "PASS",
+    "developmentLaunchSmoke": "PASS",
+    "manualMacClickThrough": "PENDING_DYLAN_INDEPENDENT_VALIDATION"
+  },
+  "manualValidationNote": "Codex launched the macOS development runtime and automated the trusted main-process service workflow. Native picker, visible review, button actions, and complete UI state require Dylan's independent click-through before Gate 6.",
+  "tests": {
+    "gate5TestsAdded": 18,
+    "repositoryTestFiles": 38,
+    "repositoryTests": 289,
+    "formatting": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "productionBuild": "PASS"
+  }
+}

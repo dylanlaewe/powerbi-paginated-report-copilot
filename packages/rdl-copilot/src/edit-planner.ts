@@ -97,7 +97,7 @@ const reject = (
   });
 
 const normalizeRequest = (input: string): string => {
-  const normalized = input.normalize("NFC").replace(/[‐‑‒–—―]/gu, "-");
+  const normalized = input.normalize("NFC");
   let output = "";
   let quote: string | null = null;
   const closing: Record<string, string> = {
@@ -118,15 +118,17 @@ const normalizeRequest = (input: string): string => {
       quote = null;
     } else if (!quote && /\s/u.test(character)) pendingSpace = true;
     else {
+      const safeCharacter =
+        !quote && /[‐‑‒–—―]/u.test(character) ? "-" : character;
       if (
         pendingSpace &&
         output &&
-        !/[,(]/u.test(character) &&
+        !/[,(]/u.test(safeCharacter) &&
         !output.endsWith(" ")
       )
         output += " ";
       pendingSpace = false;
-      output += character;
+      output += safeCharacter;
     }
   }
   return output.trim();

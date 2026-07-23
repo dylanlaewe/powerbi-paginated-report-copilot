@@ -1,12 +1,12 @@
 # Status
 
-Current milestone: **Existing RDL Sidecar Editor v0.2 — Gate 4 CLI integration complete, pending review**.
+Current milestone: **Existing RDL Sidecar Editor v0.2 — Gate 5 Electron integration complete, pending manual review**.
 
 The frozen `rdl-copilot-mvp-v0.1` and `rdl-copilot-windows-v0.1` checkpoints remain unchanged. Work continues only on `codex/existing-rdl-sidecar-v0.2`.
 
-Gates 1–3 remain accepted. Gate 4 connects their exact services through shared plan/apply preparation, strict UTF-8 request decoding, concrete target evidence, source-race protection, controlled duplicate-safe output, and a strict adjacent audit manifest. The canonical CLI output is byte-identical to Gate 2 and its source remains unchanged.
+Gates 1–4 remain accepted. Gate 5 exposes those services through a narrow sandboxed Electron sidecar with native `.rdl` selection, sanitized inspection, opaque report/plan/output sessions, explicit review before single-use apply, user-data-contained output, and trusted copy/reveal actions. Automated canonical output is byte-identical to Gates 2 and 4.
 
-Gate 5 Electron sidecar integration and Gate 6 independent Windows edited-report validation remain unstarted pending Gate 4 review.
+Independent macOS click-through acceptance remains pending. Gate 6 Windows Report Builder validation has not started.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

@@ -49,3 +49,11 @@ pnpm sidecar:cli -- apply --source examples/existing-rdl-sidecar/source/regional
 ```
 
 The CLI accepts no output path, XML, XPath, or raw operation arguments. Gate 4 is a development validation surface, not the final customer interface.
+
+Launch the Gate 5 existing-RDL sidecar on macOS:
+
+```sh
+pnpm dev
+```
+
+Select an `.rdl`, enter a supported sentence, review the exact before/after targets, and explicitly apply to a controlled copy under the application user-data directory. The original source is never overwritten.

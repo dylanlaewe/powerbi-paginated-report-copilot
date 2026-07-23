@@ -53,3 +53,5 @@ The planner uses full span coverage. Connectors and punctuation may be ignored, 
 Normalization is NFC, whitespace collapse outside quoted titles, Unicode-hyphen normalization, platform-independent newline handling, and case-insensitive command recognition. Quoted title content is preserved after NFC normalization. The canonical plan SHA-256 is `879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc`.
 
 Gate 4 exposes the planner through a noninteractive CLI. Plan-only and apply use the same validated plan and resolution path. The CLI cannot inject an EditPlan or operation directly.
+
+Gate 5 stores the validated plan and exact resolution evidence in a main-process-only plan session. The renderer reviews a display projection but can submit only the associated opaque plan ID for apply.
