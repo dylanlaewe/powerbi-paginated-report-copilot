@@ -1,0 +1,102 @@
+{
+  "gate": 2,
+  "status": "PASS",
+  "source": {
+    "path": "examples/existing-rdl-sidecar/source/regional-sales-existing.rdl",
+    "sha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "bytes": 76730
+  },
+  "output": {
+    "path": "examples/existing-rdl-sidecar/expected/regional-sales-existing-copilot-edited.rdl",
+    "sha256": "d84670ccd232ea9c077e7b438e9bf3ef5a8283a8f8b95968ca91f32fe0cbd5bb",
+    "bytes": 74974
+  },
+  "resolvedTargets": {
+    "reportTitle": {
+      "reportItemName": "ReportTitle",
+      "evidence": [
+        "configured exact report-item name: ReportTitle",
+        "existing static text: Regional Sales Subtotal Compatibility Test"
+      ]
+    },
+    "Revenue": [
+      {
+        "reportItemName": "Revenue",
+        "expression": "=Fields!Revenue.Value",
+        "beforeFormat": "C2",
+        "afterFormat": "C0"
+      },
+      {
+        "reportItemName": "Textbox10",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "beforeFormat": "C2",
+        "afterFormat": "C0"
+      },
+      {
+        "reportItemName": "Textbox19",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "beforeFormat": "C2",
+        "afterFormat": "C0"
+      }
+    ]
+  },
+  "approvedChanges": {
+    "ReportTitle.Value": {
+      "before": "Regional Sales Subtotal Compatibility Test",
+      "after": "Weekly Sales Pipeline"
+    },
+    "ReportTitle.FontSize": {
+      "before": "28pt",
+      "after": "18pt"
+    },
+    "ReportTitle.FontWeight": {
+      "before": null,
+      "after": "Bold"
+    },
+    "PageWidth": {
+      "before": "8.5in",
+      "after": "11in"
+    },
+    "PageHeight": {
+      "before": "11in",
+      "after": "8.5in"
+    }
+  },
+  "preservation": {
+    "semanticProjectionSha256": "a3477fcd39d3b522a86fd03489bc2f801bf77d6665561dd71f6ece8740978cce",
+    "embeddedDataSha256": "8eb3496b687dfc236efb1503be81c0437e33c31ebf42736250eea807ae55671b",
+    "datasetsSha256": "2f1066eb51f8a45be70c81456d18914fb51a4258ce44519835d2ff8c0590938c",
+    "tablixHierarchyProjectionSha256": "b361502683303dede088d17e9b7545174a280a267163aea64a40a472c7a74c7c",
+    "pageBehaviorSha256": "c30dbb46d4beecd920c8aaaba06e99f332e6446a6c040dbcd4b4b7dd8d94f655",
+    "footerSha256": "a2e4125786632f03edf94a3280512ade07c095d8df31fb57c730f98e857144a8",
+    "checks": {
+      "fullSemanticAllowlist": "PASS",
+      "embeddedData": "PASS",
+      "datasetsAndFields": "PASS",
+      "tablixAndGroupHierarchy": "PASS",
+      "pageBreaksAndRepeatingHeaders": "PASS",
+      "footer": "PASS"
+    }
+  },
+  "validation": {
+    "editPlan": "PASS",
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "xsdEngine": "libxml2-wasm",
+    "namespace": "PASS",
+    "targetCounts": "PASS",
+    "operationVerification": "PASS",
+    "structuralDiff": "PASS",
+    "embeddedData": "PASS",
+    "reparse": "PASS",
+    "repeatRunByteDeterminism": "PASS",
+    "sourceUnchanged": "PASS"
+  },
+  "serialization": {
+    "sourceLineEndings": "CRLF",
+    "outputLineEndings": "LF",
+    "normalizedEmptyElements": true,
+    "normalizedRootAttributeOrder": true,
+    "semanticGuardRequired": true
+  }
+}

@@ -21,9 +21,10 @@ Raw request text, renderer messages, and future model output are never XML mutat
 ## Acceptance ladder status
 
 - Gate 1 — inspection: implemented and locally validated.
-- Gates 2–6: not started.
+- Gate 2 — typed deterministic mutation: implemented and locally validated.
+- Gates 3–6: not started.
 
-Gate 1 adds no mutation engine, planner, CLI edit flow, or Electron UI changes.
+No sentence-form planner, product CLI edit flow, Electron sidecar integration, or Windows edited-report validation has started.
 
 ## Gate 1 inspection service
 
@@ -113,3 +114,21 @@ Page:
 - The same `=Sum(Fields!Revenue.Value)` expression appears at Region-subtotal and report-total levels. Gate 1 can identify both displays but does not yet encode their group scope; Gate 2's mutation guard must verify only their `Format` properties change.
 - The Report Builder-authored hierarchy contains `Region → Region1 → Details`; inspection preserves and reports it without interpreting the duplicate visible Region levels.
 - Embedded Enter Data XML includes a namespace reset. Inspection deliberately inventories declared fields and report structure but does not expose embedded row values.
+
+## Gate 2 mutation service
+
+`packages/rdl-copilot/src/mutation.ts` accepts source bytes, their expected SHA-256, a strict EditPlan, and XSD bytes. It performs all target resolution before modifying a parsed in-memory document. The service never accepts raw XML fragments or XPath from the plan.
+
+The canonical path resolves the title only through the reviewed source checksum and exact `ReportTitle` item name. It resolves Revenue through exact direct and `Sum` expressions and requires exactly three displays before mutation.
+
+After operation-specific verification, `packages/rdl-copilot/src/structural-guard.ts` parses source and output independently. It normalizes only properties named by the validated plan to typed sentinel values, converts the parsed XML trees into namespace-aware semantic projections, and requires the complete projections to hash identically. Namespace-prefix presentation, attribute order, empty-element spelling, and whitespace-only nodes are deliberately not semantic properties.
+
+The structural allowlist is plan-derived and contains only:
+
+- title Value, FontSize, and FontWeight on `ReportTitle`
+- PageWidth and PageHeight
+- Format on `Revenue`, `Textbox10`, and `Textbox19`
+
+Separate stable hashes prove preservation of embedded query/DesignerState data, datasets and fields, tablix row/column hierarchy, page breaks/repeating-header properties, and the footer. An unauthorized GrossProfit format mutation is rejected by regression coverage.
+
+File application rechecks source bytes after validation, rejects source/output identity, restricts output to one `.rdl` filename under the supplied controlled directory, writes through a unique temporary file, and renames only after every validation passes.

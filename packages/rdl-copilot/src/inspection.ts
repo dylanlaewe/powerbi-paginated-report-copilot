@@ -316,11 +316,21 @@ const configuredTitleNamesBySourceSha256: Readonly<Record<string, string>> = {
     "ReportTitle",
 };
 
+export const resolveConfiguredReportTitle = (
+  inventory: RdlInventory,
+): ResolvedReportItemTarget => {
+  const configuredName =
+    configuredTitleNamesBySourceSha256[inventory.sourceSha256];
+  if (!configuredName)
+    throw new RdlInspectionError(
+      "TITLE_NOT_FOUND",
+      "No checksum-reviewed report-title target is configured for this source",
+    );
+  return resolveReportTitle(inventory, configuredName);
+};
+
 export const resolveInventoryTargets = (inventory: RdlInventory) => ({
-  reportTitle: resolveReportTitle(
-    inventory,
-    configuredTitleNamesBySourceSha256[inventory.sourceSha256],
-  ),
+  reportTitle: resolveConfiguredReportTitle(inventory),
   revenueDisplays: resolveFieldDisplays(inventory, "Revenue"),
 });
 

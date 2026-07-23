@@ -9,6 +9,17 @@
 - Added fail-closed title and field-display resolution. The fixture resolves `ReportTitle` and Revenue displays `Revenue`, `Textbox10`, and `Textbox19`; the static `HeaderRevenue` label is excluded.
 - Generated deterministic Gate 1 inventory evidence and added ambiguity, missing-target, malformed-file, fixture-integrity, structural-inventory, and resolution regressions. Gates 2–6 remain unstarted.
 
+## 2026-07-23 — Existing RDL Sidecar Gate 2 mutation
+
+- Added a strict serializable EditPlan v1 discriminated union with four allowlisted operation types and rejection of raw XPath/XML, unsupported formats/styles, and duplicate or conflicting operations.
+- Applied the hand-authored canonical plan through a parsed in-memory mutation service after checksum-reviewed title resolution and exact three-target Revenue resolution.
+- Changed only title text/size/weight, PageWidth/PageHeight, and three Revenue formats; retained half-inch margins and seven-inch body width.
+- Added a parsed semantic structural-diff guard that normalizes only plan-approved properties and separately hashes embedded data, datasets/fields, tablix hierarchy, page behavior, and footer content without logging row values.
+- Added source-checksum and source-recheck enforcement, controlled output naming, source overwrite rejection, atomic write cleanup, XSD validation, final reparse, operation postconditions, and byte determinism checks.
+- Generated `regional-sales-existing-copilot-edited.rdl` with SHA-256 `d84670…bd5bb`. The unchanged source remains `c2d27f…e17a`.
+- Recorded libxml serialization normalization from CRLF to LF, normalized empty elements, and root attribute ordering; the semantic guard proves these are outside the approved property changes but semantically neutral.
+- Gate 2 service tests pass. No planner, product CLI, Electron UI, or Windows validation work began.
+
 ## 2026-07-19 — Repository bootstrap
 
 - Verified Node.js, pnpm, Git, GitHub CLI authentication, repository ownership, and push access.

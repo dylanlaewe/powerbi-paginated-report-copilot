@@ -2,11 +2,12 @@
 
 ## Existing RDL Sidecar Editor v0.2
 
-- Only Gate 1 inspection and conservative title/Revenue target resolution are implemented.
-- No EditPlan, mutation, edited copy, manifest, CLI edit flow, Electron sidecar workflow, or Windows edited-report validation exists yet.
+- Gates 1 and 2 implement inspection, conservative target resolution, one strict hand-authored EditPlan, and deterministic mutation to an edited copy.
+- No sentence-form planner, audit manifest, product CLI edit flow, Electron sidecar workflow, or Windows edited-report validation exists yet.
 - Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
 - The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
 - Embedded row values are deliberately excluded from inventory evidence.
+- The edited fixture is XML/XSD-valid but has not been opened in Report Builder. `libxml2-wasm` normalizes CRLF to LF, empty-element spelling, and root attribute order during serialization; semantic preservation is proven locally, while rendering compatibility remains a later gate.
 
 ## Accepted RDL copilot MVP
 

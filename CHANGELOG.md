@@ -5,6 +5,7 @@
 ### Added
 
 - Existing RDL Sidecar Editor Gate 1: a dedicated accepted-report fixture, strict versioned RDL inventory, in-process safe parsing, deterministic title/Revenue target resolution, committed inspection evidence, and fail-closed ambiguity regressions.
+- Existing RDL Sidecar Editor Gate 2: a strict EditPlan v1, checksum-reviewed target resolution, deterministic parsed mutation, semantic structural-diff allowlist, embedded-data and report-structure preservation hashes, atomic edited fixture generation, and comprehensive failure/determinism coverage.
 - Application-bundled deterministic RDL XML/XSD validation using `libxml2-wasm`, removing the generated-report path's runtime dependency on the external `xmllint` executable.
 - An unsigned x64 Windows portable build with fixed packaged template/XSD resources, production-only runtime dependencies, and packaged-resource generation/parity regressions.
 - The first natural-language RDL MVP unit: a versioned, runtime-validated specification and constrained parser that allowlists the accepted production-pagination template and synthetic nine-field rows.

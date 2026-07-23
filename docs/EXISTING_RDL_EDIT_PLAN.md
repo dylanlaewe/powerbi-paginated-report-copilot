@@ -1,14 +1,43 @@
-# Existing RDL EditPlan boundary
+# Existing RDL EditPlan v1
 
-The v0.2 mutation contract will be a versioned, strict, runtime-validated plan. Gate 1 does not implement or execute it.
+The v0.2 mutation contract is a versioned, strict Zod discriminated union. It is serializable, deterministic, and contains semantic targets rather than report-item names, XPath, XML, or output paths.
 
-The first acceptance plan is expected to represent only:
+Supported operations are:
 
 - `setText` for the resolved report title
 - `setTextStyle` for title font size, font weight, and clearly requested alignment
 - `setPageOrientation` by swapping existing width and height while preserving page family and margins
 - `setNumberFormat` for exact displays of one existing field using `C0`, `C2`, `N0`, `N2`, `P0`, or `P2`
 
-Every operation will reference a semantic target. The target-resolution layer—not the request, renderer, or future LLM—will attach concrete report-item evidence before application. Ambiguous or missing targets fail closed.
+Every operation references a semantic target. The target-resolution layer—not the request, renderer, or future LLM—attaches concrete report-item evidence before application. Ambiguous or missing targets fail closed. A plan may contain at most one operation of each type; duplicate or conflicting operations are rejected.
 
-Gate 2 will define the exact schema and mutation allowlist. No XML mutation, XPath, arbitrary target, output path, or unsupported operation is accepted through Gate 1.
+Text sizes must be `1pt` through `100pt`. Font weight is `Normal` or `Bold`; alignment is `Left`, `Center`, `Right`, or `General`. Number formats are limited to `C0`, `C2`, `N0`, `N2`, `P0`, and `P2`.
+
+The exact canonical plan is committed at `examples/existing-rdl-sidecar/requests/canonical-gate-2-edit-plan.json`:
+
+```json
+{
+  "version": 1,
+  "operations": [
+    {
+      "type": "setText",
+      "target": { "kind": "reportItem", "semanticRole": "reportTitle" },
+      "value": "Weekly Sales Pipeline"
+    },
+    {
+      "type": "setTextStyle",
+      "target": { "kind": "reportItem", "semanticRole": "reportTitle" },
+      "fontSize": "18pt",
+      "fontWeight": "Bold"
+    },
+    { "type": "setPageOrientation", "orientation": "landscape" },
+    {
+      "type": "setNumberFormat",
+      "target": { "kind": "fieldDisplay", "fieldName": "Revenue" },
+      "format": "C0"
+    }
+  ]
+}
+```
+
+Gate 2 executes only this hand-authored plan through the service layer. Sentence-form planning remains unimplemented until Gate 3 review.
