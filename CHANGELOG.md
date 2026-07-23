@@ -16,6 +16,7 @@
 
 ### Validated
 
+- Independent Windows 11 testing accepted the packaged portable MVP: artifact integrity, launch without repository or development dependencies, deterministic canonical generation, Report Builder three-page Preview, correct rows and totals, pagination, PDF export, and three-worksheet Excel export passed.
 - Independent macOS UI testing accepted the minimal Electron workflow: launch, canonical request generation, visible summary, controlled output, expected checksum, and byte identity with the Windows-accepted CLI artifact passed.
 - Independent Windows testing accepted the first deterministic natural-language copilot RDL: checksum, requested title and data, open, Design, Preview, grouping, subtotals, Grand Total, pagination, PDF, and Excel passed.
 - Independent Windows testing accepted Candidate 06b: explicit physical dimensions, checksum, open, Design, Preview, multipage Region pagination, repeating headings, Page N of M, all rows and totals, no blank pages or clipping, PDF export, and Excel export passed. The RDL compatibility ladder is complete.

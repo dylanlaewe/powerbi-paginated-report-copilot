@@ -119,6 +119,6 @@ The environment must begin without the repository, Git, Node.js, pnpm, `xmllint`
 
 Do not ask an operator to disable SmartScreen, Defender, reputation-based protection, or application-control policy. If a validly signed artifact remains blocked, submit its signature metadata and hashes through the environment owner's formal software-approval process and leave acceptance pending until approved execution occurs.
 
-## Milestone gate
+## Deferred distribution-hardening gate
 
-The branch must not merge until at least one signed portable or installer customer path passes independent execution in an approved clean-Windows environment and produces the accepted byte-identical RDL. Ideally, validate both distribution forms before calling packaging complete.
+The packaged MVP was later accepted through the unsigned portable customer path in a personally controlled clean-Windows environment and may merge as an explicitly unsigned development milestone. This signing plan is deferred distribution hardening, not a condition for that accepted checkpoint. Before production distribution, at least one signed portable or installer customer path should pass independent execution in an approved clean-Windows environment and produce the accepted byte-identical RDL. Ideally, validate both signed distribution forms.

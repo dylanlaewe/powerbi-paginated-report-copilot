@@ -227,3 +227,11 @@
 - Independent transfer, exact byte size, and SHA-256 verification passed for the unsigned portable EXE.
 - A managed Windows device blocked launch through Microsoft Defender SmartScreen and offered no policy-permitted execution option. Application execution, generation, Report Builder, PDF, and Excel were not reached; packaged acceptance remains pending.
 - Preserved the security policy without bypass instructions and added a production Authenticode signing, signature-verification, deterministic-output, and approved clean-Windows environment plan.
+
+## 2026-07-22 — Packaged Windows MVP acceptance
+
+- Independently validated the exact 89,624,083-byte portable artifact with SHA-256 `5e47a345…c50b` in a personally controlled Windows 11 Parallels VM without bypassing managed-device policy.
+- Passed portable launch, bundled template/XSD discovery, canonical request validation, controlled generation, result summary, path copy, and accepted RDL SHA-256 `ae2ed7f3…d9669c1` without a repository, development server, Node.js, pnpm, Git, or `xmllint`.
+- Power BI Report Builder passed open, three-page Preview, six-row completeness, Region subtotals, Grand Total, Region page breaks, repeating headings, Page N of M, no blank pages, no clipping, and no `#Error` values.
+- PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, preserved totals, and numeric values.
+- Recorded PowerShell's default-decoding corruption of the UTF-8 em dash as a test-environment issue resolved by explicit UTF-8 input. Deferred the Windows `Reveal in Finder` label as cosmetic.

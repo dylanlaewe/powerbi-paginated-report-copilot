@@ -78,4 +78,17 @@ Return the EXE hash, RDL hash, launch result, Report Builder open/Preview result
 - No LLM, live source, chart, authentication, telemetry, update, or existing-report editing capability is included.
 - macOS cannot execute the Windows binary; final customer-path acceptance requires the clean-Windows procedure above.
 
-The first independent managed-Windows attempt verified transfer, size, and checksum but was blocked by SmartScreen with no policy-permitted execution option. Application execution and all downstream checks remain untested. See `WINDOWS_CODE_SIGNING_PLAN.md`.
+The first independent managed-Windows attempt verified transfer, size, and checksum but was blocked by SmartScreen with no policy-permitted execution option. Application execution and downstream checks were not reached in that environment. See `WINDOWS_CODE_SIGNING_PLAN.md`.
+
+## Independent acceptance result
+
+A later test in a personally controlled Windows 11 Parallels VM completed the customer path without bypassing managed-device policy:
+
+- portable launch and packaged resources: PASS
+- canonical generated RDL hash: `ae2ed7f3ef0df988b550ea2f46ed7490d4c6de3d2e67c58646c2a2c61d9669c1`
+- Report Builder open and Preview: PASS — 3 pages
+- PDF export: PASS — 3 pages
+- Excel export: PASS — 3 worksheets
+- blank pages, clipping, repair warnings, and `#Error`: NONE
+
+PowerShell's default text decoding initially corrupted the UTF-8 em dash in the copied request. Explicit UTF-8 decoding produced the canonical hash; this is recorded as a test-environment issue. The Windows `Reveal in Finder` label is a deferred cosmetic issue.
