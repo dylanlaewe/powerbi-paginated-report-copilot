@@ -4,6 +4,8 @@
 
 ### Added
 
+- Application-bundled deterministic RDL XML/XSD validation using `libxml2-wasm`, removing the generated-report path's runtime dependency on the external `xmllint` executable.
+- An unsigned x64 Windows portable build with fixed packaged template/XSD resources, production-only runtime dependencies, and packaged-resource generation/parity regressions.
 - The first natural-language RDL MVP unit: a versioned, runtime-validated specification and constrained parser that allowlists the accepted production-pagination template and synthetic nine-field rows.
 - End-to-end deterministic MVP generation using the checksum-pinned accepted template, safe embedded-data substitution, protected-structure validation, independently calculated totals, CLI output, canonical artifact, and Windows handoff.
 - Minimal Electron integration with narrow typed IPC, main-process-only controlled generation, structured results and errors, Finder reveal, path copy, and deterministic CLI/UI parity coverage.
@@ -14,9 +16,14 @@
 
 ### Validated
 
+- Independent Windows 11 testing accepted the packaged portable MVP: artifact integrity, launch without repository or development dependencies, deterministic canonical generation, Report Builder three-page Preview, correct rows and totals, pagination, PDF export, and three-worksheet Excel export passed.
 - Independent macOS UI testing accepted the minimal Electron workflow: launch, canonical request generation, visible summary, controlled output, expected checksum, and byte identity with the Windows-accepted CLI artifact passed.
 - Independent Windows testing accepted the first deterministic natural-language copilot RDL: checksum, requested title and data, open, Design, Preview, grouping, subtotals, Grand Total, pagination, PDF, and Excel passed.
 - Independent Windows testing accepted Candidate 06b: explicit physical dimensions, checksum, open, Design, Preview, multipage Region pagination, repeating headings, Page N of M, all rows and totals, no blank pages or clipping, PDF export, and Excel export passed. The RDL compatibility ladder is complete.
+
+### Blocked
+
+- Independent packaged-Windows validation passed portable EXE transfer, size, and SHA-256 checks, but managed-device SmartScreen policy blocked the unsigned unknown-publisher executable with no approved execution option. Runtime and Report Builder validation remain pending a signed build and approved environment.
 - Independent Power BI Desktop testing opened the generated PBIP and recognized its generated page, visual objects, and semantic model without corruption or repair. Fixture-wide data retrieval remained blocked, so populated rendering and interaction are not claimed.
 
 ### Added

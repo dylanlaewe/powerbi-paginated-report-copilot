@@ -26,3 +26,9 @@ The renderer has no Node or filesystem access. The sandboxed preload imports onl
 Development resource resolution ascends from stable Electron paths to `pnpm-workspace.yaml`; packaged resolution uses fixed files under `process.resourcesPath/approved-report-resources`. Real-path containment and the pinned RDL checksum are verified before generation. IPC cannot supply template or output paths.
 
 The accepted canonical UI output is byte-identical to the independently Windows-validated CLI artifact.
+
+## Packaged Windows runtime
+
+The portable Windows build bundles only Zod and `libxml2-wasm` as production Node modules. Electron, build tooling, React, and workspace packages are compiled or bundled at build time and are not customer prerequisites. The accepted RDL template and Report Definition XSD are fixed electron-builder resources under `process.resourcesPath/approved-report-resources`.
+
+Generation parses XML and validates the instantiated report against the bundled XSD in-process through WebAssembly libxml2. No external `xmllint`, shell command, repository path, current working directory, global Node.js installation, package manager, Git checkout, source file, or development environment variable participates in packaged generation.

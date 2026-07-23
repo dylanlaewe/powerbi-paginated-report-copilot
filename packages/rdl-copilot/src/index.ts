@@ -98,3 +98,4 @@ export const parseNaturalLanguageReportRequest = (
 
 export * from "./generator";
 export * from "./approved-resources";
+export * from "./xsd-validator";

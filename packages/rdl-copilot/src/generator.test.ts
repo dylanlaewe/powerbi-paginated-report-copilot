@@ -69,6 +69,7 @@ describe("approved RDL template instantiation", () => {
     expect(first.manifest.validation).toEqual({
       xmlWellFormed: "PASS",
       xsd: "PASS",
+      xsdEngine: "libxml2-wasm",
       protectedStructure: "PASS",
       titleMatchesSpecification: "PASS",
       embeddedRowsMatchSpecification: "PASS",

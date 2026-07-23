@@ -211,3 +211,27 @@
 - Verified generation from repository-root, `apps/desktop`, compiled-main, and simulated packaged locations; rejected missing, wrong-checksum, and symlink-escaped resources.
 - Drove the actual built Electron renderer over its context bridge with the canonical request. The UI returned to an enabled state and displayed the accepted SHA; the generated file was byte-identical to the CLI artifact.
 - Independent macOS UI validation accepted launch, canonical request generation, visible summary, controlled output creation, expected SHA-256, and byte identity with the accepted CLI artifact. The deterministic RDL copilot MVP checkpoint is complete.
+
+## 2026-07-22 — Packaged Windows validator runtime
+
+- Started `codex/windows-packaged-mvp` from the frozen `rdl-copilot-mvp-v0.1` milestone without changing the accepted feature scope.
+- Replaced the generator's external `xmllint` process invocation with deterministic XSD validation through the application-bundled `libxml2-wasm` runtime.
+- Added valid-schema and invalid-schema regressions and recorded the validation engine in generation manifests. Portable Windows packaging and independent clean-Windows acceptance remain pending.
+- Configured an unsigned x64 Electron portable target with ASAR packaging and fixed `approved-report-resources` copies for the pinned template and XSD.
+- Limited packaged Node modules to Zod and `libxml2-wasm`; build tools and bundled renderer/workspace dependencies are development-only.
+- Added packaged discovery, missing-resource, wrong-checksum, repository-independent generation, accepted-byte parity, and emitted-main no-`xmllint` coverage.
+- Built the portable executable locally at `dist/windows/Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe`; independent clean-Windows execution remains pending.
+
+## 2026-07-22 — Windows SmartScreen policy block
+
+- Independent transfer, exact byte size, and SHA-256 verification passed for the unsigned portable EXE.
+- A managed Windows device blocked launch through Microsoft Defender SmartScreen and offered no policy-permitted execution option. Application execution, generation, Report Builder, PDF, and Excel were not reached; packaged acceptance remains pending.
+- Preserved the security policy without bypass instructions and added a production Authenticode signing, signature-verification, deterministic-output, and approved clean-Windows environment plan.
+
+## 2026-07-22 — Packaged Windows MVP acceptance
+
+- Independently validated the exact 89,624,083-byte portable artifact with SHA-256 `5e47a345…c50b` in a personally controlled Windows 11 Parallels VM without bypassing managed-device policy.
+- Passed portable launch, bundled template/XSD discovery, canonical request validation, controlled generation, result summary, path copy, and accepted RDL SHA-256 `ae2ed7f3…d9669c1` without a repository, development server, Node.js, pnpm, Git, or `xmllint`.
+- Power BI Report Builder passed open, three-page Preview, six-row completeness, Region subtotals, Grand Total, Region page breaks, repeating headings, Page N of M, no blank pages, no clipping, and no `#Error` values.
+- PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, preserved totals, and numeric values.
+- Recorded PowerShell's default-decoding corruption of the UTF-8 em dash as a test-environment issue resolved by explicit UTF-8 input. Deferred the Windows `Reveal in Finder` label as cosmetic.
