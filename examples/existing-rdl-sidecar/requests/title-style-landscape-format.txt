@@ -1,0 +1,1 @@
+Change the report title to "Weekly Sales Pipeline", make the title 18-point bold, switch the page to landscape, and format Revenue as currency with no decimal places.

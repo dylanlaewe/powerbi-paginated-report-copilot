@@ -1,5 +1,14 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 1 inspection
+
+- Created `codex/existing-rdl-sidecar-v0.2` from accepted `main` without changing either frozen milestone tag.
+- Copied the accepted Report Builder-authored production RDL byte-for-byte into a dedicated existing-report fixture and recorded the canonical edit request separately.
+- Added a strict versioned RDL inventory service using in-process `libxml2-wasm` parsing with network and external-entity loading disabled.
+- Inventoried namespace, ReportSections, page dimensions, margins, datasets, fields, parameters, tablixes, groups, textboxes, static text, expressions, field bindings, formats, and text styles without exposing embedded row values.
+- Added fail-closed title and field-display resolution. The fixture resolves `ReportTitle` and Revenue displays `Revenue`, `Textbox10`, and `Textbox19`; the static `HeaderRevenue` label is excluded.
+- Generated deterministic Gate 1 inventory evidence and added ambiguity, missing-target, malformed-file, fixture-integrity, structural-inventory, and resolution regressions. Gates 2–6 remain unstarted.
+
 ## 2026-07-19 — Repository bootstrap
 
 - Verified Node.js, pnpm, Git, GitHub CLI authentication, repository ownership, and push access.

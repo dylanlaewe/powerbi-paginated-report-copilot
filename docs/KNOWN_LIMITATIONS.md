@@ -1,5 +1,13 @@
 # Known limitations
 
+## Existing RDL Sidecar Editor v0.2
+
+- Only Gate 1 inspection and conservative title/Revenue target resolution are implemented.
+- No EditPlan, mutation, edited copy, manifest, CLI edit flow, Electron sidecar workflow, or Windows edited-report validation exists yet.
+- Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
+- The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
+- Embedded row values are deliberately excluded from inventory evidence.
+
 ## Accepted RDL copilot MVP
 
 - The request language is constrained: one quoted title plus an inline JSON array using exactly nine fixed fields.
@@ -7,9 +15,9 @@
 - Data is embedded and must be synthetic, sanitized, public, or personally owned. Live databases, Power BI tenants, parameters, and arbitrary data sources are unsupported.
 - There is no LLM integration, report editing, chart generation, arbitrary grouping, additional template selection, or layout designer.
 - The Electron UI writes one fixed filename in its controlled application-data folder. History, version management, output naming, backup/restore, and multi-report management are not implemented.
-- The development flow requires `xmllint`. A packaged installer and its external validation runtime have not been independently validated; packaged resource resolution is covered by deterministic tests only.
-- macOS cannot render RDL. The canonical CLI artifact passed independent Windows Report Builder Preview/PDF/Excel validation; the Mac UI was accepted by byte identity with that artifact.
-- Submitted Windows Preview/PDF page counts and Excel worksheet count remained placeholders and are not claimed.
+- The supported generator uses bundled in-process `libxml2-wasm`; no end-user `xmllint` is required. The accepted distribution is an unsigned portable executable, not a signed installer.
+- macOS cannot render RDL. The canonical CLI artifact and packaged Windows customer path passed independent Report Builder Preview/PDF/Excel validation; the Mac UI was accepted by byte identity with that artifact.
+- The accepted packaged Windows result produced three Preview pages, three PDF pages, and three Excel worksheets.
 
 ## PBIR/PBIP work
 
