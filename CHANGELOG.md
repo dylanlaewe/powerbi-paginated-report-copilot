@@ -21,6 +21,7 @@
 
 ### Validated
 
+- Independent macOS testing accepted the Gate 5 existing-RDL sidecar: native selection, inspection, review, explicit apply, deterministic output, source preservation, manifest context, duplicate-safe naming, copy actions, Reveal in Finder, and busy-state recovery passed.
 - Independent Windows 11 testing accepted the packaged portable MVP: artifact integrity, launch without repository or development dependencies, deterministic canonical generation, Report Builder three-page Preview, correct rows and totals, pagination, PDF export, and three-worksheet Excel export passed.
 - Independent macOS UI testing accepted the minimal Electron workflow: launch, canonical request generation, visible summary, controlled output, expected checksum, and byte identity with the Windows-accepted CLI artifact passed.
 - Independent Windows testing accepted the first deterministic natural-language copilot RDL: checksum, requested title and data, open, Design, Preview, grouping, subtotals, Grand Total, pagination, PDF, and Excel passed.

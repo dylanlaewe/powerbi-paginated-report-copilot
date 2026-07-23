@@ -1,5 +1,12 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 5 independent macOS acceptance
+
+- Dylan independently validated native `.rdl` selection, sanitized inspection, canonical request entry, proposal and exact targets, explicit apply, Copy RDL Path, Copy Manifest Path, Reveal in Finder, and busy-state recovery.
+- The independently produced `-2` output matched SHA-256 `d84670…bd5bb`; the source remained `c2d27f…e17a`.
+- The adjacent manifest existed with `invocationSurface: electron-sidecar`; duplicate-safe naming preserved the prior output.
+- Gate 5 is accepted. No Gate 6 acceptance claim is made.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 5 Electron integration
 
 - Replaced the branch UI's primary new-report screen with a compact, resizable existing-RDL sidecar journey while preserving underlying generation services.

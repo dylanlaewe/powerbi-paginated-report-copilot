@@ -141,6 +141,6 @@ Full Gate 4 repository verification: 36 test files and 271 tests passed; all cha
 
 Automated coverage verifies native-selection service behavior, realpath/symlink handling, sanitized inspection summaries, opaque report and plan sessions, expiration/invalidation, canonical proposal and targets, no-write review, planner rejection, Unicode title preservation, request size, single-use apply, source-change rejection, Gate 2/4 byte identity, Gate 4 manifest reuse, Electron invocation context, output handles, platform reveal labels, strict IPC schemas, minimal emitted preload, hardened BrowserWindow settings, renderer states, and narrow-layout wrapping.
 
-Codex launched `pnpm dev` successfully and automated the trusted main-process service flow into the actual macOS user-data directory. The canonical RDL and manifest hashes passed. This is not independent UI acceptance: Dylan must still perform the native-picker and visible button click-through before Gate 6.
+Codex launched `pnpm dev` successfully and automated the trusted main-process service flow into the actual macOS user-data directory. Dylan then independently passed the complete native-picker and visible button click-through. The `-2` duplicate-safe output matched the accepted RDL hash, the source remained unchanged, copy/reveal actions worked, and the manifest recorded `electron-sidecar`.
 
 Full Gate 5 repository verification: 38 test files and 289 tests passed; changed-file formatting, ESLint, workspace typecheck, production build, and emitted-preload inspection passed.

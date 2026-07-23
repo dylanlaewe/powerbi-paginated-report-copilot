@@ -1,6 +1,6 @@
 {
   "gate": 5,
-  "status": "AUTOMATED_VALIDATION_PASS_MANUAL_UI_PENDING",
+  "status": "INDEPENDENT_MAC_UI_ACCEPTANCE_PASS",
   "electronSidecar": {
     "implementation": "ExistingRdlSidecarService",
     "version": 1,
@@ -134,9 +134,19 @@
     "manifestSchema": "PASS",
     "preloadBundleInspection": "PASS",
     "developmentLaunchSmoke": "PASS",
-    "manualMacClickThrough": "PENDING_DYLAN_INDEPENDENT_VALIDATION"
+    "manualMacClickThrough": "PASS"
   },
-  "manualValidationNote": "Codex launched the macOS development runtime and automated the trusted main-process service workflow. Native picker, visible review, button actions, and complete UI state require Dylan's independent click-through before Gate 6.",
+  "manualValidationNote": "Dylan independently validated the complete macOS development-runtime UI workflow: native selection, inspection, canonical review, explicit apply, copy actions, Reveal in Finder, duplicate-safe naming, and recovery from busy states.",
+  "independentMacResult": {
+    "validator": "Dylan",
+    "outputPath": "/Users/dylanlaewe/Library/Application Support/@powerbi-copilot/desktop/edited-reports/regional-sales-existing-copilot-edited-2.rdl",
+    "outputSha256": "d84670ccd232ea9c077e7b438e9bf3ef5a8283a8f8b95968ca91f32fe0cbd5bb",
+    "manifestPath": "/Users/dylanlaewe/Library/Application Support/@powerbi-copilot/desktop/edited-reports/regional-sales-existing-copilot-edited-2.rdl.manifest.json",
+    "manifestInvocationSurface": "electron-sidecar",
+    "sourceSha256After": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "duplicateSafeSuffix": "-2",
+    "priorOutputOverwritten": false
+  },
   "tests": {
     "gate5TestsAdded": 18,
     "repositoryTestFiles": 38,

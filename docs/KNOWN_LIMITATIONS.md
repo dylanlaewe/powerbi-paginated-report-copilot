@@ -5,7 +5,7 @@
 - Gates 1–5 implement inspection, conservative target resolution, strict EditPlan mutation, deterministic sentence planning, an audited CLI, and a secure Electron sidecar integration.
 - Gate 3 is not an LLM. Its allowlisted grammar covers only quoted title replacement, title size/weight/alignment, orientation, and six display-format codes. Unsupported or partially supported requests fail closed.
 - The Gate 4 CLI is an integration/validation surface, not the customer interface. It supports no interactive confirmation and intentionally controls output naming/location.
-- Gate 5 automated validation and macOS launch smoke pass, but independent manual macOS UI acceptance is pending.
+- Gate 5 independent macOS development-runtime UI acceptance passed.
 - Gate 6 independent Windows Report Builder validation of the Electron-edited artifact has not begun.
 - Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
 - The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
