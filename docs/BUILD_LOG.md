@@ -1,5 +1,14 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 4 CLI transaction
+
+- Added a narrow noninteractive plan/apply CLI using one shared inspect/context/plan/resolve pipeline.
+- Added fatal UTF-8 decoding with optional BOM removal, platform-newline normalization through the accepted planner, and em-dash preservation coverage.
+- Added repository-root controlled, duplicate-safe output naming without user output arguments or `process.cwd()` dependence.
+- Added source revalidation, deterministic mutation, synchronized temporary writes, paired RDL/manifest rename, rollback, and cleanup failure coverage.
+- Added a strict audit-manifest schema with sanitized inspection context, resolution evidence, before/after values, validation statuses, and preservation hashes; UUID/timestamp fields do not affect RDL bytes.
+- The canonical CLI artifact is byte-identical to Gate 2 at `d84670…bd5bb`; the source remains `c2d27f…e17a`. Gate 5 was not started.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 3 deterministic planner
 
 - Added the `EditPlanner` interface and `LocalSentenceEditPlanner`, a runtime-validated local recognizer with explicit planned/rejected outcomes and no RDL mutation access.

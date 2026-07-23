@@ -119,3 +119,20 @@ Coverage includes four quote styles; size/weight/alignment variants; portrait an
 The committed evidence is `examples/existing-rdl-sidecar/planner/gate-3-validation.json`. Gate 3 does not mutate an RDL and makes no Report Builder claim.
 
 Full repository verification: 35 test files and 244 tests passed; formatting, ESLint, workspace typecheck, and the production build passed.
+
+## Gate 4 — CLI and audit integration
+
+Canonical commands:
+
+```sh
+pnpm sidecar:cli -- plan --source examples/existing-rdl-sidecar/source/regional-sales-existing.rdl --request-file examples/existing-rdl-sidecar/requests/title-style-landscape-format.txt
+pnpm sidecar:cli -- apply --source examples/existing-rdl-sidecar/source/regional-sales-existing.rdl --request-file examples/existing-rdl-sidecar/requests/title-style-landscape-format.txt
+```
+
+Plan-only reports proposal, hashes, and exact targets and writes nothing. Apply writes a duplicate-safe edited copy plus `.manifest.json` under `artifacts/existing-rdl-sidecar/edited-reports`.
+
+The canonical output is byte-identical to Gate 2 with SHA-256 `d84670ccd232ea9c077e7b438e9bf3ef5a8283a8f8b95968ca91f32fe0cbd5bb`. The source remains `c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a`.
+
+Gate 4 coverage includes argument allowlisting, stable failure exits, strict UTF-8/BOM/CRLF/LF/curly-quote/em-dash behavior, expected plan and proposal, exact target evidence, no-write planning, planner rejection, manifest validation and sanitization, Gate 2 byte parity, source preservation, duplicate-safe naming, `cwd` independence, deterministic repeated RDL bytes, source-race rejection, and rollback at both temporary-write and rename stages.
+
+Full Gate 4 repository verification: 36 test files and 271 tests passed; all changed text files passed formatting, and ESLint, workspace typecheck, and the production build passed. The pre-existing `pnpm-lock.yaml` formatting baseline was not modified.

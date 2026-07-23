@@ -51,3 +51,5 @@ Supported sentence categories are quoted title replacement, title point size/wei
 The planner uses full span coverage. Connectors and punctuation may be ignored, but any meaningful unmatched fragment rejects the complete request. Compatible style clauses merge. Identical duplicate instructions deduplicate; conflicting values reject. Operations are serialized in title, style, orientation, then normalized-field format order.
 
 Normalization is NFC, whitespace collapse outside quoted titles, Unicode-hyphen normalization, platform-independent newline handling, and case-insensitive command recognition. Quoted title content is preserved after NFC normalization. The canonical plan SHA-256 is `879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc`.
+
+Gate 4 exposes the planner through a noninteractive CLI. Plan-only and apply use the same validated plan and resolution path. The CLI cannot inject an EditPlan or operation directly.

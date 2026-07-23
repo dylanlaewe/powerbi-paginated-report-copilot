@@ -33,3 +33,19 @@ Only synthetic, sanitized, public, or personally owned inputs are permitted. See
 The monorepo separates the Electron application from reusable TypeScript packages. Mode A will support cross-platform offline file authoring. Mode B will isolate Power BI Desktop and Report Builder integrations behind Windows-only adapters.
 
 This is an independent working project and is not endorsed by Microsoft.
+
+## Existing RDL sidecar Gate 4 CLI
+
+Plan an accepted constrained edit without writing files:
+
+```sh
+pnpm sidecar:cli -- plan --source examples/existing-rdl-sidecar/source/regional-sales-existing.rdl --request-file examples/existing-rdl-sidecar/requests/title-style-landscape-format.txt
+```
+
+Apply it to a controlled duplicate-safe copy and create an adjacent audit manifest:
+
+```sh
+pnpm sidecar:cli -- apply --source examples/existing-rdl-sidecar/source/regional-sales-existing.rdl --request-file examples/existing-rdl-sidecar/requests/title-style-landscape-format.txt
+```
+
+The CLI accepts no output path, XML, XPath, or raw operation arguments. Gate 4 is a development validation surface, not the final customer interface.

@@ -102,5 +102,6 @@ export * from "./xsd-validator";
 export * from "./inspection";
 export * from "./edit-plan";
 export * from "./edit-planner";
+export * from "./sidecar-cli";
 export * from "./structural-guard";
 export * from "./mutation";

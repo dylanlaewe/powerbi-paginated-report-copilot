@@ -2,9 +2,10 @@
 
 ## Existing RDL Sidecar Editor v0.2
 
-- Gates 1–3 implement inspection, conservative target resolution, strict EditPlan mutation, and a deterministic sentence-form planner.
+- Gates 1–4 implement inspection, conservative target resolution, strict EditPlan mutation, deterministic sentence planning, and a developer-facing plan/apply CLI with an audit manifest.
 - Gate 3 is not an LLM. Its allowlisted grammar covers only quoted title replacement, title size/weight/alignment, orientation, and six display-format codes. Unsupported or partially supported requests fail closed.
-- No Gate 4 resolution/audit workflow, product CLI edit flow, Electron sidecar workflow, or Windows edited-report validation exists yet.
+- The Gate 4 CLI is an integration/validation surface, not the customer interface. It supports no interactive confirmation and intentionally controls output naming/location.
+- No Gate 5 Electron sidecar workflow or Gate 6 Windows edited-report validation exists yet.
 - Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
 - The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
 - Embedded row values are deliberately excluded from inventory evidence.

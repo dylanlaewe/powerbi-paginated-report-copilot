@@ -138,3 +138,13 @@ File application rechecks source bytes after validation, rejects source/output i
 The `EditPlanner` boundary accepts sentence text and a minimized `EditPlannerContext`, then returns either a validated canonical EditPlan plus proposal and clause spans or a structured rejection. `LocalSentenceEditPlanner` is deterministic code, not an LLM. It cannot access XML, XPath, paths, embedded data, or mutation APIs.
 
 Every meaningful input span must be recognized. Unsupported content before, between, or after supported clauses rejects the whole request, preventing best-effort partial edits. Proposal text is generated from the validated plan and describes intended semantic changes without claiming report-item resolution or file mutation. Target resolution remains a later Gate 4 responsibility.
+
+## Gate 4 CLI transaction
+
+`sidecar:cli` connects inspection, minimized planner context, `LocalSentenceEditPlanner`, validated EditPlan, exact target resolution, mutation, XSD validation, structural preservation, controlled output, and audit evidence. Plan and apply share `prepareSidecarEdit`; plan stops before source revalidation and mutation.
+
+The CLI accepts only `--source` and `--request-file`. Output paths, XML, XPath, operations, and mutation targets cannot be supplied. Development output is rooted through `pnpm-workspace.yaml`, never `process.cwd()`, at `artifacts/existing-rdl-sidecar/edited-reports`.
+
+Apply rereads the source immediately before mutation. Both RDL and manifest are written exclusively to synchronized temporary files. A duplicate-safe lock reserves the paired names; the RDL is renamed first and the manifest second. Failure removes temporary files and rolls back either final file, including the RDL when manifest rename fails. Rename durability and directory-entry atomicity retain the host filesystem's normal platform guarantees.
+
+The adjacent strict manifest records source/request/plan hashes, sanitized inspection summary, concrete resolution evidence, expected before/after values, output identity, validation stages, and preservation hashes. It excludes XML, XPath, embedded rows, secrets, commands, and environment data. Its random UUID v4 transaction ID and UTC timestamp are audit correlation values and never affect RDL bytes.
