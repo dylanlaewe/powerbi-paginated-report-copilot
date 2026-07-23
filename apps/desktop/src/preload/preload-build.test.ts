@@ -24,13 +24,20 @@ describe("production preload output", () => {
       "generateReport: (request) => electron.ipcRenderer.invoke(channels.generateReport",
     );
 
-    const main = readFileSync(
+    const mainSource = readFileSync(
       resolve(repositoryRoot, "apps/desktop/src/main/index.ts"),
       "utf8",
     );
-    expect(main).toContain("generationRequestSchema.safeParse(input)");
-    expect(main).toContain("contextIsolation: true");
-    expect(main).toContain("nodeIntegration: false");
-    expect(main).toContain("sandbox: true");
+    expect(mainSource).toContain("generationRequestSchema.safeParse(input)");
+    expect(mainSource).toContain("contextIsolation: true");
+    expect(mainSource).toContain("nodeIntegration: false");
+    expect(mainSource).toContain("sandbox: true");
+
+    const mainBundle = readFileSync(
+      resolve(repositoryRoot, "apps/desktop/out/main/index.js"),
+      "utf8",
+    );
+    expect(mainBundle).toContain('import("libxml2-wasm")');
+    expect(mainBundle).not.toContain("xmllint");
   });
 });

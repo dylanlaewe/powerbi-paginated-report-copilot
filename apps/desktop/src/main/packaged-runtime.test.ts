@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -32,18 +31,5 @@ describe("packaged Windows runtime", () => {
       },
     ]);
     expect(desktopPackage.dependencies["libxml2-wasm"]).toBe("0.7.1");
-  });
-
-  it("builds a main bundle with a packaged validator and no xmllint invocation", () => {
-    execFileSync("pnpm", ["--filter", "@powerbi-copilot/desktop", "build"], {
-      cwd: repositoryRoot,
-      stdio: "pipe",
-    });
-    const main = readFileSync(
-      resolve(repositoryRoot, "apps/desktop/out/main/index.js"),
-      "utf8",
-    );
-    expect(main).toContain('import("libxml2-wasm")');
-    expect(main).not.toContain("xmllint");
   });
 });
