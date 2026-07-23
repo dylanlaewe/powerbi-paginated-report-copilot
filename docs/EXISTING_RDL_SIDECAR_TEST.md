@@ -109,3 +109,13 @@ Gate 2 regression coverage includes schema validation failures, duplicate/confli
 Full repository verification: 34 test files and 191 tests passed; ESLint, workspace typecheck, and the complete production build passed.
 
 No Report Builder rendering claim is made for the edited fixture before Gate 6.
+
+## Gate 3 — constrained local sentence planning
+
+The canonical UTF-8 sentence produces the exact Gate 2 plan and stable SHA-256 `879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc`.
+
+Coverage includes four quote styles; size/weight/alignment variants; portrait and landscape forms; all six permitted numeric formats; unique `Gross Profit` matching; whitespace, case, newline, and hyphen normalization; compatible style merging; duplicate deduplication; canonical clause/field ordering; every conflict class; unknown and ambiguous fields; partial supported requests; raw XML, XPath, SQL, database, path, command, control-character, and excessive-size rejection; repeated-call determinism; and 250 bounded malformed-input fuzz cases.
+
+The committed evidence is `examples/existing-rdl-sidecar/planner/gate-3-validation.json`. Gate 3 does not mutate an RDL and makes no Report Builder claim.
+
+Full repository verification: 35 test files and 244 tests passed; formatting, ESLint, workspace typecheck, and the production build passed.

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "operations": [
+    {
+      "type": "setText",
+      "target": {
+        "kind": "reportItem",
+        "semanticRole": "reportTitle"
+      },
+      "value": "Weekly Sales Pipeline"
+    },
+    {
+      "type": "setTextStyle",
+      "target": {
+        "kind": "reportItem",
+        "semanticRole": "reportTitle"
+      },
+      "fontSize": "18pt",
+      "fontWeight": "Bold"
+    },
+    {
+      "type": "setPageOrientation",
+      "orientation": "landscape"
+    },
+    {
+      "type": "setNumberFormat",
+      "target": {
+        "kind": "fieldDisplay",
+        "fieldName": "Revenue"
+      },
+      "format": "C0"
+    }
+  ]
+}

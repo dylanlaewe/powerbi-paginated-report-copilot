@@ -72,19 +72,32 @@ export const editOperationSchema = z.discriminatedUnion("type", [
 export const editPlanSchema = z
   .object({
     version: z.literal(1),
-    operations: z.array(editOperationSchema).min(1).max(4),
+    operations: z.array(editOperationSchema).min(1).max(16),
   })
   .strict()
   .superRefine(({ operations }, context) => {
-    const operationTypes = new Set<string>();
+    const singletonTypes = new Set<string>();
+    const formattedFields = new Set<string>();
     for (const [index, operation] of operations.entries()) {
-      if (operationTypes.has(operation.type))
+      if (operation.type === "setNumberFormat") {
+        const normalizedField =
+          operation.target.fieldName.toLocaleLowerCase("en-US");
+        if (formattedFields.has(normalizedField))
+          context.addIssue({
+            code: "custom",
+            message: `Duplicate or conflicting setNumberFormat operation for ${operation.target.fieldName}`,
+            path: ["operations", index, "target", "fieldName"],
+          });
+        formattedFields.add(normalizedField);
+        continue;
+      }
+      if (singletonTypes.has(operation.type))
         context.addIssue({
           code: "custom",
           message: `Duplicate or conflicting ${operation.type} operation`,
           path: ["operations", index, "type"],
         });
-      operationTypes.add(operation.type);
+      singletonTypes.add(operation.type);
     }
   });
 

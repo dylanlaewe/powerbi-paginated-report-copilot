@@ -1,12 +1,12 @@
 # Status
 
-Current milestone: **Existing RDL Sidecar Editor v0.2 — Gate 2 mutation complete**.
+Current milestone: **Existing RDL Sidecar Editor v0.2 — Gate 3 planner complete, pending review**.
 
 The frozen `rdl-copilot-mvp-v0.1` and `rdl-copilot-windows-v0.1` checkpoints remain unchanged. Work continues only on `codex/existing-rdl-sidecar-v0.2`.
 
-Gate 1 inspection remains accepted. Gate 2 now applies one hand-authored strict EditPlan to an in-memory parsed copy, resolves the checksum-reviewed title and exactly three Revenue displays before mutation, validates only seven approved semantic property changes, proves all remaining report semantics and embedded data unchanged, passes XSD validation, and atomically emits a deterministic edited fixture without overwriting its source.
+Gate 1 inspection and Gate 2 mutation remain accepted. Gate 3 adds a constrained, deterministic, non-LLM sentence planner that recognizes the full request or rejects it, produces the canonical validated EditPlan and proposal, resolves field phrases only through unique safe context matches, canonicalizes operation order, and detects conflicts without reading or modifying RDL XML.
 
-The sentence-form planner, product CLI workflow, Electron sidecar integration, and Windows edited-report validation remain unstarted pending review.
+Gate 4 target-resolution and audit work, the product CLI workflow, Electron sidecar integration, and Windows edited-report validation remain unstarted pending Gate 3 review.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

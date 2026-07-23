@@ -132,3 +132,9 @@ The structural allowlist is plan-derived and contains only:
 Separate stable hashes prove preservation of embedded query/DesignerState data, datasets and fields, tablix row/column hierarchy, page breaks/repeating-header properties, and the footer. An unauthorized GrossProfit format mutation is rejected by regression coverage.
 
 File application rechecks source bytes after validation, rejects source/output identity, restricts output to one `.rdl` filename under the supplied controlled directory, writes through a unique temporary file, and renames only after every validation passes.
+
+## Gate 3 planning boundary
+
+The `EditPlanner` boundary accepts sentence text and a minimized `EditPlannerContext`, then returns either a validated canonical EditPlan plus proposal and clause spans or a structured rejection. `LocalSentenceEditPlanner` is deterministic code, not an LLM. It cannot access XML, XPath, paths, embedded data, or mutation APIs.
+
+Every meaningful input span must be recognized. Unsupported content before, between, or after supported clauses rejects the whole request, preventing best-effort partial edits. Proposal text is generated from the validated plan and describes intended semantic changes without claiming report-item resolution or file mutation. Target resolution remains a later Gate 4 responsibility.

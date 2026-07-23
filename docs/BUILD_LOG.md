@@ -1,5 +1,13 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 3 deterministic planner
+
+- Added the `EditPlanner` interface and `LocalSentenceEditPlanner`, a runtime-validated local recognizer with explicit planned/rejected outcomes and no RDL mutation access.
+- Added minimized inventory-derived context, NFC/whitespace/hyphen normalization, quote-safe title preservation, full-clause span coverage, unique normalized field matching, compatible style merging, canonical operation ordering, duplicate deduplication, and complete conflict rejection.
+- Generated human-readable proposals only from validated plans and recorded canonical plan SHA-256 `879e1543…f5dc`.
+- Added phrase variants, conflict/rejection coverage, partial-request rejection, context-safety assertions, platform/locale determinism, and 250 bounded malformed-input fuzz cases.
+- Committed Gate 3 validation evidence. Gate 4 and all product integration remain unstarted.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 1 inspection
 
 - Created `codex/existing-rdl-sidecar-v0.2` from accepted `main` without changing either frozen milestone tag.
