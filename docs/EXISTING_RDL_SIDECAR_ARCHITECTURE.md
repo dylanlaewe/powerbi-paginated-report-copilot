@@ -160,3 +160,7 @@ Report and plan sessions live only in main-process memory and expire after 30 mi
 Electron output is contained beneath `app.getPath("userData")/edited-reports`. Opaque output handles authorize copying the trusted RDL/manifest paths or revealing the trusted RDL; renderer-supplied paths are impossible. The manifest reuses Gate 4 schema version 1 and records `invocationSurface: electron-sidecar`.
 
 The preload imports only Electron and exposes named wrappers. `contextIsolation`, sandboxing, and disabled Node integration remain enforced.
+
+## v0.3 corpus boundary
+
+Gate 1 adds only a design/index schema around future fixtures. The accepted v0.2 inspection → planner → resolution → review → mutation → validation → atomic output architecture remains unchanged. Corpus results must flow through those services rather than introduce fixture-specific mutation paths.

@@ -4,6 +4,7 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 1 design: four proposed synthetic Report Builder structural categories, runtime-validated corpus index, provenance/licensing plan, frozen edit scenarios, anticipated target evidence, ambiguity risks, and explicit pending validation states.
 - Existing RDL Sidecar Editor Gate 1: a dedicated accepted-report fixture, strict versioned RDL inventory, in-process safe parsing, deterministic title/Revenue target resolution, committed inspection evidence, and fail-closed ambiguity regressions.
 - Existing RDL Sidecar Editor Gate 2: a strict EditPlan v1, checksum-reviewed target resolution, deterministic parsed mutation, semantic structural-diff allowlist, embedded-data and report-structure preservation hashes, atomic edited fixture generation, and comprehensive failure/determinism coverage.
 - Existing RDL Sidecar Editor Gate 3: a constrained deterministic `LocalSentenceEditPlanner`, minimized safe context, full-clause span coverage, conflict and partial-request rejection, canonical operation ordering/hash, plan-derived proposals, phrase variations, and bounded malformed-input fuzz coverage.

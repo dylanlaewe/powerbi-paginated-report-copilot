@@ -105,3 +105,4 @@ export * from "./edit-planner";
 export * from "./sidecar-cli";
 export * from "./structural-guard";
 export * from "./mutation";
+export * from "./corpus";

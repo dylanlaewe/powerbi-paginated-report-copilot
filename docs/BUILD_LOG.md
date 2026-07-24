@@ -1,5 +1,13 @@
 # Build log
 
+## 2026-07-23 — RDL Structure Corpus v0.3 Gate 1 design
+
+- Created `codex/rdl-structure-corpus-v0.3` from the independently accepted v0.2 merge without changing any frozen tag.
+- Defined simple-table, grouped, parameterized/multi-dataset, and alternate-layout Report Builder fixture plans using personally authored MIT-licensed synthetic Enter Data content.
+- Added a strict runtime corpus-index schema covering provenance, structure, title/field evidence, expected classifications, frozen EditPlans, pending source identity, and baseline status.
+- Documented likely ambiguity, generic versus profile-review hypotheses, directory contracts, and the seven-gate ladder.
+- No RDL source, resolver behavior, mutation, UI, LLM, or Report Builder validation work began.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 6 independent Windows acceptance
 
 - Dylan independently verified the portable EXE size/SHA and executed it from a Windows-local directory in a personally controlled Windows 11 VM.

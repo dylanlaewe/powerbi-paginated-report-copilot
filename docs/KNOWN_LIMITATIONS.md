@@ -13,7 +13,13 @@
 - Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
 - The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
 - Embedded row values are deliberately excluded from inventory evidence.
-- The edited fixture is XML/XSD-valid but has not been opened in Report Builder. `libxml2-wasm` normalizes CRLF to LF, empty-element spelling, and root attribute order during serialization; semantic preservation is proven locally, while rendering compatibility remains a later gate.
+- `libxml2-wasm` normalizes CRLF to LF, empty-element spelling, and root attribute order during serialization. Semantic preservation and the accepted fixture's Report Builder/PDF/Excel compatibility are proven, but generalization to other authored structures is not.
+
+## RDL Structure Corpus v0.3
+
+- Gate 1 is design-only. The four proposed fixtures have not been authored, hashed, inspected, or opened in Report Builder.
+- Proposed report-item names, counts, hierarchy, and resolver evidence are hypotheses until Gate 2/3 captures actual Report Builder-authored structures.
+- No generalization beyond the independently accepted v0.2 fixture is claimed yet.
 
 ## Accepted RDL copilot MVP
 

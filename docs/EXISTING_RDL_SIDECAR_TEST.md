@@ -150,3 +150,9 @@ Full Gate 5 repository verification: 38 test files and 289 tests passed; changed
 Dylan independently validated the unsigned x64 portable build in a personally controlled Windows 11 Parallels VM. The app required no repository, Node.js, pnpm, Git, `xmllint`, or development server. Native selection, inspection, review-before-apply, trusted output actions, Explorer labeling, duplicate-safe naming, deterministic output, source preservation, and manifest identity all passed.
 
 The Electron-produced RDL opened without repair or conversion in Report Builder. Design, three-page Preview, title/style/orientation changes, zero-decimal Revenue formatting at detail/subtotal/Grand Total, six-row preservation, grouping, totals, page breaks, headings, footer, Page N of M, and absence of errors, blank pages, and clipping passed. PDF export produced three pages and Excel export produced three worksheets without repair or numeric degradation.
+
+## v0.3 Gate 1 — corpus design validation
+
+The corpus index schema requires exactly four unique structural categories, frozen EditPlan v1 operations, personally authored synthetic MIT provenance plans, matching field-display classifications, and explicit pending Gate 2 identity/rendering states. No RDL exists and no resolver, mutation, UI, or Report Builder assertion is tested in this gate.
+
+Full Gate 1 verification: 39 test files and 293 tests passed; changed-file formatting, ESLint, workspace typecheck, and production build passed.

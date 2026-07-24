@@ -1,0 +1,453 @@
+{
+  "corpusVersion": 1,
+  "milestone": "RDL Structure Corpus and Resolver Validation v0.3",
+  "gate": 1,
+  "status": "DESIGN_ONLY",
+  "frozenOperations": [
+    "setText",
+    "setTextStyle",
+    "setPageOrientation",
+    "setNumberFormat"
+  ],
+  "fixtureCount": 4,
+  "fixtures": [
+    {
+      "id": "simple-table",
+      "name": "Synthetic Inventory Detail",
+      "description": "Portrait report with one embedded dataset, one ungrouped tablix, a body title, and detail-only numeric displays.",
+      "structuralCategory": "simpleTable",
+      "status": "proposed",
+      "sourceRelativePath": "simple-table/source/synthetic-inventory-detail.rdl",
+      "sourceSha256": null,
+      "namespace": null,
+      "provenance": {
+        "authoringApplication": "Microsoft Power BI Report Builder",
+        "author": "Dylan Laewe",
+        "method": "Create a blank report in a personally controlled Windows 11 VM, use Enter Data for the specified synthetic rows, add one detail tablix and body title, preview, save, close, reopen, preview, and copy the untouched saved bytes into the corpus.",
+        "ownership": "personally authored synthetic fixture",
+        "license": "MIT",
+        "reportBuilderValidation": "pending Gate 2"
+      },
+      "syntheticDataDesign": {
+        "datasets": [
+          {
+            "name": "InventoryData",
+            "fields": ["Item", "Warehouse", "Units", "UnitCost"],
+            "rowCount": 5,
+            "purpose": "Five fictional stock rows across invented warehouses; Units and UnitCost are numeric."
+          }
+        ],
+        "containsCredentials": false,
+        "containsProprietaryContent": false
+      },
+      "anticipatedCounts": {
+        "datasets": 1,
+        "parameters": 0,
+        "tablixes": 1,
+        "groups": 1,
+        "textboxes": null,
+        "reportSections": 1
+      },
+      "anticipatedOrientation": "portrait",
+      "expectedTitle": {
+        "reportItemName": "InventoryReportTitle",
+        "location": "body",
+        "evidencePlan": [
+          "top-level body textbox above the only tablix",
+          "single static value with no expression",
+          "largest and boldest body text",
+          "explicit descriptive report-item name"
+        ],
+        "ambiguityRisks": [
+          "static column labels must not be ranked as title candidates"
+        ]
+      },
+      "expectedFieldDisplays": [
+        {
+          "semanticTarget": "fieldDisplay.UnitCost.format",
+          "expectedReportItemNames": ["DetailUnitCost"],
+          "expectedClassifications": ["detail"],
+          "evidencePlan": [
+            "exact =Fields!UnitCost.Value expression",
+            "member of InventoryTable detail row",
+            "InventoryData dataset scope",
+            "static Unit Cost header excluded"
+          ]
+        }
+      ],
+      "anticipatedResolution": {
+        "mode": "generic",
+        "rationale": "One prominent top-level title and one exact detail field display should resolve from general evidence."
+      },
+      "editScenario": {
+        "requestRelativePath": "simple-table/requests/canonical-edit.txt",
+        "request": "Change the report title to \"Inventory Cost Review\" and format UnitCost as currency with two decimal places.",
+        "expectedPlan": {
+          "version": 1,
+          "operations": [
+            {
+              "type": "setText",
+              "target": {
+                "kind": "reportItem",
+                "semanticRole": "reportTitle"
+              },
+              "value": "Inventory Cost Review"
+            },
+            {
+              "type": "setNumberFormat",
+              "target": {
+                "kind": "fieldDisplay",
+                "fieldName": "UnitCost"
+              },
+              "format": "C2"
+            }
+          ]
+        }
+      },
+      "reportBuilderBaseline": {
+        "open": "pending Gate 2",
+        "preview": "pending Gate 2",
+        "pdf": "pending Gate 2",
+        "excel": "pending Gate 2"
+      }
+    },
+    {
+      "id": "grouped-report",
+      "name": "Synthetic Department Sales",
+      "description": "Grouped portrait report with department/detail hierarchy, subtotal, Grand Total, repeating headings, and Revenue at three scopes.",
+      "structuralCategory": "groupedReport",
+      "status": "proposed",
+      "sourceRelativePath": "grouped-report/source/synthetic-department-sales.rdl",
+      "sourceSha256": null,
+      "namespace": null,
+      "provenance": {
+        "authoringApplication": "Microsoft Power BI Report Builder",
+        "author": "Dylan Laewe",
+        "method": "Create in Report Builder from a blank report with Enter Data, add a Department parent group, detail rows, Add Total after the group, Add Total outside the group, repeating headings, and between-group page breaks; preview, save, close, reopen, preview, and contribute the saved bytes.",
+        "ownership": "personally authored synthetic fixture",
+        "license": "MIT",
+        "reportBuilderValidation": "pending Gate 2"
+      },
+      "syntheticDataDesign": {
+        "datasets": [
+          {
+            "name": "DepartmentSales",
+            "fields": [
+              "SaleDate",
+              "Department",
+              "Representative",
+              "Units",
+              "Revenue"
+            ],
+            "rowCount": 8,
+            "purpose": "Eight fictional sales rows across four invented departments, with two rows per department."
+          }
+        ],
+        "containsCredentials": false,
+        "containsProprietaryContent": false
+      },
+      "anticipatedCounts": {
+        "datasets": 1,
+        "parameters": 0,
+        "tablixes": 1,
+        "groups": 2,
+        "textboxes": null,
+        "reportSections": 1
+      },
+      "anticipatedOrientation": "portrait",
+      "expectedTitle": {
+        "reportItemName": "DepartmentSalesTitle",
+        "location": "body",
+        "evidencePlan": [
+          "top-level static textbox above the grouped tablix",
+          "font prominence and width",
+          "no field or aggregate expression",
+          "explicit descriptive report-item name"
+        ],
+        "ambiguityRisks": [
+          "Department group header and subtotal labels are prominent static text",
+          "Grand Total label must not be selected as a title"
+        ]
+      },
+      "expectedFieldDisplays": [
+        {
+          "semanticTarget": "fieldDisplay.Revenue.format",
+          "expectedReportItemNames": [
+            "DetailRevenue",
+            "DepartmentRevenueSubtotal",
+            "ReportRevenueTotal"
+          ],
+          "expectedClassifications": ["detail", "groupSubtotal", "grandTotal"],
+          "evidencePlan": [
+            "exact detail Fields!Revenue expression",
+            "Sum(Fields!Revenue.Value) beneath Department group scope",
+            "Sum(Fields!Revenue.Value) outside the Department group",
+            "tablix hierarchy and group membership distinguish aggregate scopes"
+          ]
+        }
+      ],
+      "anticipatedResolution": {
+        "mode": "generic",
+        "rationale": "General expression, tablix membership, and hierarchy evidence should classify all three Revenue displays without a global target-count rule."
+      },
+      "editScenario": {
+        "requestRelativePath": "grouped-report/requests/canonical-edit.txt",
+        "request": "Change the report title to \"Department Revenue Review\", make the title 20pt bold, and format Revenue as currency with no decimal places.",
+        "expectedPlan": {
+          "version": 1,
+          "operations": [
+            {
+              "type": "setText",
+              "target": {
+                "kind": "reportItem",
+                "semanticRole": "reportTitle"
+              },
+              "value": "Department Revenue Review"
+            },
+            {
+              "type": "setTextStyle",
+              "target": {
+                "kind": "reportItem",
+                "semanticRole": "reportTitle"
+              },
+              "fontSize": "20pt",
+              "fontWeight": "Bold"
+            },
+            {
+              "type": "setNumberFormat",
+              "target": {
+                "kind": "fieldDisplay",
+                "fieldName": "Revenue"
+              },
+              "format": "C0"
+            }
+          ]
+        }
+      },
+      "reportBuilderBaseline": {
+        "open": "pending Gate 2",
+        "preview": "pending Gate 2",
+        "pdf": "pending Gate 2",
+        "excel": "pending Gate 2"
+      }
+    },
+    {
+      "id": "parameterized-report",
+      "name": "Synthetic Regional Budget",
+      "description": "Two embedded datasets plus a visible Region parameter, parameter label/expression, one tablix, and a static body title.",
+      "structuralCategory": "multiDatasetOrParameterized",
+      "status": "proposed",
+      "sourceRelativePath": "parameterized-report/source/synthetic-regional-budget.rdl",
+      "sourceSha256": null,
+      "namespace": null,
+      "provenance": {
+        "authoringApplication": "Microsoft Power BI Report Builder",
+        "author": "Dylan Laewe",
+        "method": "Create in Report Builder with two Enter Data datasets, define a RegionCode text parameter with available values from RegionLookup, filter the budget tablix by the parameter, preview multiple values, save, close, reopen, preview, and contribute the saved bytes.",
+        "ownership": "personally authored synthetic fixture",
+        "license": "MIT",
+        "reportBuilderValidation": "pending Gate 2"
+      },
+      "syntheticDataDesign": {
+        "datasets": [
+          {
+            "name": "BudgetData",
+            "fields": [
+              "RegionCode",
+              "Program",
+              "Quarter",
+              "BudgetAmount",
+              "MetricValue"
+            ],
+            "rowCount": 6,
+            "purpose": "Six fictional program budgets across three invented region codes."
+          },
+          {
+            "name": "RegionLookup",
+            "fields": ["RegionCode", "RegionLabel", "MetricValue"],
+            "rowCount": 3,
+            "purpose": "Three synthetic parameter labels; shared RegionCode and MetricValue names intentionally exercise dataset ambiguity evidence."
+          }
+        ],
+        "containsCredentials": false,
+        "containsProprietaryContent": false
+      },
+      "anticipatedCounts": {
+        "datasets": 2,
+        "parameters": 1,
+        "tablixes": 1,
+        "groups": 1,
+        "textboxes": null,
+        "reportSections": 1
+      },
+      "anticipatedOrientation": "portrait",
+      "expectedTitle": {
+        "reportItemName": "BudgetReportHeading",
+        "location": "body",
+        "evidencePlan": [
+          "top-level static textbox above parameter-driven tablix",
+          "font prominence and report-width placement",
+          "no field, parameter, or aggregate expression"
+        ],
+        "ambiguityRisks": [
+          "visible Region parameter prompt and parameter-value expressions must be excluded",
+          "static tablix headers must be excluded"
+        ]
+      },
+      "expectedFieldDisplays": [
+        {
+          "semanticTarget": "fieldDisplay.BudgetAmount.format",
+          "expectedReportItemNames": ["DetailBudgetAmount", "BudgetGrandTotal"],
+          "expectedClassifications": ["detail", "grandTotal"],
+          "evidencePlan": [
+            "BudgetAmount is declared only by BudgetData",
+            "detail expression belongs to BudgetData tablix",
+            "aggregate expression is outside the detail member",
+            "RegionLookup fields and parameter labels are excluded"
+          ]
+        }
+      ],
+      "anticipatedResolution": {
+        "mode": "profileReviewPending",
+        "rationale": "BudgetAmount should resolve generically, but the duplicated RegionCode and MetricValue declarations will determine whether an explicit dataset-evidence profile is needed for future requests."
+      },
+      "editScenario": {
+        "requestRelativePath": "parameterized-report/requests/canonical-edit.txt",
+        "request": "Change the report title to \"Regional Budget Outlook\" and format BudgetAmount as currency with two decimal places.",
+        "expectedPlan": {
+          "version": 1,
+          "operations": [
+            {
+              "type": "setText",
+              "target": {
+                "kind": "reportItem",
+                "semanticRole": "reportTitle"
+              },
+              "value": "Regional Budget Outlook"
+            },
+            {
+              "type": "setNumberFormat",
+              "target": {
+                "kind": "fieldDisplay",
+                "fieldName": "BudgetAmount"
+              },
+              "format": "C2"
+            }
+          ]
+        }
+      },
+      "reportBuilderBaseline": {
+        "open": "pending Gate 2",
+        "preview": "pending Gate 2",
+        "pdf": "pending Gate 2",
+        "excel": "pending Gate 2"
+      }
+    },
+    {
+      "id": "alternate-layout",
+      "name": "Synthetic Project Cost Landscape",
+      "description": "Landscape-authored report with title in the page header, a nested body rectangle, two tablixes, and alternate textbox names.",
+      "structuralCategory": "alternateLayout",
+      "status": "proposed",
+      "sourceRelativePath": "alternate-layout/source/synthetic-project-cost-landscape.rdl",
+      "sourceSha256": null,
+      "namespace": null,
+      "provenance": {
+        "authoringApplication": "Microsoft Power BI Report Builder",
+        "author": "Dylan Laewe",
+        "method": "Create in Report Builder as Letter landscape, place the title in Page Header, nest a detail tablix in a body rectangle, add a separate category-summary tablix, use deliberately noncanonical textbox names, preview, save, close, reopen, preview, and contribute the saved bytes.",
+        "ownership": "personally authored synthetic fixture",
+        "license": "MIT",
+        "reportBuilderValidation": "pending Gate 2"
+      },
+      "syntheticDataDesign": {
+        "datasets": [
+          {
+            "name": "ProjectCosts",
+            "fields": ["ProjectCode", "Category", "Owner", "Cost"],
+            "rowCount": 6,
+            "purpose": "Six fictional project-cost rows in three invented categories."
+          }
+        ],
+        "containsCredentials": false,
+        "containsProprietaryContent": false
+      },
+      "anticipatedCounts": {
+        "datasets": 1,
+        "parameters": 0,
+        "tablixes": 2,
+        "groups": 2,
+        "textboxes": null,
+        "reportSections": 1
+      },
+      "anticipatedOrientation": "landscape",
+      "expectedTitle": {
+        "reportItemName": "HdrMainCaption",
+        "location": "pageHeader",
+        "evidencePlan": [
+          "prominent static page-header textbox",
+          "largest header font and report-width placement",
+          "no expression and no repetition within body hierarchy",
+          "explicit reviewed semantic role despite alternate item name"
+        ],
+        "ambiguityRisks": [
+          "current generic resolver excludes page-header titles",
+          "footer static text and body rectangle caption must not win",
+          "two tablixes create multiple nearby static labels"
+        ]
+      },
+      "expectedFieldDisplays": [
+        {
+          "semanticTarget": "fieldDisplay.Cost.format",
+          "expectedReportItemNames": ["TxtCostValue", "TxtCategoryCost"],
+          "expectedClassifications": ["detail", "groupSubtotal"],
+          "evidencePlan": [
+            "exact Cost detail expression in nested detail tablix",
+            "Cost aggregate expression in separate category-summary tablix",
+            "tablix membership distinguishes detail from subtotal",
+            "static Cost labels excluded"
+          ]
+        }
+      ],
+      "anticipatedResolution": {
+        "mode": "profileReviewPending",
+        "rationale": "Field displays should resolve generically, while the page-header title is an intentional test of evidence ranking and may require a reviewed declarative title profile."
+      },
+      "editScenario": {
+        "requestRelativePath": "alternate-layout/requests/canonical-edit.txt",
+        "request": "Change the report title to \"Project Cost Portfolio\", switch the page to portrait, and format Cost as currency with no decimal places.",
+        "expectedPlan": {
+          "version": 1,
+          "operations": [
+            {
+              "type": "setText",
+              "target": {
+                "kind": "reportItem",
+                "semanticRole": "reportTitle"
+              },
+              "value": "Project Cost Portfolio"
+            },
+            {
+              "type": "setPageOrientation",
+              "orientation": "portrait"
+            },
+            {
+              "type": "setNumberFormat",
+              "target": {
+                "kind": "fieldDisplay",
+                "fieldName": "Cost"
+              },
+              "format": "C0"
+            }
+          ]
+        }
+      },
+      "reportBuilderBaseline": {
+        "open": "pending Gate 2",
+        "preview": "pending Gate 2",
+        "pdf": "pending Gate 2",
+        "excel": "pending Gate 2"
+      }
+    }
+  ]
+}
