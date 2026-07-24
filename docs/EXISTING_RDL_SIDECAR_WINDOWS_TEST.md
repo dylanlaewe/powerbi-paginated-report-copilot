@@ -1,6 +1,6 @@
 # Existing RDL Sidecar Gate 6 Windows Test
 
-Gate 6 is pending independent validation in Dylan's personally controlled Windows 11 Parallels VM. Do not use a managed work device or bypass organizational security policy.
+Gate 6 passed independent validation in Dylan's personally controlled Windows 11 Parallels VM. No managed work device or organizational security-policy bypass was used.
 
 ## Files and expected hashes
 
@@ -85,13 +85,13 @@ Get-FileHash .\regional-sales-existing.rdl -Algorithm SHA256
 
 Open the Electron-produced RDL, not the original.
 
-Record:
+Recorded:
 
-- repair warning: expected none
-- conversion warning: expected none
-- Design view: expected PASS
-- Preview: expected PASS
-- actual Preview page count: `________`
+- repair warning: none
+- conversion warning: none
+- Design view: PASS
+- Preview: PASS
+- actual Preview page count: `3`
 
 Confirm:
 
@@ -108,8 +108,8 @@ Confirm:
 
 Export from Report Builder and record:
 
-- actual PDF page count: `________`
-- actual Excel worksheet count: `________`
+- actual PDF page count: `3`
+- actual Excel worksheet count: `3`
 
 PDF must open without error and preserve the title, formatting, totals, rows, pagination, and absence of clipping/blank pages.
 
@@ -120,3 +120,5 @@ After all testing, re-hash the Windows-local original. It must remain:
 ```text
 c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a
 ```
+
+Independent results: packaged launch and full sidecar workflow passed; the edited RDL matched `d84670…bd5bb`; Report Builder Design and Preview passed with all intended edits and preserved structures; PDF and Excel exports passed without repair, blank pages, clipping, or numeric degradation.

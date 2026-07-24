@@ -144,3 +144,9 @@ Automated coverage verifies native-selection service behavior, realpath/symlink 
 Codex launched `pnpm dev` successfully and automated the trusted main-process service flow into the actual macOS user-data directory. Dylan then independently passed the complete native-picker and visible button click-through. The `-2` duplicate-safe output matched the accepted RDL hash, the source remained unchanged, copy/reveal actions worked, and the manifest recorded `electron-sidecar`.
 
 Full Gate 5 repository verification: 38 test files and 289 tests passed; changed-file formatting, ESLint, workspace typecheck, production build, and emitted-preload inspection passed.
+
+## Gate 6 — independent Windows acceptance
+
+Dylan independently validated the unsigned x64 portable build in a personally controlled Windows 11 Parallels VM. The app required no repository, Node.js, pnpm, Git, `xmllint`, or development server. Native selection, inspection, review-before-apply, trusted output actions, Explorer labeling, duplicate-safe naming, deterministic output, source preservation, and manifest identity all passed.
+
+The Electron-produced RDL opened without repair or conversion in Report Builder. Design, three-page Preview, title/style/orientation changes, zero-decimal Revenue formatting at detail/subtotal/Grand Total, six-row preservation, grouping, totals, page breaks, headings, footer, Page N of M, and absence of errors, blank pages, and clipping passed. PDF export produced three pages and Excel export produced three worksheets without repair or numeric degradation.

@@ -4,9 +4,9 @@ A local-first desktop companion for deterministic generation of real RDL paginat
 
 ## Current status
 
-The `rdl-copilot-mvp-v0.1` checkpoint is independently accepted. A constrained natural-language request containing a title and fixed-schema synthetic JSON rows generates a checksum-addressed RDL through the CLI or secure Electron UI. The canonical output passed Power BI Report Builder Preview, PDF, and Excel validation on Windows, and the Mac UI output matched it byte-for-byte.
+Existing RDL Sidecar Editor v0.2 is independently accepted on macOS and packaged Windows. It safely inspects an existing RDL, converts constrained sentence-form edits into a reviewed typed plan, writes a deterministic edited copy plus audit manifest, and preserves the original.
 
-This checkpoint supports one fixed production template and embedded data only. See [known limitations](docs/KNOWN_LIMITATIONS.md) before use.
+The canonical Windows output passed Power BI Report Builder Design and three-page Preview plus three-page PDF and three-worksheet Excel exports. The earlier `rdl-copilot-mvp-v0.1` and `rdl-copilot-windows-v0.1` generation checkpoints remain frozen. See [known limitations](docs/KNOWN_LIMITATIONS.md).
 
 ## Development
 
@@ -34,7 +34,7 @@ The monorepo separates the Electron application from reusable TypeScript package
 
 This is an independent working project and is not endorsed by Microsoft.
 
-## Existing RDL sidecar Gate 4 CLI
+## Existing RDL sidecar
 
 Plan an accepted constrained edit without writing files:
 
@@ -48,9 +48,9 @@ Apply it to a controlled duplicate-safe copy and create an adjacent audit manife
 pnpm sidecar:cli -- apply --source examples/existing-rdl-sidecar/source/regional-sales-existing.rdl --request-file examples/existing-rdl-sidecar/requests/title-style-landscape-format.txt
 ```
 
-The CLI accepts no output path, XML, XPath, or raw operation arguments. Gate 4 is a development validation surface, not the final customer interface.
+The CLI accepts no output path, XML, XPath, or raw operation arguments. It remains a development validation surface.
 
-Launch the Gate 5 existing-RDL sidecar on macOS:
+Launch the existing-RDL sidecar in development:
 
 ```sh
 pnpm dev

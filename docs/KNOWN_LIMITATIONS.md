@@ -6,7 +6,10 @@
 - Gate 3 is not an LLM. Its allowlisted grammar covers only quoted title replacement, title size/weight/alignment, orientation, and six display-format codes. Unsupported or partially supported requests fail closed.
 - The Gate 4 CLI is an integration/validation surface, not the customer interface. It supports no interactive confirmation and intentionally controls output naming/location.
 - Gate 5 independent macOS development-runtime UI acceptance passed.
-- Gate 6 automated packaging passed, but the unsigned portable build still requires independent Windows UI and Report Builder Preview/PDF/Excel validation. Page and worksheet counts are intentionally unknown until measured.
+- The accepted Windows portable build is unsigned and may be blocked by SmartScreen on managed or reputation-enforcing devices. Production distribution still needs trusted code signing.
+- The accepted sidecar grammar remains deliberately narrow: quoted title changes, title size/weight/alignment, portrait/landscape orientation, and existing-field `C0/C2/N0/N2/P0/P2` display formats only.
+- Target resolution is conservative and currently proven against the accepted Report Builder-authored fixture. Ambiguous titles, unknown fields, complex expressions, and unsupported report structures fail closed.
+- There is no external LLM, database connectivity, authentication, cloud service, telemetry, Report Builder injection, or automatic refresh.
 - Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
 - The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
 - Embedded row values are deliberately excluded from inventory evidence.

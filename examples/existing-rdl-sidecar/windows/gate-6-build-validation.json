@@ -1,6 +1,6 @@
 {
   "gate": 6,
-  "status": "BUILD_PASS_INDEPENDENT_WINDOWS_VALIDATION_PENDING",
+  "status": "INDEPENDENT_WINDOWS_ACCEPTANCE_PASS",
   "branch": "codex/existing-rdl-sidecar-v0.2",
   "sourceCommit": "307570c",
   "portableArtifact": {
@@ -76,11 +76,21 @@
   },
   "manualWindowsValidation": {
     "environment": "Dylan personally controlled Windows 11 VM in Parallels",
-    "portableLaunch": "PENDING",
-    "sidecarWorkflow": "PENDING",
-    "reportBuilderOpenAndPreview": "PENDING",
-    "pdfExport": "PENDING",
-    "excelExport": "PENDING",
-    "gate6Acceptance": "PENDING"
+    "windowsLocalArtifactVerification": "PASS",
+    "portableLaunch": "PASS",
+    "sidecarWorkflow": "PASS",
+    "sourceUnchanged": "PASS",
+    "duplicateSafeNaming": "PASS",
+    "manifestSchemaAndIdentity": "PASS",
+    "reportBuilderOpenAndPreview": "PASS",
+    "previewPageCount": 3,
+    "pdfExport": "PASS",
+    "pdfPageCount": 3,
+    "excelExport": "PASS",
+    "excelWorksheetCount": 3,
+    "blankPages": "NONE",
+    "horizontalClipping": "NONE",
+    "repairOrConversionWarning": "NONE",
+    "gate6Acceptance": "PASS"
   }
 }

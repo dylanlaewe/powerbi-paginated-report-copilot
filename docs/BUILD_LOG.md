@@ -1,5 +1,13 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 6 independent Windows acceptance
+
+- Dylan independently verified the portable EXE size/SHA and executed it from a Windows-local directory in a personally controlled Windows 11 VM.
+- Packaged launch without development dependencies, native selection, inspection, canonical review/apply, trusted copy/reveal actions, Explorer label, duplicate-safe output, manifest identity, and unchanged source passed.
+- The deterministic edited RDL matched `d84670…bd5bb` and passed Report Builder open, Design, three-page Preview, intended edits, preserved rows/groups/totals/pagination, and no repair, errors, blanks, or clipping.
+- PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, and numeric values preserved.
+- Gates 1–6 and Existing RDL Sidecar Editor v0.2 are independently accepted.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 6 Windows build
 
 - Re-ran 38 test files/289 tests, formatting, ESLint, workspace typecheck, production build, packaged-resource simulations, preload inspection, and Gates 1–5 regressions.

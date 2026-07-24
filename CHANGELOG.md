@@ -22,6 +22,7 @@
 
 ### Validated
 
+- Independent Windows 11 testing accepted Existing RDL Sidecar Editor v0.2: portable launch without development dependencies, native inspection/review/apply, deterministic edited-copy output, audit manifest, source safety, Explorer actions, Report Builder three-page Preview, requested edits, preserved report behavior, three-page PDF, and three-worksheet Excel passed.
 - Independent macOS testing accepted the Gate 5 existing-RDL sidecar: native selection, inspection, review, explicit apply, deterministic output, source preservation, manifest context, duplicate-safe naming, copy actions, Reveal in Finder, and busy-state recovery passed.
 - Independent Windows 11 testing accepted the packaged portable MVP: artifact integrity, launch without repository or development dependencies, deterministic canonical generation, Report Builder three-page Preview, correct rows and totals, pagination, PDF export, and three-worksheet Excel export passed.
 - Independent macOS UI testing accepted the minimal Electron workflow: launch, canonical request generation, visible summary, controlled output, expected checksum, and byte identity with the Windows-accepted CLI artifact passed.
