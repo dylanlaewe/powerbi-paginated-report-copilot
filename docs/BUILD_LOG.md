@@ -1,5 +1,74 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 6 independent Windows acceptance
+
+- Dylan independently verified the portable EXE size/SHA and executed it from a Windows-local directory in a personally controlled Windows 11 VM.
+- Packaged launch without development dependencies, native selection, inspection, canonical review/apply, trusted copy/reveal actions, Explorer label, duplicate-safe output, manifest identity, and unchanged source passed.
+- The deterministic edited RDL matched `d84670…bd5bb` and passed Report Builder open, Design, three-page Preview, intended edits, preserved rows/groups/totals/pagination, and no repair, errors, blanks, or clipping.
+- PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, and numeric values preserved.
+- Gates 1–6 and Existing RDL Sidecar Editor v0.2 are independently accepted.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 6 Windows build
+
+- Re-ran 38 test files/289 tests, formatting, ESLint, workspace typecheck, production build, packaged-resource simulations, preload inspection, and Gates 1–5 regressions.
+- Produced the unsigned x64 portable EXE `Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe`, 89,625,624 bytes, SHA-256 `b21b726b…5f8`.
+- Verified packaged XSD SHA-256 `7714fc8d…b29`, accepted bundled RDL resource SHA-256 `c2d27f75…e17a`, Electron-only preload dependency, in-process `libxml2-wasm`, and no `xmllint` dependency.
+- Added exact personally controlled Parallels Windows-local transfer, packaged-sidecar, Report Builder, PDF, and Excel validation instructions. Independent Gate 6 acceptance remains pending.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 5 independent macOS acceptance
+
+- Dylan independently validated native `.rdl` selection, sanitized inspection, canonical request entry, proposal and exact targets, explicit apply, Copy RDL Path, Copy Manifest Path, Reveal in Finder, and busy-state recovery.
+- The independently produced `-2` output matched SHA-256 `d84670…bd5bb`; the source remained `c2d27f…e17a`.
+- The adjacent manifest existed with `invocationSurface: electron-sidecar`; duplicate-safe naming preserved the prior output.
+- Gate 5 is accepted. No Gate 6 acceptance claim is made.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 5 Electron integration
+
+- Replaced the branch UI's primary new-report screen with a compact, resizable existing-RDL sidecar journey while preserving underlying generation services.
+- Added native `.rdl` selection, XSD-validated sanitized summaries, in-memory opaque report/plan/output sessions, expiration/invalidation, explicit proposal review, and single-use apply.
+- Kept all filesystem, planner, plan, targets, validation, output, clipboard, and reveal authority in main; strict IPC accepts only request text and opaque UUIDs.
+- Reused the Gate 4 transaction under `userData/edited-reports` and added `invocationSurface: electron-sidecar` to the shared manifest schema.
+- Preserved hardened Electron settings and an Electron-only preload bundle; added Finder/Explorer/File Manager labels from trusted platform state.
+- Fixed quoted-title normalization so an em dash is preserved instead of normalized as command punctuation.
+- Automated canonical output passed Gate 2/4 byte identity and development launch smoke. Independent macOS UI click-through remains pending; Gate 6 was not started.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 4 CLI transaction
+
+- Added a narrow noninteractive plan/apply CLI using one shared inspect/context/plan/resolve pipeline.
+- Added fatal UTF-8 decoding with optional BOM removal, platform-newline normalization through the accepted planner, and em-dash preservation coverage.
+- Added repository-root controlled, duplicate-safe output naming without user output arguments or `process.cwd()` dependence.
+- Added source revalidation, deterministic mutation, synchronized temporary writes, paired RDL/manifest rename, rollback, and cleanup failure coverage.
+- Added a strict audit-manifest schema with sanitized inspection context, resolution evidence, before/after values, validation statuses, and preservation hashes; UUID/timestamp fields do not affect RDL bytes.
+- The canonical CLI artifact is byte-identical to Gate 2 at `d84670…bd5bb`; the source remains `c2d27f…e17a`. Gate 5 was not started.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 3 deterministic planner
+
+- Added the `EditPlanner` interface and `LocalSentenceEditPlanner`, a runtime-validated local recognizer with explicit planned/rejected outcomes and no RDL mutation access.
+- Added minimized inventory-derived context, NFC/whitespace/hyphen normalization, quote-safe title preservation, full-clause span coverage, unique normalized field matching, compatible style merging, canonical operation ordering, duplicate deduplication, and complete conflict rejection.
+- Generated human-readable proposals only from validated plans and recorded canonical plan SHA-256 `879e1543…f5dc`.
+- Added phrase variants, conflict/rejection coverage, partial-request rejection, context-safety assertions, platform/locale determinism, and 250 bounded malformed-input fuzz cases.
+- Committed Gate 3 validation evidence. Gate 4 and all product integration remain unstarted.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 1 inspection
+
+- Created `codex/existing-rdl-sidecar-v0.2` from accepted `main` without changing either frozen milestone tag.
+- Copied the accepted Report Builder-authored production RDL byte-for-byte into a dedicated existing-report fixture and recorded the canonical edit request separately.
+- Added a strict versioned RDL inventory service using in-process `libxml2-wasm` parsing with network and external-entity loading disabled.
+- Inventoried namespace, ReportSections, page dimensions, margins, datasets, fields, parameters, tablixes, groups, textboxes, static text, expressions, field bindings, formats, and text styles without exposing embedded row values.
+- Added fail-closed title and field-display resolution. The fixture resolves `ReportTitle` and Revenue displays `Revenue`, `Textbox10`, and `Textbox19`; the static `HeaderRevenue` label is excluded.
+- Generated deterministic Gate 1 inventory evidence and added ambiguity, missing-target, malformed-file, fixture-integrity, structural-inventory, and resolution regressions. Gates 2–6 remain unstarted.
+
+## 2026-07-23 — Existing RDL Sidecar Gate 2 mutation
+
+- Added a strict serializable EditPlan v1 discriminated union with four allowlisted operation types and rejection of raw XPath/XML, unsupported formats/styles, and duplicate or conflicting operations.
+- Applied the hand-authored canonical plan through a parsed in-memory mutation service after checksum-reviewed title resolution and exact three-target Revenue resolution.
+- Changed only title text/size/weight, PageWidth/PageHeight, and three Revenue formats; retained half-inch margins and seven-inch body width.
+- Added a parsed semantic structural-diff guard that normalizes only plan-approved properties and separately hashes embedded data, datasets/fields, tablix hierarchy, page behavior, and footer content without logging row values.
+- Added source-checksum and source-recheck enforcement, controlled output naming, source overwrite rejection, atomic write cleanup, XSD validation, final reparse, operation postconditions, and byte determinism checks.
+- Generated `regional-sales-existing-copilot-edited.rdl` with SHA-256 `d84670…bd5bb`. The unchanged source remains `c2d27f…e17a`.
+- Recorded libxml serialization normalization from CRLF to LF, normalized empty elements, and root attribute ordering; the semantic guard proves these are outside the approved property changes but semantically neutral.
+- Gate 2 service tests pass. No planner, product CLI, Electron UI, or Windows validation work began.
+
 ## 2026-07-19 — Repository bootstrap
 
 - Verified Node.js, pnpm, Git, GitHub CLI authentication, repository ownership, and push access.

@@ -4,6 +4,12 @@
 
 ### Added
 
+- Existing RDL Sidecar Editor Gate 1: a dedicated accepted-report fixture, strict versioned RDL inventory, in-process safe parsing, deterministic title/Revenue target resolution, committed inspection evidence, and fail-closed ambiguity regressions.
+- Existing RDL Sidecar Editor Gate 2: a strict EditPlan v1, checksum-reviewed target resolution, deterministic parsed mutation, semantic structural-diff allowlist, embedded-data and report-structure preservation hashes, atomic edited fixture generation, and comprehensive failure/determinism coverage.
+- Existing RDL Sidecar Editor Gate 3: a constrained deterministic `LocalSentenceEditPlanner`, minimized safe context, full-clause span coverage, conflict and partial-request rejection, canonical operation ordering/hash, plan-derived proposals, phrase variations, and bounded malformed-input fuzz coverage.
+- Existing RDL Sidecar Editor Gate 4: a shared plan/apply CLI pipeline, strict UTF-8 request handling, exact target evidence, controlled duplicate-safe output, source-race protection, paired atomic RDL/manifest transaction with rollback, and a strict sanitized audit manifest.
+- Existing RDL Sidecar Editor Gate 5: a compact secure Electron sidecar with native RDL selection, sanitized inspection, opaque in-memory report/plan/output sessions, explicit review and single-use apply, controlled user-data output, trusted copy/reveal actions, and platform-correct labels.
+- Existing RDL Sidecar Editor Gate 6 build: an unsigned Windows x64 portable package with bundled XSD/runtime resources, hardened preload and BrowserWindow configuration, deterministic expected hashes, and a clean-Windows Report Builder/PDF/Excel handoff pending independent validation.
 - Application-bundled deterministic RDL XML/XSD validation using `libxml2-wasm`, removing the generated-report path's runtime dependency on the external `xmllint` executable.
 - An unsigned x64 Windows portable build with fixed packaged template/XSD resources, production-only runtime dependencies, and packaged-resource generation/parity regressions.
 - The first natural-language RDL MVP unit: a versioned, runtime-validated specification and constrained parser that allowlists the accepted production-pagination template and synthetic nine-field rows.
@@ -16,6 +22,8 @@
 
 ### Validated
 
+- Independent Windows 11 testing accepted Existing RDL Sidecar Editor v0.2: portable launch without development dependencies, native inspection/review/apply, deterministic edited-copy output, audit manifest, source safety, Explorer actions, Report Builder three-page Preview, requested edits, preserved report behavior, three-page PDF, and three-worksheet Excel passed.
+- Independent macOS testing accepted the Gate 5 existing-RDL sidecar: native selection, inspection, review, explicit apply, deterministic output, source preservation, manifest context, duplicate-safe naming, copy actions, Reveal in Finder, and busy-state recovery passed.
 - Independent Windows 11 testing accepted the packaged portable MVP: artifact integrity, launch without repository or development dependencies, deterministic canonical generation, Report Builder three-page Preview, correct rows and totals, pagination, PDF export, and three-worksheet Excel export passed.
 - Independent macOS UI testing accepted the minimal Electron workflow: launch, canonical request generation, visible summary, controlled output, expected checksum, and byte identity with the Windows-accepted CLI artifact passed.
 - Independent Windows testing accepted the first deterministic natural-language copilot RDL: checksum, requested title and data, open, Design, Preview, grouping, subtotals, Grand Total, pagination, PDF, and Excel passed.

@@ -1,0 +1,709 @@
+{
+  "gate": 1,
+  "status": "PASS",
+  "inventory": {
+    "version": 1,
+    "fileName": "regional-sales-existing.rdl",
+    "sourceSha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "namespaceVersion": "2016/01",
+    "reportSections": [
+      {
+        "index": 0,
+        "bodyWidth": "7in",
+        "pageWidth": "8.5in",
+        "pageHeight": "11in",
+        "orientation": "portrait",
+        "margins": {
+          "left": "0.5in",
+          "right": "0.5in",
+          "top": "0.5in",
+          "bottom": "0.5in"
+        }
+      }
+    ],
+    "datasets": [
+      {
+        "name": "SeedData",
+        "fields": [
+          "SaleDate",
+          "Region",
+          "Salesperson",
+          "Customer",
+          "Product",
+          "Category",
+          "Quantity",
+          "Revenue",
+          "GrossProfit"
+        ]
+      }
+    ],
+    "reportParameters": [],
+    "tablixes": [
+      {
+        "name": "Tablix1",
+        "datasetName": "SeedData"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Region",
+        "expressions": ["=Fields!Region.Value"]
+      },
+      {
+        "name": "Region1",
+        "expressions": ["=Fields!Region.Value"]
+      },
+      {
+        "name": "Details",
+        "expressions": []
+      }
+    ],
+    "textboxes": [
+      {
+        "name": "HeaderSaleDate",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Date"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderSalesperson",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Salesperson"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderCustomer",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Customer"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderProduct",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Product"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderCategory",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Category"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderQuantity",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Qty"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderRevenue",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Revenue"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "HeaderGrossProfit",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Gross Profit"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "SaleDate",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!SaleDate.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!SaleDate.Value",
+            "fieldName": "SaleDate",
+            "bindingKind": "direct",
+            "format": "yyyy-MM-dd"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Salesperson",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Salesperson.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Salesperson.Value",
+            "fieldName": "Salesperson",
+            "bindingKind": "direct",
+            "format": null
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Customer",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Customer.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Customer.Value",
+            "fieldName": "Customer",
+            "bindingKind": "direct",
+            "format": null
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Product",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Product.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Product.Value",
+            "fieldName": "Product",
+            "bindingKind": "direct",
+            "format": null
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Category",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Category.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Category.Value",
+            "fieldName": "Category",
+            "bindingKind": "direct",
+            "format": null
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Quantity",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Quantity.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Quantity.Value",
+            "fieldName": "Quantity",
+            "bindingKind": "direct",
+            "format": "N0"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Revenue",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Revenue.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Revenue.Value",
+            "fieldName": "Revenue",
+            "bindingKind": "direct",
+            "format": "C2"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "GrossProfit",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!GrossProfit.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!GrossProfit.Value",
+            "fieldName": "GrossProfit",
+            "bindingKind": "direct",
+            "format": "C2"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox4",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox5",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox6",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox7",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox8",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox9",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Sum(Fields!Quantity.Value)"],
+        "fieldBindings": [
+          {
+            "expression": "=Sum(Fields!Quantity.Value)",
+            "fieldName": "Quantity",
+            "bindingKind": "sum",
+            "format": "N0"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox10",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Sum(Fields!Revenue.Value)"],
+        "fieldBindings": [
+          {
+            "expression": "=Sum(Fields!Revenue.Value)",
+            "fieldName": "Revenue",
+            "bindingKind": "sum",
+            "format": "C2"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox11",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Sum(Fields!GrossProfit.Value)"],
+        "fieldBindings": [
+          {
+            "expression": "=Sum(Fields!GrossProfit.Value)",
+            "fieldName": "GrossProfit",
+            "bindingKind": "sum",
+            "format": "C2"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox13",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox14",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox15",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox16",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox17",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox18",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Sum(Fields!Quantity.Value)"],
+        "fieldBindings": [
+          {
+            "expression": "=Sum(Fields!Quantity.Value)",
+            "fieldName": "Quantity",
+            "bindingKind": "sum",
+            "format": "N0"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox19",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Sum(Fields!Revenue.Value)"],
+        "fieldBindings": [
+          {
+            "expression": "=Sum(Fields!Revenue.Value)",
+            "fieldName": "Revenue",
+            "bindingKind": "sum",
+            "format": "C2"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox20",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Sum(Fields!GrossProfit.Value)"],
+        "fieldBindings": [
+          {
+            "expression": "=Sum(Fields!GrossProfit.Value)",
+            "fieldName": "GrossProfit",
+            "bindingKind": "sum",
+            "format": "C2"
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "HeaderRegion",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Region"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox1",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Region1"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": ["Bold"],
+        "textAlignments": []
+      },
+      {
+        "name": "Region",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Region.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Region.Value",
+            "fieldName": "Region",
+            "bindingKind": "direct",
+            "format": null
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Region1",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": ["=Fields!Region.Value"],
+        "fieldBindings": [
+          {
+            "expression": "=Fields!Region.Value",
+            "fieldName": "Region",
+            "bindingKind": "direct",
+            "format": null
+          }
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox3",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Total"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox2",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": ["Grand Total"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "Textbox12",
+        "container": "tablix",
+        "top": null,
+        "left": null,
+        "staticText": [],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "ReportTitle",
+        "container": "reportBody",
+        "top": null,
+        "left": null,
+        "staticText": ["Regional Sales Subtotal Compatibility Test"],
+        "expressions": [],
+        "fieldBindings": [],
+        "fontSizes": ["28pt"],
+        "fontWeights": [],
+        "textAlignments": []
+      },
+      {
+        "name": "ExecutionTime",
+        "container": "pageFooter",
+        "top": "0.2in",
+        "left": "4in",
+        "staticText": [],
+        "expressions": ["=Globals!ExecutionTime"],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": ["Right"]
+      },
+      {
+        "name": "Textbox21",
+        "container": "pageFooter",
+        "top": "0.155in",
+        "left": "0.17167in",
+        "staticText": [],
+        "expressions": [
+          "=\"Page \" & Globals!PageNumber & \" of \" & Globals!TotalPages"
+        ],
+        "fieldBindings": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "textAlignments": []
+      }
+    ]
+  },
+  "resolvedTargets": {
+    "reportTitle": {
+      "kind": "reportItem",
+      "semanticRole": "reportTitle",
+      "reportItemName": "ReportTitle",
+      "evidence": [
+        "configured exact report-item name: ReportTitle",
+        "existing static text: Regional Sales Subtotal Compatibility Test"
+      ]
+    },
+    "revenueDisplays": {
+      "kind": "fieldDisplay",
+      "fieldName": "Revenue",
+      "reportItemNames": ["Revenue", "Textbox10", "Textbox19"],
+      "expressions": [
+        "=Fields!Revenue.Value",
+        "=Sum(Fields!Revenue.Value)",
+        "=Sum(Fields!Revenue.Value)"
+      ],
+      "evidence": [
+        "Revenue: exact direct expression =Fields!Revenue.Value, format C2",
+        "Textbox10: exact sum expression =Sum(Fields!Revenue.Value), format C2",
+        "Textbox19: exact sum expression =Sum(Fields!Revenue.Value), format C2"
+      ]
+    }
+  }
+}

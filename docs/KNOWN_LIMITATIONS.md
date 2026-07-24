@@ -1,5 +1,20 @@
 # Known limitations
 
+## Existing RDL Sidecar Editor v0.2
+
+- Gates 1–5 implement inspection, conservative target resolution, strict EditPlan mutation, deterministic sentence planning, an audited CLI, and a secure Electron sidecar integration.
+- Gate 3 is not an LLM. Its allowlisted grammar covers only quoted title replacement, title size/weight/alignment, orientation, and six display-format codes. Unsupported or partially supported requests fail closed.
+- The Gate 4 CLI is an integration/validation surface, not the customer interface. It supports no interactive confirmation and intentionally controls output naming/location.
+- Gate 5 independent macOS development-runtime UI acceptance passed.
+- The accepted Windows portable build is unsigned and may be blocked by SmartScreen on managed or reputation-enforcing devices. Production distribution still needs trusted code signing.
+- The accepted sidecar grammar remains deliberately narrow: quoted title changes, title size/weight/alignment, portrait/landscape orientation, and existing-field `C0/C2/N0/N2/P0/P2` display formats only.
+- Target resolution is conservative and currently proven against the accepted Report Builder-authored fixture. Ambiguous titles, unknown fields, complex expressions, and unsupported report structures fail closed.
+- There is no external LLM, database connectivity, authentication, cloud service, telemetry, Report Builder injection, or automatic refresh.
+- Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
+- The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
+- Embedded row values are deliberately excluded from inventory evidence.
+- The edited fixture is XML/XSD-valid but has not been opened in Report Builder. `libxml2-wasm` normalizes CRLF to LF, empty-element spelling, and root attribute order during serialization; semantic preservation is proven locally, while rendering compatibility remains a later gate.
+
 ## Accepted RDL copilot MVP
 
 - The request language is constrained: one quoted title plus an inline JSON array using exactly nine fixed fields.
@@ -7,9 +22,9 @@
 - Data is embedded and must be synthetic, sanitized, public, or personally owned. Live databases, Power BI tenants, parameters, and arbitrary data sources are unsupported.
 - There is no LLM integration, report editing, chart generation, arbitrary grouping, additional template selection, or layout designer.
 - The Electron UI writes one fixed filename in its controlled application-data folder. History, version management, output naming, backup/restore, and multi-report management are not implemented.
-- The development flow requires `xmllint`. A packaged installer and its external validation runtime have not been independently validated; packaged resource resolution is covered by deterministic tests only.
-- macOS cannot render RDL. The canonical CLI artifact passed independent Windows Report Builder Preview/PDF/Excel validation; the Mac UI was accepted by byte identity with that artifact.
-- Submitted Windows Preview/PDF page counts and Excel worksheet count remained placeholders and are not claimed.
+- The supported generator uses bundled in-process `libxml2-wasm`; no end-user `xmllint` is required. The accepted distribution is an unsigned portable executable, not a signed installer.
+- macOS cannot render RDL. The canonical CLI artifact and packaged Windows customer path passed independent Report Builder Preview/PDF/Excel validation; the Mac UI was accepted by byte identity with that artifact.
+- The accepted packaged Windows result produced three Preview pages, three PDF pages, and three Excel worksheets.
 
 ## PBIR/PBIP work
 

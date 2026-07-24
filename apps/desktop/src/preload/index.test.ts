@@ -23,10 +23,18 @@ describe("sandboxed preload bridge", () => {
     expect(name).toBe("powerBiCopilot");
     expect(Object.keys(api).sort()).toEqual([
       "appMode",
+      "applyExistingRdlEdit",
+      "cancelExistingRdlPlan",
+      "clearExistingRdlSession",
+      "copyEditedRdlPath",
       "copyGeneratedPath",
+      "copyManifestPath",
       "generateReport",
+      "planExistingRdlEdit",
       "platform",
+      "revealEditedRdl",
       "revealGeneratedReport",
+      "selectExistingRdl",
       "selectProject",
       "windowsValidation",
     ]);
@@ -38,5 +46,15 @@ describe("sandboxed preload bridge", () => {
     expect(invoke).toHaveBeenCalledWith("report:generate", {
       request: "request",
     });
+    await (api.planExistingRdlEdit as (input: unknown) => Promise<unknown>)({
+      reportSessionId: "opaque",
+      request: "safe",
+    });
+    expect(invoke).toHaveBeenLastCalledWith("sidecar:plan-edit", {
+      reportSessionId: "opaque",
+      request: "safe",
+    });
+    expect(api).not.toHaveProperty("invoke");
+    expect(api).not.toHaveProperty("ipcRenderer");
   });
 });

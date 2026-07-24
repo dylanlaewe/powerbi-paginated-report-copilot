@@ -1,0 +1,205 @@
+{
+  "manifestVersion": 1,
+  "applicationVersion": "0.1.0",
+  "createdAt": "2026-07-23T22:09:49.472Z",
+  "transactionId": "7e512821-7f89-4619-80e1-caeb494fea88",
+  "planner": {
+    "implementation": "LocalSentenceEditPlanner",
+    "version": 1
+  },
+  "source": {
+    "resolvedPath": "/Users/dylanlaewe/powerbi-paginated-report-copilot/examples/existing-rdl-sidecar/source/regional-sales-existing.rdl",
+    "filename": "regional-sales-existing.rdl",
+    "sha256BeforeInspection": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "sha256BeforeMutation": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "sha256AfterCompletion": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "fileSize": 76730
+  },
+  "request": {
+    "originalUtf8Sentence": "Change the report title to \"Weekly Sales Pipeline\", make the title 18-point bold, switch the page to landscape, and format Revenue as currency with no decimal places.\n",
+    "normalizedRequest": "Change the report title to \"Weekly Sales Pipeline\", make the title 18-point bold, switch the page to landscape, and format Revenue as currency with no decimal places."
+  },
+  "plan": {
+    "validated": {
+      "version": 1,
+      "operations": [
+        {
+          "type": "setText",
+          "target": {
+            "kind": "reportItem",
+            "semanticRole": "reportTitle"
+          },
+          "value": "Weekly Sales Pipeline"
+        },
+        {
+          "type": "setTextStyle",
+          "target": {
+            "kind": "reportItem",
+            "semanticRole": "reportTitle"
+          },
+          "fontSize": "18pt",
+          "fontWeight": "Bold"
+        },
+        {
+          "type": "setPageOrientation",
+          "orientation": "landscape"
+        },
+        {
+          "type": "setNumberFormat",
+          "target": {
+            "kind": "fieldDisplay",
+            "fieldName": "Revenue"
+          },
+          "format": "C0"
+        }
+      ]
+    },
+    "sha256": "879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc"
+  },
+  "proposal": [
+    "Change report title from \"Regional Sales Subtotal Compatibility Test\" to \"Weekly Sales Pipeline\".",
+    "Change report title font size to 18pt.",
+    "Make report title bold.",
+    "Change page orientation to landscape.",
+    "Format Revenue displays as C0."
+  ],
+  "recognizedClauses": [
+    {
+      "kind": "title",
+      "start": 0,
+      "end": 50,
+      "text": "Change the report title to \"Weekly Sales Pipeline\""
+    },
+    {
+      "kind": "titleStyle",
+      "start": 52,
+      "end": 80,
+      "text": "make the title 18-point bold"
+    },
+    {
+      "kind": "orientation",
+      "start": 82,
+      "end": 110,
+      "text": "switch the page to landscape"
+    },
+    {
+      "kind": "numberFormat",
+      "start": 116,
+      "end": 165,
+      "text": "format Revenue as currency with no decimal places"
+    }
+  ],
+  "inspectedContextSummary": {
+    "datasetNames": ["SeedData"],
+    "fieldNames": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "reportSectionCount": 1,
+    "textboxCount": 42,
+    "tablixNames": ["Tablix1"],
+    "pageOrientation": "portrait"
+  },
+  "resolvedTargets": [
+    {
+      "semanticTarget": "reportTitle.text",
+      "reportItemName": "ReportTitle",
+      "evidence": [
+        "configured exact report-item name: ReportTitle",
+        "existing static text: Regional Sales Subtotal Compatibility Test"
+      ],
+      "expectedBefore": "Regional Sales Subtotal Compatibility Test",
+      "expectedAfter": "Weekly Sales Pipeline"
+    },
+    {
+      "semanticTarget": "reportTitle.fontSize",
+      "reportItemName": "ReportTitle",
+      "evidence": [
+        "configured exact report-item name: ReportTitle",
+        "existing static text: Regional Sales Subtotal Compatibility Test"
+      ],
+      "expectedBefore": "28pt",
+      "expectedAfter": "18pt"
+    },
+    {
+      "semanticTarget": "reportTitle.fontWeight",
+      "reportItemName": "ReportTitle",
+      "evidence": [
+        "configured exact report-item name: ReportTitle",
+        "existing static text: Regional Sales Subtotal Compatibility Test"
+      ],
+      "expectedBefore": "(implicit)",
+      "expectedAfter": "Bold"
+    },
+    {
+      "semanticTarget": "report.pageOrientation",
+      "reportItemName": "ReportSection0/Page",
+      "evidence": ["existing PageWidth 8.5in", "existing PageHeight 11in"],
+      "expectedBefore": "portrait",
+      "expectedAfter": "landscape"
+    },
+    {
+      "semanticTarget": "fieldDisplay.Revenue.format",
+      "reportItemName": "Revenue",
+      "evidence": [
+        "Revenue: exact direct expression =Fields!Revenue.Value, format C2"
+      ],
+      "expectedBefore": "C2",
+      "expectedAfter": "C0"
+    },
+    {
+      "semanticTarget": "fieldDisplay.Revenue.format",
+      "reportItemName": "Textbox10",
+      "evidence": [
+        "Textbox10: exact sum expression =Sum(Fields!Revenue.Value), format C2"
+      ],
+      "expectedBefore": "C2",
+      "expectedAfter": "C0"
+    },
+    {
+      "semanticTarget": "fieldDisplay.Revenue.format",
+      "reportItemName": "Textbox19",
+      "evidence": [
+        "Textbox19: exact sum expression =Sum(Fields!Revenue.Value), format C2"
+      ],
+      "expectedBefore": "C2",
+      "expectedAfter": "C0"
+    }
+  ],
+  "output": {
+    "resolvedPath": "/Users/dylanlaewe/powerbi-paginated-report-copilot/artifacts/existing-rdl-sidecar/edited-reports/regional-sales-existing-copilot-edited.rdl",
+    "filename": "regional-sales-existing-copilot-edited.rdl",
+    "sha256": "d84670ccd232ea9c077e7b438e9bf3ef5a8283a8f8b95968ca91f32fe0cbd5bb",
+    "fileSize": 74974
+  },
+  "validation": {
+    "editPlan": "PASS",
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "namespace": "PASS",
+    "targetCounts": "PASS",
+    "operationPostconditions": "PASS",
+    "structuralAllowlist": "PASS",
+    "embeddedDataPreservation": "PASS",
+    "finalReparse": "PASS",
+    "sourceUnchanged": "PASS",
+    "atomicWriteCompletion": "PASS"
+  },
+  "preservationHashes": {
+    "completeSemanticProjection": "a3477fcd39d3b522a86fd03489bc2f801bf77d6665561dd71f6ece8740978cce",
+    "embeddedData": "8eb3496b687dfc236efb1503be81c0437e33c31ebf42736250eea807ae55671b",
+    "datasetsAndFields": "2f1066eb51f8a45be70c81456d18914fb51a4258ce44519835d2ff8c0590938c",
+    "tablixHierarchy": "b361502683303dede088d17e9b7545174a280a267163aea64a40a472c7a74c7c",
+    "pageBehavior": "c30dbb46d4beecd920c8aaaba06e99f332e6446a6c040dbcd4b4b7dd8d94f655",
+    "footer": "a2e4125786632f03edf94a3280512ade07c095d8df31fb57c730f98e857144a8"
+  },
+  "warnings": []
+}

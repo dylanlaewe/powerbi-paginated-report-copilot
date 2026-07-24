@@ -1,0 +1,141 @@
+{
+  "gate": 3,
+  "status": "PASS",
+  "planner": {
+    "name": "LocalSentenceEditPlanner",
+    "version": 1,
+    "kind": "constrained deterministic local planner",
+    "llm": false
+  },
+  "canonicalRequest": "Change the report title to \"Weekly Sales Pipeline\", make the title 18-point bold, switch the page to landscape, and format Revenue as currency with no decimal places.",
+  "normalizedRequest": "Change the report title to \"Weekly Sales Pipeline\", make the title 18-point bold, switch the page to landscape, and format Revenue as currency with no decimal places.",
+  "contextSummary": {
+    "version": 1,
+    "existingFieldNames": [
+      "SaleDate",
+      "Region",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit"
+    ],
+    "formattingFieldNames": [
+      "SaleDate",
+      "Salesperson",
+      "Customer",
+      "Product",
+      "Category",
+      "Quantity",
+      "Revenue",
+      "GrossProfit",
+      "Region"
+    ],
+    "supportedSemanticRoles": ["reportTitle"],
+    "pageOrientation": "portrait",
+    "currentReportTitle": "Regional Sales Subtotal Compatibility Test",
+    "excluded": ["raw XML", "XPath", "filesystem paths", "embedded row values"]
+  },
+  "plan": {
+    "version": 1,
+    "operations": [
+      {
+        "type": "setText",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "value": "Weekly Sales Pipeline"
+      },
+      {
+        "type": "setTextStyle",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "fontSize": "18pt",
+        "fontWeight": "Bold"
+      },
+      {
+        "type": "setPageOrientation",
+        "orientation": "landscape"
+      },
+      {
+        "type": "setNumberFormat",
+        "target": {
+          "kind": "fieldDisplay",
+          "fieldName": "Revenue"
+        },
+        "format": "C0"
+      }
+    ]
+  },
+  "planSha256": "879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc",
+  "proposal": [
+    "Change report title from \"Regional Sales Subtotal Compatibility Test\" to \"Weekly Sales Pipeline\".",
+    "Change report title font size to 18pt.",
+    "Make report title bold.",
+    "Change page orientation to landscape.",
+    "Format Revenue displays as C0."
+  ],
+  "recognizedClauses": [
+    {
+      "kind": "title",
+      "start": 0,
+      "end": 50,
+      "text": "Change the report title to \"Weekly Sales Pipeline\""
+    },
+    {
+      "kind": "titleStyle",
+      "start": 52,
+      "end": 80,
+      "text": "make the title 18-point bold"
+    },
+    {
+      "kind": "orientation",
+      "start": 82,
+      "end": 110,
+      "text": "switch the page to landscape"
+    },
+    {
+      "kind": "numberFormat",
+      "start": 116,
+      "end": 165,
+      "text": "format Revenue as currency with no decimal places"
+    }
+  ],
+  "determinism": {
+    "repeatedResultIdentical": true,
+    "clauseOrderPlanBytesIdentical": true,
+    "newlineHandlingPlatformIndependent": true,
+    "planHashStable": true,
+    "proposalStable": true,
+    "diagnosticsStable": true
+  },
+  "acceptedVariationSummary": {
+    "quoteStyles": 4,
+    "fontSizeSpellings": 3,
+    "orientationPhrases": 5,
+    "numberFormatCases": 7,
+    "otherAcceptedCases": 6,
+    "total": 25
+  },
+  "rejectedRequestSummary": {
+    "conflicts": 7,
+    "unsupportedAndMalformed": 16,
+    "ambiguousField": 1,
+    "partialCoveragePositions": 3,
+    "controlAndSizeLimits": 2,
+    "total": 29
+  },
+  "tests": {
+    "plannerTests": 53,
+    "boundedFuzzInputs": 250,
+    "repositoryTestFiles": 35,
+    "repositoryTests": 244,
+    "result": "PASS"
+  },
+  "reportBuilderValidationClaim": "NONE — Gate 3 does not modify an RDL"
+}

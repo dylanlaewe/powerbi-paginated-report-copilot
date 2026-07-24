@@ -20,17 +20,27 @@ describe("production preload output", () => {
     expect(preload).not.toContain('from "zod"');
     expect(preload).toContain('exposeInMainWorld("powerBiCopilot"');
     expect(preload).toContain('generateReport: "report:generate"');
+    expect(preload).toContain('planExistingRdlEdit: "sidecar:plan-edit"');
     expect(preload).toContain(
       "generateReport: (request) => electron.ipcRenderer.invoke(channels.generateReport",
     );
 
-    const main = readFileSync(
+    const mainSource = readFileSync(
       resolve(repositoryRoot, "apps/desktop/src/main/index.ts"),
       "utf8",
     );
-    expect(main).toContain("generationRequestSchema.safeParse(input)");
-    expect(main).toContain("contextIsolation: true");
-    expect(main).toContain("nodeIntegration: false");
-    expect(main).toContain("sandbox: true");
+    expect(mainSource).toContain("generationRequestSchema.safeParse(input)");
+    expect(mainSource).toContain("planEditRequestSchema.safeParse(input)");
+    expect(mainSource).toContain("applyEditRequestSchema.safeParse(input)");
+    expect(mainSource).toContain("contextIsolation: true");
+    expect(mainSource).toContain("nodeIntegration: false");
+    expect(mainSource).toContain("sandbox: true");
+
+    const mainBundle = readFileSync(
+      resolve(repositoryRoot, "apps/desktop/out/main/index.js"),
+      "utf8",
+    );
+    expect(mainBundle).toContain('import("libxml2-wasm")');
+    expect(mainBundle).not.toContain("xmllint");
   });
 });

@@ -13,6 +13,8 @@
     "package:win": "pnpm --filter @powerbi-copilot/desktop package:win",
     "package:win:dir": "pnpm --filter @powerbi-copilot/desktop package:win:dir",
     "setup:electron": "pnpm --filter @powerbi-copilot/desktop exec install-electron",
+    "sidecar:inspect": "tsx packages/rdl-copilot/src/inspection-cli.ts",
+    "sidecar:cli": "tsx packages/rdl-copilot/src/sidecar-cli-entry.ts",
     "spike:rdl-compatibility-01": "tsx packages/rdl-spike/src/compatibility-cli.ts",
     "spike:rdl-compatibility-02": "tsx packages/rdl-spike/src/candidate02-cli.ts",
     "spike:rdl-compatibility-03": "tsx packages/rdl-spike/src/candidate03-cli.ts",
