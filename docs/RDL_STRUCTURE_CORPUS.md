@@ -6,6 +6,21 @@ Gate 1 defines the corpus only. It creates no RDL, modifies no resolver, runs no
 
 The runtime-validated design contract is `examples/rdl-structure-corpus/index.json`.
 
+## Gate 2A authoring kit
+
+Gate 1 review is approved. Gate 2A prepares instructions and synthetic paste data; it does not create an RDL or assert Report Builder behavior.
+
+The runtime-validated kit manifest is `examples/rdl-structure-corpus/authoring-kit.json`. The required manual order is:
+
+1. `simple-table`
+2. `grouped-report`
+3. `parameterized-report`
+4. `alternate-layout`
+
+Each fixture has an `authoring-kit/README.md`, one or more UTF-8 `.tsv` files, and an empty-evidence `source-validation.md` worksheet. The guides prescribe blank-report creation, Enter Data, item naming where the designer permits it, structure, formatting, physical page setup, Preview, save/close/reopen, PDF and Excel exports, and observed-count recording.
+
+Gate 2B is blocked until Dylan personally authors and validates the simple-table source. Report Builder-created source bytes must be placed at the manifest's `sourceRelativePath` without hand editing or transformation.
+
 ## Provenance and licensing plan
 
 All four additional fixtures will be authored personally by Dylan in Microsoft Power BI Report Builder on a personally controlled Windows 11 VM:
@@ -70,7 +85,8 @@ The index records source identity, namespace, structural/count summary, title an
 
 ## Acceptance ladder
 
-- Gate 2: author and independently validate source baselines
+- Gate 2A: prepare the manual authoring kit without creating source RDL
+- Gate 2B onward: personally author and independently validate source baselines in the approved order
 - Gate 3: inventory and record pre-generalization ambiguity
 - Gate 4: evidence-based resolver changes only
 - Gate 5: deterministic mutations and preservation

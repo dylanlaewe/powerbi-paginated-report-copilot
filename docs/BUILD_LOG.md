@@ -312,3 +312,14 @@
 - Power BI Report Builder passed open, three-page Preview, six-row completeness, Region subtotals, Grand Total, Region page breaks, repeating headings, Page N of M, no blank pages, no clipping, and no `#Error` values.
 - PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, preserved totals, and numeric values.
 - Recorded PowerShell's default-decoding corruption of the UTF-8 em dash as a test-environment issue resolved by explicit UTF-8 input. Deferred the Windows `Reveal in Finder` label as cosmetic.
+
+## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
+
+- Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.
+- Added a runtime-validated Gate 2A manifest that locks the manual fixture order, synthetic-only safety policy, source destinations, field schemas/types, row counts, authoring-kit paths, and expected totals.
+- Added six UTF-8 tab-delimited Enter Data files: five inventory rows, eight department-sales rows, six budget rows, three parameter-lookup rows, and six project-cost rows.
+- Added four Report Builder construction guides covering blank-report creation, exact structures and item names, formats, page settings, Preview, save/close/reopen, PDF, and Excel.
+- Added four source-validation worksheets with unfilled SHA-256, namespace, version, page/sheet counts, warnings, authorship, licensing, and behavior evidence.
+- Added regressions for manifest policy/order, TSV schemas and counts, required guide/worksheet evidence, and the absence of any corpus `.rdl`.
+- Passed changed-file formatting, ESLint, workspace typecheck, 40 test files / 297 tests, and the production build.
+- Created no source RDL and changed no resolver, mutation, planner, Electron, or LLM implementation. Gate 2B remains blocked pending Dylan's manual simple-table authoring and validation.

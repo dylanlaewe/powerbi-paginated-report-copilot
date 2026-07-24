@@ -1,0 +1,26 @@
+# Grouped report source-validation worksheet
+
+- Source path: `examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl`
+- Source SHA-256: `[RECORD AFTER FINAL CLOSE]`
+- Root RDL namespace: `[RECORD EXACT URI]`
+- File size / Report Builder version: `[RECORD BOTH]`
+- Dylan personally authored from Blank Report in controlled Windows VM: `[YES/NO]`
+- Enter Data only; 8 fictional rows; no copied/proprietary/credentialed/live source: `[YES/NO]`
+- Personally owned and MIT-licensed contribution confirmed: `[YES/NO]`
+- Dataset, five field names/types, and row count: `[PASS/FAIL]`
+- Title text/style/name `DepartmentSalesTitle`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- Department → Details hierarchy and ascending sorts: `[PASS/FAIL]`
+- Detail names and `DetailRevenue`: `[RECORD ACTUAL / PASS/FAIL]`
+- `DepartmentRevenueSubtotal` / `ReportRevenueTotal`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- Four expected subtotals and Grand Total: `[PASS/FAIL; RECORD DEVIATIONS]`
+- Between-group page breaks and repeated headings: `[PASS/FAIL]`
+- Letter portrait, 0.5in margins, print-safe width: `[PASS/FAIL]`
+- Initial Preview / reopen Preview: `[PASS/FAIL] / [PASS/FAIL]`
+- Preview page count: `[RECORD ACTUAL]`
+- PDF result and page count: `[PASS/FAIL] / [RECORD ACTUAL]`
+- PDF blank pages or clipping: `[RECORD NONE OR DETAILS]`
+- Excel result and worksheet count: `[PASS/FAIL] / [RECORD ACTUAL]`
+- Excel repair warning and numeric preservation: `[RECORD]`
+- Repair/conversion/upgrade warnings: `[RECORD NONE OR EXACT MESSAGE]`
+- Baseline accepted and deviations: `[YES/NO] / [RECORD]`
+- Evidence locations, recorder, and date: `[RECORD]`

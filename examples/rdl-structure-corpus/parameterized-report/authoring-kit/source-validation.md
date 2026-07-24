@@ -1,0 +1,25 @@
+# Parameterized report source-validation worksheet
+
+- Source path: `examples/rdl-structure-corpus/parameterized-report/source/synthetic-regional-budget.rdl`
+- Source SHA-256: `[RECORD AFTER FINAL CLOSE]`
+- Root RDL namespace: `[RECORD EXACT URI]`
+- File size / Report Builder version: `[RECORD BOTH]`
+- Dylan personally authored from Blank Report in controlled Windows VM: `[YES/NO]`
+- Enter Data only; 6 BudgetData and 3 RegionLookup fictional rows: `[YES/NO]`
+- No copied/proprietary/credentialed/live source; MIT contribution confirmed: `[YES/NO]`
+- Both dataset schemas/types and duplicate field names preserved: `[PASS/FAIL]`
+- RegionCode parameter, lookup labels, single-value default CEN: `[PASS/FAIL]`
+- BudgetData tablix filter references the parameter: `[PASS/FAIL]`
+- Title text/style/name `BudgetReportHeading`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- Detail names / `DetailBudgetAmount` / `BudgetGrandTotal`: `[RECORD / PASS/FAIL]`
+- CEN, NTH, and STH row counts and totals: `[PASS/FAIL; RECORD EACH]`
+- Letter portrait, 0.5in margins, print-safe width: `[PASS/FAIL]`
+- Initial Preview / reopen Preview: `[PASS/FAIL] / [PASS/FAIL]`
+- Preview page count with CEN selected: `[RECORD ACTUAL]`
+- PDF result and page count with CEN: `[PASS/FAIL] / [RECORD ACTUAL]`
+- PDF blank pages or clipping: `[RECORD NONE OR DETAILS]`
+- Excel result and worksheet count with CEN: `[PASS/FAIL] / [RECORD ACTUAL]`
+- Excel repair warning and numeric preservation: `[RECORD]`
+- Repair/conversion/upgrade warnings: `[RECORD NONE OR EXACT MESSAGE]`
+- Baseline accepted and deviations: `[YES/NO] / [RECORD]`
+- Evidence locations, recorder, and date: `[RECORD]`

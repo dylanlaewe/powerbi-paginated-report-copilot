@@ -1,6 +1,6 @@
 # RDL Structure Corpus v0.3
 
-Gate 1 is design-only. No source RDL, expected output, inventory, or Report Builder validation claim exists yet.
+Gate 1 design is accepted. Gate 2A adds a manual authoring kit only. No source RDL, expected output, inventory, or Report Builder validation claim exists yet.
 
 Each fixture will use this structure beginning at the authorized gate:
 
@@ -16,3 +16,5 @@ Each fixture will use this structure beginning at the authorized gate:
 `index.json` is the runtime-validated design contract. Null source identity and namespace fields and `pending Gate 2` validation statuses are intentional until Dylan authors and validates the four sources in Microsoft Power BI Report Builder.
 
 All fixtures will be personally authored by Dylan from blank Report Builder reports using synthetic Enter Data content and contributed under the repository MIT license. No company reports, customer data, credentials, external queries, or copied report assets are permitted.
+
+`authoring-kit.json` is the runtime-validated Gate 2A manifest. Each fixture's `authoring-kit/` directory contains UTF-8 tab-delimited paste data, a construction guide, and an uncompleted source-validation worksheet. Dylan must create and validate `simple-table` before Gate 2B is authorized.

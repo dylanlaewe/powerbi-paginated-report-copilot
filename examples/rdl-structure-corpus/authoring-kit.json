@@ -1,0 +1,136 @@
+{
+  "kitVersion": 1,
+  "milestone": "RDL Structure Corpus and Resolver Validation v0.3",
+  "gate": "2A",
+  "status": "AUTHORING_KIT_ONLY",
+  "author": "Dylan Laewe",
+  "authoringApplication": "Microsoft Power BI Report Builder",
+  "authoringEnvironment": "personally controlled Windows 11 Parallels VM",
+  "sourceCreationPolicy": {
+    "startFromBlankReport": true,
+    "enterDataOnly": true,
+    "personallyAuthored": true,
+    "syntheticOnly": true,
+    "credentialsAllowed": false,
+    "companyOrCustomerSourceAllowed": false,
+    "copiedLayoutAllowed": false,
+    "databaseConnectionRequired": false,
+    "sourceRdlIncludedInGate2A": false
+  },
+  "fixtures": [
+    {
+      "id": "simple-table",
+      "order": 1,
+      "sourceRelativePath": "simple-table/source/synthetic-inventory-detail.rdl",
+      "instructionsRelativePath": "simple-table/authoring-kit/README.md",
+      "validationWorksheetRelativePath": "simple-table/authoring-kit/source-validation.md",
+      "datasets": [
+        {
+          "name": "InventoryData",
+          "dataRelativePath": "simple-table/authoring-kit/inventory-data.tsv",
+          "rowCount": 5,
+          "fields": [
+            { "name": "Item", "dataType": "String" },
+            { "name": "Warehouse", "dataType": "String" },
+            { "name": "Units", "dataType": "Int32" },
+            { "name": "UnitCost", "dataType": "Decimal" }
+          ]
+        }
+      ],
+      "expectedTotals": {
+        "Units": 65
+      }
+    },
+    {
+      "id": "grouped-report",
+      "order": 2,
+      "sourceRelativePath": "grouped-report/source/synthetic-department-sales.rdl",
+      "instructionsRelativePath": "grouped-report/authoring-kit/README.md",
+      "validationWorksheetRelativePath": "grouped-report/authoring-kit/source-validation.md",
+      "datasets": [
+        {
+          "name": "DepartmentSales",
+          "dataRelativePath": "grouped-report/authoring-kit/department-sales.tsv",
+          "rowCount": 8,
+          "fields": [
+            { "name": "SaleDate", "dataType": "DateTime" },
+            { "name": "Department", "dataType": "String" },
+            { "name": "Representative", "dataType": "String" },
+            { "name": "Units", "dataType": "Int32" },
+            { "name": "Revenue", "dataType": "Decimal" }
+          ]
+        }
+      ],
+      "expectedTotals": {
+        "Design": { "Units": 13, "Revenue": 3390 },
+        "Field Services": { "Units": 18, "Revenue": 4620 },
+        "Operations": { "Units": 23, "Revenue": 5550 },
+        "Research": { "Units": 11, "Revenue": 5650 },
+        "Grand Total": { "Units": 65, "Revenue": 19210 }
+      }
+    },
+    {
+      "id": "parameterized-report",
+      "order": 3,
+      "sourceRelativePath": "parameterized-report/source/synthetic-regional-budget.rdl",
+      "instructionsRelativePath": "parameterized-report/authoring-kit/README.md",
+      "validationWorksheetRelativePath": "parameterized-report/authoring-kit/source-validation.md",
+      "datasets": [
+        {
+          "name": "BudgetData",
+          "dataRelativePath": "parameterized-report/authoring-kit/budget-data.tsv",
+          "rowCount": 6,
+          "fields": [
+            { "name": "RegionCode", "dataType": "String" },
+            { "name": "Program", "dataType": "String" },
+            { "name": "Quarter", "dataType": "String" },
+            { "name": "BudgetAmount", "dataType": "Decimal" },
+            { "name": "MetricValue", "dataType": "Decimal" }
+          ]
+        },
+        {
+          "name": "RegionLookup",
+          "dataRelativePath": "parameterized-report/authoring-kit/region-lookup.tsv",
+          "rowCount": 3,
+          "fields": [
+            { "name": "RegionCode", "dataType": "String" },
+            { "name": "RegionLabel", "dataType": "String" },
+            { "name": "MetricValue", "dataType": "Decimal" }
+          ]
+        }
+      ],
+      "expectedTotals": {
+        "CEN": { "rows": 2, "BudgetAmount": 205000 },
+        "NTH": { "rows": 2, "BudgetAmount": 192500 },
+        "STH": { "rows": 2, "BudgetAmount": 180000 },
+        "Unfiltered": { "rows": 6, "BudgetAmount": 577500 }
+      }
+    },
+    {
+      "id": "alternate-layout",
+      "order": 4,
+      "sourceRelativePath": "alternate-layout/source/synthetic-project-cost-landscape.rdl",
+      "instructionsRelativePath": "alternate-layout/authoring-kit/README.md",
+      "validationWorksheetRelativePath": "alternate-layout/authoring-kit/source-validation.md",
+      "datasets": [
+        {
+          "name": "ProjectCosts",
+          "dataRelativePath": "alternate-layout/authoring-kit/project-costs.tsv",
+          "rowCount": 6,
+          "fields": [
+            { "name": "ProjectCode", "dataType": "String" },
+            { "name": "Category", "dataType": "String" },
+            { "name": "Owner", "dataType": "String" },
+            { "name": "Cost", "dataType": "Decimal" }
+          ]
+        }
+      ],
+      "expectedTotals": {
+        "Facilities": { "rows": 2, "Cost": 72000 },
+        "Operations": { "rows": 2, "Cost": 61500 },
+        "Research": { "rows": 2, "Cost": 80500 },
+        "Grand Total": { "rows": 6, "Cost": 214000 }
+      }
+    }
+  ]
+}

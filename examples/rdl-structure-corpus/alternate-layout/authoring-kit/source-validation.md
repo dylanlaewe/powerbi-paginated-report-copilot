@@ -1,0 +1,27 @@
+# Alternate-layout source-validation worksheet
+
+- Source path: `examples/rdl-structure-corpus/alternate-layout/source/synthetic-project-cost-landscape.rdl`
+- Source SHA-256: `[RECORD AFTER FINAL CLOSE]`
+- Root RDL namespace: `[RECORD EXACT URI]`
+- File size / Report Builder version: `[RECORD BOTH]`
+- Dylan personally authored from Blank Report in controlled Windows VM: `[YES/NO]`
+- Enter Data only; 6 fictional rows; no copied/proprietary/credentialed/live source: `[YES/NO]`
+- Personally owned and MIT-licensed contribution confirmed: `[YES/NO]`
+- Dataset schema/types and six rows: `[PASS/FAIL]`
+- Header title text/style/name `HdrMainCaption`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- Footer expression and `FtrPageCaption`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- `CostDetailContainer`, `CostDetailGrid`, and six details: `[PASS/FAIL/RECORD ACTUAL]`
+- `TxtCostValue`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- `CategoryCostSummary`, group, three rows, exact category totals: `[PASS/FAIL]`
+- `TxtCategoryCost`: `[PASS/FAIL/NAME NOT EXPOSED]`
+- Letter landscape, 0.5in margins, print-safe width: `[PASS/FAIL]`
+- No displayed grand total and no page breaks: `[PASS/FAIL]`
+- Initial Preview / reopen Preview: `[PASS/FAIL] / [PASS/FAIL]`
+- Preview page count: `[RECORD ACTUAL]`
+- PDF result and page count: `[PASS/FAIL] / [RECORD ACTUAL]`
+- PDF blank pages or clipping: `[RECORD NONE OR DETAILS]`
+- Excel result and worksheet count: `[PASS/FAIL] / [RECORD ACTUAL]`
+- Excel repair warning and numeric preservation: `[RECORD]`
+- Repair/conversion/upgrade warnings: `[RECORD NONE OR EXACT MESSAGE]`
+- Baseline accepted and deviations: `[YES/NO] / [RECORD]`
+- Evidence locations, recorder, and date: `[RECORD]`

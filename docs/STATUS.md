@@ -1,14 +1,16 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 1 corpus design**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2A authoring kit**.
 
-The frozen `rdl-copilot-mvp-v0.1` and `rdl-copilot-windows-v0.1` checkpoints remain unchanged. Work continues only on `codex/existing-rdl-sidecar-v0.2`.
+The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
 Gates 1–4 remain accepted. Gate 5 exposes those services through a narrow sandboxed Electron sidecar with native `.rdl` selection, sanitized inspection, opaque report/plan/output sessions, explicit review before single-use apply, user-data-contained output, and trusted copy/reveal actions. Automated canonical output is byte-identical to Gates 2 and 4.
 
 Independent macOS and packaged Windows customer-path validation passed. The Windows-produced edited RDL passed Report Builder Design, three-page Preview, all requested edits, preserved rows/groups/totals/pagination, three-page PDF export, and three-worksheet Excel export.
 
-The three accepted tags remain frozen. Work continues on `codex/rdl-structure-corpus-v0.3`. Gate 1 defines four proposed, personally authored synthetic Report Builder fixtures and a strict corpus index. It changes no resolver, mutation, planner, Electron workflow, or supported operation. Gate 2 source authoring/validation has not begun.
+Work continues on `codex/rdl-structure-corpus-v0.3`. Gate 1 defines four proposed, personally authored synthetic Report Builder fixtures and a strict corpus index. Gate 2A now supplies runtime-validated metadata, UTF-8 Enter Data files, beginner-oriented construction guides, and source-validation worksheets. It creates no RDL and makes no Report Builder claim. Gate 2B is blocked until Dylan manually authors and validates the simple-table fixture.
+
+No resolver, mutation, planner, Electron, LLM, or supported-operation change is part of Gate 2A.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 
