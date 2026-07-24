@@ -1,8 +1,8 @@
 {
   "corpusVersion": 1,
   "milestone": "RDL Structure Corpus and Resolver Validation v0.3",
-  "gate": 1,
-  "status": "DESIGN_ONLY",
+  "gate": "2B",
+  "status": "SIMPLE_TABLE_VALIDATED",
   "frozenOperations": [
     "setText",
     "setTextStyle",
@@ -16,17 +16,17 @@
       "name": "Synthetic Inventory Detail",
       "description": "Portrait report with one embedded dataset, one ungrouped tablix, a body title, and detail-only numeric displays.",
       "structuralCategory": "simpleTable",
-      "status": "proposed",
+      "status": "authoredValidated",
       "sourceRelativePath": "simple-table/source/synthetic-inventory-detail.rdl",
-      "sourceSha256": null,
-      "namespace": null,
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
       "provenance": {
         "authoringApplication": "Microsoft Power BI Report Builder",
         "author": "Dylan Laewe",
         "method": "Create a blank report in a personally controlled Windows 11 VM, use Enter Data for the specified synthetic rows, add one detail tablix and body title, preview, save, close, reopen, preview, and copy the untouched saved bytes into the corpus.",
         "ownership": "personally authored synthetic fixture",
         "license": "MIT",
-        "reportBuilderValidation": "pending Gate 2"
+        "reportBuilderValidation": "PASS Gate 2B"
       },
       "syntheticDataDesign": {
         "datasets": [
@@ -45,27 +45,28 @@
         "parameters": 0,
         "tablixes": 1,
         "groups": 1,
-        "textboxes": null,
+        "textboxes": 10,
         "reportSections": 1
       },
       "anticipatedOrientation": "portrait",
       "expectedTitle": {
-        "reportItemName": "InventoryReportTitle",
+        "reportItemName": "Textbox9",
         "location": "body",
         "evidencePlan": [
-          "top-level body textbox above the only tablix",
+          "exact static value Synthetic Inventory Detail",
+          "body textbox above the only tablix",
           "single static value with no expression",
-          "largest and boldest body text",
-          "explicit descriptive report-item name"
+          "accepted visible title in independent Report Builder validation"
         ],
         "ambiguityRisks": [
+          "ReportTitle is a competing 18pt Bold body textbox whose value is InventoryReportTitle",
           "static column labels must not be ranked as title candidates"
         ]
       },
       "expectedFieldDisplays": [
         {
           "semanticTarget": "fieldDisplay.UnitCost.format",
-          "expectedReportItemNames": ["DetailUnitCost"],
+          "expectedReportItemNames": ["DetailUnitCose"],
           "expectedClassifications": ["detail"],
           "evidencePlan": [
             "exact =Fields!UnitCost.Value expression",
@@ -76,8 +77,8 @@
         }
       ],
       "anticipatedResolution": {
-        "mode": "generic",
-        "rationale": "One prominent top-level title and one exact detail field display should resolve from general evidence."
+        "mode": "notEvaluated",
+        "rationale": "Gate 2B records competing title evidence and the actual UnitCost detail name without running or changing generic resolution."
       },
       "editScenario": {
         "requestRelativePath": "simple-table/requests/canonical-edit.txt",
@@ -105,10 +106,10 @@
         }
       },
       "reportBuilderBaseline": {
-        "open": "pending Gate 2",
-        "preview": "pending Gate 2",
-        "pdf": "pending Gate 2",
-        "excel": "pending Gate 2"
+        "open": "PASS",
+        "preview": "PASS — 1 page",
+        "pdf": "PASS — 1 page",
+        "excel": "PASS — 1 worksheet"
       }
     },
     {

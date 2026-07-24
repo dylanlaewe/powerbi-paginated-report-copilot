@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "source": {
+    "fileName": "synthetic-inventory-detail.rdl",
+    "byteSize": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+    "utf8Bom": true,
+    "lineEndings": "CRLF"
+  },
+  "xml": {
+    "wellFormed": true,
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "reportBuilderName": "PBIRB",
+    "reportBuilderVersion": "15.7.1819.28"
+  },
+  "counts": {
+    "dataSources": 1,
+    "datasets": 1,
+    "parameters": 0,
+    "tablixes": 1,
+    "serializedGroups": 1,
+    "nonDetailGroups": 0,
+    "textboxes": 10,
+    "aggregateExpressions": 0,
+    "pageBreaks": 0
+  },
+  "datasets": [
+    {
+      "name": "InventoryData",
+      "provider": "ENTERDATA",
+      "fields": [
+        {
+          "name": "Item",
+          "typeName": "System.String",
+          "dataField": "Item"
+        },
+        {
+          "name": "Warehouse",
+          "typeName": "System.String",
+          "dataField": "Warehouse"
+        },
+        {
+          "name": "Units",
+          "typeName": "System.String",
+          "dataField": "Units"
+        },
+        {
+          "name": "UnitCost",
+          "typeName": "System.String",
+          "dataField": "UnitCost"
+        }
+      ],
+      "designerState": {
+        "rowCount": 5,
+        "columnCount": 4,
+        "columns": [
+          {
+            "name": "Item",
+            "dataType": "String"
+          },
+          {
+            "name": "Warehouse",
+            "dataType": "String"
+          },
+          {
+            "name": "Units",
+            "dataType": "String"
+          },
+          {
+            "name": "UnitCost",
+            "dataType": "String"
+          }
+        ]
+      }
+    }
+  ],
+  "reportSections": [
+    {
+      "bodyWidth": "7.08729in",
+      "serializedPageWidth": null,
+      "serializedPageHeight": null,
+      "margins": {
+        "left": "0.5in",
+        "right": "0.5in",
+        "top": "0.5in",
+        "bottom": "0.5in"
+      }
+    }
+  ],
+  "tablixes": [
+    {
+      "name": "InventoryTable",
+      "datasetName": "InventoryData",
+      "columnCount": 4,
+      "rowCount": 2
+    }
+  ],
+  "groups": [
+    {
+      "name": "Details",
+      "expressions": [],
+      "kind": "details"
+    }
+  ],
+  "textboxes": [
+    {
+      "name": "ReportTitle",
+      "container": "body",
+      "values": ["InventoryReportTitle"],
+      "formats": [],
+      "fontSizes": ["18pt"],
+      "fontWeights": ["Bold"],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "Textbox1",
+      "container": "tablix",
+      "values": ["Item"],
+      "formats": [],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "Textbox2",
+      "container": "tablix",
+      "values": ["Warehouse"],
+      "formats": [],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "DetailUnits",
+      "container": "tablix",
+      "values": ["Units"],
+      "formats": ["0"],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "Textbox4",
+      "container": "tablix",
+      "values": ["Unit Cost"],
+      "formats": [],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "DetailItem",
+      "container": "tablix",
+      "values": ["=Fields!Item.Value"],
+      "formats": [],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "DetailWarehouse",
+      "container": "tablix",
+      "values": ["=Fields!Warehouse.Value"],
+      "formats": [],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "DetailUnit",
+      "container": "tablix",
+      "values": ["=Fields!Units.Value"],
+      "formats": ["0"],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "DetailUnitCose",
+      "container": "tablix",
+      "values": ["=Fields!UnitCost.Value"],
+      "formats": ["'$'0.00;('$'0.00)"],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": null,
+      "left": null
+    },
+    {
+      "name": "Textbox9",
+      "container": "body",
+      "values": ["Synthetic Inventory Detail"],
+      "formats": [],
+      "fontSizes": [],
+      "fontWeights": [],
+      "top": "0.58729in",
+      "left": "0.05083in"
+    }
+  ]
+}

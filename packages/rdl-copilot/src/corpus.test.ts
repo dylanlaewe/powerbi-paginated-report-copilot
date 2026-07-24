@@ -10,7 +10,7 @@ const indexPath = resolve(
 );
 
 describe("RDL structure corpus Gate 1 design", () => {
-  it("runtime-validates exactly one proposed fixture per required category", async () => {
+  it("runtime-validates exactly one fixture per required category", async () => {
     const index = rdlStructureCorpusIndexSchema.parse(
       JSON.parse(await readFile(indexPath, "utf8")),
     );
@@ -25,19 +25,36 @@ describe("RDL structure corpus Gate 1 design", () => {
     ]);
   });
 
-  it("keeps source identity and Report Builder claims pending until Gate 2", async () => {
+  it("records the accepted simple-table identity while later fixtures remain pending", async () => {
     const index = rdlStructureCorpusIndexSchema.parse(
       JSON.parse(await readFile(indexPath, "utf8")),
     );
-    for (const fixture of index.fixtures) {
-      expect(fixture.sourceSha256).toBeNull();
-      expect(fixture.namespace).toBeNull();
-      expect(fixture.provenance.reportBuilderValidation).toBe("pending Gate 2");
-      expect(fixture.reportBuilderBaseline).toEqual({
-        open: "pending Gate 2",
-        preview: "pending Gate 2",
-        pdf: "pending Gate 2",
-        excel: "pending Gate 2",
+    const [simpleTable, ...pending] = index.fixtures;
+    expect(simpleTable).toMatchObject({
+      id: "simple-table",
+      status: "authoredValidated",
+      sourceSha256:
+        "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      namespace:
+        "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      reportBuilderBaseline: {
+        open: "PASS",
+        preview: "PASS — 1 page",
+        pdf: "PASS — 1 page",
+        excel: "PASS — 1 worksheet",
+      },
+    });
+    for (const fixture of pending) {
+      expect(fixture).toMatchObject({
+        status: "proposed",
+        sourceSha256: null,
+        namespace: null,
+        reportBuilderBaseline: {
+          open: "pending Gate 2",
+          preview: "pending Gate 2",
+          pdf: "pending Gate 2",
+          excel: "pending Gate 2",
+        },
       });
     }
   });

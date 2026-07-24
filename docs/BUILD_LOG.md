@@ -1,5 +1,17 @@
 # Build log
 
+## 2026-07-23 — RDL structure corpus Gate 2B simple-table acceptance
+
+- Ingested Dylan's personally authored 21,402-byte simple-table source read-only and confirmed SHA-256 `e3a34afe…448e3` before validation.
+- Parsed the source with `libxml2-wasm` using NONET/NO_XXE protections and passed the Microsoft RDL 2016/01 XSD.
+- Added a deterministic corpus inventory that permits honest null serialized dimensions instead of assigning unproven defaults.
+- Recorded one ENTERDATA dataset, five rows, one tablix, one implicit Details member, zero non-detail groups, zero parameters, ten textboxes, zero aggregate expressions, and zero page breaks.
+- Recorded actual item names, competing title candidates, Units/UnitCost binding evidence, string-typed numeric fields, explicit currency format, omitted dimensions, and the generic inspector's pre-resolution dimension limitation.
+- Recorded independent Windows one-page Preview/PDF and one-worksheet Excel acceptance, with no repair, conversion, blank page, clipping, or `#Error`.
+- Added exact identity, safe parse, deterministic inventory, immutability, XSD, embedded data, type, hierarchy, and candidate-evidence regressions.
+- Passed changed-file formatting, ESLint, workspace typecheck, 41 test files / 304 tests, and the production build.
+- Made no resolver, mutation, planner, Electron, or LLM change. The grouped fixture and Gate 2C remain unstarted.
+
 ## 2026-07-23 — RDL Structure Corpus v0.3 Gate 1 design
 
 - Created `codex/rdl-structure-corpus-v0.3` from the independently accepted v0.2 merge without changing any frozen tag.

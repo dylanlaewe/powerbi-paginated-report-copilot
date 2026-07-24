@@ -19,7 +19,24 @@ The runtime-validated kit manifest is `examples/rdl-structure-corpus/authoring-k
 
 Each fixture has an `authoring-kit/README.md`, one or more UTF-8 `.tsv` files, and an empty-evidence `source-validation.md` worksheet. The guides prescribe blank-report creation, Enter Data, item naming where the designer permits it, structure, formatting, physical page setup, Preview, save/close/reopen, PDF and Excel exports, and observed-count recording.
 
-Gate 2B is blocked until Dylan personally authors and validates the simple-table source. Report Builder-created source bytes must be placed at the manifest's `sourceRelativePath` without hand editing or transformation.
+Gate 2A is complete. Report Builder-created source bytes must be placed at the manifest's `sourceRelativePath` without hand editing or transformation.
+
+## Gate 2B simple-table result
+
+Dylan personally authored and independently validated `synthetic-inventory-detail.rdl` in Power BI Report Builder. The repository copy is 21,402 bytes with SHA-256 `e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3`; validation did not change those bytes.
+
+Read-only ingestion passed safe XML parsing and the Microsoft RDL 2016/01 XSD. The committed deterministic inventory records one `ENTERDATA` dataset, five rows, one four-column/two-row tablix, ten textboxes, zero parameters, zero non-detail groups, zero aggregates, and zero page breaks.
+
+Report Builder authored several material differences from the design:
+
+- all four fields, including Units and UnitCost, serialized as `System.String`;
+- the 18pt Bold `ReportTitle` contains `InventoryReportTitle`, while exact accepted title `Synthetic Inventory Detail` is in unstyled `Textbox9`;
+- detail names are `DetailUnit` and misspelled `DetailUnitCose`;
+- UnitCost uses an explicit currency pattern rather than literal `C2`;
+- page width and height are omitted, while independent Windows behavior confirms Letter portrait;
+- an implicit `Details` member exists, but no semantic parent group exists.
+
+The current generic inspector stops on the omitted physical dimensions. Gate 2B records that limitation and does not change or evaluate resolution. Gate 2C remains blocked pending review.
 
 ## Provenance and licensing plan
 

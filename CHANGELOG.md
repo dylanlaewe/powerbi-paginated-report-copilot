@@ -4,6 +4,7 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2B: immutable personally authored simple-table source, safe corpus inventory service, committed structural inventory, XML/XSD and fixture regressions, completed provenance/Windows validation evidence, and explicit authored-design deviations without resolver evaluation.
 - RDL Structure Corpus v0.3 Gate 2A authoring kit: runtime-validated safety/fixture metadata, four synthetic UTF-8 Enter Data row sets, exact field types and totals, Report Builder construction guides, and source-validation worksheets. No RDL source fixture is included.
 - RDL Structure Corpus v0.3 Gate 1 design: four proposed synthetic Report Builder structural categories, runtime-validated corpus index, provenance/licensing plan, frozen edit scenarios, anticipated target evidence, ambiguity risks, and explicit pending validation states.
 - Existing RDL Sidecar Editor Gate 1: a dedicated accepted-report fixture, strict versioned RDL inventory, in-process safe parsing, deterministic title/Revenue target resolution, committed inspection evidence, and fail-closed ambiguity regressions.

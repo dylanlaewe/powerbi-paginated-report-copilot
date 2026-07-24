@@ -35,10 +35,13 @@ const corpusFixtureSchema = z
       "multiDatasetOrParameterized",
       "alternateLayout",
     ]),
-    status: z.literal("proposed"),
+    status: z.enum(["proposed", "authoredValidated"]),
     sourceRelativePath: z.string().endsWith(".rdl"),
-    sourceSha256: z.null(),
-    namespace: z.null(),
+    sourceSha256: z
+      .string()
+      .regex(/^[a-f0-9]{64}$/u)
+      .nullable(),
+    namespace: z.string().url().nullable(),
     provenance: z
       .object({
         authoringApplication: z.literal("Microsoft Power BI Report Builder"),
@@ -46,7 +49,7 @@ const corpusFixtureSchema = z
         method: z.string().min(1),
         ownership: z.literal("personally authored synthetic fixture"),
         license: z.literal("MIT"),
-        reportBuilderValidation: z.literal("pending Gate 2"),
+        reportBuilderValidation: z.enum(["pending Gate 2", "PASS Gate 2B"]),
       })
       .strict(),
     syntheticDataDesign: z
@@ -87,7 +90,7 @@ const corpusFixtureSchema = z
     expectedFieldDisplays: z.array(targetExpectationSchema).min(1),
     anticipatedResolution: z
       .object({
-        mode: z.enum(["generic", "profileReviewPending"]),
+        mode: z.enum(["generic", "profileReviewPending", "notEvaluated"]),
         rationale: z.string().min(1),
       })
       .strict(),
@@ -100,21 +103,38 @@ const corpusFixtureSchema = z
       .strict(),
     reportBuilderBaseline: z
       .object({
-        open: z.literal("pending Gate 2"),
-        preview: z.literal("pending Gate 2"),
-        pdf: z.literal("pending Gate 2"),
-        excel: z.literal("pending Gate 2"),
+        open: z.enum(["pending Gate 2", "PASS"]),
+        preview: z.enum(["pending Gate 2", "PASS — 1 page"]),
+        pdf: z.enum(["pending Gate 2", "PASS — 1 page"]),
+        excel: z.enum(["pending Gate 2", "PASS — 1 worksheet"]),
       })
       .strict(),
   })
-  .strict();
+  .strict()
+  .superRefine((fixture, context) => {
+    const accepted = fixture.status === "authoredValidated";
+    if (accepted !== Boolean(fixture.sourceSha256 && fixture.namespace))
+      context.addIssue({
+        code: "custom",
+        message:
+          "Authored fixtures require source identity; proposed fixtures must keep it null",
+      });
+    if (
+      accepted !==
+      (fixture.provenance.reportBuilderValidation === "PASS Gate 2B")
+    )
+      context.addIssue({
+        code: "custom",
+        message: "Report Builder provenance must match fixture status",
+      });
+  });
 
 export const rdlStructureCorpusIndexSchema = z
   .object({
     corpusVersion: z.literal(1),
     milestone: z.literal("RDL Structure Corpus and Resolver Validation v0.3"),
-    gate: z.literal(1),
-    status: z.literal("DESIGN_ONLY"),
+    gate: z.union([z.literal(1), z.literal("2B")]),
+    status: z.enum(["DESIGN_ONLY", "SIMPLE_TABLE_VALIDATED"]),
     frozenOperations: z.tuple([
       z.literal("setText"),
       z.literal("setTextStyle"),

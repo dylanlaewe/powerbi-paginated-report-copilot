@@ -86,11 +86,13 @@ describe("RDL structure corpus Gate 2A authoring kit", () => {
       expect(worksheet).toContain("Preview page count");
       expect(worksheet).toContain("PDF");
       expect(worksheet).toContain("Excel");
-      expect(worksheet).toContain("[RECORD");
+      if (fixture.id === "simple-table")
+        expect(worksheet).toContain("Gate 2B is complete");
+      else expect(worksheet).toContain("[RECORD");
     }
   });
 
-  it("contains no source RDL fixture in Gate 2A", async () => {
+  it("permits only the hash-pinned simple-table source after Gate 2B", async () => {
     async function findRdlFiles(directory: string): Promise<string[]> {
       const entries = await readdir(directory, { withFileTypes: true });
       const matches = await Promise.all(
@@ -103,6 +105,8 @@ describe("RDL structure corpus Gate 2A authoring kit", () => {
       return matches.flat();
     }
 
-    expect(await findRdlFiles(corpusRoot)).toEqual([]);
+    expect(await findRdlFiles(corpusRoot)).toEqual([
+      resolve(corpusRoot, "simple-table/source/synthetic-inventory-detail.rdl"),
+    ]);
   });
 });
