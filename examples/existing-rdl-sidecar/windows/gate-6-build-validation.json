@@ -1,0 +1,86 @@
+{
+  "gate": 6,
+  "status": "BUILD_PASS_INDEPENDENT_WINDOWS_VALIDATION_PENDING",
+  "branch": "codex/existing-rdl-sidecar-v0.2",
+  "sourceCommit": "307570c",
+  "portableArtifact": {
+    "filename": "Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe",
+    "localPath": "dist/windows/Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe",
+    "sizeBytes": 89625624,
+    "sha256": "b21b726bc92ed4c1f994591851cda5318decbe43fdb09afb46a8ed6eaeb395f8",
+    "architecture": "windows-x64-portable",
+    "signed": false
+  },
+  "packaging": {
+    "electron": "43.1.1",
+    "electronBuilder": "26.15.3",
+    "asar": true,
+    "compression": "normal",
+    "runtimeRequirements": {
+      "repository": false,
+      "nodeJs": false,
+      "pnpm": false,
+      "git": false,
+      "xmllint": false,
+      "developmentServer": false
+    }
+  },
+  "bundledResources": [
+    {
+      "path": "resources/approved-report-resources/06b-production-pagination-letter.rdl",
+      "sizeBytes": 76730,
+      "sha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a"
+    },
+    {
+      "path": "resources/approved-report-resources/ReportDefinition-2016.xsd",
+      "sizeBytes": 210125,
+      "sha256": "7714fc8dd1c803d9eb661518fccfbc01cdd0cc19963fa3f3b45084eadf541b29"
+    }
+  ],
+  "runtimeStrategy": {
+    "xsdResolution": "process.resourcesPath/approved-report-resources in packaged runtime",
+    "xmlValidation": "in-process libxml2-wasm",
+    "output": "app.getPath(\"userData\")/edited-reports",
+    "processCwdDependency": false
+  },
+  "security": {
+    "contextIsolation": true,
+    "sandbox": true,
+    "nodeIntegration": false,
+    "preloadExternalRuntimeDependencies": ["electron"],
+    "narrowTypedIpc": true,
+    "mainProcessFilesystemAndMutationAuthority": true,
+    "opaqueOutputHandles": true,
+    "rendererCanSubmitPathsOrPlans": false
+  },
+  "expected": {
+    "sourceSha256": "c2d27f7595d9330eb9815f86483aa068129265a00980ca3b0b956f6f3f1de17a",
+    "planSha256": "879e154376816bc9aef823689bc4d9e5a22daf96911965396fddb6a9cb99f5dc",
+    "editedRdlSha256": "d84670ccd232ea9c077e7b438e9bf3ef5a8283a8f8b95968ca91f32fe0cbd5bb",
+    "manifestVersion": 1,
+    "invocationSurface": "electron-sidecar",
+    "windowsRevealLabel": "Reveal in Explorer"
+  },
+  "automatedVerification": {
+    "testFiles": 38,
+    "tests": 289,
+    "formattingChangedFiles": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "productionBuild": "PASS",
+    "windowsPortablePackaging": "PASS",
+    "packagedResourceDiscovery": "PASS",
+    "packagedRuntimeSimulation": "PASS",
+    "preloadDependencyInspection": "PASS",
+    "gate1ThroughGate5Regression": "PASS"
+  },
+  "manualWindowsValidation": {
+    "environment": "Dylan personally controlled Windows 11 VM in Parallels",
+    "portableLaunch": "PENDING",
+    "sidecarWorkflow": "PENDING",
+    "reportBuilderOpenAndPreview": "PENDING",
+    "pdfExport": "PENDING",
+    "excelExport": "PENDING",
+    "gate6Acceptance": "PENDING"
+  }
+}

@@ -6,7 +6,7 @@
 - Gate 3 is not an LLM. Its allowlisted grammar covers only quoted title replacement, title size/weight/alignment, orientation, and six display-format codes. Unsupported or partially supported requests fail closed.
 - The Gate 4 CLI is an integration/validation surface, not the customer interface. It supports no interactive confirmation and intentionally controls output naming/location.
 - Gate 5 independent macOS development-runtime UI acceptance passed.
-- Gate 6 independent Windows Report Builder validation of the Electron-edited artifact has not begun.
+- Gate 6 automated packaging passed, but the unsigned portable build still requires independent Windows UI and Report Builder Preview/PDF/Excel validation. Page and worksheet counts are intentionally unknown until measured.
 - Inspection recognizes only exact direct field expressions and exact `Sum(Fields!...Value)` displays; more complex expressions intentionally remain unresolved.
 - The fixture-specific title name is trusted only for the checksum-reviewed fixture. Generic reports with multiple plausible top-level static textboxes fail as ambiguous.
 - Embedded row values are deliberately excluded from inventory evidence.

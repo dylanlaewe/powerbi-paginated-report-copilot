@@ -1,5 +1,12 @@
 # Build log
 
+## 2026-07-23 — Existing RDL Sidecar Gate 6 Windows build
+
+- Re-ran 38 test files/289 tests, formatting, ESLint, workspace typecheck, production build, packaged-resource simulations, preload inspection, and Gates 1–5 regressions.
+- Produced the unsigned x64 portable EXE `Power-BI-RDL-Copilot-0.0.1-windows-x64-portable.exe`, 89,625,624 bytes, SHA-256 `b21b726b…5f8`.
+- Verified packaged XSD SHA-256 `7714fc8d…b29`, accepted bundled RDL resource SHA-256 `c2d27f75…e17a`, Electron-only preload dependency, in-process `libxml2-wasm`, and no `xmllint` dependency.
+- Added exact personally controlled Parallels Windows-local transfer, packaged-sidecar, Report Builder, PDF, and Excel validation instructions. Independent Gate 6 acceptance remains pending.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 5 independent macOS acceptance
 
 - Dylan independently validated native `.rdl` selection, sanitized inspection, canonical request entry, proposal and exact targets, explicit apply, Copy RDL Path, Copy Manifest Path, Reveal in Finder, and busy-state recovery.
