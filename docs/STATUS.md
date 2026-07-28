@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2L operation-level read-only review complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2M review-bound generic mutation complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -96,6 +96,26 @@ Every review object retains `mutationAuthorized: false` and
 no Apply, Save, Generate, or Execute action. The existing checksum-reviewed
 workflow remains the only writable path; target authorization is a future,
 separate layer.
+
+Gate 2M implements that separate authorization layer and the first complete
+generic copy workflow for the existing title text/style and field-format
+operations. A main-process-only authorization is created only after every
+operation is confirmed or declined, no blocked operation remains, and source,
+plan, catalog, session, review, candidate membership, and candidate type still
+match.
+
+Authorization binds exact operation IDs to exact inspection-owned structural
+candidates and is consumed once. The renderer receives no authorization
+object, structural target, XML path, or source path. Its sole write action is
+“Create reviewed copy,” which preserves the original and atomically writes a
+duplicate-safe RDL plus manifest in the controlled user-data directory.
+
+Generic mutation supports static and safely decoded constant-string title
+values, title font size/weight/alignment, direct-field formats, aggregate
+formats, and exact reviewed subsets. Omitted page dimensions remain blocked;
+no dimensions are inferred or materialized. Microsoft Invoice and Transcript
+copies pass static XML/XSD/structural validation but have not been Report
+Builder-rendered. Gate 2N independent Windows validation is next.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

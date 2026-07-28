@@ -24,7 +24,8 @@ describe("existing RDL sidecar renderer", () => {
     expect(source).toContain("Apply Changes");
     expect(source).toContain("Review only — no RDL file will be changed.");
     expect(source).toContain("Review Candidates Only");
-    expect(source).toContain("No generic Apply action exists.");
+    expect(source).toContain("Create reviewed copy");
+    expect(source).toContain("The original RDL remains unchanged.");
     expect(source).toContain('? "radio"');
     expect(source).toContain(': "checkbox"');
     expect(source).toContain("candidate.datasetName");

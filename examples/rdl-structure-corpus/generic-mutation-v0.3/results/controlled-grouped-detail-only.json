@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "scenarioId": "controlled-grouped-detail-only",
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+  },
+  "request": "Format Revenue as currency with no decimal places.",
+  "plan": {
+    "version": 1,
+    "operations": [
+      {
+        "type": "setNumberFormat",
+        "target": {
+          "kind": "fieldDisplay",
+          "fieldName": "Revenue"
+        },
+        "format": "C0"
+      }
+    ]
+  },
+  "planSha256": "8c803b459b47c26ea0ba233b688dd2410a79ac475b3e6a9d95f622db67ff8c98",
+  "confirmedReview": {
+    "version": 1,
+    "reviewDraftId": "diagnostic-controlled-grouped-detail-only",
+    "reportSessionId": "diagnostic-grouped-report",
+    "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "planSha256": "8c803b459b47c26ea0ba233b688dd2410a79ac475b3e6a9d95f622db67ff8c98",
+    "candidateCatalogVersion": 1,
+    "resolutionSummary": {
+      "title": {
+        "status": "resolved",
+        "reason": "TITLE_RESOLVED",
+        "mutationAuthorized": false
+      },
+      "fields": [
+        {
+          "fieldName": "Revenue",
+          "status": "ambiguous",
+          "reason": "MULTIPLE_SCOPE_ROLES",
+          "mutationAuthorized": false
+        }
+      ],
+      "pageOrientation": {
+        "status": "blocked",
+        "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+        "mutationAuthorized": false
+      }
+    },
+    "operations": [
+      {
+        "status": "confirmed",
+        "operationId": "d3a07e72e207c7c243badd16",
+        "operationType": "setNumberFormat",
+        "requestedChange": "Format Revenue as C0.",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "1f23f9e7674c9d3bb541"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      }
+    ],
+    "state": "fullyReviewed",
+    "mutationAuthorized": false,
+    "executable": false
+  },
+  "authorizationAudit": {
+    "operationIds": [
+      "d3a07e72e207c7c243badd16"
+    ],
+    "declinedOperationIds": [],
+    "exactSelectedDiagnosticCandidateIds": [
+      "1f23f9e7674c9d3bb541"
+    ],
+    "rendererReceivedAuthorization": false
+  },
+  "output": {
+    "committedRdl": false,
+    "deterministicFilenameForEvidence": "controlled-grouped-detail-only-regenerated.rdl",
+    "byteLength": 51446,
+    "sha256": "fe14bda164dc4566efe8adc78ca4a3b581cc4a2321453fa3ca4ab48037754b70"
+  },
+  "validation": {
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "namespace": "PASS",
+    "structuralAllowlist": "PASS",
+    "operationPostconditions": "PASS",
+    "finalReparse": "PASS",
+    "sourceUnchanged": "PASS"
+  },
+  "preservationHashes": {
+    "semanticProjectionSha256": "9f7899bd09a210ae1357b3fbac0ec16ba58cd8942dceb75186a11390509bc2b4",
+    "embeddedDataSha256": "8601f5fd60a4cc097a8345fd47236ffa8d612683ac7ef1723382f23b514dbb0e",
+    "datasetsSha256": "a7514e2062f493c083811a5d122d49795b708658bc978133303318ce8d6ed85f",
+    "tablixHierarchyProjectionSha256": "5f77be2009312b6f05d7d9e3ceddaa5701dbd515fb730276a77b6eea46223be1",
+    "pageBehaviorSha256": "e4671f6b7270d90f63f354c5e2a51f7b20913362e910a32471b99a92c197934e",
+    "footerSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "checks": {
+      "fullSemanticAllowlist": "PASS",
+      "embeddedData": "PASS",
+      "datasetsAndFields": "PASS",
+      "tablixAndGroupHierarchy": "PASS",
+      "pageBreaksAndRepeatingHeaders": "PASS",
+      "footer": "PASS"
+    }
+  },
+  "manifest": {
+    "manifestVersion": 1,
+    "applicationVersion": "0.1.0",
+    "invocationSurface": "test-evidence",
+    "source": {
+      "filename": "synthetic-department-sales.rdl",
+      "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+    },
+    "planSha256": "8c803b459b47c26ea0ba233b688dd2410a79ac475b3e6a9d95f622db67ff8c98",
+    "reviewAuditId": "23a54964e690ea258fb4172b79e3f79b4bd1d6a4b1fe2876b9de184e865fd79b",
+    "confirmedOperations": [
+      {
+        "operationId": "d3a07e72e207c7c243badd16",
+        "operationType": "setNumberFormat"
+      }
+    ],
+    "declinedOperationIds": [],
+    "selectedTargets": [
+      {
+        "operationId": "d3a07e72e207c7c243badd16",
+        "operationType": "setNumberFormat",
+        "reportItemName": "DetailRevenue",
+        "datasetName": "DepartmentSales",
+        "structuralRole": "detail"
+      }
+    ],
+    "output": {
+      "filename": "controlled-grouped-detail-only-regenerated.rdl",
+      "sha256": "fe14bda164dc4566efe8adc78ca4a3b581cc4a2321453fa3ca4ab48037754b70"
+    },
+    "validation": {
+      "xmlParse": "PASS",
+      "xsd": "PASS",
+      "namespace": "PASS",
+      "structuralAllowlist": "PASS",
+      "operationPostconditions": "PASS",
+      "finalReparse": "PASS",
+      "sourceUnchanged": "PASS",
+      "atomicWrite": "PASS"
+    }
+  },
+  "originalUnchanged": true
+}

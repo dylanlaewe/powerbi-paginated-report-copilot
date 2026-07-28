@@ -1,16 +1,27 @@
 import { createHash, randomUUID } from "node:crypto";
-import { readFile, realpath } from "node:fs/promises";
-import { basename, join } from "node:path";
+import {
+  mkdir,
+  readFile,
+  realpath,
+  rename,
+  unlink,
+  writeFile,
+} from "node:fs/promises";
+import { basename, extname, join } from "node:path";
 import {
   applyPreparedSidecarEdit,
+  authorizeReviewedPlan,
   buildReviewBundle,
   catalogRdlBytes,
   confirmReviewOperation,
   createEditPlannerContext,
   declineReviewOperation,
   editPlanSchema,
+  genericMutationManifestSchema,
+  GenericMutationError,
   inspectRdlFile,
   LocalSentenceEditPlanner,
+  mutateAuthorizedRdl,
   prepareSidecarEditFromText,
   resetReviewOperation,
   resolveConfiguredReportTitle,
@@ -21,8 +32,11 @@ import {
   RdlInspectionError,
   validateXmlAgainstXsd,
   type PreparedSidecarEdit,
+  type EditPlan,
   type ReviewBundle,
   type RdlInventory,
+  type TargetFieldCandidate,
+  type TargetTitleCandidate,
 } from "@powerbi-copilot/rdl-copilot";
 import {
   actionResultSchema,
@@ -30,11 +44,13 @@ import {
   existingRdlSelectionResultSchema,
   fieldResolutionResultSchema,
   reviewBundleResultSchema,
+  reviewedCopyResultSchema,
   planEditResultSchema,
   type ApplyEditResult,
   type ExistingRdlSelectionResult,
   type FieldResolutionResult,
   type ReviewBundleResult,
+  type ReviewedCopyResult,
   type PlanEditResult,
   type SidecarActionResult,
 } from "../shared/desktop-api";
@@ -52,6 +68,10 @@ type ReportSession = {
   fieldCandidateIds: ReadonlyMap<string, string>;
   catalog: Awaited<ReturnType<typeof catalogRdlBytes>>;
   inventory: RdlInventory;
+  candidateByLiveId: ReadonlyMap<
+    string,
+    TargetTitleCandidate | TargetFieldCandidate
+  >;
 };
 type PlanSession = {
   id: string;
@@ -71,6 +91,8 @@ type ReviewDraft = {
   planSha256: string;
   initial: ReviewBundle;
   current: ReviewBundle;
+  plan: EditPlan;
+  consumed: boolean;
 };
 
 export type SidecarPlatform = "darwin" | "win32" | "linux";
@@ -94,6 +116,14 @@ const errorResult = (
   sourceUnchanged: true;
   unsupportedFragments?: string[];
 } => {
+  if (error instanceof GenericMutationError)
+    return {
+      status: "error",
+      code: error.code,
+      message: error.message,
+      noOutputWritten: true,
+      sourceUnchanged: true,
+    };
   if (error instanceof RdlInspectionError) {
     const code = {
       NOT_RDL: "SOURCE_EXTENSION_INVALID",
@@ -272,6 +302,27 @@ export class ExistingRdlSidecarService {
           candidate.candidateId,
         ]),
       );
+      const candidateByLiveId = new Map<
+        string,
+        TargetTitleCandidate | TargetFieldCandidate
+      >([
+        ...catalog.titleCandidates.map(
+          (
+            candidate,
+          ): [string, TargetTitleCandidate | TargetFieldCandidate] => [
+            titleCandidateIds.get(candidate.diagnosticId)!,
+            candidate,
+          ],
+        ),
+        ...catalog.fieldDisplayCandidates.map(
+          (
+            candidate,
+          ): [string, TargetTitleCandidate | TargetFieldCandidate] => [
+            fieldCandidateIds.get(candidate.diagnosticId)!,
+            candidate,
+          ],
+        ),
+      ]);
       const diagnosticTitleResolution = resolveReadOnlyReportTitle(catalog);
       const liveRanked = <
         T extends {
@@ -313,6 +364,7 @@ export class ExistingRdlSidecarService {
         fieldCandidateIds,
         catalog,
         inventory,
+        candidateByLiveId,
       });
       let currentTitle: string | null = null;
       try {
@@ -475,6 +527,8 @@ export class ExistingRdlSidecarService {
         planSha256: planner.planSha256,
         initial: bundle,
         current: bundle,
+        plan,
+        consumed: false,
       });
       return reviewBundleResultSchema.parse({ status: "review", bundle });
     } catch (error) {
@@ -545,6 +599,129 @@ export class ExistingRdlSidecarService {
     return this.updateReview(input.reviewDraftId, (current, initial) =>
       resetReviewOperation(current, initial, input.operationId),
     );
+  }
+
+  async createReviewedCopy(input: {
+    reviewDraftId: string;
+  }): Promise<ReviewedCopyResult> {
+    let outputPath: string | undefined;
+    let manifestPath: string | undefined;
+    try {
+      const draft = await this.reviewDraft(input.reviewDraftId);
+      if (draft.consumed)
+        throw new SidecarCliError(
+          "PLAN_INVALID",
+          "The reviewed-copy authorization has already been consumed.",
+        );
+      const report = this.report(draft.reportSessionId);
+      const authorization = authorizeReviewedPlan({
+        bundle: draft.current,
+        plan: draft.plan,
+        sourceSha256: report.sourceSha256,
+        planSha256: draft.planSha256,
+        candidateForId: (candidateId) =>
+          report.candidateByLiveId.get(candidateId),
+      });
+      draft.consumed = true;
+      const source = await readFile(report.sourcePath);
+      if (sha256(source) !== report.sourceSha256)
+        throw new SidecarCliError(
+          "SOURCE_CHANGED",
+          "The source changed before reviewed-copy mutation.",
+        );
+      const mutation = await mutateAuthorizedRdl({
+        source,
+        sourceFileName: basename(report.sourcePath),
+        schema: await readFile(this.options.schemaPath),
+        plan: draft.plan,
+        authorization,
+      });
+      const outputDirectory = join(this.options.userDataPath, "edited-reports");
+      await mkdir(outputDirectory, { recursive: true });
+      const transactionId = randomUUID();
+      const stem = basename(report.sourcePath, extname(report.sourcePath));
+      outputPath = join(
+        outputDirectory,
+        `${stem}-copilot-reviewed-${transactionId}.rdl`,
+      );
+      manifestPath = `${outputPath}.manifest.json`;
+      const manifest = genericMutationManifestSchema.parse({
+        manifestVersion: 1,
+        applicationVersion: "0.1.0",
+        invocationSurface: "electron-sidecar",
+        source: {
+          filename: basename(report.sourcePath),
+          sha256: report.sourceSha256,
+        },
+        planSha256: draft.planSha256,
+        reviewAuditId: sha256(
+          Buffer.from(
+            `${draft.id}:${draft.sourceSha256}:${draft.planSha256}`,
+            "utf8",
+          ),
+        ),
+        confirmedOperations: authorization.operations.map(
+          ({ operationId, operation }) => ({
+            operationId,
+            operationType: operation.type,
+          }),
+        ),
+        declinedOperationIds: authorization.declinedOperationIds,
+        selectedTargets: mutation.selectedTargets,
+        output: {
+          filename: basename(outputPath),
+          sha256: mutation.outputSha256,
+        },
+        validation: {
+          ...mutation.validation,
+          atomicWrite: "PASS",
+        },
+      });
+      const rdlTemporary = `${outputPath}.tmp`;
+      const manifestTemporary = `${manifestPath}.tmp`;
+      let rdlFinal = false;
+      try {
+        await writeFile(rdlTemporary, mutation.output, { flag: "wx" });
+        await writeFile(
+          manifestTemporary,
+          `${JSON.stringify(manifest, null, 2)}\n`,
+          { flag: "wx" },
+        );
+        await rename(rdlTemporary, outputPath);
+        rdlFinal = true;
+        await rename(manifestTemporary, manifestPath);
+        if (sha256(await readFile(report.sourcePath)) !== report.sourceSha256)
+          throw new SidecarCliError(
+            "SOURCE_CHANGED",
+            "The source changed during reviewed-copy completion.",
+          );
+      } catch (error) {
+        await Promise.all([
+          unlink(rdlTemporary).catch(() => undefined),
+          unlink(manifestTemporary).catch(() => undefined),
+          rdlFinal ? unlink(outputPath).catch(() => undefined) : undefined,
+          unlink(manifestPath).catch(() => undefined),
+        ]);
+        throw error;
+      }
+      const outputHandle = randomUUID();
+      this.outputs.set(outputHandle, { rdlPath: outputPath, manifestPath });
+      return reviewedCopyResultSchema.parse({
+        status: "complete",
+        outputHandle,
+        editedFilename: basename(outputPath),
+        manifestFilename: basename(manifestPath),
+        sourceSha256: report.sourceSha256,
+        planSha256: draft.planSha256,
+        outputSha256: mutation.outputSha256,
+        sourceUnchanged: true,
+        validation: "PASS",
+      });
+    } catch (error) {
+      if (outputPath) await unlink(outputPath).catch(() => undefined);
+      if (manifestPath) await unlink(manifestPath).catch(() => undefined);
+      return reviewedCopyResultSchema.parse(errorResult(error));
+    }
   }
 
   async planEdit(input: {

@@ -179,6 +179,35 @@ function App(): React.JSX.Element {
     }
   };
 
+  const createReviewedCopy = async () => {
+    if (!candidateReview) return;
+    setView("applying");
+    try {
+      const result = await window.powerBiCopilot?.createExistingRdlReviewedCopy(
+        {
+          reviewDraftId: candidateReview.bundle.reviewDraftId,
+        },
+      );
+      if (!result)
+        return failure(
+          "PRELOAD_BRIDGE_UNAVAILABLE",
+          "The desktop sidecar service failed to initialize.",
+          "candidateReview",
+        );
+      if (result.status === "error")
+        return failure(result.code, result.message, "candidateReview");
+      setComplete(result);
+      setError(undefined);
+      setView("complete");
+    } catch {
+      failure(
+        "IPC_REJECTED",
+        "The reviewed copy could not be created.",
+        "candidateReview",
+      );
+    }
+  };
+
   const apply = async () => {
     if (!selection || !plan) return;
     setView("applying");
@@ -525,11 +554,23 @@ function App(): React.JSX.Element {
               </div>
               <p className="assurance">
                 Review decisions are session-bound and never authorize mutation.
-                No generic Apply action exists.
+                The original RDL remains unchanged. A duplicate-safe new RDL
+                includes only explicitly confirmed operations.
               </p>
-              <button onClick={() => void editRequest()}>
-                Back to request
-              </button>
+              <div className="actions">
+                {(candidateReview.bundle.state === "fullyReviewed" ||
+                  candidateReview.bundle.state === "declined") && (
+                  <button
+                    className="primary"
+                    onClick={() => void createReviewedCopy()}
+                  >
+                    Create reviewed copy
+                  </button>
+                )}
+                <button onClick={() => void editRequest()}>
+                  Back to request
+                </button>
+              </div>
             </section>
           )}
 

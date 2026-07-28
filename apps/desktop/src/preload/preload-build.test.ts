@@ -28,6 +28,9 @@ describe("production preload output", () => {
       'createExistingRdlReview: "sidecar:review-create"',
     );
     expect(preload).toContain(
+      'createExistingRdlReviewedCopy: "sidecar:review-create-copy"',
+    );
+    expect(preload).toContain(
       "generateReport: (request) => electron.ipcRenderer.invoke(channels.generateReport",
     );
 

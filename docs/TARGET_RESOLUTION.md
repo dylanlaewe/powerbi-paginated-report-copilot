@@ -153,3 +153,24 @@ invalid mutation inputs.
 A fully reviewed bundle still has `mutationAuthorized: false` and
 `executable: false`. Generic Apply behavior and target authorization do not
 exist. Checksum-reviewed v0.2 resolution remains the sole writable authority.
+
+## v0.3 Gate 2M exact target authorization
+
+Gate 2L review objects remain non-writable. Gate 2M adds a separate ephemeral
+main-process capability that can be constructed only from a current,
+fully-reviewed bundle with no blocked operation. It maps live review UUIDs back
+to the exact title or field candidate captured during inspection and binds
+those records to source, plan, review, catalog, and operation identities.
+
+The capability never crosses IPC and is consumed on the first copy attempt.
+Reload, session closure, source change, plan replacement, review reset, stale
+candidate identity, type mismatch, or structural drift prevents mutation.
+
+Title operations modify only the selected TextRun and relevant style
+properties. Field formatting modifies only selected direct or aggregate runs;
+multi-candidate selection means exactly those candidates, never an inferred
+scope. Structural normalization supports independent title text/style targets.
+
+The output is always a new duplicate-safe file with an atomic audit manifest.
+The original remains byte-identical. Omitted page dimensions continue to block
+the entire atomic plan with `PAGE_DIMENSIONS_UNSPECIFIED`.

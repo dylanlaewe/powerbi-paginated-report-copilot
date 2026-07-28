@@ -149,6 +149,15 @@ ipcMain.handle(
   },
 );
 ipcMain.handle(
+  ipcChannels.createExistingRdlReviewedCopy,
+  async (_event, input: unknown) => {
+    const parsed = reviewDraftRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().createReviewedCopy(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
   ipcChannels.planExistingRdlEdit,
   async (_event, input: unknown) => {
     const parsed = planEditRequestSchema.safeParse(input);

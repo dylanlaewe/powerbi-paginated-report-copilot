@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "scenarioId": "controlled-simple-table",
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+  },
+  "request": "Change the report title to \"Quarterly Inventory Detail\", make the title 20-point bold, and format UnitCost as currency with no decimal places.",
+  "plan": {
+    "version": 1,
+    "operations": [
+      {
+        "type": "setText",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "value": "Quarterly Inventory Detail"
+      },
+      {
+        "type": "setTextStyle",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "fontSize": "20pt",
+        "fontWeight": "Bold"
+      },
+      {
+        "type": "setNumberFormat",
+        "target": {
+          "kind": "fieldDisplay",
+          "fieldName": "UnitCost"
+        },
+        "format": "C0"
+      }
+    ]
+  },
+  "planSha256": "ec45b65e04380d25b76e862f1115aa787bd3b56e63f56e3dd85d8e5a7261fe48",
+  "confirmedReview": {
+    "version": 1,
+    "reviewDraftId": "diagnostic-controlled-simple-table",
+    "reportSessionId": "diagnostic-simple-table",
+    "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+    "planSha256": "ec45b65e04380d25b76e862f1115aa787bd3b56e63f56e3dd85d8e5a7261fe48",
+    "candidateCatalogVersion": 1,
+    "resolutionSummary": {
+      "title": {
+        "status": "ambiguous",
+        "reason": "CONFLICTING_TITLE_EVIDENCE",
+        "mutationAuthorized": false
+      },
+      "fields": [
+        {
+          "fieldName": "UnitCost",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "mutationAuthorized": false
+        }
+      ],
+      "pageOrientation": {
+        "status": "blocked",
+        "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+        "mutationAuthorized": false
+      }
+    },
+    "operations": [
+      {
+        "status": "confirmed",
+        "operationId": "ac1e69ab0f577e8eeb8c710c",
+        "operationType": "setText",
+        "requestedChange": "Change report title text to \"Quarterly Inventory Detail\".",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "71cde69251d3210527fb"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      },
+      {
+        "status": "confirmed",
+        "operationId": "6c5640503831ca8a4c77830f",
+        "operationType": "setTextStyle",
+        "requestedChange": "Change report title style (font size 20pt, weight Bold).",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "71cde69251d3210527fb"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      },
+      {
+        "status": "confirmed",
+        "operationId": "3adaabca97c5bdc7d268bf0a",
+        "operationType": "setNumberFormat",
+        "requestedChange": "Format UnitCost as C0.",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "4b25eb7148a21f314a0c"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      }
+    ],
+    "state": "fullyReviewed",
+    "mutationAuthorized": false,
+    "executable": false
+  },
+  "authorizationAudit": {
+    "operationIds": [
+      "ac1e69ab0f577e8eeb8c710c",
+      "6c5640503831ca8a4c77830f",
+      "3adaabca97c5bdc7d268bf0a"
+    ],
+    "declinedOperationIds": [],
+    "exactSelectedDiagnosticCandidateIds": [
+      "71cde69251d3210527fb",
+      "71cde69251d3210527fb",
+      "4b25eb7148a21f314a0c"
+    ],
+    "rendererReceivedAuthorization": false
+  },
+  "output": {
+    "committedRdl": false,
+    "deterministicFilenameForEvidence": "controlled-simple-table-regenerated.rdl",
+    "byteLength": 20914,
+    "sha256": "ffb801657bc6e2552cf03f814edfd23eb0a642cebaa7bb60cd1e734e4513d750"
+  },
+  "validation": {
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "namespace": "PASS",
+    "structuralAllowlist": "PASS",
+    "operationPostconditions": "PASS",
+    "finalReparse": "PASS",
+    "sourceUnchanged": "PASS"
+  },
+  "preservationHashes": {
+    "semanticProjectionSha256": "601c94a6db97a0ee1fcee0c02dc13297604a829979262218e94d2102845d27f5",
+    "embeddedDataSha256": "6931d6c9b2e9225e389b9754b80bdf750024591b31b0fa927827c7ea0dfc9a11",
+    "datasetsSha256": "e4bd18d11fbc0c063e6246d2ab439952b3573d3f8de1a5f74cdb178bd0c5789d",
+    "tablixHierarchyProjectionSha256": "702fdb98d4b87a298358efe6783fa8eeb55e2f9da6a6e6aa7b809048ad1ad40f",
+    "pageBehaviorSha256": "af7f7dcccf5493be6977b817a94fb3eeddc4540d1d793571e002311a57a83474",
+    "footerSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "checks": {
+      "fullSemanticAllowlist": "PASS",
+      "embeddedData": "PASS",
+      "datasetsAndFields": "PASS",
+      "tablixAndGroupHierarchy": "PASS",
+      "pageBreaksAndRepeatingHeaders": "PASS",
+      "footer": "PASS"
+    }
+  },
+  "manifest": {
+    "manifestVersion": 1,
+    "applicationVersion": "0.1.0",
+    "invocationSurface": "test-evidence",
+    "source": {
+      "filename": "synthetic-inventory-detail.rdl",
+      "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+    },
+    "planSha256": "ec45b65e04380d25b76e862f1115aa787bd3b56e63f56e3dd85d8e5a7261fe48",
+    "reviewAuditId": "c8b711b768aa5ac67665057077813aefb09ed2452aefceee455f3ab156bad7bf",
+    "confirmedOperations": [
+      {
+        "operationId": "ac1e69ab0f577e8eeb8c710c",
+        "operationType": "setText"
+      },
+      {
+        "operationId": "6c5640503831ca8a4c77830f",
+        "operationType": "setTextStyle"
+      },
+      {
+        "operationId": "3adaabca97c5bdc7d268bf0a",
+        "operationType": "setNumberFormat"
+      }
+    ],
+    "declinedOperationIds": [],
+    "selectedTargets": [
+      {
+        "operationId": "ac1e69ab0f577e8eeb8c710c",
+        "operationType": "setText",
+        "reportItemName": "Textbox9",
+        "datasetName": null,
+        "structuralRole": "standalone"
+      },
+      {
+        "operationId": "6c5640503831ca8a4c77830f",
+        "operationType": "setTextStyle",
+        "reportItemName": "Textbox9",
+        "datasetName": null,
+        "structuralRole": "standalone"
+      },
+      {
+        "operationId": "3adaabca97c5bdc7d268bf0a",
+        "operationType": "setNumberFormat",
+        "reportItemName": "DetailUnitCose",
+        "datasetName": "InventoryData",
+        "structuralRole": "detail"
+      }
+    ],
+    "output": {
+      "filename": "controlled-simple-table-regenerated.rdl",
+      "sha256": "ffb801657bc6e2552cf03f814edfd23eb0a642cebaa7bb60cd1e734e4513d750"
+    },
+    "validation": {
+      "xmlParse": "PASS",
+      "xsd": "PASS",
+      "namespace": "PASS",
+      "structuralAllowlist": "PASS",
+      "operationPostconditions": "PASS",
+      "finalReparse": "PASS",
+      "sourceUnchanged": "PASS",
+      "atomicWrite": "PASS"
+    }
+  },
+  "originalUnchanged": true
+}

@@ -4,6 +4,11 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2M: review-bound generic mutation for exact
+  title text/style and existing-field format candidates, main-process-only
+  single-use authorization, exact multi-candidate formatting, atomic
+  duplicate/manifest output, deterministic controlled/static evidence, and a
+  “Create reviewed copy” UI action.
 - RDL Structure Corpus v0.3 Gate 2L: operation-specific, session-bound,
   read-only review bundles with deterministic operation identities, explicit
   candidate selection/confirmation/decline/reset states, opaque live review

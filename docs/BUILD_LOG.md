@@ -432,6 +432,30 @@
   JSON/lock files (25 pre-existing and four new fixture artifacts); none was
   reformatted independently of its deterministic generator.
 
+## 2026-07-28 — RDL Structure Corpus Gate 2M generic mutation
+
+- Added main-process-only authorization from fully reviewed, unblocked bundles.
+  It binds source/plan/review/catalog/operation/candidate identities and is
+  single-use.
+- Added exact title TextRun mutation for static and constant-string values,
+  independent size/weight/alignment changes, and exact direct/aggregate field
+  formatting including reviewed multi-candidate subsets.
+- Added full captured-candidate revalidation, in-memory mutation, NONET parsing,
+  2016/01 XSD validation, semantic structural preservation, final inspection,
+  source rehashing, and atomic duplicate/manifest output.
+- Added “Create reviewed copy” to the review UI only when all operations are
+  confirmed or declined and none is blocked. Authorization internals and
+  writable targets never enter renderer data.
+- Added deterministic controlled simple/grouped-all/grouped-detail evidence and
+  static Invoice/Transcript evidence. Generated RDL bytes are validated and
+  hashed but not committed; imported sources were not queried or rendered.
+- Passed changed human-authored formatting, ESLint, workspace typecheck, 52
+  test files / 409 tests, production build, JSON parsing, generated-output
+  XML/XSD validation, canonical v0.2 output regression, source immutability,
+  and byte-identical evidence regeneration. Repository-wide Prettier accurately
+  remains a failure on 34 generator-owned JSON/lock files (29 pre-existing and
+  five new result artifacts).
+
 ## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
 
 - Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.

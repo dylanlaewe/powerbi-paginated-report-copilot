@@ -265,3 +265,23 @@ Deterministic corpus simulations are under
 candidate handles are opaque session UUIDs; artifacts use deterministic
 diagnostic identities. All bundles remain non-executable and
 mutation-unauthorized.
+
+## Gate 2M review-bound generic mutation
+
+A fully reviewed bundle may now be converted inside the main process into a
+single-use authorization bound to the inspection session, source SHA-256, plan
+SHA-256, review draft, catalog version, operation identities, and exact
+selected structural candidates. Incomplete or blocked bundles fail closed.
+Declined operations are excluded.
+
+Before mutation the source is re-read and rehashed, the plan and review are
+revalidated, and every selected candidate must match its complete captured
+catalog record. Mutations occur in memory, then pass safe XML parsing,
+Microsoft 2016/01 XSD validation, semantic allowlist preservation, and final
+inspection before an atomic duplicate and manifest transaction.
+
+Evidence under `generic-mutation-v0.3/` covers simple title/style/UnitCost,
+grouped all-three and detail-only Revenue formatting, Invoice exact
+Amount/Quantity locations, and Transcript page-header title/style. Generated
+RDL bytes are hashed but not committed. Imported sources remain immutable and
+are not described as Report Builder-validated.

@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "scenarioId": "static-microsoft-invoice",
+  "fixtureId": "microsoft-invoice",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "request": "Format Amount as currency with no decimal places and format Quantity as a number with no decimal places.",
+  "plan": {
+    "version": 1,
+    "operations": [
+      {
+        "type": "setNumberFormat",
+        "target": {
+          "kind": "fieldDisplay",
+          "fieldName": "Amount"
+        },
+        "format": "C0"
+      },
+      {
+        "type": "setNumberFormat",
+        "target": {
+          "kind": "fieldDisplay",
+          "fieldName": "Quantity"
+        },
+        "format": "N0"
+      }
+    ]
+  },
+  "planSha256": "df7aad470fc604c3851117f118e947fb7c4e52a018121effe14d783e72c8ff1f",
+  "confirmedReview": {
+    "version": 1,
+    "reviewDraftId": "diagnostic-static-microsoft-invoice",
+    "reportSessionId": "diagnostic-microsoft-invoice",
+    "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+    "planSha256": "df7aad470fc604c3851117f118e947fb7c4e52a018121effe14d783e72c8ff1f",
+    "candidateCatalogVersion": 1,
+    "resolutionSummary": {
+      "title": {
+        "status": "notFound",
+        "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+        "mutationAuthorized": false
+      },
+      "fields": [
+        {
+          "fieldName": "Amount",
+          "status": "ambiguous",
+          "reason": "DUPLICATE_VISUAL_LOCATIONS",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Quantity",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "mutationAuthorized": false
+        }
+      ],
+      "pageOrientation": {
+        "status": "blocked",
+        "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+        "mutationAuthorized": false
+      }
+    },
+    "operations": [
+      {
+        "status": "confirmed",
+        "operationId": "4a28c157da1d6033dd035c62",
+        "operationType": "setNumberFormat",
+        "requestedChange": "Format Amount as C0.",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "226fbc39a5291a02f6fa"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      },
+      {
+        "status": "confirmed",
+        "operationId": "c3ae4af4aceeb6926bf8f1c8",
+        "operationType": "setNumberFormat",
+        "requestedChange": "Format Quantity as N0.",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "b3482cc5897d2710f4a3"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      }
+    ],
+    "state": "fullyReviewed",
+    "mutationAuthorized": false,
+    "executable": false
+  },
+  "authorizationAudit": {
+    "operationIds": [
+      "4a28c157da1d6033dd035c62",
+      "c3ae4af4aceeb6926bf8f1c8"
+    ],
+    "declinedOperationIds": [],
+    "exactSelectedDiagnosticCandidateIds": [
+      "226fbc39a5291a02f6fa",
+      "b3482cc5897d2710f4a3"
+    ],
+    "rendererReceivedAuthorization": false
+  },
+  "output": {
+    "committedRdl": false,
+    "deterministicFilenameForEvidence": "static-microsoft-invoice-regenerated.rdl",
+    "byteLength": 218631,
+    "sha256": "826b9d08075b634b7d0aa57c4929fcc656d7ceecef5ce6e84939ce122c4d5c25"
+  },
+  "validation": {
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "namespace": "PASS",
+    "structuralAllowlist": "PASS",
+    "operationPostconditions": "PASS",
+    "finalReparse": "PASS",
+    "sourceUnchanged": "PASS"
+  },
+  "preservationHashes": {
+    "semanticProjectionSha256": "830afc55f3c3123450faa1d0b5091a55e90054ee0c1e6ac426b9864d337b1b2a",
+    "embeddedDataSha256": "81d9478676ecc903b76f4cc199e36dffda9652b9084c4d087bd54b1e016137c3",
+    "datasetsSha256": "1bc2cc6b2c32cb2d9c2379ce9057b9bfab10ffaadb43620b1ccd78213bacbf91",
+    "tablixHierarchyProjectionSha256": "15d8253fda05e40ae6aa5b61c99eebaa2b42cf712938278bb5fdd73e1051cc48",
+    "pageBehaviorSha256": "d805069d78d084bc426fbc4d92eca277e22f51124847817dfeac6cc7a888b3bf",
+    "footerSha256": "052b43dfa720d73d482082b76dc323c827e6831b73900faf5832825f023b68c1",
+    "checks": {
+      "fullSemanticAllowlist": "PASS",
+      "embeddedData": "PASS",
+      "datasetsAndFields": "PASS",
+      "tablixAndGroupHierarchy": "PASS",
+      "pageBreaksAndRepeatingHeaders": "PASS",
+      "footer": "PASS"
+    }
+  },
+  "manifest": {
+    "manifestVersion": 1,
+    "applicationVersion": "0.1.0",
+    "invocationSurface": "test-evidence",
+    "source": {
+      "filename": "Invoice.rdl",
+      "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+    },
+    "planSha256": "df7aad470fc604c3851117f118e947fb7c4e52a018121effe14d783e72c8ff1f",
+    "reviewAuditId": "0eb4f8e3295653149065811db05c94f6f1c788daf708ca720558e4be71e204c9",
+    "confirmedOperations": [
+      {
+        "operationId": "4a28c157da1d6033dd035c62",
+        "operationType": "setNumberFormat"
+      },
+      {
+        "operationId": "c3ae4af4aceeb6926bf8f1c8",
+        "operationType": "setNumberFormat"
+      }
+    ],
+    "declinedOperationIds": [],
+    "selectedTargets": [
+      {
+        "operationId": "4a28c157da1d6033dd035c62",
+        "operationType": "setNumberFormat",
+        "reportItemName": "Textbox46",
+        "datasetName": "SalesInvoiceDS",
+        "structuralRole": "unknown"
+      },
+      {
+        "operationId": "c3ae4af4aceeb6926bf8f1c8",
+        "operationType": "setNumberFormat",
+        "reportItemName": "Quantity",
+        "datasetName": "SalesInvoiceDS",
+        "structuralRole": "detail"
+      }
+    ],
+    "output": {
+      "filename": "static-microsoft-invoice-regenerated.rdl",
+      "sha256": "826b9d08075b634b7d0aa57c4929fcc656d7ceecef5ce6e84939ce122c4d5c25"
+    },
+    "validation": {
+      "xmlParse": "PASS",
+      "xsd": "PASS",
+      "namespace": "PASS",
+      "structuralAllowlist": "PASS",
+      "operationPostconditions": "PASS",
+      "finalReparse": "PASS",
+      "sourceUnchanged": "PASS",
+      "atomicWrite": "PASS"
+    }
+  },
+  "originalUnchanged": true
+}

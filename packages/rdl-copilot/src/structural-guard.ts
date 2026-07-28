@@ -3,6 +3,14 @@ import type { XmlDocument, XmlElement, XmlNode, XmlText } from "libxml2-wasm";
 
 export interface MutationAllowlist {
   reportTitleItemName: string | null;
+  titleTargets?: Array<{
+    reportItemName: string;
+    expression: string;
+    titleText: boolean;
+    titleFontSize: boolean;
+    titleFontWeight: boolean;
+    titleTextAlign: boolean;
+  }>;
   titleText: boolean;
   titleFontSize: boolean;
   titleFontWeight: boolean;
@@ -87,32 +95,74 @@ const normalizeAllowedProperties = (
   document: XmlDocument,
   allowlist: MutationAllowlist,
 ): void => {
-  if (allowlist.reportTitleItemName) {
-    const title = textboxByName(document, allowlist.reportTitleItemName);
-    const titleRun = title.get(`.//${local("TextRun")}`) as XmlElement | null;
+  const rawTitleTargets =
+    allowlist.titleTargets ??
+    (allowlist.reportTitleItemName
+      ? [
+          {
+            reportItemName: allowlist.reportTitleItemName,
+            expression: "",
+            titleText: allowlist.titleText,
+            titleFontSize: allowlist.titleFontSize,
+            titleFontWeight: allowlist.titleFontWeight,
+            titleTextAlign: allowlist.titleTextAlign,
+          },
+        ]
+      : []);
+  const titleTargets = [
+    ...rawTitleTargets
+      .reduce((merged, target) => {
+        const key = `${target.reportItemName}\0${target.expression}`;
+        const current = merged.get(key);
+        merged.set(
+          key,
+          current
+            ? {
+                ...current,
+                titleText: current.titleText || target.titleText,
+                titleFontSize: current.titleFontSize || target.titleFontSize,
+                titleFontWeight:
+                  current.titleFontWeight || target.titleFontWeight,
+                titleTextAlign: current.titleTextAlign || target.titleTextAlign,
+              }
+            : target,
+        );
+        return merged;
+      }, new Map<string, (typeof rawTitleTargets)[number]>())
+      .values(),
+  ];
+  for (const target of titleTargets) {
+    const title = textboxByName(document, target.reportItemName);
+    const runs = asElements(title.find(`.//${local("TextRun")}`));
+    const titleRun = target.expression
+      ? (runs.find(
+          (run) =>
+            directChild(run, "Value")?.content.trim() === target.expression,
+        ) ?? (target.titleText && runs.length === 1 ? runs[0] : undefined))
+      : runs[0];
     const titleStyle = titleRun?.get(
       `./${local("Style")}`,
     ) as XmlElement | null;
     if (!titleRun || !titleStyle)
       throw new StructuralDiffError("report title TextRun/Style");
-    if (allowlist.titleText) {
+    if (target.titleText) {
       const value = directChild(titleRun, "Value");
       if (!value) throw new StructuralDiffError("report title Value");
       setText(value, "__ALLOWED_TITLE_TEXT__");
     }
-    if (allowlist.titleFontSize)
+    if (target.titleFontSize)
       ensureStyleProperty(
         titleStyle,
         "FontSize",
         "__ALLOWED_TITLE_FONT_SIZE__",
       );
-    if (allowlist.titleFontWeight)
+    if (target.titleFontWeight)
       ensureStyleProperty(
         titleStyle,
         "FontWeight",
         "__ALLOWED_TITLE_FONT_WEIGHT__",
       );
-    if (allowlist.titleTextAlign) {
+    if (target.titleTextAlign) {
       const paragraphStyle = title.get(
         `.//${local("Paragraph")}/${local("Style")}`,
       ) as XmlElement | null;

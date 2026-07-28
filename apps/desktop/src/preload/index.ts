@@ -27,6 +27,7 @@ const channels = {
   confirmExistingRdlReviewOperation: "sidecar:review-confirm",
   declineExistingRdlReviewOperation: "sidecar:review-decline",
   resetExistingRdlReviewOperation: "sidecar:review-reset",
+  createExistingRdlReviewedCopy: "sidecar:review-create-copy",
 } as const;
 
 const desktopApi: DesktopApi = Object.freeze({
@@ -67,6 +68,9 @@ const desktopApi: DesktopApi = Object.freeze({
   resetExistingRdlReviewOperation: (
     input: Parameters<DesktopApi["resetExistingRdlReviewOperation"]>[0],
   ) => ipcRenderer.invoke(channels.resetExistingRdlReviewOperation, input),
+  createExistingRdlReviewedCopy: (
+    input: Parameters<DesktopApi["createExistingRdlReviewedCopy"]>[0],
+  ) => ipcRenderer.invoke(channels.createExistingRdlReviewedCopy, input),
   planExistingRdlEdit: (
     input: Parameters<DesktopApi["planExistingRdlEdit"]>[0],
   ) => ipcRenderer.invoke(channels.planExistingRdlEdit, input),

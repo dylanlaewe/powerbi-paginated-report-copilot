@@ -347,6 +347,89 @@ describe("native selection and report sessions", () => {
     ).toMatchObject({ status: "error", code: "SOURCE_CHANGED" });
   });
 
+  it("atomically creates one reviewed copy and consumes its authorization", async () => {
+    const { service, userData } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+      ),
+    );
+    const created = await service.createReview({
+      reportSessionId: selection.reportSessionId,
+      request: "Format Revenue as currency with no decimal places.",
+    });
+    if (created.status !== "review") throw new Error(created.message);
+    const operation = created.bundle.operations[0]!;
+    if (operation.status !== "choiceRequired") throw new Error("choice");
+    const selectedReview = await service.selectReviewCandidates({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+      candidateIds: operation.candidates.map(({ candidateId }) => candidateId),
+    });
+    if (selectedReview.status !== "review")
+      throw new Error(selectedReview.message);
+    const confirmed = await service.confirmReviewOperation({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+    });
+    if (confirmed.status !== "review") throw new Error(confirmed.message);
+    const result = await service.createReviewedCopy({
+      reviewDraftId: created.bundle.reviewDraftId,
+    });
+    expect(result).toMatchObject({
+      status: "complete",
+      sourceUnchanged: true,
+      validation: "PASS",
+    });
+    if (result.status !== "complete") throw new Error(result.message);
+    const output = join(userData, "edited-reports", result.editedFilename);
+    const manifest = join(userData, "edited-reports", result.manifestFilename);
+    expect(await readFile(output)).toBeTruthy();
+    expect(JSON.parse(await readFile(manifest, "utf8"))).toMatchObject({
+      invocationSurface: "electron-sidecar",
+      planSha256: result.planSha256,
+      output: { sha256: result.outputSha256 },
+      validation: { atomicWrite: "PASS" },
+    });
+    expect(
+      await service.createReviewedCopy({
+        reviewDraftId: created.bundle.reviewDraftId,
+      }),
+    ).toMatchObject({ status: "error", code: "PLAN_INVALID" });
+  });
+
+  it("writes no generic output when the source changes before authorization", async () => {
+    const { service, copiedSource, userData } = await setup();
+    const selection = await selected(service, copiedSource);
+    const created = await service.createReview({
+      reportSessionId: selection.reportSessionId,
+      request: 'Change the report title to "Quarterly Sales".',
+    });
+    if (created.status !== "review") throw new Error(created.message);
+    const operation = created.bundle.operations[0]!;
+    const confirmed = await service.confirmReviewOperation({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+    });
+    if (confirmed.status !== "review") throw new Error(confirmed.message);
+    await writeFile(copiedSource, `${await readFile(copiedSource, "utf8")}\n`);
+    expect(
+      await service.createReviewedCopy({
+        reviewDraftId: created.bundle.reviewDraftId,
+      }),
+    ).toMatchObject({
+      status: "error",
+      code: "SOURCE_CHANGED",
+      noOutputWritten: true,
+      sourceUnchanged: true,
+    });
+    await expect(
+      readFile(join(userData, "edited-reports", "unexpected.rdl")),
+    ).rejects.toMatchObject({ code: "ENOENT" });
+  });
+
   it("sanitizes omitted physical dimensions without fabricating defaults", async () => {
     const { service } = await setup();
     const result = await selected(

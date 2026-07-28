@@ -31,6 +31,7 @@ describe("sandboxed preload bridge", () => {
       "copyGeneratedPath",
       "copyManifestPath",
       "createExistingRdlReview",
+      "createExistingRdlReviewedCopy",
       "declineExistingRdlReviewOperation",
       "generateReport",
       "getExistingRdlReview",
@@ -70,6 +71,14 @@ describe("sandboxed preload bridge", () => {
     expect(invoke).toHaveBeenLastCalledWith("sidecar:review-create", {
       reportSessionId: "opaque",
       request: "safe",
+    });
+    await (
+      api.createExistingRdlReviewedCopy as (input: unknown) => Promise<unknown>
+    )({
+      reviewDraftId: "opaque",
+    });
+    expect(invoke).toHaveBeenLastCalledWith("sidecar:review-create-copy", {
+      reviewDraftId: "opaque",
     });
     expect(api).not.toHaveProperty("invoke");
     expect(api).not.toHaveProperty("ipcRenderer");

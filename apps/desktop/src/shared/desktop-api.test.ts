@@ -135,6 +135,7 @@ describe("existing RDL sidecar IPC contract", () => {
     ).toThrow();
     for (const forbidden of [
       { reviewDraftId },
+      { authorizationId: reviewDraftId },
       { candidateId },
       { reviewOutcome: { status: "confirmed" } },
     ])

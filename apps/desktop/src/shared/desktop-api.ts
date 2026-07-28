@@ -20,6 +20,7 @@ export const ipcChannels = {
   confirmExistingRdlReviewOperation: "sidecar:review-confirm",
   declineExistingRdlReviewOperation: "sidecar:review-decline",
   resetExistingRdlReviewOperation: "sidecar:review-reset",
+  createExistingRdlReviewedCopy: "sidecar:review-create-copy",
 } as const;
 export const projectSelectionResultSchema = z.discriminatedUnion("status", [
   z.object({
@@ -502,6 +503,22 @@ export const reviewBundleResultSchema = z.discriminatedUnion("status", [
     .strict(),
   sidecarErrorSchema,
 ]);
+export const reviewedCopyResultSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("complete"),
+      outputHandle: z.string().uuid(),
+      editedFilename: z.string(),
+      manifestFilename: z.string(),
+      sourceSha256: z.string().length(64),
+      planSha256: z.string().length(64),
+      outputSha256: z.string().length(64),
+      sourceUnchanged: z.literal(true),
+      validation: z.literal("PASS"),
+    })
+    .strict(),
+  sidecarErrorSchema,
+]);
 const targetDisplaySchema = z
   .object({
     semanticTarget: z.string(),
@@ -570,6 +587,7 @@ export type ApplyEditResult = z.infer<typeof applyEditResultSchema>;
 export type SidecarActionResult = z.infer<typeof actionResultSchema>;
 export type FieldResolutionResult = z.infer<typeof fieldResolutionResultSchema>;
 export type ReviewBundleResult = z.infer<typeof reviewBundleResultSchema>;
+export type ReviewedCopyResult = z.infer<typeof reviewedCopyResultSchema>;
 export interface DesktopApi {
   readonly platform: string;
   readonly appMode: "offline-authoring";
@@ -611,6 +629,9 @@ export interface DesktopApi {
     reviewDraftId: string;
     operationId: string;
   }): Promise<ReviewBundleResult>;
+  createExistingRdlReviewedCopy(input: {
+    reviewDraftId: string;
+  }): Promise<ReviewedCopyResult>;
   applyExistingRdlEdit(input: {
     reportSessionId: string;
     planSessionId: string;

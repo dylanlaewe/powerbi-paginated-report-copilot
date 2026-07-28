@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "scenarioId": "static-microsoft-transcript",
+  "fixtureId": "microsoft-transcript",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+  },
+  "request": "Change the report title to \"Professional Certification Transcript\" and make the title 20-point bold.",
+  "plan": {
+    "version": 1,
+    "operations": [
+      {
+        "type": "setText",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "value": "Professional Certification Transcript"
+      },
+      {
+        "type": "setTextStyle",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "fontSize": "20pt",
+        "fontWeight": "Bold"
+      }
+    ]
+  },
+  "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+  "confirmedReview": {
+    "version": 1,
+    "reviewDraftId": "diagnostic-static-microsoft-transcript",
+    "reportSessionId": "diagnostic-microsoft-transcript",
+    "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+    "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+    "candidateCatalogVersion": 1,
+    "resolutionSummary": {
+      "title": {
+        "status": "resolved",
+        "reason": "TITLE_RESOLVED",
+        "mutationAuthorized": false
+      },
+      "fields": [],
+      "pageOrientation": {
+        "status": "blocked",
+        "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+        "mutationAuthorized": false
+      }
+    },
+    "operations": [
+      {
+        "status": "confirmed",
+        "operationId": "54c373fda0469de75e54ccea",
+        "operationType": "setText",
+        "requestedChange": "Change report title text to \"Professional Certification Transcript\".",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "868868b3c6a8dd1a8bb9"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      },
+      {
+        "status": "confirmed",
+        "operationId": "c0c6e1c1d499a94903603486",
+        "operationType": "setTextStyle",
+        "requestedChange": "Change report title style (font size 20pt, weight Bold).",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "868868b3c6a8dd1a8bb9"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      }
+    ],
+    "state": "fullyReviewed",
+    "mutationAuthorized": false,
+    "executable": false
+  },
+  "authorizationAudit": {
+    "operationIds": [
+      "54c373fda0469de75e54ccea",
+      "c0c6e1c1d499a94903603486"
+    ],
+    "declinedOperationIds": [],
+    "exactSelectedDiagnosticCandidateIds": [
+      "868868b3c6a8dd1a8bb9",
+      "868868b3c6a8dd1a8bb9"
+    ],
+    "rendererReceivedAuthorization": false
+  },
+  "output": {
+    "committedRdl": false,
+    "deterministicFilenameForEvidence": "static-microsoft-transcript-regenerated.rdl",
+    "byteLength": 114992,
+    "sha256": "1cd0e522e1a2bacf410914e3fc5d2952635336d8b5022b132e5663946096a47e"
+  },
+  "validation": {
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "namespace": "PASS",
+    "structuralAllowlist": "PASS",
+    "operationPostconditions": "PASS",
+    "finalReparse": "PASS",
+    "sourceUnchanged": "PASS"
+  },
+  "preservationHashes": {
+    "semanticProjectionSha256": "39913f3869fe8cf16ddbb72ced75b6367c0d20758b57f1a649bc28b0bed1b91d",
+    "embeddedDataSha256": "ce5672b76f186460c4672bcc2e63736a17568ecc0bb615ce0047c2df4c6dcf61",
+    "datasetsSha256": "ba9ca35317c85c5a64ad27dc364e8803358de033ee7797e964057b5727fb0b12",
+    "tablixHierarchyProjectionSha256": "05ded1fff2f8c6e8491057ff44a6a65b3836a7c762b30525a1ab8c31c0bb2f3b",
+    "pageBehaviorSha256": "a6c3a3577ebd85791e22d5b8eee400b3272306bdde448f5d7b71f8b28cde5cb7",
+    "footerSha256": "28fddd7b3e2ca1495789fdf76d2a68714836a0b56800e073755a1d4adf454e11",
+    "checks": {
+      "fullSemanticAllowlist": "PASS",
+      "embeddedData": "PASS",
+      "datasetsAndFields": "PASS",
+      "tablixAndGroupHierarchy": "PASS",
+      "pageBreaksAndRepeatingHeaders": "PASS",
+      "footer": "PASS"
+    }
+  },
+  "manifest": {
+    "manifestVersion": 1,
+    "applicationVersion": "0.1.0",
+    "invocationSurface": "test-evidence",
+    "source": {
+      "filename": "Transcript.rdl",
+      "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+    },
+    "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+    "reviewAuditId": "fe612da09d6780a52f5ed37adc39488a4c8c000a3bdda5b95fb77c8d032b80fb",
+    "confirmedOperations": [
+      {
+        "operationId": "54c373fda0469de75e54ccea",
+        "operationType": "setText"
+      },
+      {
+        "operationId": "c0c6e1c1d499a94903603486",
+        "operationType": "setTextStyle"
+      }
+    ],
+    "declinedOperationIds": [],
+    "selectedTargets": [
+      {
+        "operationId": "54c373fda0469de75e54ccea",
+        "operationType": "setText",
+        "reportItemName": "Textbox1",
+        "datasetName": null,
+        "structuralRole": "standalone"
+      },
+      {
+        "operationId": "c0c6e1c1d499a94903603486",
+        "operationType": "setTextStyle",
+        "reportItemName": "Textbox1",
+        "datasetName": null,
+        "structuralRole": "standalone"
+      }
+    ],
+    "output": {
+      "filename": "static-microsoft-transcript-regenerated.rdl",
+      "sha256": "1cd0e522e1a2bacf410914e3fc5d2952635336d8b5022b132e5663946096a47e"
+    },
+    "validation": {
+      "xmlParse": "PASS",
+      "xsd": "PASS",
+      "namespace": "PASS",
+      "structuralAllowlist": "PASS",
+      "operationPostconditions": "PASS",
+      "finalReparse": "PASS",
+      "sourceUnchanged": "PASS",
+      "atomicWrite": "PASS"
+    }
+  },
+  "originalUnchanged": true
+}

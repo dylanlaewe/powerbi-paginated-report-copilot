@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "scenarioId": "controlled-grouped-all-three",
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+  },
+  "request": "Change the report title to \"Quarterly Department Sales\" and format Revenue as currency with no decimal places.",
+  "plan": {
+    "version": 1,
+    "operations": [
+      {
+        "type": "setText",
+        "target": {
+          "kind": "reportItem",
+          "semanticRole": "reportTitle"
+        },
+        "value": "Quarterly Department Sales"
+      },
+      {
+        "type": "setNumberFormat",
+        "target": {
+          "kind": "fieldDisplay",
+          "fieldName": "Revenue"
+        },
+        "format": "C0"
+      }
+    ]
+  },
+  "planSha256": "54c7a7f397da0f78714059c2c9f074d8430a185907b05fc250f20156bd868482",
+  "confirmedReview": {
+    "version": 1,
+    "reviewDraftId": "diagnostic-controlled-grouped-all-three",
+    "reportSessionId": "diagnostic-grouped-report",
+    "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "planSha256": "54c7a7f397da0f78714059c2c9f074d8430a185907b05fc250f20156bd868482",
+    "candidateCatalogVersion": 1,
+    "resolutionSummary": {
+      "title": {
+        "status": "resolved",
+        "reason": "TITLE_RESOLVED",
+        "mutationAuthorized": false
+      },
+      "fields": [
+        {
+          "fieldName": "Revenue",
+          "status": "ambiguous",
+          "reason": "MULTIPLE_SCOPE_ROLES",
+          "mutationAuthorized": false
+        }
+      ],
+      "pageOrientation": {
+        "status": "blocked",
+        "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+        "mutationAuthorized": false
+      }
+    },
+    "operations": [
+      {
+        "status": "confirmed",
+        "operationId": "8aaa35a2930857ef1195a75d",
+        "operationType": "setText",
+        "requestedChange": "Change report title text to \"Quarterly Department Sales\".",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "84b9fb7c3d176cfdebf9"
+        ],
+        "confirmationSummary": "Reviewed 1 exact candidate."
+      },
+      {
+        "status": "confirmed",
+        "operationId": "db3759b190717c52be43d0c3",
+        "operationType": "setNumberFormat",
+        "requestedChange": "Format Revenue as C0.",
+        "mutationAuthorized": false,
+        "selectedCandidateIds": [
+          "1f23f9e7674c9d3bb541",
+          "de1aa47549ec95211e8a",
+          "fd0c1094e84d9adc71d1"
+        ],
+        "confirmationSummary": "Reviewed 3 exact candidates."
+      }
+    ],
+    "state": "fullyReviewed",
+    "mutationAuthorized": false,
+    "executable": false
+  },
+  "authorizationAudit": {
+    "operationIds": [
+      "8aaa35a2930857ef1195a75d",
+      "db3759b190717c52be43d0c3"
+    ],
+    "declinedOperationIds": [],
+    "exactSelectedDiagnosticCandidateIds": [
+      "84b9fb7c3d176cfdebf9",
+      "1f23f9e7674c9d3bb541",
+      "de1aa47549ec95211e8a",
+      "fd0c1094e84d9adc71d1"
+    ],
+    "rendererReceivedAuthorization": false
+  },
+  "output": {
+    "committedRdl": false,
+    "deterministicFilenameForEvidence": "controlled-grouped-all-three-regenerated.rdl",
+    "byteLength": 51438,
+    "sha256": "1c27c519f028eabac301592b16ce3d1ab362cf1f1444b85da0dc4d6dab19fbea"
+  },
+  "validation": {
+    "xmlParse": "PASS",
+    "xsd": "PASS",
+    "namespace": "PASS",
+    "structuralAllowlist": "PASS",
+    "operationPostconditions": "PASS",
+    "finalReparse": "PASS",
+    "sourceUnchanged": "PASS"
+  },
+  "preservationHashes": {
+    "semanticProjectionSha256": "b2731c631d8abe64b8783173505909d05fbec3f021a62068395a8ca06fcac073",
+    "embeddedDataSha256": "8601f5fd60a4cc097a8345fd47236ffa8d612683ac7ef1723382f23b514dbb0e",
+    "datasetsSha256": "a7514e2062f493c083811a5d122d49795b708658bc978133303318ce8d6ed85f",
+    "tablixHierarchyProjectionSha256": "5f77be2009312b6f05d7d9e3ceddaa5701dbd515fb730276a77b6eea46223be1",
+    "pageBehaviorSha256": "e4671f6b7270d90f63f354c5e2a51f7b20913362e910a32471b99a92c197934e",
+    "footerSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "checks": {
+      "fullSemanticAllowlist": "PASS",
+      "embeddedData": "PASS",
+      "datasetsAndFields": "PASS",
+      "tablixAndGroupHierarchy": "PASS",
+      "pageBreaksAndRepeatingHeaders": "PASS",
+      "footer": "PASS"
+    }
+  },
+  "manifest": {
+    "manifestVersion": 1,
+    "applicationVersion": "0.1.0",
+    "invocationSurface": "test-evidence",
+    "source": {
+      "filename": "synthetic-department-sales.rdl",
+      "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+    },
+    "planSha256": "54c7a7f397da0f78714059c2c9f074d8430a185907b05fc250f20156bd868482",
+    "reviewAuditId": "8a9e7ec89e9a89947cbae36e77e84e3664e4e57c7967615ab8feb6293f6341b8",
+    "confirmedOperations": [
+      {
+        "operationId": "8aaa35a2930857ef1195a75d",
+        "operationType": "setText"
+      },
+      {
+        "operationId": "db3759b190717c52be43d0c3",
+        "operationType": "setNumberFormat"
+      }
+    ],
+    "declinedOperationIds": [],
+    "selectedTargets": [
+      {
+        "operationId": "8aaa35a2930857ef1195a75d",
+        "operationType": "setText",
+        "reportItemName": "ReportTitle",
+        "datasetName": null,
+        "structuralRole": "standalone"
+      },
+      {
+        "operationId": "db3759b190717c52be43d0c3",
+        "operationType": "setNumberFormat",
+        "reportItemName": "DetailRevenue",
+        "datasetName": "DepartmentSales",
+        "structuralRole": "detail"
+      },
+      {
+        "operationId": "db3759b190717c52be43d0c3",
+        "operationType": "setNumberFormat",
+        "reportItemName": "ReportRevenueTotal",
+        "datasetName": "DepartmentSales",
+        "structuralRole": "grandTotal"
+      },
+      {
+        "operationId": "db3759b190717c52be43d0c3",
+        "operationType": "setNumberFormat",
+        "reportItemName": "DepartmentRevenueSubtotal",
+        "datasetName": "DepartmentSales",
+        "structuralRole": "groupSubtotal"
+      }
+    ],
+    "output": {
+      "filename": "controlled-grouped-all-three-regenerated.rdl",
+      "sha256": "1c27c519f028eabac301592b16ce3d1ab362cf1f1444b85da0dc4d6dab19fbea"
+    },
+    "validation": {
+      "xmlParse": "PASS",
+      "xsd": "PASS",
+      "namespace": "PASS",
+      "structuralAllowlist": "PASS",
+      "operationPostconditions": "PASS",
+      "finalReparse": "PASS",
+      "sourceUnchanged": "PASS",
+      "atomicWrite": "PASS"
+    }
+  },
+  "originalUnchanged": true
+}
