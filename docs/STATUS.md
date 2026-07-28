@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2J read-only title resolution complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2K dataset- and scope-aware read-only field-display resolution complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -63,6 +63,20 @@ literal extraction; compound and code expressions are never executed.
 Every generic outcome has `mutationAuthorized: false`. Live outcomes use
 inspection-session UUIDs and cannot enter planning or mutation IPC. The
 checksum-reviewed title target remains the only writable title path.
+
+Gate 2K adds strict field-name-only read-only resolution over the Gate 2I
+catalog. Matching is trimmed, case-insensitive, and exact; it never uses
+substring, fuzzy, plural, alias, report-item-name, or positional matching.
+Dataset overlap, tablix location, expression kind, hierarchy groups, and
+detail/subtotal/Grand Total roles remain explicit evidence.
+
+Simple `UnitCost`, Invoice `Quantity`/`SalesPrice`, and Transcript `Date`
+resolve with high confidence. Grouped `Revenue` remains ambiguous across
+detail, group-subtotal, and Grand Total roles. Invoice `Amount`/`Discount`
+remain ambiguous across separate visual locations, and Transcript `Name`
+retains its multiple-dataset ambiguity. Every outcome denies mutation; the
+narrow Electron method returns session UUIDs and neither planning nor apply
+accepts field-resolution evidence.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

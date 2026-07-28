@@ -20,6 +20,7 @@ const channels = {
   copyEditedRdlPath: "sidecar:copy-rdl-path",
   copyManifestPath: "sidecar:copy-manifest-path",
   clearExistingRdlSession: "sidecar:clear-session",
+  resolveExistingRdlField: "sidecar:resolve-field",
 } as const;
 
 const desktopApi: DesktopApi = Object.freeze({
@@ -39,6 +40,9 @@ const desktopApi: DesktopApi = Object.freeze({
   copyGeneratedPath: async () =>
     void (await ipcRenderer.invoke(channels.copyGeneratedPath)),
   selectExistingRdl: () => ipcRenderer.invoke(channels.selectExistingRdl),
+  resolveExistingRdlField: (
+    input: Parameters<DesktopApi["resolveExistingRdlField"]>[0],
+  ) => ipcRenderer.invoke(channels.resolveExistingRdlField, input),
   planExistingRdlEdit: (
     input: Parameters<DesktopApi["planExistingRdlEdit"]>[0],
   ) => ipcRenderer.invoke(channels.planExistingRdlEdit, input),

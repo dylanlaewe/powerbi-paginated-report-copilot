@@ -15,6 +15,7 @@ import {
   ipcChannels,
   generationRequestSchema,
   generationResultSchema,
+  fieldResolutionRequestSchema,
   actionResultSchema,
   applyEditRequestSchema,
   outputHandleRequestSchema,
@@ -80,6 +81,15 @@ ipcMain.handle(ipcChannels.selectExistingRdl, async () => {
     choice.canceled ? null : (choice.filePaths[0] ?? null),
   );
 });
+ipcMain.handle(
+  ipcChannels.resolveExistingRdlField,
+  (_event, input: unknown) => {
+    const parsed = fieldResolutionRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().resolveField(parsed.data)
+      : invalidIpc();
+  },
+);
 ipcMain.handle(
   ipcChannels.planExistingRdlEdit,
   async (_event, input: unknown) => {

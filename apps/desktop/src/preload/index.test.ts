@@ -32,6 +32,7 @@ describe("sandboxed preload bridge", () => {
       "generateReport",
       "planExistingRdlEdit",
       "platform",
+      "resolveExistingRdlField",
       "revealEditedRdl",
       "revealGeneratedReport",
       "selectExistingRdl",

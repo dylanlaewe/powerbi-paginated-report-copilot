@@ -4,6 +4,10 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2K: strict dataset- and scope-aware read-only
+  field-display resolution, deterministic candidate ordering, explicit
+  ambiguity and unsupported outcomes, corpus-wide evidence, and a narrow
+  session-scoped Electron inspection method. All outcomes deny mutation.
 - RDL Structure Corpus v0.3 Gate 2J: deterministic evidence-based read-only
   report-title ranking with strict resolved/ambiguous/not-found/unsupported
   outcomes, page-header and constant-string support, stable reason codes,

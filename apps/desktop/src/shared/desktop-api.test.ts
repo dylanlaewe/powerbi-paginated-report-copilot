@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   applyEditRequestSchema,
+  fieldResolutionRequestSchema,
   generationRequestSchema,
   outputHandleRequestSchema,
   planEditRequestSchema,
@@ -72,5 +73,39 @@ describe("existing RDL sidecar IPC contract", () => {
         path: "/tmp/x",
       }),
     ).toThrow();
+  });
+
+  it("keeps field resolution read-only and excludes target-selection inputs", () => {
+    expect(
+      fieldResolutionRequestSchema.parse({
+        reportSessionId,
+        fieldName: "  Revenue ",
+      }),
+    ).toEqual({ reportSessionId, fieldName: "Revenue" });
+    for (const forbidden of [
+      { datasetName: "SalesData" },
+      { candidateId: "33333333-3333-4333-8333-333333333333" },
+      { structuralPath: "section[0]/body/Textbox(Revenue)" },
+      { reportItemName: "DetailRevenue" },
+    ])
+      expect(() =>
+        fieldResolutionRequestSchema.parse({
+          reportSessionId,
+          fieldName: "Revenue",
+          ...forbidden,
+        }),
+      ).toThrow();
+    for (const forbidden of [
+      { fieldName: "Revenue" },
+      { datasetName: "SalesData" },
+      { fieldResolution: { status: "resolved" } },
+    ])
+      expect(() =>
+        applyEditRequestSchema.parse({
+          reportSessionId,
+          planSessionId,
+          ...forbidden,
+        }),
+      ).toThrow();
   });
 });

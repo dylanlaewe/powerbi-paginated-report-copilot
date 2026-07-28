@@ -13,6 +13,7 @@ export const ipcChannels = {
   copyEditedRdlPath: "sidecar:copy-rdl-path",
   copyManifestPath: "sidecar:copy-manifest-path",
   clearExistingRdlSession: "sidecar:clear-session",
+  resolveExistingRdlField: "sidecar:resolve-field",
 } as const;
 export const projectSelectionResultSchema = z.discriminatedUnion("status", [
   z.object({
@@ -215,6 +216,105 @@ export const planEditRequestSchema = z
     request: z.string().min(1).max(8192),
   })
   .strict();
+export const fieldResolutionRequestSchema = z
+  .object({
+    reportSessionId: z.string().uuid(),
+    fieldName: z.string().trim().min(1).max(256),
+  })
+  .strict();
+const liveFieldCandidateSchema = z
+  .object({
+    candidateId: z.string().uuid(),
+    reportItemName: z.string(),
+    structuralPath: z.string(),
+    region: z.enum(["body", "pageHeader", "pageFooter"]),
+    fieldName: z.string(),
+    expressionKind: z.enum(["directFieldReference", "aggregateExpression"]),
+    aggregateFunction: z.string().nullable(),
+    explicitAggregateScope: z.string().nullable(),
+    datasetCertainty: z.enum(["certain", "ambiguous", "unavailable"]),
+    datasetName: z.string().nullable(),
+    possibleDatasets: z.array(z.string()),
+    tablixName: z.string().nullable(),
+    scopeRole: z.enum([
+      "detail",
+      "groupHeader",
+      "groupSubtotal",
+      "grandTotal",
+      "staticHeader",
+      "staticLabel",
+      "standalone",
+      "unknown",
+    ]),
+    groupNames: z.array(z.string()),
+    currentFormat: z.string().nullable(),
+    serializedType: z.string().nullable(),
+    likelyNumericDisplay: z.boolean(),
+    compatibilityUnknown: z.boolean(),
+    hiddenStatus: z.enum(["visible", "hidden", "expression", "unspecified"]),
+    evidence: z.array(
+      z.object({ code: z.string(), message: z.string() }).strict(),
+    ),
+    ambiguityEvidence: z.array(
+      z.object({ code: z.string(), message: z.string() }).strict(),
+    ),
+  })
+  .strict();
+export const fieldResolutionResultSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("resolved"),
+      reason: z.literal("FIELD_DISPLAY_RESOLVED"),
+      fieldName: z.string(),
+      candidateId: z.string().uuid(),
+      confidence: z.enum(["high", "medium"]),
+      evidence: z.array(
+        z.object({ code: z.string(), message: z.string() }).strict(),
+      ),
+      alternatives: z.array(liveFieldCandidateSchema),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("ambiguous"),
+      reason: z.enum([
+        "MULTIPLE_FIELD_DISPLAY_CANDIDATES",
+        "MULTIPLE_DATASET_CANDIDATES",
+        "DATASET_IDENTITY_AMBIGUOUS",
+        "MULTIPLE_SCOPE_ROLES",
+        "CONFLICTING_FIELD_SCOPE",
+        "DUPLICATE_VISUAL_LOCATIONS",
+      ]),
+      fieldName: z.string(),
+      candidates: z.array(liveFieldCandidateSchema).min(1),
+      evidence: z.array(z.string()),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("notFound"),
+      reason: z.literal("NO_FIELD_DISPLAY_CANDIDATE"),
+      fieldName: z.string(),
+      consideredCandidateCount: z.number().int().nonnegative(),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("unsupported"),
+      reason: z.enum([
+        "UNSUPPORTED_FIELD_EXPRESSION",
+        "FIELD_CONTEXT_INSUFFICIENT",
+      ]),
+      fieldName: z.string(),
+      evidence: z.array(z.string()),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  sidecarErrorSchema,
+]);
 const targetDisplaySchema = z
   .object({
     semanticTarget: z.string(),
@@ -281,6 +381,7 @@ export type ExistingRdlSelectionResult = z.infer<
 export type PlanEditResult = z.infer<typeof planEditResultSchema>;
 export type ApplyEditResult = z.infer<typeof applyEditResultSchema>;
 export type SidecarActionResult = z.infer<typeof actionResultSchema>;
+export type FieldResolutionResult = z.infer<typeof fieldResolutionResultSchema>;
 export interface DesktopApi {
   readonly platform: string;
   readonly appMode: "offline-authoring";
@@ -294,6 +395,10 @@ export interface DesktopApi {
     reportSessionId: string;
     request: string;
   }): Promise<PlanEditResult>;
+  resolveExistingRdlField(input: {
+    reportSessionId: string;
+    fieldName: string;
+  }): Promise<FieldResolutionResult>;
   applyExistingRdlEdit(input: {
     reportSessionId: string;
     planSessionId: string;

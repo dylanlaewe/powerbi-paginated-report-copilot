@@ -1,0 +1,722 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-transcript",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+    "byteLength": 116709,
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+  },
+  "evaluatedFieldNames": [
+    "Date",
+    "Description",
+    "Name",
+    "Number",
+    "UserId",
+    "Version"
+  ],
+  "evaluations": [
+    {
+      "fieldName": "Date",
+      "candidateOrdering": [
+        {
+          "candidateId": "646b0aff6aa67f24ae30",
+          "reportItemName": "Date1",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(Date1)",
+          "region": "body",
+          "fieldName": "Date",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Name",
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Date"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(Date1)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Date",
+        "candidateId": "646b0aff6aa67f24ae30",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Date"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(Date1)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Description",
+      "candidateOrdering": [
+        {
+          "candidateId": "cda526fcf40796f8e835",
+          "reportItemName": "Description",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[1]/Textbox(Description)",
+          "region": "body",
+          "fieldName": "Description",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification"
+          ],
+          "tablixName": "Tablix6",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details1"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Description"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[1]/Textbox(Description)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix6"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Description",
+        "candidateId": "cda526fcf40796f8e835",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Description"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[1]/Textbox(Description)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix6"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Name",
+      "candidateOrdering": [
+        {
+          "candidateId": "620136486660715d3d90",
+          "reportItemName": "Name1",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)",
+          "region": "body",
+          "fieldName": "Name",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification",
+            "Users"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Name",
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Name"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "MULTIPLE_DATASET_DECLARATIONS",
+              "message": "field is declared by Certification, Users"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "MULTIPLE_DATASET_CANDIDATES",
+        "fieldName": "Name",
+        "candidates": [
+          {
+            "candidateId": "620136486660715d3d90",
+            "reportItemName": "Name1",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)",
+            "region": "body",
+            "fieldName": "Name",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "Certification",
+            "possibleDatasets": [
+              "Certification",
+              "Users"
+            ],
+            "tablixName": "Tablix2",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Name",
+              "Details"
+            ],
+            "currentFormat": null,
+            "serializedType": null,
+            "likelyNumericDisplay": false,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Name"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix2"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "MULTIPLE_DATASET_DECLARATIONS",
+                "message": "field is declared by Certification, Users"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "field is declared by multiple datasets: Certification, Users",
+          "no reviewed policy proves that other declarations are irrelevant"
+        ],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Number",
+      "candidateOrdering": [
+        {
+          "candidateId": "daed15b91333d86ecf9e",
+          "reportItemName": "Number",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)",
+          "region": "body",
+          "fieldName": "Number",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification"
+          ],
+          "tablixName": "Tablix6",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details1"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Number"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix6"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "2 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "fe7540a28eadaf3eacb7",
+          "reportItemName": "Number1",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)",
+          "region": "body",
+          "fieldName": "Number",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Name",
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Number"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "2 display candidates match the field"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "DUPLICATE_VISUAL_LOCATIONS",
+        "fieldName": "Number",
+        "candidates": [
+          {
+            "candidateId": "daed15b91333d86ecf9e",
+            "reportItemName": "Number",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)",
+            "region": "body",
+            "fieldName": "Number",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "Certification",
+            "possibleDatasets": [
+              "Certification"
+            ],
+            "tablixName": "Tablix6",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Details1"
+            ],
+            "currentFormat": null,
+            "serializedType": null,
+            "likelyNumericDisplay": false,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Number"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix6"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "2 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "fe7540a28eadaf3eacb7",
+            "reportItemName": "Number1",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)",
+            "region": "body",
+            "fieldName": "Number",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "Certification",
+            "possibleDatasets": [
+              "Certification"
+            ],
+            "tablixName": "Tablix2",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Name",
+              "Details"
+            ],
+            "currentFormat": null,
+            "serializedType": null,
+            "likelyNumericDisplay": false,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Number"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix2"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "2 display candidates match the field"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "matching displays occupy materially distinct visual locations",
+          "no multi-location selection policy is approved"
+        ],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "UserId",
+      "candidateOrdering": [
+        {
+          "candidateId": "4c992ba6ac5dbc28626a",
+          "reportItemName": "Textbox39",
+          "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox39)",
+          "region": "pageHeader",
+          "fieldName": "UserId",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "Certification",
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification"
+          ],
+          "tablixName": null,
+          "scopeRole": "standalone",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: UserId"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox39)"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: standalone"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "UserId",
+        "candidateId": "4c992ba6ac5dbc28626a",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: UserId"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox39)"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: standalone"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Version",
+      "candidateOrdering": [
+        {
+          "candidateId": "fe9d58fc15a4403e48e4",
+          "reportItemName": "Version",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[1]/Textbox(Version)",
+          "region": "body",
+          "fieldName": "Version",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "Certification",
+          "possibleDatasets": [
+            "Certification"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Name",
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Version"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[1]/Textbox(Version)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Version",
+        "candidateId": "fe9d58fc15a4403e48e4",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Version"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[1]/Textbox(Version)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    }
+  ],
+  "datasetOverlapEvidence": [
+    {
+      "fieldName": "Name",
+      "datasetNames": [
+        "Certification",
+        "Users"
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "remainingLimitations": [
+    "Field-name-only requests cannot select detail, subtotal, or Grand Total scope.",
+    "No multi-location formatting policy is authorized.",
+    "Serialized field types are unavailable in the current production catalog; compatibility remains unknown.",
+    "Checksum-reviewed numeric targets remain the only writable path."
+  ]
+}

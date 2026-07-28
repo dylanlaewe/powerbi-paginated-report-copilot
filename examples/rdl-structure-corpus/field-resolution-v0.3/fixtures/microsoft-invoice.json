@@ -1,0 +1,1789 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-invoice",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+    "byteLength": 222297,
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "evaluatedFieldNames": [
+    "Amount",
+    "BankAccountNum",
+    "CompanyGiro",
+    "CompanyVATNum",
+    "Description",
+    "Discount",
+    "FormLetterRemarksTxt",
+    "HeaderNotes",
+    "InvoiceAccount",
+    "InvoiceDate",
+    "Item",
+    "Name",
+    "Quantity",
+    "SalesPrice",
+    "SalesUnitTxt",
+    "Website"
+  ],
+  "evaluations": [
+    {
+      "fieldName": "Amount",
+      "candidateOrdering": [
+        {
+          "candidateId": "226fbc39a5291a02f6fa",
+          "reportItemName": "Textbox46",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)",
+          "region": "body",
+          "fieldName": "Amount",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix3",
+          "scopeRole": "unknown",
+          "groupNames": [],
+          "currentFormat": "N2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Amount"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix3"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: unknown"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: N2"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "2 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "116d5d5c1bd16eba510e",
+          "reportItemName": "Amount",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)",
+          "region": "body",
+          "fieldName": "Amount",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": "N2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Amount"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: N2"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "2 display candidates match the field"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "DUPLICATE_VISUAL_LOCATIONS",
+        "fieldName": "Amount",
+        "candidates": [
+          {
+            "candidateId": "226fbc39a5291a02f6fa",
+            "reportItemName": "Textbox46",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)",
+            "region": "body",
+            "fieldName": "Amount",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "SalesInvoiceDS",
+            "possibleDatasets": [
+              "SalesInvoiceDS"
+            ],
+            "tablixName": "Tablix3",
+            "scopeRole": "unknown",
+            "groupNames": [],
+            "currentFormat": "N2",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Amount"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix3"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: unknown"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: N2"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "2 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "116d5d5c1bd16eba510e",
+            "reportItemName": "Amount",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)",
+            "region": "body",
+            "fieldName": "Amount",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "SalesInvoiceDS",
+            "possibleDatasets": [
+              "SalesInvoiceDS"
+            ],
+            "tablixName": "Tablix2",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Details"
+            ],
+            "currentFormat": "N2",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Amount"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix2"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: N2"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "2 display candidates match the field"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "matching displays occupy materially distinct visual locations",
+          "no multi-location selection policy is approved"
+        ],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "BankAccountNum",
+      "candidateOrdering": [
+        {
+          "candidateId": "53b9e21412379c737b82",
+          "reportItemName": "Textbox39",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox39)",
+          "region": "body",
+          "fieldName": "BankAccountNum",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "SalesInvoiceDS",
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: BankAccountNum"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox39)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "BankAccountNum",
+        "candidateId": "53b9e21412379c737b82",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: BankAccountNum"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox39)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: grandTotal"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "CompanyGiro",
+      "candidateOrdering": [
+        {
+          "candidateId": "3e39ed519b9537f2e01d",
+          "reportItemName": "Textbox41",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox41)",
+          "region": "body",
+          "fieldName": "CompanyGiro",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "SalesInvoiceHeaderFooterDS",
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceHeaderFooterDS",
+          "possibleDatasets": [
+            "SalesInvoiceHeaderFooterDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "expression",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: CompanyGiro"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox41)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "HIDDEN_OR_CONDITIONAL",
+              "message": "visibility is expression"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "CompanyGiro",
+        "candidateId": "3e39ed519b9537f2e01d",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: CompanyGiro"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox41)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: grandTotal"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "CompanyVATNum",
+      "candidateOrdering": [
+        {
+          "candidateId": "2a034e037bb75878df23",
+          "reportItemName": "Textbox27",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox27)",
+          "region": "body",
+          "fieldName": "CompanyVATNum",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "SalesInvoiceHeaderFooterDS",
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceHeaderFooterDS",
+          "possibleDatasets": [
+            "SalesInvoiceHeaderFooterDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "expression",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: CompanyVATNum"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox27)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "HIDDEN_OR_CONDITIONAL",
+              "message": "visibility is expression"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "CompanyVATNum",
+        "candidateId": "2a034e037bb75878df23",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: CompanyVATNum"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox27)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: grandTotal"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Description",
+      "candidateOrdering": [
+        {
+          "candidateId": "781bfab3bd4a6fd4c2d8",
+          "reportItemName": "Description",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Description)",
+          "region": "body",
+          "fieldName": "Description",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Description"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Description)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Description",
+        "candidateId": "781bfab3bd4a6fd4c2d8",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Description"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Description)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Discount",
+      "candidateOrdering": [
+        {
+          "candidateId": "a49116ce11c378f0dbab",
+          "reportItemName": "Textbox55",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)",
+          "region": "body",
+          "fieldName": "Discount",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix3",
+          "scopeRole": "unknown",
+          "groupNames": [],
+          "currentFormat": "N2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Discount"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix3"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: unknown"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: N2"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "2 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "a4ea6b8557de79034f99",
+          "reportItemName": "Discount",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)",
+          "region": "body",
+          "fieldName": "Discount",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Discount"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "2 display candidates match the field"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "DUPLICATE_VISUAL_LOCATIONS",
+        "fieldName": "Discount",
+        "candidates": [
+          {
+            "candidateId": "a49116ce11c378f0dbab",
+            "reportItemName": "Textbox55",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)",
+            "region": "body",
+            "fieldName": "Discount",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "SalesInvoiceDS",
+            "possibleDatasets": [
+              "SalesInvoiceDS"
+            ],
+            "tablixName": "Tablix3",
+            "scopeRole": "unknown",
+            "groupNames": [],
+            "currentFormat": "N2",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Discount"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix3"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: unknown"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: N2"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "2 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "a4ea6b8557de79034f99",
+            "reportItemName": "Discount",
+            "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)",
+            "region": "body",
+            "fieldName": "Discount",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "SalesInvoiceDS",
+            "possibleDatasets": [
+              "SalesInvoiceDS"
+            ],
+            "tablixName": "Tablix2",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Details"
+            ],
+            "currentFormat": null,
+            "serializedType": null,
+            "likelyNumericDisplay": false,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Discount"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix2"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "2 display candidates match the field"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "matching displays occupy materially distinct visual locations",
+          "no multi-location selection policy is approved"
+        ],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "FormLetterRemarksTxt",
+      "candidateOrdering": [
+        {
+          "candidateId": "d1e887f265682466d545",
+          "reportItemName": "Textbox19",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox19)",
+          "region": "body",
+          "fieldName": "FormLetterRemarksTxt",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "unknown",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "expression",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: FormLetterRemarksTxt"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox19)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: unknown"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "HIDDEN_OR_CONDITIONAL",
+              "message": "visibility is expression"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "FormLetterRemarksTxt",
+        "candidateId": "d1e887f265682466d545",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: FormLetterRemarksTxt"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox19)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: unknown"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "HeaderNotes",
+      "candidateOrdering": [
+        {
+          "candidateId": "ee812cac864dc4fd0c25",
+          "reportItemName": "Textbox21",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox21)",
+          "region": "body",
+          "fieldName": "HeaderNotes",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "unknown",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "expression",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: HeaderNotes"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox21)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: unknown"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "HIDDEN_OR_CONDITIONAL",
+              "message": "visibility is expression"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "HeaderNotes",
+        "candidateId": "ee812cac864dc4fd0c25",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: HeaderNotes"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox21)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: unknown"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "InvoiceAccount",
+      "candidateOrdering": [
+        {
+          "candidateId": "8624ecc267d5ebb3d54b",
+          "reportItemName": "Textbox35",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox35)",
+          "region": "body",
+          "fieldName": "InvoiceAccount",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "SalesInvoiceHeaderFooterDS",
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceHeaderFooterDS",
+          "possibleDatasets": [
+            "SalesInvoiceHeaderFooterDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: InvoiceAccount"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox35)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "InvoiceAccount",
+        "candidateId": "8624ecc267d5ebb3d54b",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: InvoiceAccount"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox35)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: grandTotal"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "InvoiceDate",
+      "candidateOrdering": [
+        {
+          "candidateId": "aaee29ba2ad3a18b823e",
+          "reportItemName": "Textbox8",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox8)",
+          "region": "body",
+          "fieldName": "InvoiceDate",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "SalesInvoiceHeaderFooterDS",
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceHeaderFooterDS",
+          "possibleDatasets": [
+            "SalesInvoiceHeaderFooterDS"
+          ],
+          "tablixName": "Tablix1",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": "d MMMM yyyy",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: InvoiceDate"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox8)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix1"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: d MMMM yyyy"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "InvoiceDate",
+        "candidateId": "aaee29ba2ad3a18b823e",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: InvoiceDate"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox8)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix1"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: grandTotal"
+          },
+          {
+            "code": "CURRENT_FORMAT",
+            "message": "current format: d MMMM yyyy"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Item",
+      "candidateOrdering": [
+        {
+          "candidateId": "3236f6967f97ce318a03",
+          "reportItemName": "Item",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Item)",
+          "region": "body",
+          "fieldName": "Item",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Item"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Item)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Item",
+        "candidateId": "3236f6967f97ce318a03",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Item"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Item)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Name",
+      "candidateOrdering": [
+        {
+          "candidateId": "4933478c4288f42bddab",
+          "reportItemName": "Textbox1",
+          "structuralPath": "section[0]/pageHeader/Textbox(Textbox1)",
+          "region": "pageHeader",
+          "fieldName": "Name",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "Company",
+          "datasetCertainty": "ambiguous",
+          "datasetName": null,
+          "possibleDatasets": [
+            "Company",
+            "Users"
+          ],
+          "tablixName": null,
+          "scopeRole": "standalone",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Name"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/pageHeader/Textbox(Textbox1)"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: standalone"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DATASET_IDENTITY_UNCERTAIN",
+              "message": "dataset identity is ambiguous"
+            },
+            {
+              "code": "MULTIPLE_DATASET_DECLARATIONS",
+              "message": "field is declared by Company, Users"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "MULTIPLE_DATASET_CANDIDATES",
+        "fieldName": "Name",
+        "candidates": [
+          {
+            "candidateId": "4933478c4288f42bddab",
+            "reportItemName": "Textbox1",
+            "structuralPath": "section[0]/pageHeader/Textbox(Textbox1)",
+            "region": "pageHeader",
+            "fieldName": "Name",
+            "expressionKind": "aggregateExpression",
+            "aggregateFunction": "First",
+            "explicitAggregateScope": "Company",
+            "datasetCertainty": "ambiguous",
+            "datasetName": null,
+            "possibleDatasets": [
+              "Company",
+              "Users"
+            ],
+            "tablixName": null,
+            "scopeRole": "standalone",
+            "groupNames": [],
+            "currentFormat": null,
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Name"
+              },
+              {
+                "code": "AGGREGATE_FIELD_EXPRESSION",
+                "message": "expression kind is aggregateExpression"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/pageHeader/Textbox(Textbox1)"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: standalone"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DATASET_IDENTITY_UNCERTAIN",
+                "message": "dataset identity is ambiguous"
+              },
+              {
+                "code": "MULTIPLE_DATASET_DECLARATIONS",
+                "message": "field is declared by Company, Users"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "field is declared by multiple datasets: Company, Users",
+          "no reviewed policy proves that other declarations are irrelevant"
+        ],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Quantity",
+      "candidateOrdering": [
+        {
+          "candidateId": "b3482cc5897d2710f4a3",
+          "reportItemName": "Quantity",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)",
+          "region": "body",
+          "fieldName": "Quantity",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": "#,###,##0.##",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Quantity"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: #,###,##0.##"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Quantity",
+        "candidateId": "b3482cc5897d2710f4a3",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Quantity"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          },
+          {
+            "code": "CURRENT_FORMAT",
+            "message": "current format: #,###,##0.##"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "SalesPrice",
+      "candidateOrdering": [
+        {
+          "candidateId": "50e0f7d2dc2bdae6698f",
+          "reportItemName": "SalesPrice",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[4]/Textbox(SalesPrice)",
+          "region": "body",
+          "fieldName": "SalesPrice",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": "N2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: SalesPrice"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[4]/Textbox(SalesPrice)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: N2"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "SalesPrice",
+        "candidateId": "50e0f7d2dc2bdae6698f",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: SalesPrice"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[4]/Textbox(SalesPrice)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          },
+          {
+            "code": "CURRENT_FORMAT",
+            "message": "current format: N2"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "SalesUnitTxt",
+      "candidateOrdering": [
+        {
+          "candidateId": "8023a338145c4a050e18",
+          "reportItemName": "SalesUnitTxt",
+          "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(SalesUnitTxt)",
+          "region": "body",
+          "fieldName": "SalesUnitTxt",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "SalesInvoiceDS",
+          "possibleDatasets": [
+            "SalesInvoiceDS"
+          ],
+          "tablixName": "Tablix2",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: SalesUnitTxt"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(SalesUnitTxt)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: Tablix2"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "SalesUnitTxt",
+        "candidateId": "8023a338145c4a050e18",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: SalesUnitTxt"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(SalesUnitTxt)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: Tablix2"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Website",
+      "candidateOrdering": [
+        {
+          "candidateId": "10adf6872c8be9d9263f",
+          "reportItemName": "Textbox4",
+          "structuralPath": "section[0]/pageHeader/Textbox(Textbox4)",
+          "region": "pageHeader",
+          "fieldName": "Website",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "First",
+          "explicitAggregateScope": "Company",
+          "datasetCertainty": "certain",
+          "datasetName": "Company",
+          "possibleDatasets": [
+            "Company"
+          ],
+          "tablixName": null,
+          "scopeRole": "standalone",
+          "groupNames": [],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Website"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/pageHeader/Textbox(Textbox4)"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: standalone"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Website",
+        "candidateId": "10adf6872c8be9d9263f",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Website"
+          },
+          {
+            "code": "AGGREGATE_FIELD_EXPRESSION",
+            "message": "expression kind is aggregateExpression"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/pageHeader/Textbox(Textbox4)"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: standalone"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    }
+  ],
+  "datasetOverlapEvidence": [
+    {
+      "fieldName": "Address",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "City",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "Company",
+      "datasetNames": [
+        "CompanyList",
+        "SalesInvoiceDS",
+        "SalesInvoiceHeaderFooterDS"
+      ]
+    },
+    {
+      "fieldName": "Country",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "Name",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "State",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "remainingLimitations": [
+    "Field-name-only requests cannot select detail, subtotal, or Grand Total scope.",
+    "No multi-location formatting policy is authorized.",
+    "Serialized field types are unavailable in the current production catalog; compatibility remains unknown.",
+    "Checksum-reviewed numeric targets remain the only writable path."
+  ]
+}

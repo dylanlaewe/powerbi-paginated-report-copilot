@@ -9,6 +9,7 @@ import {
   prepareSidecarEditFromText,
   resolveConfiguredReportTitle,
   resolveReadOnlyReportTitle,
+  resolveReadOnlyFieldDisplay,
   SidecarCliError,
   RdlInspectionError,
   validateXmlAgainstXsd,
@@ -18,9 +19,11 @@ import {
   actionResultSchema,
   applyEditResultSchema,
   existingRdlSelectionResultSchema,
+  fieldResolutionResultSchema,
   planEditResultSchema,
   type ApplyEditResult,
   type ExistingRdlSelectionResult,
+  type FieldResolutionResult,
   type PlanEditResult,
   type SidecarActionResult,
 } from "../shared/desktop-api";
@@ -34,6 +37,8 @@ type ReportSession = {
   sourceSha256: string;
   createdAt: number;
   candidateIds: ReadonlySet<string>;
+  fieldCandidateIds: ReadonlyMap<string, string>;
+  catalog: Awaited<ReturnType<typeof catalogRdlBytes>>;
 };
 type PlanSession = {
   id: string;
@@ -236,6 +241,12 @@ export class ExistingRdlSidecarService {
           scopeRole: candidate.scope.role,
         }),
       );
+      const fieldCandidateIds = new Map(
+        fieldDisplayCandidates.map((candidate, index) => [
+          catalog.fieldDisplayCandidates[index]!.diagnosticId,
+          candidate.candidateId,
+        ]),
+      );
       const diagnosticTitleResolution = resolveReadOnlyReportTitle(catalog);
       const liveRanked = <
         T extends {
@@ -273,6 +284,8 @@ export class ExistingRdlSidecarService {
           ...titleCandidates.map(({ candidateId }) => candidateId),
           ...fieldDisplayCandidates.map(({ candidateId }) => candidateId),
         ]),
+        fieldCandidateIds,
+        catalog,
       });
       let currentTitle: string | null = null;
       try {
@@ -323,6 +336,41 @@ export class ExistingRdlSidecarService {
       });
     } catch (error) {
       return existingRdlSelectionResultSchema.parse(errorResult(error));
+    }
+  }
+
+  resolveField(input: {
+    reportSessionId: string;
+    fieldName: string;
+  }): FieldResolutionResult {
+    try {
+      const report = this.report(input.reportSessionId);
+      const outcome = resolveReadOnlyFieldDisplay(report.catalog, {
+        fieldName: input.fieldName,
+      });
+      const liveCandidate = <
+        T extends {
+          candidateId: string;
+        },
+      >(
+        candidate: T,
+      ): T => ({
+        ...candidate,
+        candidateId: report.fieldCandidateIds.get(candidate.candidateId)!,
+      });
+      return fieldResolutionResultSchema.parse(
+        outcome.status === "resolved"
+          ? {
+              ...outcome,
+              candidateId: report.fieldCandidateIds.get(outcome.candidateId)!,
+              alternatives: outcome.alternatives.map(liveCandidate),
+            }
+          : outcome.status === "ambiguous"
+            ? { ...outcome, candidates: outcome.candidates.map(liveCandidate) }
+            : outcome,
+      );
+    } catch (error) {
+      return fieldResolutionResultSchema.parse(errorResult(error));
     }
   }
 

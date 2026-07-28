@@ -227,3 +227,22 @@ semantic ambiguity.
 Artifacts under `title-resolution-v0.3/` use diagnostic IDs. Live Electron
 outcomes translate them to session UUIDs. All outcomes explicitly deny mutation
 authority, and the checksum-reviewed target remains the only writable path.
+
+## Gate 2K read-only field-display resolution
+
+The Gate 2I field-display catalog now supports a strict read-only query
+containing only `fieldName`. Surrounding whitespace is trimmed and matching is
+case-insensitive exact. Substring, fuzzy, plural, alias, item-name, first-match,
+and array-order selection are prohibited.
+
+Resolution retains dataset certainty and possible declarations, tablix
+location, expression and aggregate scope, group/member context, structural
+detail/subtotal/Grand Total role, existing format, visibility, and ambiguity
+evidence. A unique structurally certain display may resolve read-only. Multiple
+datasets, roles, tablixes, or material locations remain ambiguous; unsupported
+or insufficient expression/context evidence fails closed.
+
+The complete matrix is under
+`examples/rdl-structure-corpus/field-resolution-v0.3/`. It evaluates every
+displayed field in all four accepted sources. Every result contains
+`mutationAuthorized: false`; no RDL was written or executed.

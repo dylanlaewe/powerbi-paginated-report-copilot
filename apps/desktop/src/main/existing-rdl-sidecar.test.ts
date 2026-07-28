@@ -162,6 +162,78 @@ describe("native selection and report sessions", () => {
     expect(JSON.stringify(second.summary)).not.toMatch(/<Report|CommandText/iu);
   });
 
+  it("resolves a field through the live report session with only opaque candidate handles", async () => {
+    const { service } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+      ),
+    );
+    const result = service.resolveField({
+      reportSessionId: selection.reportSessionId,
+      fieldName: "UnitCost",
+    });
+    expect(result).toMatchObject({
+      status: "resolved",
+      reason: "FIELD_DISPLAY_RESOLVED",
+      fieldName: "UnitCost",
+      confidence: "high",
+      mutationAuthorized: false,
+    });
+    if (result.status !== "resolved") throw new Error("Expected resolution");
+    expect(result.candidateId).toMatch(/^[a-f0-9-]{36}$/u);
+    expect(JSON.stringify(result)).not.toMatch(
+      /e3a34afe7c29|synthetic-inventory-detail\.rdl|<Report/iu,
+    );
+  });
+
+  it("returns all ambiguous field candidates as session-scoped opaque handles", async () => {
+    const { service } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+      ),
+    );
+    const result = service.resolveField({
+      reportSessionId: selection.reportSessionId,
+      fieldName: "Revenue",
+    });
+    expect(result).toMatchObject({
+      status: "ambiguous",
+      reason: "MULTIPLE_SCOPE_ROLES",
+      mutationAuthorized: false,
+    });
+    if (result.status !== "ambiguous") throw new Error("Expected ambiguity");
+    expect(result.candidates).toHaveLength(3);
+    expect(
+      result.candidates.every(({ candidateId }) =>
+        /^[a-f0-9-]{36}$/u.test(candidateId),
+      ),
+    ).toBe(true);
+  });
+
+  it("rejects a stale report session before field resolution", async () => {
+    const { service, copiedSource } = await setup();
+    const first = await selected(service, copiedSource);
+    await selected(service, copiedSource);
+    expect(
+      service.resolveField({
+        reportSessionId: first.reportSessionId,
+        fieldName: "Revenue",
+      }),
+    ).toEqual({
+      status: "error",
+      code: "TARGET_MISSING",
+      message: "The report session was not found.",
+      noOutputWritten: true,
+      sourceUnchanged: true,
+    });
+  });
+
   it("sanitizes omitted physical dimensions without fabricating defaults", async () => {
     const { service } = await setup();
     const result = await selected(

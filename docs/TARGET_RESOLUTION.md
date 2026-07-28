@@ -100,3 +100,30 @@ expressions are never executed as title text.
 This does not alter reviewed resolution. Generic outcomes, candidate IDs,
 diagnostic IDs, item names, and paths remain invalid mutation inputs. User
 review and generic target authorization are future gates.
+
+## v0.3 Gate 2K field-display outcomes
+
+Field requests contain one bounded field name. Exact field identity is matched
+case-insensitively after trimming. Ranking is structural and deterministic but
+is never used to break semantic ambiguity.
+
+Stable results distinguish:
+
+- `FIELD_DISPLAY_RESOLVED`
+- `NO_FIELD_DISPLAY_CANDIDATE`
+- `MULTIPLE_FIELD_DISPLAY_CANDIDATES`
+- `MULTIPLE_DATASET_CANDIDATES` and `DATASET_IDENTITY_AMBIGUOUS`
+- `MULTIPLE_SCOPE_ROLES` and `CONFLICTING_FIELD_SCOPE`
+- `DUPLICATE_VISUAL_LOCATIONS`
+- `UNSUPPORTED_FIELD_EXPRESSION` and `FIELD_CONTEXT_INSUFFICIENT`
+
+One unique, certain candidate resolves only as read-only evidence. Grouped
+Revenue remains ambiguous across detail, subtotal, and Grand Total. Invoice
+Amount and Discount remain ambiguous across tablixes. Transcript Name remains
+ambiguous across dataset declarations even though one visual has a local
+tablix binding.
+
+Diagnostic IDs are reproducible evidence. Electron replaces them with
+inspection-session UUIDs. Neither form, nor a field name, dataset name,
+report-item name, structural path, or resolution object is accepted by apply
+IPC. Reviewed checksum-based mutation remains unchanged.

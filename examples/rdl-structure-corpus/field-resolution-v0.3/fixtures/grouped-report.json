@@ -1,0 +1,995 @@
+{
+  "version": 1,
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "byteLength": 52651,
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+  },
+  "evaluatedFieldNames": [
+    "Department",
+    "Representative",
+    "Revenue",
+    "SaleDate",
+    "Units"
+  ],
+  "evaluations": [
+    {
+      "fieldName": "Department",
+      "candidateOrdering": [
+        {
+          "candidateId": "9e2bda76b36e45f7395a",
+          "reportItemName": "Department",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Department)",
+          "region": "body",
+          "fieldName": "Department",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "groupHeader",
+          "groupNames": [
+            "Department"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Department"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Department)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: groupHeader"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Department",
+        "candidateId": "9e2bda76b36e45f7395a",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Department"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Department)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: DepartmentSalesTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: groupHeader"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Representative",
+      "candidateOrdering": [
+        {
+          "candidateId": "6d349e10628d5c74264b",
+          "reportItemName": "DetailRepresentative",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[1]/Textbox(DetailRepresentative)",
+          "region": "body",
+          "fieldName": "Representative",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Department",
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Representative"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[1]/Textbox(DetailRepresentative)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Representative",
+        "candidateId": "6d349e10628d5c74264b",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Representative"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[1]/Textbox(DetailRepresentative)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: DepartmentSalesTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Revenue",
+      "candidateOrdering": [
+        {
+          "candidateId": "1f23f9e7674c9d3bb541",
+          "reportItemName": "DetailRevenue",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)",
+          "region": "body",
+          "fieldName": "Revenue",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Department",
+            "Details"
+          ],
+          "currentFormat": "C2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Revenue"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: C2"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "3 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "fd0c1094e84d9adc71d1",
+          "reportItemName": "DepartmentRevenueSubtotal",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)",
+          "region": "body",
+          "fieldName": "Revenue",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "Sum",
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "groupSubtotal",
+          "groupNames": [
+            "Department"
+          ],
+          "currentFormat": "C2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Revenue"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: groupSubtotal"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: C2"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "3 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "de1aa47549ec95211e8a",
+          "reportItemName": "ReportRevenueTotal",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)",
+          "region": "body",
+          "fieldName": "Revenue",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "Sum",
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": "C2",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Revenue"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: C2"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "3 display candidates match the field"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "MULTIPLE_SCOPE_ROLES",
+        "fieldName": "Revenue",
+        "candidates": [
+          {
+            "candidateId": "1f23f9e7674c9d3bb541",
+            "reportItemName": "DetailRevenue",
+            "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)",
+            "region": "body",
+            "fieldName": "Revenue",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "DepartmentSales",
+            "possibleDatasets": [
+              "DepartmentSales"
+            ],
+            "tablixName": "DepartmentSalesTable",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Department",
+              "Details"
+            ],
+            "currentFormat": "C2",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Revenue"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: DepartmentSalesTable"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: C2"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "3 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "fd0c1094e84d9adc71d1",
+            "reportItemName": "DepartmentRevenueSubtotal",
+            "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)",
+            "region": "body",
+            "fieldName": "Revenue",
+            "expressionKind": "aggregateExpression",
+            "aggregateFunction": "Sum",
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "DepartmentSales",
+            "possibleDatasets": [
+              "DepartmentSales"
+            ],
+            "tablixName": "DepartmentSalesTable",
+            "scopeRole": "groupSubtotal",
+            "groupNames": [
+              "Department"
+            ],
+            "currentFormat": "C2",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Revenue"
+              },
+              {
+                "code": "AGGREGATE_FIELD_EXPRESSION",
+                "message": "expression kind is aggregateExpression"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: DepartmentSalesTable"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: groupSubtotal"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: C2"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "3 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "de1aa47549ec95211e8a",
+            "reportItemName": "ReportRevenueTotal",
+            "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)",
+            "region": "body",
+            "fieldName": "Revenue",
+            "expressionKind": "aggregateExpression",
+            "aggregateFunction": "Sum",
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "DepartmentSales",
+            "possibleDatasets": [
+              "DepartmentSales"
+            ],
+            "tablixName": "DepartmentSalesTable",
+            "scopeRole": "grandTotal",
+            "groupNames": [],
+            "currentFormat": "C2",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Revenue"
+              },
+              {
+                "code": "AGGREGATE_FIELD_EXPRESSION",
+                "message": "expression kind is aggregateExpression"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: DepartmentSalesTable"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: grandTotal"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: C2"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "3 display candidates match the field"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "matching displays span structural roles: detail, groupSubtotal, grandTotal",
+          "field-name-only input does not define detail or total scope"
+        ],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "SaleDate",
+      "candidateOrdering": [
+        {
+          "candidateId": "2a9c47973ebe24687485",
+          "reportItemName": "DetailSaleDate",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[0]/Textbox(DetailSaleDate)",
+          "region": "body",
+          "fieldName": "SaleDate",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Department",
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: SaleDate"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[0]/Textbox(DetailSaleDate)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "SaleDate",
+        "candidateId": "2a9c47973ebe24687485",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: SaleDate"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[0]/Textbox(DetailSaleDate)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: DepartmentSalesTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Units",
+      "candidateOrdering": [
+        {
+          "candidateId": "87ac6a91150b50adcfee",
+          "reportItemName": "DetailUnits",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)",
+          "region": "body",
+          "fieldName": "Units",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Department",
+            "Details"
+          ],
+          "currentFormat": "0",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Units"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: 0"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "3 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "7d9e69f6a6bd5c6d7352",
+          "reportItemName": "Textbox54",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)",
+          "region": "body",
+          "fieldName": "Units",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "Sum",
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "groupSubtotal",
+          "groupNames": [
+            "Department"
+          ],
+          "currentFormat": "0",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Units"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: groupSubtotal"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: 0"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "3 display candidates match the field"
+            }
+          ]
+        },
+        {
+          "candidateId": "eac9fb8165bf377c638e",
+          "reportItemName": "Textbox67",
+          "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)",
+          "region": "body",
+          "fieldName": "Units",
+          "expressionKind": "aggregateExpression",
+          "aggregateFunction": "Sum",
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "DepartmentSales",
+          "possibleDatasets": [
+            "DepartmentSales"
+          ],
+          "tablixName": "DepartmentSalesTable",
+          "scopeRole": "grandTotal",
+          "groupNames": [],
+          "currentFormat": "0",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Units"
+            },
+            {
+              "code": "AGGREGATE_FIELD_EXPRESSION",
+              "message": "expression kind is aggregateExpression"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: DepartmentSalesTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: grandTotal"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: 0"
+            }
+          ],
+          "ambiguityEvidence": [
+            {
+              "code": "DUPLICATE_VISUAL_LOCATION",
+              "message": "3 display candidates match the field"
+            }
+          ]
+        }
+      ],
+      "outcome": {
+        "status": "ambiguous",
+        "reason": "MULTIPLE_SCOPE_ROLES",
+        "fieldName": "Units",
+        "candidates": [
+          {
+            "candidateId": "87ac6a91150b50adcfee",
+            "reportItemName": "DetailUnits",
+            "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)",
+            "region": "body",
+            "fieldName": "Units",
+            "expressionKind": "directFieldReference",
+            "aggregateFunction": null,
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "DepartmentSales",
+            "possibleDatasets": [
+              "DepartmentSales"
+            ],
+            "tablixName": "DepartmentSalesTable",
+            "scopeRole": "detail",
+            "groupNames": [
+              "Department",
+              "Details"
+            ],
+            "currentFormat": "0",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Units"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: DepartmentSalesTable"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: 0"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "3 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "7d9e69f6a6bd5c6d7352",
+            "reportItemName": "Textbox54",
+            "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)",
+            "region": "body",
+            "fieldName": "Units",
+            "expressionKind": "aggregateExpression",
+            "aggregateFunction": "Sum",
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "DepartmentSales",
+            "possibleDatasets": [
+              "DepartmentSales"
+            ],
+            "tablixName": "DepartmentSalesTable",
+            "scopeRole": "groupSubtotal",
+            "groupNames": [
+              "Department"
+            ],
+            "currentFormat": "0",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Units"
+              },
+              {
+                "code": "AGGREGATE_FIELD_EXPRESSION",
+                "message": "expression kind is aggregateExpression"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: DepartmentSalesTable"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: groupSubtotal"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: 0"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "3 display candidates match the field"
+              }
+            ]
+          },
+          {
+            "candidateId": "eac9fb8165bf377c638e",
+            "reportItemName": "Textbox67",
+            "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)",
+            "region": "body",
+            "fieldName": "Units",
+            "expressionKind": "aggregateExpression",
+            "aggregateFunction": "Sum",
+            "explicitAggregateScope": null,
+            "datasetCertainty": "certain",
+            "datasetName": "DepartmentSales",
+            "possibleDatasets": [
+              "DepartmentSales"
+            ],
+            "tablixName": "DepartmentSalesTable",
+            "scopeRole": "grandTotal",
+            "groupNames": [],
+            "currentFormat": "0",
+            "serializedType": null,
+            "likelyNumericDisplay": true,
+            "compatibilityUnknown": true,
+            "hiddenStatus": "unspecified",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Units"
+              },
+              {
+                "code": "AGGREGATE_FIELD_EXPRESSION",
+                "message": "expression kind is aggregateExpression"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: DepartmentSalesTable"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: grandTotal"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: 0"
+              }
+            ],
+            "ambiguityEvidence": [
+              {
+                "code": "DUPLICATE_VISUAL_LOCATION",
+                "message": "3 display candidates match the field"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          "matching displays span structural roles: detail, groupSubtotal, grandTotal",
+          "field-name-only input does not define detail or total scope"
+        ],
+        "mutationAuthorized": false
+      }
+    }
+  ],
+  "datasetOverlapEvidence": [],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "remainingLimitations": [
+    "Field-name-only requests cannot select detail, subtotal, or Grand Total scope.",
+    "No multi-location formatting policy is authorized.",
+    "Serialized field types are unavailable in the current production catalog; compatibility remains unknown.",
+    "Checksum-reviewed numeric targets remain the only writable path."
+  ]
+}

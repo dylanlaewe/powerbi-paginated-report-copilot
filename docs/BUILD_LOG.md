@@ -382,6 +382,30 @@
 - PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, preserved totals, and numeric values.
 - Recorded PowerShell's default-decoding corruption of the UTF-8 em dash as a test-environment issue resolved by explicit UTF-8 input. Deferred the Windows `Reveal in Finder` label as cosmetic.
 
+## 2026-07-28 — RDL Structure Corpus Gate 2K read-only field resolution
+
+- Added strict `{ fieldName }` runtime validation and case-insensitive exact
+  matching over the unchanged Gate 2I field-display catalog.
+- Preserved dataset declarations and tablix binding, expression and aggregate
+  metadata, member/group context, structural scope roles, existing formats,
+  hidden state, and deterministic structural ordering in every ranked result.
+- Added explicit resolved, ambiguous, not-found, and unsupported outcomes with
+  stable reason codes and permanent `mutationAuthorized: false`.
+- Added corpus-wide deterministic evidence for every displayed field. Verified
+  the required UnitCost, grouped Revenue, Invoice Amount/Discount/Quantity/
+  SalesPrice, and Transcript Name/Date outcomes.
+- Added one narrow main-process field-resolution method. It accepts only a live
+  report-session UUID and field name, translates diagnostic IDs to fresh
+  session UUIDs, performs no filesystem write, and is not accepted by planner
+  or mutation IPC.
+- Changed no RDL source, reviewed mutation target, planner grammar, title
+  resolver, renderer controls, or LLM behavior.
+- Passed changed human-authored file formatting, ESLint, workspace typecheck,
+  50 test files / 386 tests, production build, JSON validation, and
+  byte-identical evidence regeneration. The repository-wide Prettier check
+  continues to flag pre-existing machine-generated inventories and the
+  lockfile; generated evidence remains in its deterministic serializer format.
+
 ## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
 
 - Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.

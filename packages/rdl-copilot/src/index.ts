@@ -102,6 +102,7 @@ export * from "./xsd-validator";
 export * from "./inspection";
 export * from "./edit-plan";
 export * from "./edit-planner";
+export * from "./field-resolution";
 export * from "./sidecar-cli";
 export * from "./structural-guard";
 export * from "./target-context";
