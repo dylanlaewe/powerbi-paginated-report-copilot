@@ -116,6 +116,37 @@ describe("native selection and report sessions", () => {
     expect(JSON.stringify(result)).not.toMatch(
       /Central|DataGrid|<Report|CommandText/iu,
     );
+    expect(result.summary.candidateCatalog.titleCount).toBeGreaterThan(0);
+    expect(
+      result.summary.candidateCatalog.titleCandidates[0]?.candidateId,
+    ).toMatch(/^[a-f0-9-]{36}$/u);
+    expect(JSON.stringify(result.summary.candidateCatalog)).not.toContain(
+      copiedSource,
+    );
+  });
+
+  it("scopes opaque candidate handles to each inspection session", async () => {
+    const { service, copiedSource } = await setup();
+    const first = await selected(service, copiedSource);
+    const second = await selected(service, copiedSource);
+    const firstIds = new Set([
+      ...first.summary.candidateCatalog.titleCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+      ...first.summary.candidateCatalog.fieldDisplayCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+    ]);
+    const secondIds = [
+      ...second.summary.candidateCatalog.titleCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+      ...second.summary.candidateCatalog.fieldDisplayCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+    ];
+    expect(secondIds.every((id) => !firstIds.has(id))).toBe(true);
+    expect(JSON.stringify(second.summary)).not.toMatch(/<Report|CommandText/iu);
   });
 
   it("sanitizes omitted physical dimensions without fabricating defaults", async () => {

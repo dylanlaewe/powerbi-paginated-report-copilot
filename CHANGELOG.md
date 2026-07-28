@@ -4,6 +4,11 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2I: runtime-validated structural target
+  context, conservative expression and scope classification, dataset-aware
+  read-only title/field candidate catalogs, deterministic diagnostic evidence,
+  and sanitized session-scoped opaque Electron candidate handles. Generic
+  selection and mutation authority remain absent.
 - RDL Structure Corpus v0.3 Gate 2H: discriminated explicit/omitted page
   measurements, unknown-orientation normalization, four-fixture production
   inspection evidence, sanitized unspecified-dimension summaries, and an

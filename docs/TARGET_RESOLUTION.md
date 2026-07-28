@@ -69,3 +69,17 @@ Reports without both explicit dimensions expose unknown orientation.
 Orientation plans are accepted by the unchanged grammar but blocked before
 target resolution or XML mutation with `PAGE_DIMENSIONS_UNSPECIFIED`. This
 keeps mixed requests atomic and prevents fabricated page defaults.
+
+## v0.3 Gate 2I read-only catalogs
+
+Candidate discovery preserves structural context that Gate 2G showed was
+previously lost. Title-like constants are cataloged across body, page header,
+page footer, rectangles, and tablix cells. Direct-field and aggregate
+candidates are separate records with dataset certainty, tablix binding,
+member paths, groups, formats, and conservative structural roles.
+
+This is discovery, not resolution. Candidate ordering is deterministic but no
+generic score, winner, or approved target exists. Diagnostic IDs support
+reproducible evidence only. Live candidate IDs are inspection-session handles,
+and no existing IPC accepts them for planning or mutation. The
+checksum-reviewed mapping remains the sole path to a writable target.

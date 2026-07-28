@@ -1,0 +1,1556 @@
+{
+  "version": 1,
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "byteLength": 52651,
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+  },
+  "productionInspectionResult": "PASS",
+  "structuralLocationInventory": {
+    "regions": [
+      "body"
+    ],
+    "containerPaths": [
+      "section[0]/body/Textbox(ReportTitle)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[0]/Textbox(Textbox7)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[1]/Textbox(Textbox11)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[2]/Textbox(Textbox13)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[3]/Textbox(Textbox15)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox48)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox64)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[0]/Textbox(DetailSaleDate)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[1]/Textbox(DetailRepresentative)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)",
+      "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Department)"
+    ],
+    "tablixes": [
+      {
+        "name": "DepartmentSalesTable",
+        "datasetName": "DepartmentSales"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Department",
+        "expressions": [
+          "=Fields!Department.Value"
+        ]
+      },
+      {
+        "name": "Details",
+        "expressions": []
+      }
+    ]
+  },
+  "titleCandidateCatalog": [
+    {
+      "diagnosticId": "84b9fb7c3d176cfdebf9",
+      "reportItemType": "Textbox",
+      "reportItemName": "ReportTitle",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Textbox(ReportTitle)",
+        "containerChain": [],
+        "rectangleAncestry": [],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": "6.47396in",
+        "height": "0.57812in",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Synthetic Department Sales Summary"
+      },
+      "fontSizes": [
+        "18pt"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "Synthetic Department Sales Summary",
+      "positiveEvidence": [
+        "report-item name contains title",
+        "font size 18pt",
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "report-item name contains title; font size 18pt; bold text; located in body"
+    },
+    {
+      "diagnosticId": "bd9dd4837542a77b1986",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox7",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[0]/Textbox(Textbox7)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static",
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Sale Date"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Sale Date",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "09d54b7cbb976fd4f24c",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox11",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[1]/Textbox(Textbox11)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static",
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Representative"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Representative",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header"
+    },
+    {
+      "diagnosticId": "e0cbf6a7bb90ea8dcde8",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox13",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[2]/Textbox(Textbox13)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static",
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Units"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Units",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "48cd60582bcef90e6e05",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox15",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[3]/Textbox(Textbox15)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static",
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Revenue"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Revenue",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "19b71ae46245f42a2986",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox48",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox48)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowHeaderMember"
+        ],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Department"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Department",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "short label-like text",
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "located in body; short label-like text; likely static label or caption"
+    },
+    {
+      "diagnosticId": "15fa137857aeb1483d11",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox64",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox64)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowHeaderMember"
+        ],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Grand Total"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Grand Total",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "short label-like text",
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "bold text; located in body; short label-like text; likely static label or caption"
+    }
+  ],
+  "fieldDisplayCandidateCatalog": [
+    {
+      "diagnosticId": "2a9c47973ebe24687485",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailSaleDate",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[0]/Textbox(DetailSaleDate)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Department",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "static",
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [
+          "BreakLocation=Between"
+        ],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!SaleDate.Value",
+        "fieldName": "SaleDate"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "SaleDate",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "6d349e10628d5c74264b",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailRepresentative",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[1]/Textbox(DetailRepresentative)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [
+          "Department",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "static",
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [
+          "BreakLocation=Between"
+        ],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Representative.Value",
+        "fieldName": "Representative"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Representative",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "87ac6a91150b50adcfee",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailUnits",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [
+          "Department",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "static",
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [
+          "BreakLocation=Between"
+        ],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Units.Value",
+        "fieldName": "Units"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": "0",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Units",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 3
+    },
+    {
+      "diagnosticId": "1f23f9e7674c9d3bb541",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailRevenue",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [
+          "Department",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "static",
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [
+          "BreakLocation=Between"
+        ],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Revenue.Value",
+        "fieldName": "Revenue"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": "C2",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Revenue",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 3
+    },
+    {
+      "diagnosticId": "7d9e69f6a6bd5c6d7352",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox54",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[2]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [
+          "Department"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "static",
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [
+          "BreakLocation=Between"
+        ],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Units.Value)",
+        "functionName": "Sum",
+        "fieldName": "Units",
+        "explicitScope": null
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": "0",
+      "scope": {
+        "role": "groupSubtotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row remains inside group Department"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Units",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 3
+    },
+    {
+      "diagnosticId": "fd0c1094e84d9adc71d1",
+      "reportItemType": "Textbox",
+      "reportItemName": "DepartmentRevenueSubtotal",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[2]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [
+          "Department"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "static",
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [
+          "BreakLocation=Between"
+        ],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "functionName": "Sum",
+        "fieldName": "Revenue",
+        "explicitScope": null
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": "C2",
+      "scope": {
+        "role": "groupSubtotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row remains inside group Department"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Revenue",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 3
+    },
+    {
+      "diagnosticId": "eac9fb8165bf377c638e",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox67",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[2]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Units.Value)",
+        "functionName": "Sum",
+        "fieldName": "Units",
+        "explicitScope": null
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": "0",
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Units",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 3
+    },
+    {
+      "diagnosticId": "de1aa47549ec95211e8a",
+      "reportItemType": "Textbox",
+      "reportItemName": "ReportRevenueTotal",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowMember[2]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "functionName": "Sum",
+        "fieldName": "Revenue",
+        "explicitScope": null
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": "C2",
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Revenue",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 3
+    },
+    {
+      "diagnosticId": "9e2bda76b36e45f7395a",
+      "reportItemType": "Textbox",
+      "reportItemName": "Department",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Department)",
+        "containerChain": [
+          "Tablix(DepartmentSalesTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "DepartmentSalesTable"
+        ],
+        "tablixName": "DepartmentSalesTable",
+        "tablixDatasetName": "DepartmentSales",
+        "rowMemberPath": [
+          "rowHeaderMember"
+        ],
+        "columnMemberPath": [],
+        "groupNames": [
+          "Department"
+        ],
+        "groupExpressions": [
+          "=Fields!Department.Value"
+        ],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Department.Value",
+        "fieldName": "Department"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "groupHeader",
+        "confidence": "medium",
+        "evidence": [
+          "field-bound row is inside group Department"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Department",
+        "datasetName": "DepartmentSales",
+        "possibleDatasets": [
+          "DepartmentSales"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    }
+  ],
+  "datasetOverlapEvidence": [],
+  "aggregateScopeEvidence": [
+    {
+      "diagnosticId": "7d9e69f6a6bd5c6d7352",
+      "reportItemName": "Textbox54",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Units.Value)",
+        "functionName": "Sum",
+        "fieldName": "Units",
+        "explicitScope": null
+      },
+      "scope": {
+        "role": "groupSubtotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row remains inside group Department"
+        ]
+      },
+      "groupNames": [
+        "Department"
+      ]
+    },
+    {
+      "diagnosticId": "fd0c1094e84d9adc71d1",
+      "reportItemName": "DepartmentRevenueSubtotal",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "functionName": "Sum",
+        "fieldName": "Revenue",
+        "explicitScope": null
+      },
+      "scope": {
+        "role": "groupSubtotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row remains inside group Department"
+        ]
+      },
+      "groupNames": [
+        "Department"
+      ]
+    },
+    {
+      "diagnosticId": "eac9fb8165bf377c638e",
+      "reportItemName": "Textbox67",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Units.Value)",
+        "functionName": "Sum",
+        "fieldName": "Units",
+        "explicitScope": null
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "de1aa47549ec95211e8a",
+      "reportItemName": "ReportRevenueTotal",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "functionName": "Sum",
+        "fieldName": "Revenue",
+        "explicitScope": null
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    }
+  ],
+  "containerHierarchyEvidence": [
+    {
+      "diagnosticId": "bd9dd4837542a77b1986",
+      "reportItemName": "Textbox7",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[0]/Textbox(Textbox7)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "09d54b7cbb976fd4f24c",
+      "reportItemName": "Textbox11",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[1]/Textbox(Textbox11)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "e0cbf6a7bb90ea8dcde8",
+      "reportItemName": "Textbox13",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[2]/Textbox(Textbox13)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "48cd60582bcef90e6e05",
+      "reportItemName": "Textbox15",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[3]/Textbox(Textbox15)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "19b71ae46245f42a2986",
+      "reportItemName": "Textbox48",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox48)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowHeaderMember"
+      ],
+      "columnMemberPath": []
+    },
+    {
+      "diagnosticId": "15fa137857aeb1483d11",
+      "reportItemName": "Textbox64",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox64)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowHeaderMember"
+      ],
+      "columnMemberPath": []
+    },
+    {
+      "diagnosticId": "2a9c47973ebe24687485",
+      "reportItemName": "DetailSaleDate",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[0]/Textbox(DetailSaleDate)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "6d349e10628d5c74264b",
+      "reportItemName": "DetailRepresentative",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[1]/Textbox(DetailRepresentative)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "87ac6a91150b50adcfee",
+      "reportItemName": "DetailUnits",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[2]/Textbox(DetailUnits)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "1f23f9e7674c9d3bb541",
+      "reportItemName": "DetailRevenue",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "7d9e69f6a6bd5c6d7352",
+      "reportItemName": "Textbox54",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[2]/Textbox(Textbox54)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[2]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "fd0c1094e84d9adc71d1",
+      "reportItemName": "DepartmentRevenueSubtotal",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[2]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "eac9fb8165bf377c638e",
+      "reportItemName": "Textbox67",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[2]/Textbox(Textbox67)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[2]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "de1aa47549ec95211e8a",
+      "reportItemName": "ReportRevenueTotal",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[2]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "9e2bda76b36e45f7395a",
+      "reportItemName": "Department",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Department)",
+      "containerChain": [
+        "Tablix(DepartmentSalesTable)"
+      ],
+      "rowMemberPath": [
+        "rowHeaderMember"
+      ],
+      "columnMemberPath": []
+    }
+  ],
+  "candidateOrdering": {
+    "titleDiagnosticIds": [
+      "84b9fb7c3d176cfdebf9",
+      "bd9dd4837542a77b1986",
+      "09d54b7cbb976fd4f24c",
+      "e0cbf6a7bb90ea8dcde8",
+      "48cd60582bcef90e6e05",
+      "19b71ae46245f42a2986",
+      "15fa137857aeb1483d11"
+    ],
+    "fieldDiagnosticIds": [
+      "2a9c47973ebe24687485",
+      "6d349e10628d5c74264b",
+      "87ac6a91150b50adcfee",
+      "1f23f9e7674c9d3bb541",
+      "7d9e69f6a6bd5c6d7352",
+      "fd0c1094e84d9adc71d1",
+      "eac9fb8165bf377c638e",
+      "de1aa47549ec95211e8a",
+      "9e2bda76b36e45f7395a"
+    ]
+  },
+  "remainingInformationLoss": [
+    "Candidate discovery does not select or score a generic target.",
+    "Structural role inference is conservative and remains review evidence.",
+    "No candidate identifier is mutation authority."
+  ],
+  "selectedTarget": null,
+  "mutationAuthorized": false
+}

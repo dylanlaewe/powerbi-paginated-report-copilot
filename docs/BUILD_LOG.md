@@ -1,5 +1,21 @@
 # Build log
 
+## 2026-07-27 — RDL structure corpus Gate 2I target context
+
+- Added strict structural location, expression, dataset identity, scope role,
+  title candidate, field-display candidate, and catalog runtime schemas.
+- Preserved report region, nested rectangle/tablix containment, bound dataset,
+  row/column member paths, groups, repetition/page-break context, visibility,
+  positions, dimensions, styles, formats, and aggregate metadata.
+- Classified static text, constant-string, direct field, aggregate, parameter,
+  report-global, code, compound, and unknown expressions without execution.
+- Kept detail, group header, group subtotal, Grand Total, static header, and
+  standalone evidence distinct; ambiguous dataset declarations remain explicit.
+- Added sanitized Electron candidate summaries with session-scoped opaque UUIDs.
+  No mutation IPC accepts a candidate handle.
+- Generated deterministic four-fixture catalogs without selecting or
+  authorizing a target. No RDL source or output was written.
+
 ## 2026-07-27 — RDL structure corpus Gate 2H page-geometry normalization
 
 - Added runtime-validated `explicit`/`omitted` page measurements; malformed

@@ -104,6 +104,7 @@ export * from "./edit-plan";
 export * from "./edit-planner";
 export * from "./sidecar-cli";
 export * from "./structural-guard";
+export * from "./target-context";
 export * from "./mutation";
 export * from "./corpus";
 export * from "./authoring-kit";

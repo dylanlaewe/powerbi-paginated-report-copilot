@@ -3,6 +3,7 @@ import { readFile, realpath } from "node:fs/promises";
 import { basename, join } from "node:path";
 import {
   applyPreparedSidecarEdit,
+  catalogRdlBytes,
   createEditPlannerContext,
   inspectRdlFile,
   prepareSidecarEditFromText,
@@ -31,6 +32,7 @@ type ReportSession = {
   sourcePath: string;
   sourceSha256: string;
   createdAt: number;
+  candidateIds: ReadonlySet<string>;
 };
 type PlanSession = {
   id: string;
@@ -193,6 +195,7 @@ export class ExistingRdlSidecarService {
       const sourcePath = await realpath(selectedPath);
       const inventory = await inspectRdlFile(sourcePath);
       const source = await readFile(sourcePath);
+      const catalog = await catalogRdlBytes(source);
       const xsd = await validateXmlAgainstXsd(
         source,
         await readFile(this.options.schemaPath),
@@ -203,11 +206,38 @@ export class ExistingRdlSidecarService {
           "The selected RDL failed schema validation.",
         );
       const id = randomUUID();
+      const titleCandidates = catalog.titleCandidates.map((candidate) => ({
+        candidateId: randomUUID(),
+        reportItemName: candidate.reportItemName,
+        structuralPath: candidate.location.structuralPath,
+        region: candidate.location.region,
+        visibleText: candidate.visibleText,
+        evidence: [
+          ...candidate.positiveEvidence,
+          ...candidate.negativeEvidence,
+        ],
+      }));
+      const fieldDisplayCandidates = catalog.fieldDisplayCandidates.map(
+        (candidate) => ({
+          candidateId: randomUUID(),
+          reportItemName: candidate.reportItemName,
+          structuralPath: candidate.location.structuralPath,
+          region: candidate.location.region,
+          fieldName: candidate.fieldIdentity.fieldName,
+          expressionKind: candidate.expression.kind,
+          datasetCertainty: candidate.fieldIdentity.certainty,
+          scopeRole: candidate.scope.role,
+        }),
+      );
       this.reports.set(id, {
         id,
         sourcePath,
         sourceSha256: sha256(source),
         createdAt: this.now(),
+        candidateIds: new Set([
+          ...titleCandidates.map(({ candidateId }) => candidateId),
+          ...fieldDisplayCandidates.map(({ candidateId }) => candidateId),
+        ]),
       });
       let currentTitle: string | null = null;
       try {
@@ -245,6 +275,12 @@ export class ExistingRdlSidecarService {
             inventory.reportSections[0]?.pageHeight.presence === "explicit"
               ? inventory.reportSections[0].pageHeight.raw
               : "Not serialized",
+          candidateCatalog: {
+            titleCount: titleCandidates.length,
+            fieldDisplayCount: fieldDisplayCandidates.length,
+            titleCandidates,
+            fieldDisplayCandidates,
+          },
           currentTitle,
         },
         revealLabel: revealLabelForPlatform(this.options.platform),

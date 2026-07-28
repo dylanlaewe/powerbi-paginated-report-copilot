@@ -1,0 +1,2952 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-invoice",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+    "byteLength": 222297,
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "productionInspectionResult": "PASS",
+  "structuralLocationInventory": {
+    "regions": [
+      "body",
+      "pageFooter",
+      "pageHeader"
+    ],
+    "containerPaths": [
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox7)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox34)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox38)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox36)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox37)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox42)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox43)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox40)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox24)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox33)",
+      "section[0]/pageFooter/Rectangle(Rectangle1)/Textbox(Textbox12)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox8)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Item)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Description)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(SalesUnitTxt)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[4]/Textbox(SalesPrice)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox19)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox21)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox35)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox39)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox27)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox41)",
+      "section[0]/pageHeader/Textbox(Textbox1)",
+      "section[0]/pageHeader/Textbox(Textbox4)"
+    ],
+    "tablixes": [
+      {
+        "name": "Tablix1",
+        "datasetName": "SalesInvoiceDS"
+      },
+      {
+        "name": "Tablix2",
+        "datasetName": "SalesInvoiceDS"
+      },
+      {
+        "name": "Tablix3",
+        "datasetName": "SalesInvoiceDS"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Details",
+        "expressions": []
+      },
+      {
+        "name": "Invoice_Group",
+        "expressions": [
+          "=Fields!InvoiceId.Value"
+        ]
+      }
+    ]
+  },
+  "titleCandidateCatalog": [
+    {
+      "diagnosticId": "5dcfa0342d89893bbee7",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox7",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox7)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle4)",
+          "Rectangle(Rectangle3)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle4",
+          "Rectangle3"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "1.76389mm",
+        "left": "5mm",
+        "width": "79.99999mm",
+        "height": "6mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Invoice CIV-000676\"",
+        "text": "Invoice CIV-000676"
+      },
+      "fontSizes": [
+        "12pt",
+        "12pt",
+        "12pt"
+      ],
+      "fontWeights": [
+        "Bold",
+        "Bold",
+        "Bold"
+      ],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Invoice CIV-000676",
+      "positiveEvidence": [
+        "font size 12pt",
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header"
+      ],
+      "evidenceSummary": "font size 12pt; bold text; located in body; located in a tablix static header"
+    },
+    {
+      "diagnosticId": "248cdebd64818234f72b",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox34",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox34)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "18mm",
+        "left": "10mm",
+        "width": "25.00002mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Payment reference\"",
+        "text": "Payment reference"
+      },
+      "fontSizes": [
+        "3mm"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Payment reference",
+      "positiveEvidence": [
+        "font size 3mm",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 3mm; located in body; likely static label or caption"
+    },
+    {
+      "diagnosticId": "84198c4be3db7b6f60e2",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox38",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox38)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "21.99999mm",
+        "left": "35mm",
+        "width": "15mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\" \"",
+        "text": " "
+      },
+      "fontSizes": [
+        "3mm"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": " ",
+      "positiveEvidence": [
+        "font size 3mm",
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "short label-like text",
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 3mm; bold text; located in body; short label-like text; likely static label or caption"
+    },
+    {
+      "diagnosticId": "845871a2909ce13e7b07",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox36",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox36)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "21.99999mm",
+        "left": "9.99998mm",
+        "width": "25.00002mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Sort code\"",
+        "text": "Sort code"
+      },
+      "fontSizes": [
+        "3mm"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Sort code",
+      "positiveEvidence": [
+        "font size 3mm",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "short label-like text",
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 3mm; located in body; short label-like text; likely static label or caption"
+    },
+    {
+      "diagnosticId": "f3bac9d2d6e098b46cdd",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox37",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox37)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "25.99998mm",
+        "left": "9.99999mm",
+        "width": "25.00002mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Account No.\"",
+        "text": "Account No."
+      },
+      "fontSizes": [
+        "3mm"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Account No.",
+      "positiveEvidence": [
+        "font size 3mm",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "short label-like text",
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 3mm; located in body; short label-like text; likely static label or caption"
+    },
+    {
+      "diagnosticId": "e88d895ad9605ce2ef86",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox42",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox42)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "12mm",
+        "left": "10mm",
+        "width": "38.64722mm",
+        "height": "5mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Electronic payment\"",
+        "text": "Electronic payment"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Electronic payment",
+      "positiveEvidence": [
+        "font size 8pt",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 8pt; located in body; likely static label or caption"
+    },
+    {
+      "diagnosticId": "9dccfef195976813e074",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox43",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox43)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "12mm",
+        "left": "55mm",
+        "width": "38.64722mm",
+        "height": "5mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Check\"",
+        "text": "Check"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Check",
+      "positiveEvidence": [
+        "font size 8pt",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "short label-like text",
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 8pt; located in body; short label-like text; likely static label or caption"
+    },
+    {
+      "diagnosticId": "49373fcba575264d58e5",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox40",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox40)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "18mm",
+        "left": "55mm",
+        "width": "50mm",
+        "height": "12mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Make check payable to"
+      },
+      "fontSizes": [
+        "3mm",
+        "2.5mm",
+        "3mm",
+        "2.5mm",
+        "3mm",
+        "2.5mm",
+        "3mm",
+        "2.5mm",
+        "3mm"
+      ],
+      "fontWeights": [
+        "Bold",
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Make check payable to",
+      "positiveEvidence": [
+        "font size 3mm",
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 3mm; bold text; located in body; likely static label or caption"
+    },
+    {
+      "diagnosticId": "da4a70c39d021479f4f2",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox24",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox24)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle24)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5",
+          "Rectangle24"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": "3.5cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "expression",
+          "expression": "=First(Fields!ShowCompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\") = \"No\""
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Tax registration no.\"",
+        "text": "Tax registration no."
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Tax registration no.",
+      "positiveEvidence": [
+        "font size 8pt",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 8pt; located in body; likely static label or caption"
+    },
+    {
+      "diagnosticId": "bb58f401b6920220d0e7",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox33",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox33)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle24)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5",
+          "Rectangle24"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.5cm",
+        "left": null,
+        "width": "3.5cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "expression",
+          "expression": "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\") = \"\""
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Our reference\"",
+        "text": "Our reference"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Our reference",
+      "positiveEvidence": [
+        "font size 8pt",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 8pt; located in body; likely static label or caption"
+    },
+    {
+      "diagnosticId": "f87f940614df58807d68",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox12",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageFooter",
+        "structuralPath": "section[0]/pageFooter/Rectangle(Rectangle1)/Textbox(Textbox12)",
+        "containerChain": [
+          "Rectangle(Rectangle1)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle1"
+        ],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.10583cm",
+        "left": "0.1203cm",
+        "width": "19.8797cm",
+        "height": "0.81168cm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Disclaimer:This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\"",
+        "text": "Disclaimer:This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred."
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "Disclaimer:This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+      "positiveEvidence": [
+        "font size 8pt"
+      ],
+      "negativeEvidence": [
+        "located in page footer"
+      ],
+      "evidenceSummary": "font size 8pt; located in page footer"
+    }
+  ],
+  "fieldDisplayCandidateCatalog": [
+    {
+      "diagnosticId": "aaee29ba2ad3a18b823e",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox8",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox8)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle4)",
+          "Rectangle(Rectangle3)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle4",
+          "Rectangle3"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "7.76389mm",
+        "left": "5mm",
+        "width": "79.99999mm",
+        "height": "6mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!InvoiceDate.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "InvoiceDate",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "fontSizes": [
+        "12pt"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": "d MMMM yyyy",
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "InvoiceDate",
+        "datasetName": "SalesInvoiceHeaderFooterDS",
+        "possibleDatasets": [
+          "SalesInvoiceHeaderFooterDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "3236f6967f97ce318a03",
+      "reportItemType": "Textbox",
+      "reportItemName": "Item",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Item)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Item.Value",
+        "fieldName": "Item"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Item",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "781bfab3bd4a6fd4c2d8",
+      "reportItemType": "Textbox",
+      "reportItemName": "Description",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Description)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Description.Value",
+        "fieldName": "Description"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Description",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "b3482cc5897d2710f4a3",
+      "reportItemType": "Textbox",
+      "reportItemName": "Quantity",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Quantity.Value",
+        "fieldName": "Quantity"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": "#,###,##0.##",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Quantity",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "8023a338145c4a050e18",
+      "reportItemType": "Textbox",
+      "reportItemName": "SalesUnitTxt",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(SalesUnitTxt)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!SalesUnitTxt.Value",
+        "fieldName": "SalesUnitTxt"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "SalesUnitTxt",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "50e0f7d2dc2bdae6698f",
+      "reportItemType": "Textbox",
+      "reportItemName": "SalesPrice",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[4]/Textbox(SalesPrice)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[4]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!SalesPrice.Value",
+        "fieldName": "SalesPrice"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": "N2",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "SalesPrice",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "a4ea6b8557de79034f99",
+      "reportItemType": "Textbox",
+      "reportItemName": "Discount",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[5]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Discount.Value",
+        "fieldName": "Discount"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Discount",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 2
+    },
+    {
+      "diagnosticId": "116d5d5c1bd16eba510e",
+      "reportItemType": "Textbox",
+      "reportItemName": "Amount",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[6]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Amount.Value",
+        "fieldName": "Amount"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": "N2",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Amount",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 2
+    },
+    {
+      "diagnosticId": "226fbc39a5291a02f6fa",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox46",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix3)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix3"
+        ],
+        "tablixName": "Tablix3",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Amount.Value",
+        "fieldName": "Amount"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": "N2",
+      "scope": {
+        "role": "unknown",
+        "confidence": "low",
+        "evidence": []
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Amount",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 2
+    },
+    {
+      "diagnosticId": "a49116ce11c378f0dbab",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox55",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix3)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix3"
+        ],
+        "tablixName": "Tablix3",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Discount.Value",
+        "fieldName": "Discount"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": "N2",
+      "scope": {
+        "role": "unknown",
+        "confidence": "low",
+        "evidence": []
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Discount",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 2
+    },
+    {
+      "diagnosticId": "d1e887f265682466d545",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox19",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox19)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle21)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle21"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[2]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0cm",
+        "left": "1cm",
+        "width": "19cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "expression",
+          "expression": "=Fields!FormLetterRemarksTxt.Value = \"\""
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!FormLetterRemarksTxt.Value",
+        "fieldName": "FormLetterRemarksTxt"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "unknown",
+        "confidence": "low",
+        "evidence": []
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "FormLetterRemarksTxt",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "ee812cac864dc4fd0c25",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox21",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox21)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle21)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle21"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[2]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.5cm",
+        "left": "1cm",
+        "width": "19cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "expression",
+          "expression": "=Fields!HeaderNotes.Value = \"\""
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!HeaderNotes.Value",
+        "fieldName": "HeaderNotes"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "unknown",
+        "confidence": "low",
+        "evidence": []
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "HeaderNotes",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "8624ecc267d5ebb3d54b",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox35",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox35)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "18mm",
+        "left": "35mm",
+        "width": "15mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!InvoiceAccount.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "InvoiceAccount",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "fontSizes": [
+        "3mm"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "InvoiceAccount",
+        "datasetName": "SalesInvoiceHeaderFooterDS",
+        "possibleDatasets": [
+          "SalesInvoiceHeaderFooterDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "53b9e21412379c737b82",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox39",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox39)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "25.99998mm",
+        "left": "35mm",
+        "width": "15mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!BankAccountNum.Value, \"SalesInvoiceDS\")",
+        "functionName": "First",
+        "fieldName": "BankAccountNum",
+        "explicitScope": "SalesInvoiceDS"
+      },
+      "fontSizes": [
+        "2.5mm"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "BankAccountNum",
+        "datasetName": "SalesInvoiceDS",
+        "possibleDatasets": [
+          "SalesInvoiceDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "2a034e037bb75878df23",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox27",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox27)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle24)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5",
+          "Rectangle24"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": "3.50001cm",
+        "width": "4.99999cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "expression",
+          "expression": "=First(Fields!ShowCompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\") = \"No\""
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!CompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "CompanyVATNum",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "CompanyVATNum",
+        "datasetName": "SalesInvoiceHeaderFooterDS",
+        "possibleDatasets": [
+          "SalesInvoiceHeaderFooterDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "3e39ed519b9537f2e01d",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox41",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox41)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle24)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle5",
+          "Rectangle24"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "SalesInvoiceDS",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=Before"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.5cm",
+        "left": "3.50001cm",
+        "width": "4.99999cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "expression",
+          "expression": "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\") = \"\""
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "CompanyGiro",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "CompanyGiro",
+        "datasetName": "SalesInvoiceHeaderFooterDS",
+        "possibleDatasets": [
+          "SalesInvoiceHeaderFooterDS"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "4933478c4288f42bddab",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox1",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageHeader",
+        "structuralPath": "section[0]/pageHeader/Textbox(Textbox1)",
+        "containerChain": [],
+        "rectangleAncestry": [],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.31139cm",
+        "left": "10.06001cm",
+        "width": "9.93999cm",
+        "height": "0.6cm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!Name.Value, \"Company\")",
+        "functionName": "First",
+        "fieldName": "Name",
+        "explicitScope": "Company"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "ambiguous",
+        "fieldName": "Name",
+        "possibleDatasets": [
+          "Company",
+          "Users"
+        ],
+        "uniqueAcrossReport": false
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "10adf6872c8be9d9263f",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox4",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageHeader",
+        "structuralPath": "section[0]/pageHeader/Textbox(Textbox4)",
+        "containerChain": [],
+        "rectangleAncestry": [],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "2.61139cm",
+        "left": "13.56002cm",
+        "width": "6.43998cm",
+        "height": "0.5cm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!Website.Value, \"Company\")",
+        "functionName": "First",
+        "fieldName": "Website",
+        "explicitScope": "Company"
+      },
+      "fontSizes": [
+        "9pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Website",
+        "datasetName": "Company",
+        "possibleDatasets": [
+          "Company"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    }
+  ],
+  "datasetOverlapEvidence": [
+    {
+      "fieldName": "Address",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "City",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "Company",
+      "datasetNames": [
+        "CompanyList",
+        "SalesInvoiceDS",
+        "SalesInvoiceHeaderFooterDS"
+      ]
+    },
+    {
+      "fieldName": "Country",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "Name",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    },
+    {
+      "fieldName": "State",
+      "datasetNames": [
+        "Company",
+        "Users"
+      ]
+    }
+  ],
+  "aggregateScopeEvidence": [
+    {
+      "diagnosticId": "aaee29ba2ad3a18b823e",
+      "reportItemName": "Textbox8",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!InvoiceDate.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "InvoiceDate",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "8624ecc267d5ebb3d54b",
+      "reportItemName": "Textbox35",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!InvoiceAccount.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "InvoiceAccount",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "53b9e21412379c737b82",
+      "reportItemName": "Textbox39",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!BankAccountNum.Value, \"SalesInvoiceDS\")",
+        "functionName": "First",
+        "fieldName": "BankAccountNum",
+        "explicitScope": "SalesInvoiceDS"
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "2a034e037bb75878df23",
+      "reportItemName": "Textbox27",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!CompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "CompanyVATNum",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "3e39ed519b9537f2e01d",
+      "reportItemName": "Textbox41",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\")",
+        "functionName": "First",
+        "fieldName": "CompanyGiro",
+        "explicitScope": "SalesInvoiceHeaderFooterDS"
+      },
+      "scope": {
+        "role": "grandTotal",
+        "confidence": "high",
+        "evidence": [
+          "aggregate row is outside semantic row groups"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "4933478c4288f42bddab",
+      "reportItemName": "Textbox1",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!Name.Value, \"Company\")",
+        "functionName": "First",
+        "fieldName": "Name",
+        "explicitScope": "Company"
+      },
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "groupNames": []
+    },
+    {
+      "diagnosticId": "10adf6872c8be9d9263f",
+      "reportItemName": "Textbox4",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!Website.Value, \"Company\")",
+        "functionName": "First",
+        "fieldName": "Website",
+        "explicitScope": "Company"
+      },
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "groupNames": []
+    }
+  ],
+  "containerHierarchyEvidence": [
+    {
+      "diagnosticId": "5dcfa0342d89893bbee7",
+      "reportItemName": "Textbox7",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox7)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle4)",
+        "Rectangle(Rectangle3)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "248cdebd64818234f72b",
+      "reportItemName": "Textbox34",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox34)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "84198c4be3db7b6f60e2",
+      "reportItemName": "Textbox38",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox38)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "845871a2909ce13e7b07",
+      "reportItemName": "Textbox36",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox36)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "f3bac9d2d6e098b46cdd",
+      "reportItemName": "Textbox37",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox37)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "e88d895ad9605ce2ef86",
+      "reportItemName": "Textbox42",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox42)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "9dccfef195976813e074",
+      "reportItemName": "Textbox43",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox43)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "49373fcba575264d58e5",
+      "reportItemName": "Textbox40",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox40)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "da4a70c39d021479f4f2",
+      "reportItemName": "Textbox24",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox24)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle24)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "bb58f401b6920220d0e7",
+      "reportItemName": "Textbox33",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox33)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle24)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "f87f940614df58807d68",
+      "reportItemName": "Textbox12",
+      "structuralPath": "section[0]/pageFooter/Rectangle(Rectangle1)/Textbox(Textbox12)",
+      "containerChain": [
+        "Rectangle(Rectangle1)"
+      ],
+      "rowMemberPath": [],
+      "columnMemberPath": []
+    },
+    {
+      "diagnosticId": "aaee29ba2ad3a18b823e",
+      "reportItemName": "Textbox8",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox8)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle4)",
+        "Rectangle(Rectangle3)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "3236f6967f97ce318a03",
+      "reportItemName": "Item",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Item)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "781bfab3bd4a6fd4c2d8",
+      "reportItemName": "Description",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Description)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "b3482cc5897d2710f4a3",
+      "reportItemName": "Quantity",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "8023a338145c4a050e18",
+      "reportItemName": "SalesUnitTxt",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(SalesUnitTxt)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "50e0f7d2dc2bdae6698f",
+      "reportItemName": "SalesPrice",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[4]/Textbox(SalesPrice)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[4]"
+      ]
+    },
+    {
+      "diagnosticId": "a4ea6b8557de79034f99",
+      "reportItemName": "Discount",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[5]/Textbox(Discount)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[5]"
+      ]
+    },
+    {
+      "diagnosticId": "116d5d5c1bd16eba510e",
+      "reportItemName": "Amount",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[6]"
+      ]
+    },
+    {
+      "diagnosticId": "226fbc39a5291a02f6fa",
+      "reportItemName": "Textbox46",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix3)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "a49116ce11c378f0dbab",
+      "reportItemName": "Textbox55",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[1]/cell[2]/Textbox(Textbox55)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix3)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "d1e887f265682466d545",
+      "reportItemName": "Textbox19",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox19)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle21)"
+      ],
+      "rowMemberPath": [
+        "rowMember[2]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "ee812cac864dc4fd0c25",
+      "reportItemName": "Textbox21",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[3]/cell[0]/Textbox(Textbox21)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle21)"
+      ],
+      "rowMemberPath": [
+        "rowMember[2]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "8624ecc267d5ebb3d54b",
+      "reportItemName": "Textbox35",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox35)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "53b9e21412379c737b82",
+      "reportItemName": "Textbox39",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox39)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "2a034e037bb75878df23",
+      "reportItemName": "Textbox27",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox27)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle24)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "3e39ed519b9537f2e01d",
+      "reportItemName": "Textbox41",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox41)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle24)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    }
+  ],
+  "candidateOrdering": {
+    "titleDiagnosticIds": [
+      "5dcfa0342d89893bbee7",
+      "248cdebd64818234f72b",
+      "84198c4be3db7b6f60e2",
+      "845871a2909ce13e7b07",
+      "f3bac9d2d6e098b46cdd",
+      "e88d895ad9605ce2ef86",
+      "9dccfef195976813e074",
+      "49373fcba575264d58e5",
+      "da4a70c39d021479f4f2",
+      "bb58f401b6920220d0e7",
+      "f87f940614df58807d68"
+    ],
+    "fieldDiagnosticIds": [
+      "aaee29ba2ad3a18b823e",
+      "3236f6967f97ce318a03",
+      "781bfab3bd4a6fd4c2d8",
+      "b3482cc5897d2710f4a3",
+      "8023a338145c4a050e18",
+      "50e0f7d2dc2bdae6698f",
+      "a4ea6b8557de79034f99",
+      "116d5d5c1bd16eba510e",
+      "226fbc39a5291a02f6fa",
+      "a49116ce11c378f0dbab",
+      "d1e887f265682466d545",
+      "ee812cac864dc4fd0c25",
+      "8624ecc267d5ebb3d54b",
+      "53b9e21412379c737b82",
+      "2a034e037bb75878df23",
+      "3e39ed519b9537f2e01d",
+      "4933478c4288f42bddab",
+      "10adf6872c8be9d9263f"
+    ]
+  },
+  "remainingInformationLoss": [
+    "Candidate discovery does not select or score a generic target.",
+    "Structural role inference is conservative and remains review evidence.",
+    "No candidate identifier is mutation authority."
+  ],
+  "selectedTarget": null,
+  "mutationAuthorized": false
+}

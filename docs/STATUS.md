@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2H optional page-geometry normalization complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2I structural target context complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -40,6 +40,19 @@ structural inventory and a sanitized summary without inferred dimensions.
 Orientation remains unknown and mutation is blocked before writes with
 `PAGE_DIMENSIONS_UNSPECIFIED`. Explicit-dimension orientation behavior,
 title/field resolution, planner grammar, and source bytes remain unchanged.
+
+Gate 2I adds a strict read-only structural candidate catalog. It preserves
+body/header/footer region, rectangle and tablix ancestry, dataset identity,
+row/column member paths, group context, visibility, safe expression
+classification, and evidence-based detail/header/subtotal/Grand Total roles.
+Page-header constant-string titles are represented without evaluating Visual
+Basic expressions.
+
+Generic discovery still selects no target and authorizes no mutation.
+Deterministic artifacts use stable diagnostic IDs; Electron summaries replace
+them with inspection-session UUIDs. Existing mutation IPC accepts neither
+candidate IDs, report-item names, nor structural paths. The checksum-reviewed
+v0.2 target path remains the only writable authority.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

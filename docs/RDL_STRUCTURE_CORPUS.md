@@ -189,3 +189,22 @@ under `examples/rdl-structure-corpus/inspector-normalization-v0.3/`.
 Title and numeric target behavior remains the Gate 2G behavior. No fixture hash
 was added to production configuration. Future dimension materialization
 requires separate design and independent Report Builder validation.
+
+## Gate 2I structural target context
+
+The production read-only path catalogs candidate textboxes with stable
+structural evidence: report region, nested rectangle/tablix ancestry, tablix
+dataset, row and column member paths, group expressions, static/dynamic member
+status, repetition and page-break metadata, visibility, position, dimensions,
+style, expression type, field identity, aggregate metadata, format, and
+structural scope role.
+
+Constant-string expressions are decoded without evaluation. Arbitrary Visual
+Basic, custom code, queries, and report expressions are never executed.
+Same-named declarations retain possible datasets and certainty; field displays
+in different tablixes remain separate candidates.
+
+Catalogs under `examples/rdl-structure-corpus/target-context-v0.3/` use stable
+diagnostic IDs only. Live renderer summaries use new opaque UUIDs per
+inspection session. Neither kind is accepted by mutation IPC. No generic title
+or field target is selected, and checksum-reviewed mutation remains unchanged.

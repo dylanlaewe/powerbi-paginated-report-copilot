@@ -81,6 +81,50 @@ export const reportSummarySchema = z
     pageOrientation: z.enum(["portrait", "landscape", "square", "unspecified"]),
     pageWidth: z.string(),
     pageHeight: z.string(),
+    candidateCatalog: z
+      .object({
+        titleCount: z.number().int().nonnegative(),
+        fieldDisplayCount: z.number().int().nonnegative(),
+        titleCandidates: z.array(
+          z
+            .object({
+              candidateId: z.string().uuid(),
+              reportItemName: z.string(),
+              structuralPath: z.string(),
+              region: z.enum(["body", "pageHeader", "pageFooter"]),
+              visibleText: z.string(),
+              evidence: z.array(z.string()),
+            })
+            .strict(),
+        ),
+        fieldDisplayCandidates: z.array(
+          z
+            .object({
+              candidateId: z.string().uuid(),
+              reportItemName: z.string(),
+              structuralPath: z.string(),
+              region: z.enum(["body", "pageHeader", "pageFooter"]),
+              fieldName: z.string(),
+              expressionKind: z.enum([
+                "directFieldReference",
+                "aggregateExpression",
+              ]),
+              datasetCertainty: z.enum(["certain", "ambiguous", "unavailable"]),
+              scopeRole: z.enum([
+                "detail",
+                "groupHeader",
+                "groupSubtotal",
+                "grandTotal",
+                "staticHeader",
+                "staticLabel",
+                "standalone",
+                "unknown",
+              ]),
+            })
+            .strict(),
+        ),
+      })
+      .strict(),
     currentTitle: z.string().nullable(),
   })
   .strict();
