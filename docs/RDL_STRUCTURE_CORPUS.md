@@ -171,3 +171,21 @@ The index records source identity, namespace, structural/count summary, title an
 - Gate 7: independent Windows Preview/PDF/Excel validation
 
 No merge is permitted before Gate 7 passes.
+
+## Gate 2H optional page geometry
+
+Production inspection accepts schema-optional omitted `PageWidth`,
+`PageHeight`, and margin elements. Each is normalized as either an explicit
+source value with parsed inches or an omitted discriminant. Omission is never
+zero, Letter, A4, or an inferred Report Builder default. Malformed serialized
+sizes remain structured `INVALID_REPORT` failures.
+
+All four accepted sources reach structural inventory and sanitized summary
+generation. Their width and height are omitted, so orientation is unknown and
+`setPageOrientation` is rejected atomically with
+`PAGE_DIMENSIONS_UNSPECIFIED`. No source or output RDL was written. Evidence is
+under `examples/rdl-structure-corpus/inspector-normalization-v0.3/`.
+
+Title and numeric target behavior remains the Gate 2G behavior. No fixture hash
+was added to production configuration. Future dimension materialization
+requires separate design and independent Report Builder validation.

@@ -57,3 +57,15 @@ A separate corpus-assisted diagnostic applied the existing generic conservative 
 - Transcript: correct `Textbox1` is omitted because it is a page-header constant expression; current discovery searches body static text only. Its overlapping `Name` field would be ambiguous.
 
 Production has no candidate scoring. It also contains a mutation-specific exactly-three-Revenue target check. Diagnostic scores in the baseline are evaluation evidence only. Future implementation must generalize read-only normalization and structural evidence before changing resolver selection or mutation.
+
+## v0.3 Gate 2H boundary
+
+Only optional page geometry is generalized. Candidate discovery is reachable
+because inspection completes, but title scoring and selection, field
+selection, ambiguity representation, and the exactly-three-Revenue rule are
+unchanged.
+
+Reports without both explicit dimensions expose unknown orientation.
+Orientation plans are accepted by the unchanged grammar but blocked before
+target resolution or XML mutation with `PAGE_DIMENSIONS_UNSPECIFIED`. This
+keeps mixed requests atomic and prevents fabricated page defaults.

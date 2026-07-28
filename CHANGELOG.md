@@ -4,6 +4,10 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2H: discriminated explicit/omitted page
+  measurements, unknown-orientation normalization, four-fixture production
+  inspection evidence, sanitized unspecified-dimension summaries, and an
+  atomic `PAGE_DIMENSIONS_UNSPECIFIED` orientation guard.
 - RDL Structure Corpus v0.3 Gate 2G: deterministic read-only production inspector/resolver/planner baselines for four immutable fixtures, clearly separated corpus-assisted candidate diagnostics, stable operation classifications, false-positive/negative evidence, and a smallest-safe implementation sequence. No RDL output or product behavior change.
 - RDL Structure Corpus v0.3 Gate 2F: one byte-identical, hash-pinned Microsoft Transcript compatibility fixture with the unmodified upstream MIT license, attribution, deterministic nested-layout inventory, static security evidence, XML/XSD validation, corpus registration, and fixture-level regressions. Invoice remains unchanged and Report Builder execution remains unperformed.
 - RDL Structure Corpus v0.3 Gate 2E: one byte-identical, hash-pinned Microsoft Invoice compatibility fixture with the unmodified upstream MIT license, attribution, deterministic inventory, static security evidence, XML/XSD validation, corpus registration, and fixture-level regressions. Report Builder execution remains unperformed.

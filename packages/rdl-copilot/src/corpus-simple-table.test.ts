@@ -165,9 +165,15 @@ describe("Gate 2B simple-table authored fixture", () => {
     );
   });
 
-  it("documents why generic sidecar inspection remains unevaluated", async () => {
-    await expect(inspectRdlFile(sourcePath)).rejects.toThrow(
-      "ReportSection 0 lacks PageWidth",
-    );
+  it("normalizes omitted page dimensions without inference", async () => {
+    const inventory = await inspectRdlFile(sourcePath);
+    expect(inventory.reportSections[0]).toMatchObject({
+      pageWidth: { presence: "omitted" },
+      pageHeight: { presence: "omitted" },
+      orientation: {
+        status: "unknown",
+        reason: "PAGE_DIMENSIONS_UNSPECIFIED",
+      },
+    });
   });
 });

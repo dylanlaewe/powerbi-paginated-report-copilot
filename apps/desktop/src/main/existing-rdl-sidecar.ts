@@ -71,6 +71,7 @@ const errorResult = (
       NOT_REGULAR_FILE: "SOURCE_NOT_REGULAR_FILE",
       FILE_TOO_LARGE: "SOURCE_TOO_LARGE",
       INVALID_REPORT: "SOURCE_XML_INVALID",
+      PAGE_DIMENSIONS_UNSPECIFIED: "PAGE_DIMENSIONS_UNSPECIFIED",
       TITLE_NOT_FOUND: "TARGET_MISSING",
       TITLE_AMBIGUOUS: "TARGET_AMBIGUOUS",
       FIELD_NOT_FOUND: "TARGET_MISSING",
@@ -232,7 +233,18 @@ export class ExistingRdlSidecarService {
           tablixNames: inventory.tablixes.map(({ name }) => name),
           groupNames: inventory.groups.map(({ name }) => name),
           textboxCount: inventory.textboxes.length,
-          pageOrientation: inventory.reportSections[0]?.orientation ?? "square",
+          pageOrientation:
+            inventory.reportSections[0]?.orientation.status === "known"
+              ? inventory.reportSections[0].orientation.value
+              : "unspecified",
+          pageWidth:
+            inventory.reportSections[0]?.pageWidth.presence === "explicit"
+              ? inventory.reportSections[0].pageWidth.raw
+              : "Not serialized",
+          pageHeight:
+            inventory.reportSections[0]?.pageHeight.presence === "explicit"
+              ? inventory.reportSections[0].pageHeight.raw
+              : "Not serialized",
           currentTitle,
         },
         revealLabel: revealLabelForPlatform(this.options.platform),

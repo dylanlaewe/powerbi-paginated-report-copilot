@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "byteLength": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+  },
+  "priorGate2GResult": {
+    "status": "BLOCKED_INSPECTOR",
+    "code": "INVALID_REPORT",
+    "message": "ReportSection 0 lacks PageWidth"
+  },
+  "newInspectionResult": "PASS",
+  "xmlParseResult": "PASS",
+  "namespaceResult": {
+    "status": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "version": "2016/01"
+  },
+  "modelNormalizationResult": "PASS",
+  "pageSettingsResult": {
+    "status": "PASS",
+    "pageWidth": {
+      "presence": "omitted"
+    },
+    "pageHeight": {
+      "presence": "omitted"
+    },
+    "margins": {
+      "left": {
+        "presence": "explicit",
+        "raw": "0.5in",
+        "normalizedInches": 0.5
+      },
+      "right": {
+        "presence": "explicit",
+        "raw": "0.5in",
+        "normalizedInches": 0.5
+      },
+      "top": {
+        "presence": "explicit",
+        "raw": "0.5in",
+        "normalizedInches": 0.5
+      },
+      "bottom": {
+        "presence": "explicit",
+        "raw": "0.5in",
+        "normalizedInches": 0.5
+      }
+    },
+    "orientation": {
+      "status": "unknown",
+      "reason": "PAGE_DIMENSIONS_UNSPECIFIED"
+    },
+    "bodyWidth": "7.08729in"
+  },
+  "structuralInventoryResult": {
+    "status": "PASS",
+    "counts": {
+      "dataSources": 1,
+      "datasets": 1,
+      "parameters": 0,
+      "tablixes": 1,
+      "textboxes": 10,
+      "rectangles": 0,
+      "images": 0,
+      "groups": 1,
+      "expressions": 4
+    },
+    "pageHeaderPresent": false,
+    "pageFooterPresent": false,
+    "groups": [
+      {
+        "name": "Details",
+        "expressions": []
+      }
+    ],
+    "warnings": [
+      "ReportSection 0 omits explicit PageWidth or PageHeight; orientation is unknown."
+    ],
+    "unsupportedElements": []
+  },
+  "candidateDiscoveryReachability": "REACHED",
+  "rendererSummaryAvailability": {
+    "status": "PASS",
+    "summary": {
+      "filename": "synthetic-inventory-detail.rdl",
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "namespaceVersion": "2016/01",
+      "datasetNames": [
+        "InventoryData"
+      ],
+      "fieldCount": 4,
+      "tablixNames": [
+        "InventoryTable"
+      ],
+      "groupNames": [
+        "Details"
+      ],
+      "textboxCount": 10,
+      "pageOrientation": "unspecified",
+      "pageWidth": "Not serialized",
+      "pageHeight": "Not serialized"
+    }
+  },
+  "titleResolution": {
+    "status": "BLOCKED",
+    "code": "TITLE_NOT_FOUND",
+    "message": "No checksum-reviewed report-title target is configured for this source"
+  },
+  "numericResolution": {
+    "status": "PASS",
+    "result": {
+      "kind": "fieldDisplay",
+      "fieldName": "UnitCost",
+      "reportItemNames": [
+        "DetailUnitCose"
+      ],
+      "expressions": [
+        "=Fields!UnitCost.Value"
+      ],
+      "evidence": [
+        "DetailUnitCose: exact direct expression =Fields!UnitCost.Value, format '$'0.00;('$'0.00)"
+      ]
+    }
+  },
+  "orientationCapability": {
+    "status": "BLOCKED",
+    "code": "PAGE_DIMENSIONS_UNSPECIFIED",
+    "message": "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed."
+  },
+  "exactRemainingBlockers": [
+    "Page orientation mutation requires explicit serialized PageWidth and PageHeight.",
+    "Checksum-reviewed report-title target is not configured for this source."
+  ]
+}

@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2G inspector/resolver baseline complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2H optional page-geometry normalization complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -33,6 +33,13 @@ Gate 2G invokes the unchanged production inspector on all four accepted sources.
 Corpus-assisted diagnostics—explicitly not product behavior—record current candidate consequences: simple-table title selection would be wrong, grouped title selection would be correct, Invoice has no confident title, and Transcript's page-header title is outside current discovery. UnitCost is uniquely addressable; grouped Revenue returns detail plus two aggregate bindings without retaining scope. Page orientation is unreachable for all four.
 
 The simple/grouped sentences parse into typed plans using diagnostic contexts but cannot reach review. Transcript is atomically rejected on unsupported `left aligned` syntax. No plan was executed, no edited RDL was generated, and all four sources remain unchanged.
+
+Gate 2H treats omitted `PageWidth`, `PageHeight`, and margins as explicit
+`omitted` states rather than invalid reports. All four sources reach production
+structural inventory and a sanitized summary without inferred dimensions.
+Orientation remains unknown and mutation is blocked before writes with
+`PAGE_DIMENSIONS_UNSPECIFIED`. Explicit-dimension orientation behavior,
+title/field resolution, planner grammar, and source bytes remain unchanged.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

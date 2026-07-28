@@ -1,5 +1,18 @@
 # Build log
 
+## 2026-07-27 — RDL structure corpus Gate 2H page-geometry normalization
+
+- Added runtime-validated `explicit`/`omitted` page measurements; malformed
+  serialized values remain `INVALID_REPORT`.
+- Added known/unknown orientation without inferring physical-page defaults.
+- Completed production inspection and sanitized summaries for all four corpus
+  sources with deterministic before/after evidence.
+- Added atomic pre-write `PAGE_DIMENSIONS_UNSPECIFIED` orientation blocking.
+- Preserved safe XML parsing, explicit-dimension orientation behavior,
+  resolver behavior, planner grammar, Electron security, and source bytes.
+- No imported report was opened, rendered, queried, published, previewed, or
+  exported; this read-only normalization needs no Report Builder validation.
+
 ## 2026-07-27 — RDL structure corpus Gate 2C grouped-report acceptance
 
 - Ingested Dylan's personally authored 52,651-byte grouped source read-only and confirmed SHA-256 `03c7a6ea…174b` against the Windows original.

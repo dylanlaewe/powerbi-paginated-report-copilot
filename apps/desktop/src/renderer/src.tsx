@@ -227,6 +227,10 @@ function App(): React.JSX.Element {
               <div>
                 <dt>Page</dt>
                 <dd>{selection.summary.pageOrientation}</dd>
+                <dt>Page size</dt>
+                <dd>
+                  {selection.summary.pageWidth} × {selection.summary.pageHeight}
+                </dd>
               </div>
               {selection.summary.currentTitle && (
                 <div className="wide">

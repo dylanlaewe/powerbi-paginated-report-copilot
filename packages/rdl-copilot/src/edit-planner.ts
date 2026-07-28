@@ -9,7 +9,7 @@ export const editPlannerContextSchema = z
     existingFieldNames: z.array(z.string().min(1)),
     formattingFieldNames: z.array(z.string().min(1)),
     supportedSemanticRoles: z.tuple([z.literal("reportTitle")]),
-    pageOrientation: z.enum(["portrait", "landscape", "square"]),
+    pageOrientation: z.enum(["portrait", "landscape", "square", "unspecified"]),
     currentReportTitle: z.string().nullable(),
   })
   .strict();
@@ -450,7 +450,10 @@ export const createEditPlannerContext = (
     ],
     formattingFieldNames,
     supportedSemanticRoles: ["reportTitle"],
-    pageOrientation: inventory.reportSections[0]?.orientation ?? "square",
+    pageOrientation:
+      inventory.reportSections[0]?.orientation.status === "known"
+        ? inventory.reportSections[0].orientation.value
+        : "unspecified",
     currentReportTitle: title?.staticText[0] ?? null,
   });
 };

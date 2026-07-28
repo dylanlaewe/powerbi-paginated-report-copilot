@@ -280,7 +280,7 @@ describe("Gate 2C grouped-report authored fixture", () => {
     );
   });
 
-  it("contains no parameters and records the generic inspector dimension stop", async () => {
+  it("contains no parameters and normalizes omitted page dimensions", async () => {
     const { inventory } = await fixtureEvidence();
     expect(inventory.counts.parameters).toBe(0);
     expect(inventory.reportSections).toEqual([
@@ -296,8 +296,13 @@ describe("Gate 2C grouped-report authored fixture", () => {
         },
       },
     ]);
-    await expect(inspectRdlFile(sourcePath)).rejects.toThrow(
-      "ReportSection 0 lacks PageWidth",
-    );
+    expect((await inspectRdlFile(sourcePath)).reportSections[0]).toMatchObject({
+      pageWidth: { presence: "omitted" },
+      pageHeight: { presence: "omitted" },
+      orientation: {
+        status: "unknown",
+        reason: "PAGE_DIMENSIONS_UNSPECIFIED",
+      },
+    });
   });
 });

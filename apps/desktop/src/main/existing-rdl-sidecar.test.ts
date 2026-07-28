@@ -109,11 +109,30 @@ describe("native selection and report sessions", () => {
       groupNames: ["Region", "Region1", "Details"],
       textboxCount: 42,
       pageOrientation: "portrait",
+      pageWidth: "8.5in",
+      pageHeight: "11in",
       currentTitle: "Regional Sales Subtotal Compatibility Test",
     });
     expect(JSON.stringify(result)).not.toMatch(
       /Central|DataGrid|<Report|CommandText/iu,
     );
+  });
+
+  it("sanitizes omitted physical dimensions without fabricating defaults", async () => {
+    const { service } = await setup();
+    const result = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+      ),
+    );
+    expect(result.summary).toMatchObject({
+      pageOrientation: "unspecified",
+      pageWidth: "Not serialized",
+      pageHeight: "Not serialized",
+    });
+    expect(JSON.stringify(result)).not.toContain("7.08729in");
   });
 
   it("rejects non-RDL, directory, oversized, and invalid XML selections", async () => {

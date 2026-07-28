@@ -34,6 +34,32 @@ const textboxSchema = z
   })
   .strict();
 
+export const serializedRdlSizeSchema = z.discriminatedUnion("presence", [
+  z
+    .object({
+      presence: z.literal("explicit"),
+      raw: z.string(),
+      normalizedInches: z.number().positive(),
+    })
+    .strict(),
+  z.object({ presence: z.literal("omitted") }).strict(),
+]);
+
+const pageOrientationSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("known"),
+      value: z.enum(["portrait", "landscape", "square"]),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("unknown"),
+      reason: z.literal("PAGE_DIMENSIONS_UNSPECIFIED"),
+    })
+    .strict(),
+]);
+
 export const rdlInventorySchema = z
   .object({
     version: z.literal(1),
@@ -41,20 +67,21 @@ export const rdlInventorySchema = z
     sourceSha256: z.string().regex(/^[a-f0-9]{64}$/u),
     namespace: z.string().url(),
     namespaceVersion: z.string(),
+    dataSources: z.array(z.string()),
     reportSections: z.array(
       z
         .object({
           index: z.number().int().nonnegative(),
           bodyWidth: z.string().nullable(),
-          pageWidth: z.string(),
-          pageHeight: z.string(),
-          orientation: z.enum(["portrait", "landscape", "square"]),
+          pageWidth: serializedRdlSizeSchema,
+          pageHeight: serializedRdlSizeSchema,
+          orientation: pageOrientationSchema,
           margins: z
             .object({
-              left: z.string(),
-              right: z.string(),
-              top: z.string(),
-              bottom: z.string(),
+              left: serializedRdlSizeSchema,
+              right: serializedRdlSizeSchema,
+              top: serializedRdlSizeSchema,
+              bottom: serializedRdlSizeSchema,
             })
             .strict(),
         })
@@ -76,6 +103,12 @@ export const rdlInventorySchema = z
       z.object({ name: z.string(), expressions: z.array(z.string()) }).strict(),
     ),
     textboxes: z.array(textboxSchema),
+    rectangles: z.array(z.string()),
+    images: z.array(z.string()),
+    pageHeaderPresent: z.boolean(),
+    pageFooterPresent: z.boolean(),
+    warnings: z.array(z.string()),
+    unsupportedElements: z.array(z.string()),
   })
   .strict();
 
@@ -89,6 +122,7 @@ export class RdlInspectionError extends Error {
       | "NOT_REGULAR_FILE"
       | "FILE_TOO_LARGE"
       | "INVALID_REPORT"
+      | "PAGE_DIMENSIONS_UNSPECIFIED"
       | "TITLE_NOT_FOUND"
       | "TITLE_AMBIGUOUS"
       | "FIELD_NOT_FOUND"
@@ -120,6 +154,17 @@ const parseInches = (value: string): number => {
     );
   return Number(match[1]);
 };
+
+const serializedRdlSize = (
+  value: string | null,
+): z.infer<typeof serializedRdlSizeSchema> =>
+  value === null
+    ? { presence: "omitted" }
+    : {
+        presence: "explicit",
+        raw: value,
+        normalizedInches: parseInches(value),
+      };
 
 const namespaceVersion = (namespace: string): string => {
   const match = /reporting\/(\d{4}\/\d{2})\/reportdefinition$/u.exec(namespace);
@@ -205,35 +250,38 @@ export const inspectRdlBytes = async (
       `./${local("ReportSections")}/${local("ReportSection")}`,
     ).map((section, index) => {
       const page = section.get(`./${local("Page")}`) as XmlElement | null;
-      const required = (name: string): string => {
-        const value = page ? firstContent(page, `./${local(name)}`) : null;
-        if (!value)
-          throw new RdlInspectionError(
-            "INVALID_REPORT",
-            `ReportSection ${index} lacks ${name}`,
-          );
-        return value;
+      const pageValue = (name: string): string | null => {
+        const element = page?.get(`./${local(name)}`);
+        return element ? element.content.trim() : null;
       };
-      const pageWidth = required("PageWidth");
-      const pageHeight = required("PageHeight");
-      const width = parseInches(pageWidth);
-      const height = parseInches(pageHeight);
+      const pageWidth = serializedRdlSize(pageValue("PageWidth"));
+      const pageHeight = serializedRdlSize(pageValue("PageHeight"));
+      const orientation =
+        pageWidth.presence === "explicit" && pageHeight.presence === "explicit"
+          ? {
+              status: "known" as const,
+              value:
+                pageWidth.normalizedInches === pageHeight.normalizedInches
+                  ? ("square" as const)
+                  : pageWidth.normalizedInches > pageHeight.normalizedInches
+                    ? ("landscape" as const)
+                    : ("portrait" as const),
+            }
+          : {
+              status: "unknown" as const,
+              reason: "PAGE_DIMENSIONS_UNSPECIFIED" as const,
+            };
       return {
         index,
         bodyWidth: firstContent(section, `./${local("Width")}`),
         pageWidth,
         pageHeight,
-        orientation:
-          width === height
-            ? "square"
-            : width > height
-              ? "landscape"
-              : "portrait",
+        orientation,
         margins: {
-          left: required("LeftMargin"),
-          right: required("RightMargin"),
-          top: required("TopMargin"),
-          bottom: required("BottomMargin"),
+          left: serializedRdlSize(pageValue("LeftMargin")),
+          right: serializedRdlSize(pageValue("RightMargin")),
+          top: serializedRdlSize(pageValue("TopMargin")),
+          bottom: serializedRdlSize(pageValue("BottomMargin")),
         },
       } as const;
     });
@@ -243,6 +291,10 @@ export const inspectRdlBytes = async (
       sourceSha256: createHash("sha256").update(source).digest("hex"),
       namespace: root.namespaceUri,
       namespaceVersion: namespaceVersion(root.namespaceUri),
+      dataSources: elements(
+        root,
+        `./${local("DataSources")}/${local("DataSource")}`,
+      ).map(nameAttribute),
       reportSections: sections,
       datasets: elements(
         root,
@@ -269,6 +321,18 @@ export const inspectRdlBytes = async (
         ).map((expression) => expression.content.trim()),
       })),
       textboxes: elements(root, `.//${local("Textbox")}`).map(inspectTextbox),
+      rectangles: elements(root, `.//${local("Rectangle")}`).map(nameAttribute),
+      images: elements(root, `.//${local("Image")}`).map(nameAttribute),
+      pageHeaderPresent: elements(root, `.//${local("PageHeader")}`).length > 0,
+      pageFooterPresent: elements(root, `.//${local("PageFooter")}`).length > 0,
+      warnings: sections.flatMap((section) =>
+        section.orientation.status === "unknown"
+          ? [
+              `ReportSection ${section.index} omits explicit PageWidth or PageHeight; orientation is unknown.`,
+            ]
+          : [],
+      ),
+      unsupportedElements: [],
     });
   } finally {
     document.dispose();

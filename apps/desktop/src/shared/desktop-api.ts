@@ -78,7 +78,9 @@ export const reportSummarySchema = z
     tablixNames: z.array(z.string()),
     groupNames: z.array(z.string()),
     textboxCount: z.number().int().nonnegative(),
-    pageOrientation: z.enum(["portrait", "landscape", "square"]),
+    pageOrientation: z.enum(["portrait", "landscape", "square", "unspecified"]),
+    pageWidth: z.string(),
+    pageHeight: z.string(),
     currentTitle: z.string().nullable(),
   })
   .strict();
