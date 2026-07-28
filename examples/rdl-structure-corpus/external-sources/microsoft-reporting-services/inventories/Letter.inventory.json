@@ -1,0 +1,601 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/Letter.rdl",
+    "fileName": "Letter.rdl",
+    "byteSize": 402292,
+    "sha256": "65c0a4c835954f1756e435a217388276a8cf52ed2ee96763de3ddaa6a0a24815"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "8932495c-f74a-4485-b7c1-b808da812081"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "LetterContent",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    },
+    {
+      "name": "Donors",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "LetterContent",
+      "fields": [
+        {
+          "name": "Tax_Message",
+          "typeName": "System.String",
+          "dataField": "Tax_Message"
+        },
+        {
+          "name": "ThankYouMessage",
+          "typeName": "System.String",
+          "dataField": "ThankYouMessage"
+        },
+        {
+          "name": "ThankYouDetailedMessage",
+          "typeName": "System.String",
+          "dataField": "ThankYouDetailedMessage"
+        },
+        {
+          "name": "PresidentName",
+          "typeName": "System.String",
+          "dataField": "PresidentName"
+        },
+        {
+          "name": "Address",
+          "typeName": "System.String",
+          "dataField": "Address"
+        },
+        {
+          "name": "Phone",
+          "typeName": "System.String",
+          "dataField": "Phone"
+        },
+        {
+          "name": "Email",
+          "typeName": "System.String",
+          "dataField": "Email"
+        },
+        {
+          "name": "Website",
+          "typeName": "System.String",
+          "dataField": "Website"
+        },
+        {
+          "name": "ThankYouEndMessage",
+          "typeName": "System.String",
+          "dataField": "ThankYouEndMessage"
+        }
+      ],
+      "query": {
+        "dataSourceName": "LetterContent",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "Donors",
+      "fields": [
+        {
+          "name": "Donor_Id",
+          "typeName": "System.String",
+          "dataField": "Donor_Id"
+        },
+        {
+          "name": "Date",
+          "typeName": "System.String",
+          "dataField": "Date"
+        },
+        {
+          "name": "Amount",
+          "typeName": "System.Int32",
+          "dataField": "Amount"
+        },
+        {
+          "name": "Name",
+          "typeName": "System.String",
+          "dataField": "Name"
+        },
+        {
+          "name": "Company",
+          "typeName": "System.String",
+          "dataField": "Company"
+        },
+        {
+          "name": "Address",
+          "typeName": "System.String",
+          "dataField": "Address"
+        },
+        {
+          "name": "City",
+          "typeName": "System.String",
+          "dataField": "City"
+        },
+        {
+          "name": "Country",
+          "typeName": "System.String",
+          "dataField": "Country"
+        },
+        {
+          "name": "ZipCode",
+          "typeName": "System.String",
+          "dataField": "ZipCode"
+        },
+        {
+          "name": "Source",
+          "typeName": "System.String",
+          "dataField": "Source"
+        },
+        {
+          "name": "Receipt",
+          "typeName": "System.String",
+          "dataField": "Receipt"
+        }
+      ],
+      "query": {
+        "dataSourceName": "Donors",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "DonorNames",
+      "fields": [
+        {
+          "name": "Name",
+          "typeName": "System.String",
+          "dataField": "Name"
+        }
+      ],
+      "query": {
+        "dataSourceName": "Donors",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Donor",
+      "dataType": "String",
+      "prompt": "Donor name:",
+      "availableValues": {
+        "datasetName": "DonorNames",
+        "valueField": "Name",
+        "labelField": "Name",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 0
+      }
+    }
+  ],
+  "tablixes": [
+    {
+      "name": "Tablix2",
+      "datasetName": "Donors",
+      "body": {
+        "columns": 4,
+        "rows": 2
+      },
+      "groups": [
+        {
+          "name": "Details1",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    },
+    {
+      "name": "Tablix3",
+      "datasetName": "Donors",
+      "body": {
+        "columns": 1,
+        "rows": 1
+      },
+      "groups": [
+        {
+          "name": "Details2",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    },
+    {
+      "name": "Tablix1",
+      "datasetName": "Donors",
+      "body": {
+        "columns": 2,
+        "rows": 3
+      },
+      "groups": [
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    }
+  ],
+  "expressions": {
+    "groupExpressions": [],
+    "filterExpressions": [
+      "=Fields!Name.Value"
+    ],
+    "sortExpressions": [],
+    "aggregateExpressions": [
+      "=First(Fields!PresidentName.Value, \"LetterContent\") & vbCrLf & \"President\"",
+      "=First(Fields!Tax_Message.Value, \"LetterContent\")",
+      "=First(Fields!ThankYouMessage.Value, \"LetterContent\") & First(Fields!ThankYouDetailedMessage.Value,\"LetterContent\") & vbcrlf & vbcrlf & First(Fields!ThankYouEndMessage.Value, \"LetterContent\")"
+    ],
+    "visibilityExpressions": []
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "Textbox9",
+        "container": "body",
+        "values": [
+          "=First(Fields!ThankYouMessage.Value, \"LetterContent\") & First(Fields!ThankYouDetailedMessage.Value,\"LetterContent\") & vbcrlf & vbcrlf & First(Fields!ThankYouEndMessage.Value, \"LetterContent\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "12pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox10",
+        "container": "rectangle",
+        "values": [
+          "=First(Fields!PresidentName.Value, \"LetterContent\") & vbCrLf & \"President\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox11",
+        "container": "tablix",
+        "values": [
+          "=\"Gift(s) of:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox13",
+        "container": "tablix",
+        "values": [
+          "=\"Paid by:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox23",
+        "container": "tablix",
+        "values": [
+          "=\"Gift(s) note:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox15",
+        "container": "tablix",
+        "values": [
+          "=\"Receipt #:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Amount1",
+        "container": "tablix",
+        "values": [
+          "=Fields!Amount.Value"
+        ],
+        "formats": [
+          "'$'#,0.00;('$'#,0.00)"
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Source",
+        "container": "tablix",
+        "values": [
+          "=Fields!Source.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox24",
+        "container": "tablix",
+        "values": [
+          "= \"No goods or services were provided in exchange of this gift\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Receipt",
+        "container": "tablix",
+        "values": [
+          "=Fields!Receipt.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Company",
+        "container": "tablix",
+        "values": [
+          "=Fields!Company.Value",
+          "=Fields!Name.Value",
+          "=Fields!Address.Value",
+          "=Fields!City.Value",
+          "=Fields!Country.Value",
+          "=Fields!ZipCode.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox28",
+        "container": "tablix",
+        "values": [
+          "=\"Date:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox19",
+        "container": "tablix",
+        "values": [
+          "=Fields!Date.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox29",
+        "container": "tablix",
+        "values": [
+          "=\"Donor ID:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Donor_Id1",
+        "container": "tablix",
+        "values": [
+          "=Fields!Donor_Id.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox30",
+        "container": "tablix",
+        "values": [
+          "=\"Gift Total:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Amount2",
+        "container": "tablix",
+        "values": [
+          "=Fields!Amount.Value"
+        ],
+        "formats": [
+          "'$'#,0.00;('$'#,0.00)"
+        ],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox1",
+        "container": "pageHeader",
+        "values": [
+          "=First(Fields!Tax_Message.Value, \"LetterContent\")"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "ExecutionTime",
+        "container": "pageFooter",
+        "values": [
+          "=\"Disclaimer :  This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      }
+    ],
+    "rectangles": [
+      {
+        "name": "Rectangle2",
+        "container": "body",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle1",
+        "container": "rectangle",
+        "nestingDepth": 1
+      },
+      {
+        "name": "Rectangle5",
+        "container": "body",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle6",
+        "container": "body",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle3",
+        "container": "pageHeader",
+        "nestingDepth": 0
+      }
+    ],
+    "lists": [],
+    "charts": [],
+    "gauges": [],
+    "maps": [],
+    "images": [
+      {
+        "name": "PresidentSignature",
+        "source": "Embedded",
+        "value": "Signature"
+      },
+      {
+        "name": "AW_Foundation_Logo",
+        "source": "Embedded",
+        "value": "AW_Foundation_logo"
+      },
+      {
+        "name": "Image1",
+        "source": "Embedded",
+        "value": "heroimage"
+      }
+    ],
+    "subreports": [],
+    "pageHeaders": 1,
+    "pageFooters": 1
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "8.5in",
+        "pageWidth": null,
+        "pageHeight": null,
+        "orientation": "not serialized",
+        "margins": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "columns": null,
+        "columnSpacing": null
+      }
+    ],
+    "pageBreaks": [],
+    "repeatOnNewPageCount": 0,
+    "hiddenItemCount": 0
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "stopped before target resolution",
+      "reason": "ReportSection 0 lacks PageWidth"
+    }
+  }
+}

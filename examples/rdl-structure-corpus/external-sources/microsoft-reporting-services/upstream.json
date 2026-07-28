@@ -1,0 +1,15 @@
+{
+  "metadataVersion": 1,
+  "repositoryUrl": "https://github.com/microsoft/Reporting-Services.git",
+  "branch": "master",
+  "commit": "acc2ee0d1884765e4b5213149430fb063d166719",
+  "acquiredAtUtc": "2026-07-28T01:26:36Z",
+  "acquisition": "git clone --depth 1 --branch master into a temporary directory outside the product repository",
+  "sampleDirectory": "PaginatedReportSamples",
+  "licensePath": "License.md",
+  "licenseSha256": "e1406b32500b4622444e91ec3b50a473b97c5c4470b7b1f137c36abcfb248b59",
+  "documentationUrl": "https://learn.microsoft.com/power-bi/paginated-reports/paginated-reports-samples",
+  "inventoryGenerator": "scripts/discover-official-rdl-samples.mts v1",
+  "inventoryOrdering": "relative path ascending; nested names and expressions ascending where order is not structural",
+  "inspectionPolicy": "static XML only; NONET; NO_XXE; no DTD or external resolution; no rendering, query execution, credentials, report code execution, or referenced network access"
+}

@@ -1,0 +1,948 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/CountrySalesPerformance.rdl",
+    "fileName": "CountrySalesPerformance.rdl",
+    "byteSize": 558507,
+    "sha256": "2af53ac0aaad8d7078e7e05d2f2e3679fbf3010c308526368ad1a67eb13dc6a4"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "87907e76-9aeb-471d-a561-d36cc3a84ace"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "DataSource",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "Main",
+      "fields": [
+        {
+          "name": "MonthKey",
+          "typeName": "System.String",
+          "dataField": "MonthKey"
+        },
+        {
+          "name": "Month",
+          "typeName": "System.String",
+          "dataField": "Month"
+        },
+        {
+          "name": "SalesTerritoryGroup",
+          "typeName": "System.String",
+          "dataField": "SalesTerritoryGroup"
+        },
+        {
+          "name": "SalesTerritoryCountry",
+          "typeName": "System.String",
+          "dataField": "SalesTerritoryCountry"
+        },
+        {
+          "name": "SalesTerritoryRegion",
+          "typeName": "System.String",
+          "dataField": "SalesTerritoryRegion"
+        },
+        {
+          "name": "Salesperson",
+          "typeName": "System.String",
+          "dataField": "Salesperson"
+        },
+        {
+          "name": "Phone",
+          "typeName": "System.String",
+          "dataField": "Phone"
+        },
+        {
+          "name": "Sales",
+          "typeName": "System.Double",
+          "dataField": "Sales"
+        },
+        {
+          "name": "Quota",
+          "typeName": "System.Double",
+          "dataField": "Quota"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "ExpandSalesperson",
+      "dataType": "Boolean",
+      "prompt": "Expand Salesperson:",
+      "availableValues": {
+        "datasetName": null,
+        "valueField": null,
+        "labelField": null,
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    }
+  ],
+  "tablixes": [
+    {
+      "name": "Tablix1",
+      "datasetName": "Main",
+      "body": {
+        "columns": 9,
+        "rows": 6
+      },
+      "groups": [
+        {
+          "name": "Sparkline1_CategoryGroup2",
+          "hierarchy": "unknown",
+          "expressions": [
+            "=Fields!MonthKey.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Sparkline1_CategoryGroup",
+          "hierarchy": "unknown",
+          "expressions": [
+            "=Fields!MonthKey.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Sparkline1_CategoryGroup3",
+          "hierarchy": "unknown",
+          "expressions": [
+            "=Fields!MonthKey.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "SalesTerritoryCountry",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!SalesTerritoryCountry.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!Salesperson.Value"
+          ],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    }
+  ],
+  "expressions": {
+    "groupExpressions": [
+      "=Fields!MonthKey.Value",
+      "=Fields!SalesTerritoryCountry.Value",
+      "=Fields!Salesperson.Value"
+    ],
+    "filterExpressions": [],
+    "sortExpressions": [
+      "=Fields!MonthKey.Value",
+      "=Fields!SalesTerritoryCountry.Value",
+      "=Sum(Fields!Sales.Value)"
+    ],
+    "aggregateExpressions": [
+      "=Code.SalesPerformanceStatus(Sum(Fields!Sales.Value), Sum(Fields!Quota.Value))",
+      "=Code.SalesVariancePct(Sum(Fields!Sales.Value), Sum(Fields!Quota.Value))",
+      "=Sum(Fields!Quota.Value)",
+      "=Sum(Fields!Sales.Value)",
+      "=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, \"Main\")",
+      "=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, \"SalesTerritoryCountry\")"
+    ],
+    "visibilityExpressions": [
+      "=Not Parameters!ExpandSalesperson.Value"
+    ]
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "Textbox1",
+        "container": "tablix",
+        "values": [
+          "Salesperson"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox5",
+        "container": "tablix",
+        "values": [
+          "Sales"
+        ],
+        "formats": [
+          "N0"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox2",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox4",
+        "container": "tablix",
+        "values": [
+          "Trend"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox45",
+        "container": "tablix",
+        "values": [
+          "% of Country Total"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox49",
+        "container": "tablix",
+        "values": [
+          "Overall %"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox7",
+        "container": "tablix",
+        "values": [
+          "Quota"
+        ],
+        "formats": [
+          "N0"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox9",
+        "container": "tablix",
+        "values": [
+          "Variance"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox6",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox14",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox16",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox22",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox23",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox24",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox25",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox26",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox27",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "SalesTerritoryCountry",
+        "container": "tablix",
+        "values": [
+          "=Fields!SalesTerritoryCountry.Value.ToUpper()"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox18",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Sales.Value)"
+        ],
+        "formats": [
+          "C0"
+        ],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox46",
+        "container": "tablix",
+        "values": [],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox50",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, \"Main\")"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox19",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Quota.Value)"
+        ],
+        "formats": [
+          "C0"
+        ],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox20",
+        "container": "tablix",
+        "values": [
+          "=Code.SalesVariancePct(Sum(Fields!Sales.Value), Sum(Fields!Quota.Value))"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Salesperson",
+        "container": "tablix",
+        "values": [
+          "=Fields!Salesperson.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Sales",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Sales.Value)"
+        ],
+        "formats": [
+          "C0"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox47",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, \"SalesTerritoryCountry\")"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox51",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, \"Main\")"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Quota",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Quota.Value)"
+        ],
+        "formats": [
+          "C0"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Variance_Pct",
+        "container": "tablix",
+        "values": [
+          "=Code.SalesVariancePct(Sum(Fields!Sales.Value), Sum(Fields!Quota.Value))"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox30",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox32",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox33",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox34",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox35",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox36",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox37",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox38",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox39",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox29",
+        "container": "tablix",
+        "values": [
+          "TOTAL"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Sales1",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Sales.Value)"
+        ],
+        "formats": [
+          "C0"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox8",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox48",
+        "container": "tablix",
+        "values": [],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox52",
+        "container": "tablix",
+        "values": [],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Quota1",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Quota.Value)"
+        ],
+        "formats": [
+          "C0"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox15",
+        "container": "tablix",
+        "values": [
+          "=Code.SalesVariancePct(Sum(Fields!Sales.Value), Sum(Fields!Quota.Value))"
+        ],
+        "formats": [
+          "P2"
+        ],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "ReportTitle",
+        "container": "pageHeader",
+        "values": [
+          "=\"Country Sales Performance\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "28pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "ReportSubtitle",
+        "container": "pageHeader",
+        "values": [
+          "Expand Salesperson:",
+          "=Parameters!ExpandSalesperson.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Footer2",
+        "container": "pageFooter",
+        "values": [
+          "Page",
+          "=Globals!PageNumber",
+          "of",
+          "=Globals!TotalPages"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold",
+          "Normal"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Footer1",
+        "container": "pageFooter",
+        "values": [
+          "= \"Disclaimer : This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      }
+    ],
+    "rectangles": [
+      {
+        "name": "TitleTile",
+        "container": "pageHeader",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle1",
+        "container": "pageHeader",
+        "nestingDepth": 1
+      }
+    ],
+    "lists": [],
+    "charts": [
+      "DataBar2",
+      "Sparkline2",
+      "DataBar1",
+      "Sparkline1",
+      "Sparkline3"
+    ],
+    "gauges": [
+      "GaugePanel2",
+      "GaugePanel1",
+      "GaugePanel3"
+    ],
+    "maps": [],
+    "images": [
+      {
+        "name": "Image4",
+        "source": "Embedded",
+        "value": "CohoLogo"
+      }
+    ],
+    "subreports": [],
+    "pageHeaders": 1,
+    "pageFooters": 1
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "10.01389in",
+        "pageWidth": "11in",
+        "pageHeight": "8.5in",
+        "orientation": "landscape",
+        "margins": {
+          "left": "0.25in",
+          "right": "0.25in",
+          "top": "0.25in",
+          "bottom": "0.25in"
+        },
+        "columns": null,
+        "columnSpacing": null
+      }
+    ],
+    "pageBreaks": [],
+    "repeatOnNewPageCount": 2,
+    "hiddenItemCount": 1
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "inventory accepted; target resolution not evaluated",
+      "reason": "none"
+    }
+  }
+}

@@ -4,6 +4,7 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2D: reproducible static discovery of seven hash-pinned official Microsoft Reporting Services samples, direct MIT license review, security scans, XML/XSD results, deterministic structural inventories, feature-coverage matrix, and later-import classifications without committing source RDLs or changing product behavior.
 - RDL Structure Corpus v0.3 Gate 2C: immutable personally authored grouped source, complete hierarchy/aggregate/pagination inventory, XML/XSD and fixture regressions, completed four-page/four-worksheet validation evidence, and corrected canonical title requirements without resolver evaluation.
 - RDL Structure Corpus v0.3 Gate 2B: immutable personally authored simple-table source, safe corpus inventory service, committed structural inventory, XML/XSD and fixture regressions, completed provenance/Windows validation evidence, and explicit authored-design deviations without resolver evaluation.
 - RDL Structure Corpus v0.3 Gate 2A authoring kit: runtime-validated safety/fixture metadata, four synthetic UTF-8 Enter Data row sets, exact field types and totals, Report Builder construction guides, and source-validation worksheets. No RDL source fixture is included.

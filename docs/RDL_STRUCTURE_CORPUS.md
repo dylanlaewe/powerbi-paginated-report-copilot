@@ -56,6 +56,16 @@ The accepted canonical title is `Synthetic Department Sales Summary` in body tex
 
 Authored deviations include Revenue as `System.Double` rather than Decimal, no literal SaleDate format despite accepted short-date rendering, omitted PageWidth/PageHeight, and structural rather than explicit aggregate scope. The generic inspector again stops on omitted physical dimensions; resolver evaluation remains deferred.
 
+## Gate 2D official-sample discovery
+
+Gate 2D is discovery metadata only. It statically inspects seven RDLs from Microsoft's official Reporting Services repository at pinned `master` commit `acc2ee0d1884765e4b5213149430fb063d166719`. No upstream RDL is imported, opened, rendered, queried, executed, or committed.
+
+Deterministic inventories, a security scan, direct license review, exact source hashes, a feature matrix, and selection recommendations are under `examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/`. Static parsing disables network and external-entity resolution. All seven files are XML-well-formed and pass the Microsoft 2016/01 RDL XSD.
+
+Invoice, Transcript, Labels, and Letter are candidates for a later, separately reviewed import gate. Country Sales Performance and Regional Sales remain reference-only because their embedded Code requires review. Organization Expenditures is deferred because its chart-only body is outside the current edit scope.
+
+The parameterized controlled fixture is paused and narrowed to its still-uncovered deliberate `RegionCode`/`MetricValue` ambiguity. The alternate-layout fixture is paused and narrowed to a controlled static page-header title, literal landscape dimensions, nonstandard names, and deterministic Cost displays. Neither fixture was authored in Gate 2D, and no resolver, inspector, mutation, planner, Electron, LLM, or packaging behavior changed.
+
 ## Provenance and licensing plan
 
 All four additional fixtures will be authored personally by Dylan in Microsoft Power BI Report Builder on a personally controlled Windows 11 VM:
@@ -122,6 +132,7 @@ The index records source identity, namespace, structural/count summary, title an
 
 - Gate 2A: prepare the manual authoring kit without creating source RDL
 - Gate 2B onward: personally author and independently validate source baselines in the approved order
+- Gate 2D: discover and classify official external samples without importing source RDLs
 - Gate 3: inventory and record pre-generalization ambiguity
 - Gate 4: evidence-based resolver changes only
 - Gate 5: deterministic mutations and preservation

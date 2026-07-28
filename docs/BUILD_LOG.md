@@ -348,3 +348,13 @@
 - Added regressions for manifest policy/order, TSV schemas and counts, required guide/worksheet evidence, and the absence of any corpus `.rdl`.
 - Passed changed-file formatting, ESLint, workspace typecheck, 40 test files / 297 tests, and the production build.
 - Created no source RDL and changed no resolver, mutation, planner, Electron, or LLM implementation. Gate 2B remains blocked pending Dylan's manual simple-table authoring and validation.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2D official-sample discovery
+
+- Acquired the official Microsoft Reporting Services repository into a temporary external directory and pinned `master` commit `acc2ee0d1884765e4b5213149430fb063d166719`.
+- Read the upstream `License.md` directly, recorded its MIT terms and SHA-256, and defined later-import attribution requirements.
+- Statically inspected all seven `PaginatedReportSamples` RDLs with network, DTD, and external-entity resolution disabled; no report, query, code, credential, or referenced resource was executed.
+- Recorded exact source identities, security findings, 2016/01 namespace and XSD passes, deterministic structural inventories, generic-inspector stop evidence, selection classifications, and a complete corpus feature matrix.
+- Recommended Invoice, Transcript, Labels, and Letter for a later import review; kept Country Sales Performance and Regional Sales reference-only; deferred chart-only Organization Expenditures.
+- Narrowed the still-paused parameterized fixture to deliberate field ambiguity and the still-paused alternate-layout fixture to uncovered controlled layout conditions.
+- Added discovery-integrity regressions. No upstream RDL was committed and no resolver, inspector, mutation, planner, Electron, LLM, or packaging implementation changed.

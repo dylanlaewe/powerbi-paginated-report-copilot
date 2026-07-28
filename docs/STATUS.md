@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2C grouped-report acceptance**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2D official-sample discovery complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -12,9 +12,13 @@ Work continues on `codex/rdl-structure-corpus-v0.3`. Gate 1 and Gate 2A are acce
 
 The simple-table source remains accepted with its recorded deviations. Gate 2C now also accepts Dylan's immutable grouped-report source: one typed eight-row ENTERDATA dataset, one Department → Details hierarchy, four group subtotals, one outside-group Grand Total, between-group page breaks, repeated headings, and independent four-page Preview/PDF plus four-worksheet Excel validation.
 
-The grouped source records actual `System.Double` Revenue typing, defaulted SaleDate formatting, omitted physical dimensions, tablix-level repeated-heading flags, and hierarchy-derived aggregate scope. The missing canonical title instruction is corrected in the kit without rewriting the source. No resolver behavior was evaluated or changed. The parameterized fixture and later gates have not started.
+The grouped source records actual `System.Double` Revenue typing, defaulted SaleDate formatting, omitted physical dimensions, tablix-level repeated-heading flags, and hierarchy-derived aggregate scope. The missing canonical title instruction is corrected in the kit without rewriting the source.
 
-No resolver, mutation, planner, Electron, LLM, or supported-operation change is part of Gate 2C.
+Gate 2D statically assessed all seven official Microsoft Reporting Services paginated samples at pinned commit `acc2ee0d1884765e4b5213149430fb063d166719`. The repository contains discovery metadata only: exact provenance and hashes, direct MIT license review, safe security findings, XML/XSD results, structural inventories, a feature matrix, and later-import recommendations. No external RDL was imported.
+
+Invoice, Transcript, Labels, and Letter are later import candidates; Country Sales Performance and Regional Sales are reference-only pending a custom-Code policy; Organization Expenditures is deferred as chart-only. The parameterized manual fixture remains paused and is narrowed to deliberate field ambiguity. Alternate-layout authoring remains paused and is narrowed to uncovered controlled layout conditions.
+
+No resolver, generic-inspector, mutation, planner, Electron, LLM, packaging, or supported-operation change is part of Gate 2D. No later gate has started.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

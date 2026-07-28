@@ -1,0 +1,466 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/RegionalSales.rdl",
+    "fileName": "RegionalSales.rdl",
+    "byteSize": 492869,
+    "sha256": "f5698ddeb06df3267322a34db6749f4e52b1e56aa0b6ad7d06a7713af768ce69"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "87907e76-9aeb-471d-a561-d36cc3a84ace"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "EnterData",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "dsMain",
+      "fields": [
+        {
+          "name": "MonthKey",
+          "typeName": "System.String",
+          "dataField": "MonthKey"
+        },
+        {
+          "name": "Month",
+          "typeName": "System.String",
+          "dataField": "Month"
+        },
+        {
+          "name": "SalesTerritoryRegion",
+          "typeName": "System.String",
+          "dataField": "SalesTerritoryRegion"
+        },
+        {
+          "name": "Quantity",
+          "typeName": "System.Int32",
+          "dataField": "Quantity"
+        },
+        {
+          "name": "Sales",
+          "typeName": "System.Double",
+          "dataField": "Sales"
+        },
+        {
+          "name": "Quota",
+          "typeName": "System.Double",
+          "dataField": "Quota"
+        }
+      ],
+      "query": {
+        "dataSourceName": "EnterData",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": [
+        {
+          "expression": "=Fields!SalesTerritoryRegion.Value",
+          "operator": "Equal",
+          "values": [
+            "=Parameters!SalesTerritoryGroup.Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dsParamYear",
+      "fields": [
+        {
+          "name": "CalendarYear",
+          "typeName": "System.String",
+          "dataField": "CalendarYear"
+        }
+      ],
+      "query": {
+        "dataSourceName": "EnterData",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "dsParamSalesTerritoryGroup",
+      "fields": [
+        {
+          "name": "SalesTerritoryGroup",
+          "typeName": "System.String",
+          "dataField": "SalesTerritoryGroup"
+        }
+      ],
+      "query": {
+        "dataSourceName": "EnterData",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "CalendarYear",
+      "dataType": "Integer",
+      "prompt": "Year:",
+      "availableValues": {
+        "datasetName": "dsParamYear",
+        "valueField": "CalendarYear",
+        "labelField": "CalendarYear",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    },
+    {
+      "name": "SalesTerritoryGroup",
+      "dataType": "String",
+      "prompt": "Group:",
+      "availableValues": {
+        "datasetName": "dsParamSalesTerritoryGroup",
+        "valueField": "SalesTerritoryGroup",
+        "labelField": "SalesTerritoryGroup",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": "dsParamSalesTerritoryGroup",
+        "valueField": "SalesTerritoryGroup",
+        "staticValueCount": 0
+      }
+    }
+  ],
+  "tablixes": [
+    {
+      "name": "tablixRegionSummary",
+      "datasetName": "dsMain",
+      "body": {
+        "columns": 5,
+        "rows": 5
+      },
+      "groups": [
+        {
+          "name": "Chart1_CategoryGroup",
+          "hierarchy": "unknown",
+          "expressions": [
+            "=Fields!Month.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!SalesTerritoryRegion.Value"
+          ],
+          "pageBreak": "Between"
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    }
+  ],
+  "expressions": {
+    "groupExpressions": [
+      "=Fields!Month.Value",
+      "=Fields!SalesTerritoryRegion.Value"
+    ],
+    "filterExpressions": [
+      "=Fields!SalesTerritoryRegion.Value"
+    ],
+    "sortExpressions": [
+      "=Fields!MonthKey.Value",
+      "=Fields!SalesTerritoryRegion.Value"
+    ],
+    "aggregateExpressions": [
+      "=Code.AbbreviateCurrency(Sum(Fields!Quota.Value))",
+      "=Code.AbbreviateCurrency(Sum(Fields!Sales.Value) - Sum(Fields!Quota.Value))",
+      "=Code.AbbreviateCurrency(Sum(Fields!Sales.Value))",
+      "=Sum(Fields!Quantity.Value)",
+      "=Sum(Fields!Quota.Value)",
+      "=Sum(Fields!Sales.Value)"
+    ],
+    "visibilityExpressions": []
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "SalesTerritoryRegion",
+        "container": "tablix",
+        "values": [
+          "=UCase(Fields!SalesTerritoryRegion.Value)"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "18pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox33",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "2pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox2",
+        "container": "tablix",
+        "values": [
+          "ORDERS"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox11",
+        "container": "tablix",
+        "values": [
+          "SALES"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox12",
+        "container": "tablix",
+        "values": [
+          "QUOTA"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox57",
+        "container": "tablix",
+        "values": [
+          "VARIANCE"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox58",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Quantity",
+        "container": "tablix",
+        "values": [
+          "=Sum(Fields!Quantity.Value)"
+        ],
+        "formats": [
+          "N0"
+        ],
+        "fontSizes": [
+          "26pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Sales",
+        "container": "tablix",
+        "values": [
+          "=Code.AbbreviateCurrency(Sum(Fields!Sales.Value))"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "26pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox6",
+        "container": "tablix",
+        "values": [
+          "=Code.AbbreviateCurrency(Sum(Fields!Quota.Value))"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "26pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox8",
+        "container": "tablix",
+        "values": [
+          "=Code.AbbreviateCurrency(Sum(Fields!Sales.Value) - Sum(Fields!Quota.Value))"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "26pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "ReportTitle",
+        "container": "pageHeader",
+        "values": [
+          "Regional Sales"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "28pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "ReportSubtitle",
+        "container": "pageHeader",
+        "values": [
+          "Year:",
+          "=Parameters!CalendarYear.Value",
+          "|",
+          "Group:",
+          "=Parameters!SalesTerritoryGroup.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Footer2",
+        "container": "pageFooter",
+        "values": [
+          "Page",
+          "=Globals!PageNumber",
+          "of",
+          "=Globals!TotalPages"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold",
+          "Normal"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Footer1",
+        "container": "pageFooter",
+        "values": [
+          "Run at",
+          "=Globals!ExecutionTime"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      }
+    ],
+    "rectangles": [
+      {
+        "name": "TitleTile",
+        "container": "pageHeader",
+        "nestingDepth": 0
+      }
+    ],
+    "lists": [],
+    "charts": [
+      "Chart1"
+    ],
+    "gauges": [
+      "GaugePanel1"
+    ],
+    "maps": [],
+    "images": [
+      {
+        "name": "ReportLogo",
+        "source": "Embedded",
+        "value": "Contoso_LogoSmall"
+      }
+    ],
+    "subreports": [],
+    "pageHeaders": 1,
+    "pageFooters": 1
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "10.1in",
+        "pageWidth": "11in",
+        "pageHeight": "8.5in",
+        "orientation": "landscape",
+        "margins": {
+          "left": "0.25in",
+          "right": "0.25in",
+          "top": "0.25in",
+          "bottom": "0.25in"
+        },
+        "columns": null,
+        "columnSpacing": null
+      }
+    ],
+    "pageBreaks": [
+      "Between"
+    ],
+    "repeatOnNewPageCount": 0,
+    "hiddenItemCount": 0
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "inventory accepted; target resolution not evaluated",
+      "reason": "none"
+    }
+  }
+}
