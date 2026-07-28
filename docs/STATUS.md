@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2F pinned Microsoft Transcript import complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2G inspector/resolver baseline complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -27,6 +27,12 @@ The source passes safe static XML parsing, Microsoft 2016/01 XSD validation, sec
 Gate 2F adds Transcript as the second statically validated pinned external fixture. Its 116,709-byte source matches upstream SHA-256 `9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81`. Deterministic evidence records its overlapping `Name` field, three nested-region tablixes, nested row members, depth-two rectangle containment, page-header title, and two embedded images.
 
 Invoice remains byte-identical. Transcript and Invoice were not opened, previewed, rendered, queried, published, or exported. No resolver, generic-inspector, mutation, planner, Electron, LLM, packaging, or supported-operation behavior changed, and no later gate started.
+
+Gate 2G invokes the unchanged production inspector on all four accepted sources. All four stop deterministically during page-settings normalization with `INVALID_REPORT: ReportSection 0 lacks PageWidth`; no partial inventory or usable renderer summary is returned.
+
+Corpus-assisted diagnostics—explicitly not product behavior—record current candidate consequences: simple-table title selection would be wrong, grouped title selection would be correct, Invoice has no confident title, and Transcript's page-header title is outside current discovery. UnitCost is uniquely addressable; grouped Revenue returns detail plus two aggregate bindings without retaining scope. Page orientation is unreachable for all four.
+
+The simple/grouped sentences parse into typed plans using diagnostic contexts but cannot reach review. Transcript is atomically rejected on unsupported `left aligned` syntax. No plan was executed, no edited RDL was generated, and all four sources remain unchanged.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

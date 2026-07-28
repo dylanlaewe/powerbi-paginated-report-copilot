@@ -42,3 +42,18 @@ Duplicate field declarations across datasets are ambiguous unless dataset and ta
 A future profile may be used only if general evidence cannot safely resolve a reviewed structure. It must be strict, declarative, runtime-validated, evidence-based, and reported in validation output. It may name expected report items and structural facts but may not contain XPath or suppress competing candidates.
 
 The parameterized and alternate-layout fixtures are marked `profileReviewPending`; this is not authorization to add profiles before Gate 4.
+
+## v0.3 Gate 2G current-production baseline
+
+Gate 2G changes no resolver behavior. The exact baseline is under `examples/rdl-structure-corpus/resolver-baseline-v0.3/`.
+
+All four accepted sources safely parse and expose the expected 2016/01 namespace, but the production inspector stops during page-settings normalization with `INVALID_REPORT: ReportSection 0 lacks PageWidth`. It returns no partial inventory, so production candidate discovery, target resolution, planner-context creation, and renderer summaries are unreachable.
+
+A separate corpus-assisted diagnostic applied the existing generic conservative title filter and direct/`Sum` field-binding rules without routing those models into production. The actual sidecar/mutation entry point is checksum-configured title resolution, and none of the four corpus hashes is configured:
+
+- Simple table: current title logic would select styled `ReportTitle` containing `InventoryReportTitle`, not visible `Textbox9`; `UnitCost` has one correct direct display.
+- Grouped report: `ReportTitle` is correct; Revenue has one detail and two aggregate displays, but the production target loses group versus report scope.
+- Invoice: no current conservative title candidate; field targets lose dataset, tablix, and group identity.
+- Transcript: correct `Textbox1` is omitted because it is a page-header constant expression; current discovery searches body static text only. Its overlapping `Name` field would be ambiguous.
+
+Production has no candidate scoring. It also contains a mutation-specific exactly-three-Revenue target check. Diagnostic scores in the baseline are evaluation evidence only. Future implementation must generalize read-only normalization and structural evidence before changing resolver selection or mutation.

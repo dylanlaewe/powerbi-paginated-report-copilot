@@ -84,6 +84,16 @@ Transcript is registered separately from both the controlled fixtures and Invoic
 
 Transcript supplies broad realistic alternate-layout evidence but does not replace the narrowed controlled alternate-layout fixture's isolated landscape, naming, title, and Cost-display conditions. Invoice remains unchanged. Neither external report was opened, rendered, queried, published, or exported, and resolver behavior remains unevaluated.
 
+## Gate 2G inspector/resolver baseline
+
+Gate 2G evaluates the unchanged production inspector and grammar across simple-table, grouped-report, Invoice, and Transcript. Every source safely parses but production stops at page-settings normalization with `INVALID_REPORT: ReportSection 0 lacks PageWidth`; no partial production inventory or renderer summary exists.
+
+The separately labeled corpus-assisted diagnostic confirms a wrong simple-table title target, a correct grouped title, an unsupported Transcript page-header title, no confident Invoice title, one correct UnitCost binding, and structurally flattened grouped Revenue targets. Page orientation is blocked for every fixture because effective/default dimensions are not represented.
+
+The simple and grouped grammar requests produce valid typed plans only with diagnostic context, but cannot reach review. Transcript is atomically rejected because the literal phrase `left aligned` is outside the current grammar. No plan is executed and no RDL is generated.
+
+The accepted implementation recommendation begins with nullable serialized page normalization, then structural candidate evidence, title scoring, dataset/scope-aware field resolution, typed ambiguity, page-orientation policy, mutation, and UI review—in that order.
+
 ## Provenance and licensing plan
 
 All four additional fixtures will be authored personally by Dylan in Microsoft Power BI Report Builder on a personally controlled Windows 11 VM:
@@ -153,6 +163,7 @@ The index records source identity, namespace, structural/count summary, title an
 - Gate 2D: discover and classify official external samples without importing source RDLs
 - Gate 2E: import and statically validate only the pinned Microsoft Invoice source
 - Gate 2F: import and statically validate only the pinned Microsoft Transcript source
+- Gate 2G: record the unchanged production inspector/resolver/planner baseline without writes
 - Gate 3: inventory and record pre-generalization ambiguity
 - Gate 4: evidence-based resolver changes only
 - Gate 5: deterministic mutations and preservation

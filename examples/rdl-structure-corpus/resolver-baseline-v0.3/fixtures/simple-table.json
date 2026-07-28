@@ -1,0 +1,375 @@
+{
+  "baselineVersion": 1,
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "fileName": "synthetic-inventory-detail.rdl",
+    "byteSize": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+    "unchangedAfterEvaluation": true
+  },
+  "productionInspector": {
+    "loadStarted": true,
+    "xmlParse": "PASS",
+    "namespace": "PASS",
+    "modelNormalization": "STARTED_NOT_RETURNED",
+    "pageSettingsNormalization": "FAIL",
+    "structuralInventory": "NOT_REACHED",
+    "candidateDiscovery": "NOT_REACHED",
+    "stoppingStage": "pageSettingsNormalization",
+    "errorCode": "INVALID_REPORT",
+    "error": "ReportSection 0 lacks PageWidth",
+    "partialModelAvailable": false,
+    "rendererReceivesUsableSummary": false,
+    "returnedInventorySha256": null
+  },
+  "corpusAssistedDiagnosticOnly": {
+    "warning": "CORPUS-ASSISTED DIAGNOSTIC ONLY — not current product behavior and not routed into production services",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "title": {
+      "requestedSemanticTarget": "report title",
+      "candidates": [
+        {
+          "reportItemName": "ReportTitle",
+          "container": "reportBody",
+          "tablix": null,
+          "visibleText": "InventoryReportTitle",
+          "serializedValue": "InventoryReportTitle",
+          "fontSizes": [
+            "18pt"
+          ],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [],
+          "score": 100,
+          "evidence": [
+            "+40 exact ReportTitle name",
+            "+20 reportBody container",
+            "+25 prominent 18.00pt font",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox9",
+          "container": "reportBody",
+          "tablix": null,
+          "visibleText": "Synthetic Inventory Detail",
+          "serializedValue": "Synthetic Inventory Detail",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": 25,
+          "evidence": [
+            "+20 reportBody container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "DetailUnits",
+          "container": "tablix",
+          "tablix": "InventoryTable",
+          "visibleText": "Units",
+          "serializedValue": "Units",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox1",
+          "container": "tablix",
+          "tablix": "InventoryTable",
+          "visibleText": "Item",
+          "serializedValue": "Item",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox2",
+          "container": "tablix",
+          "tablix": "InventoryTable",
+          "visibleText": "Warehouse",
+          "serializedValue": "Warehouse",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox4",
+          "container": "tablix",
+          "tablix": "InventoryTable",
+          "visibleText": "Unit Cost",
+          "serializedValue": "Unit Cost",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        }
+      ],
+      "productionResolutionArchitecture": {
+        "sidecarAndMutationEntryPoint": "resolveConfiguredReportTitle",
+        "sourceChecksumConfigured": false,
+        "resultIfInspectionWereReachable": {
+          "code": "TITLE_NOT_FOUND",
+          "message": "No checksum-reviewed report-title target is configured for this source"
+        },
+        "genericResolveReportTitleIsNotUsedByProductionSidecar": true,
+        "productionCandidateScoresExist": false
+      },
+      "currentProductionCandidateLogicAppliedToDiagnosticModel": {
+        "outcome": "selected",
+        "reportItemName": "ReportTitle",
+        "scoring": "none; conservative filter requires exactly one candidate"
+      },
+      "expectedVisibleTitle": "Synthetic Inventory Detail",
+      "classification": "FAIL_WRONG_TARGET",
+      "textAndStyleUseSameSemanticHandle": true,
+      "containerContextRepresentedInResolvedHandle": false
+    },
+    "numericDisplays": {
+      "requestedField": "UnitCost",
+      "allExistingDirectAndSumCandidates": [
+        {
+          "fieldName": "Item",
+          "declaringDatasets": [
+            "InventoryData"
+          ],
+          "reportItemName": "DetailItem",
+          "tablix": "InventoryTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Item.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "UnitCost",
+          "declaringDatasets": [
+            "InventoryData"
+          ],
+          "reportItemName": "DetailUnitCose",
+          "tablix": "InventoryTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!UnitCost.Value",
+          "format": "'$'0.00;('$'0.00)",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Units",
+          "declaringDatasets": [
+            "InventoryData"
+          ],
+          "reportItemName": "DetailUnit",
+          "tablix": "InventoryTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Units.Value",
+          "format": "0",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Warehouse",
+          "declaringDatasets": [
+            "InventoryData"
+          ],
+          "reportItemName": "DetailWarehouse",
+          "tablix": "InventoryTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Warehouse.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        }
+      ],
+      "requestedCandidates": [
+        {
+          "fieldName": "UnitCost",
+          "declaringDatasets": [
+            "InventoryData"
+          ],
+          "reportItemName": "DetailUnitCose",
+          "tablix": "InventoryTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!UnitCost.Value",
+          "format": "'$'0.00;('$'0.00)",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        }
+      ],
+      "classification": "PASS_CORRECT"
+    },
+    "pageOrientation": {
+      "request": "switch the page to landscape",
+      "serializedPage": {
+        "width": null,
+        "height": null,
+        "margins": {
+          "left": "0.5in",
+          "right": "0.5in",
+          "top": "0.5in",
+          "bottom": "0.5in"
+        }
+      },
+      "normalizedByProduction": false,
+      "effectiveDefaultsRepresented": false,
+      "safeTargetExists": false,
+      "materializationRequired": true,
+      "blocker": "ReportSection 0 lacks PageWidth",
+      "classification": "BLOCKED_INSPECTOR"
+    }
+  },
+  "plannerBaseline": {
+    "request": "Change the report title to \"Quarterly Inventory Detail\", make the title 20-point bold, switch the page to landscape, and format UnitCost as currency with no decimal places.",
+    "contextSource": "corpus-assisted diagnostic context because production inventory is unreachable",
+    "result": {
+      "status": "planned",
+      "planner": {
+        "name": "LocalSentenceEditPlanner",
+        "version": 1
+      },
+      "normalizedRequest": "Change the report title to \"Quarterly Inventory Detail\", make the title 20-point bold, switch the page to landscape, and format UnitCost as currency with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setText",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "value": "Quarterly Inventory Detail"
+          },
+          {
+            "type": "setTextStyle",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "fontSize": "20pt",
+            "fontWeight": "Bold"
+          },
+          {
+            "type": "setPageOrientation",
+            "orientation": "landscape"
+          },
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "UnitCost"
+            },
+            "format": "C0"
+          }
+        ]
+      },
+      "planSha256": "6fa8e965bfb1e951b024cb1859c8f133d375337414fa16dcea9f3f513d1a7502",
+      "proposal": [
+        "Change report title from \"InventoryReportTitle\" to \"Quarterly Inventory Detail\".",
+        "Change report title font size to 20pt.",
+        "Make report title bold.",
+        "Change page orientation to landscape.",
+        "Format UnitCost displays as C0."
+      ],
+      "recognizedClauses": [
+        {
+          "kind": "title",
+          "start": 0,
+          "end": 55,
+          "text": "Change the report title to \"Quarterly Inventory Detail\""
+        },
+        {
+          "kind": "titleStyle",
+          "start": 57,
+          "end": 85,
+          "text": "make the title 20-point bold"
+        },
+        {
+          "kind": "orientation",
+          "start": 87,
+          "end": 115,
+          "text": "switch the page to landscape"
+        },
+        {
+          "kind": "numberFormat",
+          "start": 121,
+          "end": 171,
+          "text": "format UnitCost as currency with no decimal places"
+        }
+      ],
+      "warnings": []
+    },
+    "planCouldReachReviewSafely": false,
+    "mutationBlockedBeforeWrite": true
+  },
+  "operationClassifications": [
+    {
+      "operation": "reportTitle",
+      "classification": "FAIL_WRONG_TARGET",
+      "evidence": "Production unreachable: ReportSection 0 lacks PageWidth; corpus-assisted current candidate logic: selected ReportTitle"
+    },
+    {
+      "operation": "numericDisplay",
+      "classification": "PASS_CORRECT",
+      "evidence": "1 exact direct/Sum UnitCost bindings; dataset/group scope is not represented in production targets"
+    },
+    {
+      "operation": "pageOrientation",
+      "classification": "BLOCKED_INSPECTOR",
+      "evidence": "Literal PageWidth/PageHeight are omitted; production rejects before orientation normalization and has no effective/default-page representation"
+    },
+    {
+      "operation": "planner",
+      "classification": "BLOCKED_INSPECTOR",
+      "evidence": "Grammar produced a valid typed plan using diagnostic context, but production inspection prevents review"
+    }
+  ],
+  "falsePositiveNegativeReview": {
+    "visibleTitlesMissed": [
+      "Textbox9 is excluded because Top 0.58729in exceeds 0.5in"
+    ],
+    "decorativeTitleRisks": [],
+    "styledPlaceholderPreferred": [
+      "ReportTitle/InventoryReportTitle outranks and is selected over visible Textbox9"
+    ],
+    "staticHeadersMistakenForFieldDisplays": false,
+    "aggregatesConflatedWithDetails": false,
+    "datasetIdentityLost": false,
+    "tablixAndGroupContextLost": true,
+    "mutationHasRevenueTargetCountSpecialCase": false,
+    "containerHierarchyReduced": false,
+    "omittedPageDefaultsRejected": true,
+    "forcedAmbiguityRisk": false
+  }
+}

@@ -379,3 +379,14 @@
 - Registered Transcript as the second static external fixture without changing or canceling either paused controlled fixture.
 - Neither imported report was opened, rendered, queried, published, or exported. No resolver, inspector, mutation, planner, Electron, LLM, packaging behavior, other Microsoft import, or later gate was started.
 - Passed changed-file formatting, ESLint, workspace typecheck, 45 test files / 326 tests, production build, all corpus JSON parsing, deterministic regeneration, exact Transcript/Invoice byte verification, and upstream-clean verification.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2G inspector/resolver baseline
+
+- Hash-verified all four accepted sources before evaluation and invoked the unchanged `inspectRdlFile` production entry point used by the Electron sidecar.
+- Recorded the identical production stop for all four: XML/namespace pass, page-settings normalization fails with `INVALID_REPORT: ReportSection 0 lacks PageWidth`, no partial inventory, and no renderer summary.
+- Added a separate NONET corpus-assisted diagnostic for candidate evidence only; it is not routed into production services.
+- Recorded deterministic title evidence/scores, direct and `Sum` field bindings, dataset overlap, tablix context, page blockers, grammar results, and stable operation classifications.
+- Confirmed simple title logic would select the wrong styled placeholder; grouped title is correct; Invoice has no confident title; Transcript's page-header title is unsupported by current discovery.
+- Parsed simple/grouped requests into typed plans with diagnostic contexts and recorded Transcript's atomic `UNSUPPORTED_REQUEST` rejection for `left aligned`; executed no plan.
+- Added a nine-stage smallest-safe implementation recommendation. No source, inspector, resolver, planner, mutation, IPC, renderer, packaging, or RDL output changed.
+- Passed changed-file formatting, ESLint, workspace typecheck, 46 test files / 331 tests, production build, all baseline JSON parsing, deterministic regeneration, eight production-source identity checks, and four post-evaluation RDL hash checks.
