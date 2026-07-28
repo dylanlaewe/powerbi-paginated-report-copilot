@@ -67,6 +67,24 @@ const sidecarErrorSchema = z
     sourceUnchanged: z.boolean().optional(),
   })
   .strict();
+const titleEvidenceContributionSchema = z
+  .object({
+    code: z.string(),
+    weight: z.number().int(),
+    message: z.string(),
+  })
+  .strict();
+const liveRankedTitleCandidateSchema = z
+  .object({
+    candidateId: z.string().uuid(),
+    visibleText: z.string(),
+    structuralPath: z.string(),
+    region: z.enum(["body", "pageHeader", "pageFooter"]),
+    score: z.number().int(),
+    evidence: z.array(titleEvidenceContributionSchema),
+    negativeEvidence: z.array(titleEvidenceContributionSchema),
+  })
+  .strict();
 export const reportSummarySchema = z
   .object({
     filename: z.string(),
@@ -123,6 +141,53 @@ export const reportSummarySchema = z
             })
             .strict(),
         ),
+        titleResolution: z.discriminatedUnion("status", [
+          z
+            .object({
+              status: z.literal("resolved"),
+              reason: z.literal("TITLE_RESOLVED"),
+              candidateId: z.string().uuid(),
+              confidence: z.enum(["high", "medium"]),
+              evidence: z.array(titleEvidenceContributionSchema),
+              alternatives: z.array(liveRankedTitleCandidateSchema),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+          z
+            .object({
+              status: z.literal("ambiguous"),
+              reason: z.enum([
+                "MULTIPLE_PLAUSIBLE_TITLE_CANDIDATES",
+                "CONFLICTING_TITLE_EVIDENCE",
+              ]),
+              candidates: z.array(liveRankedTitleCandidateSchema).min(2),
+              evidence: z.array(z.string()),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+          z
+            .object({
+              status: z.literal("notFound"),
+              reason: z.enum([
+                "NO_TITLE_CANDIDATE",
+                "NO_CONFIDENT_TITLE_CANDIDATE",
+              ]),
+              consideredCandidateCount: z.number().int().nonnegative(),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+          z
+            .object({
+              status: z.literal("unsupported"),
+              reason: z.enum([
+                "UNSUPPORTED_TITLE_EXPRESSION",
+                "TITLE_CONTEXT_INSUFFICIENT",
+              ]),
+              evidence: z.array(z.string()),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+        ]),
       })
       .strict(),
     currentTitle: z.string().nullable(),

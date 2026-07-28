@@ -208,3 +208,22 @@ Catalogs under `examples/rdl-structure-corpus/target-context-v0.3/` use stable
 diagnostic IDs only. Live renderer summaries use new opaque UUIDs per
 inspection session. Neither kind is accepted by mutation IPC. No generic title
 or field target is selected, and checksum-reviewed mutation remains unchanged.
+
+## Gate 2J read-only title resolution
+
+Title candidates now receive deterministic, inspectable positive and negative
+evidence. Name tokens, font prominence, bold style, structural separation,
+body/page-header placement, width, concise phrase shape, and generic title
+terms contribute positively. Data-region headers and labels, footer placement,
+hidden state, small/narrow captions, prompts, metadata, and disclaimers
+contribute negatively.
+
+The resolver returns a strict typed outcome rather than forcing the first
+ranked candidate. Simple table is `CONFLICTING_TITLE_EVIDENCE`; Grouped and
+Transcript are high-confidence read-only resolutions; Invoice is
+`NO_CONFIDENT_TITLE_CANDIDATE`. Deterministic tie ordering never overrides
+semantic ambiguity.
+
+Artifacts under `title-resolution-v0.3/` use diagnostic IDs. Live Electron
+outcomes translate them to session UUIDs. All outcomes explicitly deny mutation
+authority, and the checksum-reviewed target remains the only writable path.

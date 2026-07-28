@@ -1,5 +1,20 @@
 # Build log
 
+## 2026-07-27 — RDL structure corpus Gate 2J title resolution
+
+- Added strict read-only `resolved`, `ambiguous`, `notFound`, and `unsupported`
+  outcomes with stable reason codes and permanently false mutation authority.
+- Added inspectable deterministic positive and negative evidence contributions,
+  stable ranking, meaningful confidence thresholds, and ambiguity preservation.
+- Resolved Grouped and Transcript with high confidence, retained the
+  simple-table name/style versus visible-semantic conflict, and returned
+  `NO_CONFIDENT_TITLE_CANDIDATE` for Invoice.
+- Added page-header and constant-string support without expression execution.
+- Added sanitized live outcomes using session-scoped candidate UUIDs; no
+  deterministic ID, item name, structural path, or outcome enters mutation IPC.
+- Preserved checksum-reviewed title mutation, planner grammar, field candidate
+  catalogs, orientation safety, and all source bytes.
+
 ## 2026-07-27 — RDL structure corpus Gate 2I target context
 
 - Added strict structural location, expression, dataset identity, scope role,

@@ -8,6 +8,7 @@ import {
   inspectRdlFile,
   prepareSidecarEditFromText,
   resolveConfiguredReportTitle,
+  resolveReadOnlyReportTitle,
   SidecarCliError,
   RdlInspectionError,
   validateXmlAgainstXsd,
@@ -217,6 +218,12 @@ export class ExistingRdlSidecarService {
           ...candidate.negativeEvidence,
         ],
       }));
+      const titleCandidateIds = new Map(
+        titleCandidates.map((candidate, index) => [
+          catalog.titleCandidates[index]!.diagnosticId,
+          candidate.candidateId,
+        ]),
+      );
       const fieldDisplayCandidates = catalog.fieldDisplayCandidates.map(
         (candidate) => ({
           candidateId: randomUUID(),
@@ -229,6 +236,34 @@ export class ExistingRdlSidecarService {
           scopeRole: candidate.scope.role,
         }),
       );
+      const diagnosticTitleResolution = resolveReadOnlyReportTitle(catalog);
+      const liveRanked = <
+        T extends {
+          candidateId: string;
+        },
+      >(
+        candidate: T,
+      ): T => ({
+        ...candidate,
+        candidateId: titleCandidateIds.get(candidate.candidateId)!,
+      });
+      const titleResolution =
+        diagnosticTitleResolution.status === "resolved"
+          ? {
+              ...diagnosticTitleResolution,
+              candidateId: titleCandidateIds.get(
+                diagnosticTitleResolution.candidateId,
+              )!,
+              alternatives:
+                diagnosticTitleResolution.alternatives.map(liveRanked),
+            }
+          : diagnosticTitleResolution.status === "ambiguous"
+            ? {
+                ...diagnosticTitleResolution,
+                candidates:
+                  diagnosticTitleResolution.candidates.map(liveRanked),
+              }
+            : diagnosticTitleResolution;
       this.reports.set(id, {
         id,
         sourcePath,
@@ -280,6 +315,7 @@ export class ExistingRdlSidecarService {
             fieldDisplayCount: fieldDisplayCandidates.length,
             titleCandidates,
             fieldDisplayCandidates,
+            titleResolution,
           },
           currentTitle,
         },

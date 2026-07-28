@@ -123,6 +123,19 @@ describe("native selection and report sessions", () => {
     expect(JSON.stringify(result.summary.candidateCatalog)).not.toContain(
       copiedSource,
     );
+    expect(result.summary.candidateCatalog.titleResolution).toMatchObject({
+      status: "resolved",
+      confidence: "high",
+      mutationAuthorized: false,
+    });
+    if (result.summary.candidateCatalog.titleResolution.status !== "resolved")
+      throw new Error("Expected read-only title resolution");
+    expect(result.summary.candidateCatalog.titleResolution.candidateId).toMatch(
+      /^[a-f0-9-]{36}$/u,
+    );
+    expect(JSON.stringify(result.summary.candidateCatalog)).not.toContain(
+      "84b9fb7c3d176cfdebf9",
+    );
   });
 
   it("scopes opaque candidate handles to each inspection session", async () => {

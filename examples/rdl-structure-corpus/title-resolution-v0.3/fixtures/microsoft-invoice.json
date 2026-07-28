@@ -1,0 +1,940 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-invoice",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+    "byteLength": 222297,
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "candidateOrdering": [
+    {
+      "candidateId": "5dcfa0342d89893bbee7",
+      "visibleText": "Invoice CIV-000676",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox7)",
+      "region": "body",
+      "score": 4,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "TITLE_SEMANTIC_TOKEN",
+          "weight": 12,
+          "message": "visible text contains a generic report-title term"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "84198c4be3db7b6f60e2",
+      "visibleText": " ",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox38)",
+      "region": "body",
+      "score": -16,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "e88d895ad9605ce2ef86",
+      "visibleText": "Electronic payment",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox42)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "9dccfef195976813e074",
+      "visibleText": "Check",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox43)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "49373fcba575264d58e5",
+      "visibleText": "Make check payable to",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox40)",
+      "region": "body",
+      "score": -37,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "da4a70c39d021479f4f2",
+      "visibleText": "Tax registration no.",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox24)",
+      "region": "body",
+      "score": -43,
+      "evidence": [
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "HIDDEN_OR_CONDITIONAL",
+          "weight": -25,
+          "message": "candidate is hidden or conditionally visible"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "248cdebd64818234f72b",
+      "visibleText": "Payment reference",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox34)",
+      "region": "body",
+      "score": -55,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "845871a2909ce13e7b07",
+      "visibleText": "Sort code",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox36)",
+      "region": "body",
+      "score": -55,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "f3bac9d2d6e098b46cdd",
+      "visibleText": "Account No.",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox37)",
+      "region": "body",
+      "score": -55,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "bb58f401b6920220d0e7",
+      "visibleText": "Our reference",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox33)",
+      "region": "body",
+      "score": -80,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "HIDDEN_OR_CONDITIONAL",
+          "weight": -25,
+          "message": "candidate is hidden or conditionally visible"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "f87f940614df58807d68",
+      "visibleText": "Disclaimer:This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+      "structuralPath": "section[0]/pageFooter/Rectangle(Rectangle1)/Textbox(Textbox12)",
+      "region": "pageFooter",
+      "score": -89,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "WIDE_TEXTBOX",
+          "weight": 10,
+          "message": "textbox width is consistent with a report heading"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "PAGE_FOOTER",
+          "weight": -45,
+          "message": "candidate is in the page footer"
+        },
+        {
+          "code": "LONG_PARAGRAPH",
+          "weight": -35,
+          "message": "text is paragraph-length rather than title-like"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        }
+      ]
+    }
+  ],
+  "resolution": {
+    "status": "notFound",
+    "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+    "consideredCandidateCount": 11,
+    "mutationAuthorized": false
+  },
+  "selectedDiagnosticCandidate": null,
+  "alternatives": [
+    {
+      "candidateId": "5dcfa0342d89893bbee7",
+      "visibleText": "Invoice CIV-000676",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle4)/Rectangle(Rectangle3)/row[0]/cell[0]/Textbox(Textbox7)",
+      "region": "body",
+      "score": 4,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "TITLE_SEMANTIC_TOKEN",
+          "weight": 12,
+          "message": "visible text contains a generic report-title term"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "84198c4be3db7b6f60e2",
+      "visibleText": " ",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox38)",
+      "region": "body",
+      "score": -16,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "e88d895ad9605ce2ef86",
+      "visibleText": "Electronic payment",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox42)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "9dccfef195976813e074",
+      "visibleText": "Check",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox43)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "49373fcba575264d58e5",
+      "visibleText": "Make check payable to",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox40)",
+      "region": "body",
+      "score": -37,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "da4a70c39d021479f4f2",
+      "visibleText": "Tax registration no.",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox24)",
+      "region": "body",
+      "score": -43,
+      "evidence": [
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "HIDDEN_OR_CONDITIONAL",
+          "weight": -25,
+          "message": "candidate is hidden or conditionally visible"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "248cdebd64818234f72b",
+      "visibleText": "Payment reference",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox34)",
+      "region": "body",
+      "score": -55,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "845871a2909ce13e7b07",
+      "visibleText": "Sort code",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox36)",
+      "region": "body",
+      "score": -55,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "f3bac9d2d6e098b46cdd",
+      "visibleText": "Account No.",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/row[4]/cell[0]/Textbox(Textbox37)",
+      "region": "body",
+      "score": -55,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "bb58f401b6920220d0e7",
+      "visibleText": "Our reference",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle5)/Rectangle(Rectangle24)/row[4]/cell[0]/Textbox(Textbox33)",
+      "region": "body",
+      "score": -80,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        },
+        {
+          "code": "HIDDEN_OR_CONDITIONAL",
+          "weight": -25,
+          "message": "candidate is hidden or conditionally visible"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        },
+        {
+          "code": "NARROW_TEXTBOX",
+          "weight": -8,
+          "message": "textbox is narrow and caption-like"
+        }
+      ]
+    },
+    {
+      "candidateId": "f87f940614df58807d68",
+      "visibleText": "Disclaimer:This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+      "structuralPath": "section[0]/pageFooter/Rectangle(Rectangle1)/Textbox(Textbox12)",
+      "region": "pageFooter",
+      "score": -89,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "WIDE_TEXTBOX",
+          "weight": 10,
+          "message": "textbox width is consistent with a report heading"
+        },
+        {
+          "code": "SAFE_CONSTANT_STRING",
+          "weight": 8,
+          "message": "constant-string expression was safely decoded"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "PAGE_FOOTER",
+          "weight": -45,
+          "message": "candidate is in the page footer"
+        },
+        {
+          "code": "LONG_PARAGRAPH",
+          "weight": -35,
+          "message": "text is paragraph-length rather than title-like"
+        },
+        {
+          "code": "METADATA_OR_DISCLAIMER",
+          "weight": -25,
+          "message": "text resembles metadata, payment detail, or disclaimer content"
+        },
+        {
+          "code": "SMALL_FONT",
+          "weight": -12,
+          "message": "candidate uses small label-sized text"
+        }
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "gate2GComparison": "No conservative title candidate was found.",
+  "remainingLimitations": [
+    "Resolution is read-only and cannot authorize a title mutation.",
+    "No user review or generic target authorization exists.",
+    "Existing checksum-reviewed title mappings remain the only writable path."
+  ]
+}

@@ -83,3 +83,20 @@ generic score, winner, or approved target exists. Diagnostic IDs support
 reproducible evidence only. Live candidate IDs are inspection-session handles,
 and no existing IPC accepts them for planning or mutation. The
 checksum-reviewed mapping remains the sole path to a writable target.
+
+## v0.3 Gate 2J title outcomes
+
+Generic title discovery now feeds a read-only resolver with four outcomes:
+`resolved`, `ambiguous`, `notFound`, and `unsupported`. Stable reason codes
+distinguish missing candidates, insufficient confidence, comparable candidates,
+conflicting evidence, unsupported expressions, and insufficient context.
+
+A result is resolved only above the plausible-title threshold and without a
+comparable or semantically conflicting alternative. Page-header placement is
+positive evidence but not an automatic winner. Constant-string expressions are
+decoded safely; field, aggregate, compound, report-global, parameter, and code
+expressions are never executed as title text.
+
+This does not alter reviewed resolution. Generic outcomes, candidate IDs,
+diagnostic IDs, item names, and paths remain invalid mutation inputs. User
+review and generic target authorization are future gates.

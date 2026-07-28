@@ -53,6 +53,19 @@ describe("existing RDL sidecar IPC contract", () => {
         candidateId: "33333333-3333-4333-8333-333333333333",
       }),
     ).toThrow();
+    for (const forbidden of [
+      { structuralPath: "section[0]/body/Textbox(Title)" },
+      { reportItemName: "ReportTitle" },
+      { diagnosticId: "deterministic-diagnostic-id" },
+      { titleResolution: { status: "resolved" } },
+    ])
+      expect(() =>
+        applyEditRequestSchema.parse({
+          reportSessionId,
+          planSessionId,
+          ...forbidden,
+        }),
+      ).toThrow();
     expect(() =>
       outputHandleRequestSchema.parse({
         outputHandle: planSessionId,

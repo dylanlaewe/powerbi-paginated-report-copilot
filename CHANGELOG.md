@@ -4,6 +4,10 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2J: deterministic evidence-based read-only
+  report-title ranking with strict resolved/ambiguous/not-found/unsupported
+  outcomes, page-header and constant-string support, stable reason codes,
+  sanitized session UUIDs, and explicit non-mutation authority.
 - RDL Structure Corpus v0.3 Gate 2I: runtime-validated structural target
   context, conservative expression and scope classification, dataset-aware
   read-only title/field candidate catalogs, deterministic diagnostic evidence,

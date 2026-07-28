@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2I structural target context complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2J read-only title resolution complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -53,6 +53,16 @@ Deterministic artifacts use stable diagnostic IDs; Electron summaries replace
 them with inspection-session UUIDs. Existing mutation IPC accepts neither
 candidate IDs, report-item names, nor structural paths. The checksum-reviewed
 v0.2 target path remains the only writable authority.
+
+Gate 2J adds deterministic evidence ranking and strict `resolved`,
+`ambiguous`, `notFound`, and `unsupported` title outcomes. Simple-table title
+evidence remains ambiguous, Grouped and Transcript resolve with high confidence,
+and Invoice remains `notFound`. Page-header constants participate through safe
+literal extraction; compound and code expressions are never executed.
+
+Every generic outcome has `mutationAuthorized: false`. Live outcomes use
+inspection-session UUIDs and cannot enter planning or mutation IPC. The
+checksum-reviewed title target remains the only writable title path.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 
