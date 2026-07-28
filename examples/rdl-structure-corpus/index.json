@@ -1,8 +1,8 @@
 {
   "corpusVersion": 1,
   "milestone": "RDL Structure Corpus and Resolver Validation v0.3",
-  "gate": "2E",
-  "status": "INVOICE_IMPORTED_STATICALLY",
+  "gate": "2F",
+  "status": "TRANSCRIPT_IMPORTED_STATICALLY",
   "frozenOperations": [
     "setText",
     "setTextStyle",
@@ -452,7 +452,7 @@
       }
     }
   ],
-  "externalFixtureCount": 1,
+  "externalFixtureCount": 2,
   "externalFixtures": [
     {
       "id": "microsoft-invoice",
@@ -483,6 +483,37 @@
         "three tablixes and nine rectangles",
         "scoped aggregate and advanced visibility expressions",
         "embedded image plus page header and footer compatibility"
+      ]
+    },
+    {
+      "id": "microsoft-transcript",
+      "name": "Microsoft Reporting Services Transcript",
+      "sourceKind": "externalPinnedCompatibilityFixture",
+      "status": "staticallyValidated",
+      "canonicalSourceRelativePath": "external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+      "upstream": {
+        "repository": "https://github.com/microsoft/Reporting-Services.git",
+        "branch": "master",
+        "commit": "acc2ee0d1884765e4b5213149430fb063d166719",
+        "sourcePath": "PaginatedReportSamples/Transcript.rdl"
+      },
+      "byteSize": 116709,
+      "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "license": {
+        "name": "MIT",
+        "copyright": "Copyright (c) 2016 Microsoft",
+        "licenseSha256": "e1406b32500b4622444e91ec3b50a473b97c5c4470b7b1f137c36abcfb248b59",
+        "noticeRelativePath": "external-sources/microsoft-reporting-services/imported/transcript/LICENSE.microsoft.txt"
+      },
+      "reportBuilderValidation": "NOT_PERFORMED",
+      "purpose": [
+        "two embedded Enter Data datasets with overlapping Name fields",
+        "three tablixes across nested independent report regions",
+        "nested row-group hierarchy",
+        "eight rectangles with depth-two containment",
+        "page-header title with competing title-like textboxes",
+        "two embedded images and document-style header/footer layout"
       ]
     }
   ]

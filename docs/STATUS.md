@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2E pinned Microsoft Invoice import complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2F pinned Microsoft Transcript import complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -23,6 +23,10 @@ No resolver, generic-inspector, mutation, planner, Electron, LLM, packaging, or 
 Gate 2E imports the official Microsoft Invoice sample as the corpus's first pinned external compatibility fixture. Its canonical 222,297-byte source matches upstream SHA-256 `6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc`; its adjacent upstream MIT license matches the pinned license hash.
 
 The source passes safe static XML parsing, Microsoft 2016/01 XSD validation, security-baseline verification, deterministic inventory comparison, and immutability checks. It is registered separately from personally authored controlled fixtures and is not described as Report Builder-validated. Invoice was not opened, rendered, queried, or exported. No other Microsoft sample or manual fixture was imported or authored.
+
+Gate 2F adds Transcript as the second statically validated pinned external fixture. Its 116,709-byte source matches upstream SHA-256 `9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81`. Deterministic evidence records its overlapping `Name` field, three nested-region tablixes, nested row members, depth-two rectangle containment, page-header title, and two embedded images.
+
+Invoice remains byte-identical. Transcript and Invoice were not opened, previewed, rendered, queried, published, or exported. No resolver, generic-inspector, mutation, planner, Electron, LLM, packaging, or supported-operation behavior changed, and no later gate started.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

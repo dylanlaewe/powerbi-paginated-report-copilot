@@ -137,7 +137,7 @@ const corpusFixtureSchema = z
       });
   });
 
-const externalFixtureSchema = z
+const invoiceExternalFixtureSchema = z
   .object({
     id: z.literal("microsoft-invoice"),
     name: z.literal("Microsoft Reporting Services Invoice"),
@@ -178,6 +178,47 @@ const externalFixtureSchema = z
   })
   .strict();
 
+const transcriptExternalFixtureSchema = z
+  .object({
+    id: z.literal("microsoft-transcript"),
+    name: z.literal("Microsoft Reporting Services Transcript"),
+    sourceKind: z.literal("externalPinnedCompatibilityFixture"),
+    status: z.literal("staticallyValidated"),
+    canonicalSourceRelativePath: z
+      .string()
+      .endsWith("imported/transcript/source/Transcript.rdl"),
+    upstream: z
+      .object({
+        repository: z.literal(
+          "https://github.com/microsoft/Reporting-Services.git",
+        ),
+        branch: z.literal("master"),
+        commit: z.literal("acc2ee0d1884765e4b5213149430fb063d166719"),
+        sourcePath: z.literal("PaginatedReportSamples/Transcript.rdl"),
+      })
+      .strict(),
+    byteSize: z.literal(116_709),
+    sha256: z.literal(
+      "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+    ),
+    namespace: z.literal(
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    ),
+    license: z
+      .object({
+        name: z.literal("MIT"),
+        copyright: z.literal("Copyright (c) 2016 Microsoft"),
+        licenseSha256: z.literal(
+          "e1406b32500b4622444e91ec3b50a473b97c5c4470b7b1f137c36abcfb248b59",
+        ),
+        noticeRelativePath: z.string().endsWith("LICENSE.microsoft.txt"),
+      })
+      .strict(),
+    reportBuilderValidation: z.literal("NOT_PERFORMED"),
+    purpose: z.array(z.string().min(1)).min(1),
+  })
+  .strict();
+
 export const rdlStructureCorpusIndexSchema = z
   .object({
     corpusVersion: z.literal(1),
@@ -187,12 +228,14 @@ export const rdlStructureCorpusIndexSchema = z
       z.literal("2B"),
       z.literal("2C"),
       z.literal("2E"),
+      z.literal("2F"),
     ]),
     status: z.enum([
       "DESIGN_ONLY",
       "SIMPLE_TABLE_VALIDATED",
       "GROUPED_REPORT_VALIDATED",
       "INVOICE_IMPORTED_STATICALLY",
+      "TRANSCRIPT_IMPORTED_STATICALLY",
     ]),
     frozenOperations: z.tuple([
       z.literal("setText"),
@@ -219,8 +262,11 @@ export const rdlStructureCorpusIndexSchema = z
             message: "Every required structural category must appear once",
           });
       }),
-    externalFixtureCount: z.literal(1),
-    externalFixtures: z.tuple([externalFixtureSchema]),
+    externalFixtureCount: z.literal(2),
+    externalFixtures: z.tuple([
+      invoiceExternalFixtureSchema,
+      transcriptExternalFixtureSchema,
+    ]),
   })
   .strict();
 

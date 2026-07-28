@@ -4,6 +4,7 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2F: one byte-identical, hash-pinned Microsoft Transcript compatibility fixture with the unmodified upstream MIT license, attribution, deterministic nested-layout inventory, static security evidence, XML/XSD validation, corpus registration, and fixture-level regressions. Invoice remains unchanged and Report Builder execution remains unperformed.
 - RDL Structure Corpus v0.3 Gate 2E: one byte-identical, hash-pinned Microsoft Invoice compatibility fixture with the unmodified upstream MIT license, attribution, deterministic inventory, static security evidence, XML/XSD validation, corpus registration, and fixture-level regressions. Report Builder execution remains unperformed.
 - RDL Structure Corpus v0.3 Gate 2D: reproducible static discovery of seven hash-pinned official Microsoft Reporting Services samples, direct MIT license review, security scans, XML/XSD results, deterministic structural inventories, feature-coverage matrix, and later-import classifications without committing source RDLs or changing product behavior.
 - RDL Structure Corpus v0.3 Gate 2C: immutable personally authored grouped source, complete hierarchy/aggregate/pagination inventory, XML/XSD and fixture regressions, completed four-page/four-worksheet validation evidence, and corrected canonical title requirements without resolver evaluation.

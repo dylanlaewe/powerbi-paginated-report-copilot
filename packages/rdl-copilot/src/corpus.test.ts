@@ -87,12 +87,12 @@ describe("RDL structure corpus Gate 1 design", () => {
     );
   });
 
-  it("registers the pinned Invoice as static external evidence, not a controlled fixture", async () => {
+  it("registers pinned Microsoft sources separately from controlled fixtures", async () => {
     const index = rdlStructureCorpusIndexSchema.parse(
       JSON.parse(await readFile(indexPath, "utf8")),
     );
     expect(index.fixtureCount).toBe(4);
-    expect(index.externalFixtureCount).toBe(1);
+    expect(index.externalFixtureCount).toBe(2);
     expect(index.externalFixtures).toEqual([
       expect.objectContaining({
         id: "microsoft-invoice",
@@ -100,6 +100,14 @@ describe("RDL structure corpus Gate 1 design", () => {
         status: "staticallyValidated",
         sha256:
           "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        reportBuilderValidation: "NOT_PERFORMED",
+      }),
+      expect.objectContaining({
+        id: "microsoft-transcript",
+        sourceKind: "externalPinnedCompatibilityFixture",
+        status: "staticallyValidated",
+        sha256:
+          "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
         reportBuilderValidation: "NOT_PERFORMED",
       }),
     ]);

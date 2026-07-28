@@ -76,6 +76,14 @@ Invoice provides realistic five-dataset overlap, a Company lookup parameter and 
 
 No Report Builder open, Preview, rendering, query execution, or export was performed. No resolver or mutation evaluation occurred.
 
+## Gate 2F pinned Transcript import
+
+Gate 2F imports exactly one additional external source: Microsoft's `PaginatedReportSamples/Transcript.rdl` from the same pinned commit. The canonical source is `external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl`, preserved byte-for-byte at 116,709 bytes and SHA-256 `9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81`.
+
+Transcript is registered separately from both the controlled fixtures and Invoice. Static validation records two Enter Data datasets sharing `Name`, three tablixes, nested `Name → Details` members, eight rectangles with deepest path `Rectangle2 → Rectangle5 → Rectangle6`, two embedded images, and a page-header title in `Textbox1`. The title expression is `="Contoso Professional Certified Transcript"`, with 22pt Bold, left-aligned styling.
+
+Transcript supplies broad realistic alternate-layout evidence but does not replace the narrowed controlled alternate-layout fixture's isolated landscape, naming, title, and Cost-display conditions. Invoice remains unchanged. Neither external report was opened, rendered, queried, published, or exported, and resolver behavior remains unevaluated.
+
 ## Provenance and licensing plan
 
 All four additional fixtures will be authored personally by Dylan in Microsoft Power BI Report Builder on a personally controlled Windows 11 VM:
@@ -144,6 +152,7 @@ The index records source identity, namespace, structural/count summary, title an
 - Gate 2B onward: personally author and independently validate source baselines in the approved order
 - Gate 2D: discover and classify official external samples without importing source RDLs
 - Gate 2E: import and statically validate only the pinned Microsoft Invoice source
+- Gate 2F: import and statically validate only the pinned Microsoft Transcript source
 - Gate 3: inventory and record pre-generalization ambiguity
 - Gate 4: evidence-based resolver changes only
 - Gate 5: deterministic mutations and preservation

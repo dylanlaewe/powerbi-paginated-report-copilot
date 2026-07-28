@@ -368,3 +368,14 @@
 - Registered Invoice separately from the four controlled personally authored fixtures and recorded that Report Builder open, Preview, query execution, rendering, and export were not performed.
 - Added fixture-level identity, structure, overlap, lookup-parameter, security, attribution, and immutability regressions. No other RDL, manual fixture, product behavior, or later gate was started.
 - Passed changed-file formatting, ESLint, workspace typecheck, 44 test files / 322 tests, production build, JSON parsing, deterministic regeneration, exact byte comparison, and upstream-clean verification.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2F pinned Transcript import
+
+- Reacquired the pinned Microsoft repository outside the product repository and fail-closed on commit, Transcript size/hash, and license hash.
+- Imported only `PaginatedReportSamples/Transcript.rdl` through an exact byte copy: 116,709 bytes, SHA-256 `9693231c…2e81`.
+- Preserved the unmodified upstream MIT license and attribution adjacent to the canonical source; verified Invoice remained `6251f6b9…53fdc`.
+- Re-ran safe parsing, 2016/01 XSD validation, complete static security scanning, source immutability checks, and deterministic inventory regeneration.
+- Added deterministic evidence for overlapping fields, page-header title styling, tablix containers, nested row members, rectangle parents/children, and the depth-two `Rectangle2 → Rectangle5 → Rectangle6` path.
+- Registered Transcript as the second static external fixture without changing or canceling either paused controlled fixture.
+- Neither imported report was opened, rendered, queried, published, or exported. No resolver, inspector, mutation, planner, Electron, LLM, packaging behavior, other Microsoft import, or later gate was started.
+- Passed changed-file formatting, ESLint, workspace typecheck, 45 test files / 326 tests, production build, all corpus JSON parsing, deterministic regeneration, exact Transcript/Invoice byte verification, and upstream-clean verification.

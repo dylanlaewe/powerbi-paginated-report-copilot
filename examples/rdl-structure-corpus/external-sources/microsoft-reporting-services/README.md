@@ -41,3 +41,11 @@ Gate 2E imports only `PaginatedReportSamples/Invoice.rdl` at the same pinned com
 The fixture carries the unmodified upstream MIT license, source attribution, deterministic inventory, independent static security verification, XML/XSD evidence, and an executable fail-closed import command. It is a statically validated external source—not a personally authored fixture and not yet Report Builder-validated in this product environment.
 
 No other Microsoft sample was imported.
+
+## Gate 2F import
+
+Gate 2F imports only `PaginatedReportSamples/Transcript.rdl` at the pinned commit. Its canonical location is `imported/transcript/source/Transcript.rdl`. The 116,709-byte source remains byte-identical at SHA-256 `9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81`.
+
+Transcript adds two overlapping-field datasets, three tablixes in nested report regions, nested row groups, eight rectangles reaching depth two, a 22pt Bold left-aligned page-header title, two embedded images, and document-style header/footer evidence. The fixture includes the unmodified upstream MIT license, attribution, safe static security evidence, XML/XSD validation, and deterministic enriched inventory.
+
+Invoice remains byte-identical. Neither imported fixture has been opened, rendered, queried, published, or exported for this corpus. Labels, Letter, and every other Microsoft sample remain discovery metadata only.

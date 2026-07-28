@@ -1,0 +1,77 @@
+{
+  "validationVersion": 1,
+  "gate": "2F",
+  "status": "STATIC_VALIDATION_PASS",
+  "upstream": {
+    "repository": "https://github.com/microsoft/Reporting-Services.git",
+    "branch": "master",
+    "commit": "acc2ee0d1884765e4b5213149430fb063d166719",
+    "sourcePath": "PaginatedReportSamples/Transcript.rdl"
+  },
+  "importedSource": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+    "byteSize": 116709,
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+    "byteIdenticalToUpstream": true,
+    "immutable": true
+  },
+  "license": {
+    "name": "MIT",
+    "copyright": "Copyright (c) 2016 Microsoft",
+    "sha256": "e1406b32500b4622444e91ec3b50a473b97c5c4470b7b1f137c36abcfb248b59",
+    "noticePath": "LICENSE.microsoft.txt",
+    "byteIdenticalToUpstream": true
+  },
+  "xml": {
+    "safeParsing": "PASS",
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "schemaVersion": "2016/01",
+    "xsdValidation": "PASS",
+    "xsd": "ReportDefinition-2016.xsd"
+  },
+  "inventory": {
+    "baseGenerator": "scripts/discover-official-rdl-samples.mts v1",
+    "enrichmentGenerator": "scripts/import-microsoft-transcript.mts v1",
+    "sourceIdentityMatched": true,
+    "deterministicRegeneration": "PASS"
+  },
+  "security": {
+    "relativePath": "PaginatedReportSamples/Transcript.rdl",
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+    "findings": {
+      "embeddedCode": "absent",
+      "codeModules": "absent",
+      "classes": "absent",
+      "customAssemblyReferences": "absent",
+      "customReportItems": "absent",
+      "externalImages": "absent",
+      "embeddedImages": "present and expected",
+      "hyperlinks": "absent",
+      "drillthroughActions": "absent",
+      "subreports": "absent",
+      "sharedDataSourceReferences": "absent",
+      "sharedDatasetReferences": "absent",
+      "connectionStrings": "absent",
+      "integratedSecurity": "present and expected",
+      "credentialProperties": "absent",
+      "datasetQueryText": "present and expected",
+      "storedProcedureCommands": "absent",
+      "urlOrHttpSources": "absent",
+      "filePaths": "absent",
+      "mapsOrExternalSpatialSources": "absent",
+      "codeExpressions": "absent",
+      "customAssemblyExpressions": "absent",
+      "unusualNamespaces": "absent"
+    },
+    "disposition": "static discovery suitable"
+  },
+  "gate2dDifferences": [],
+  "reportBuilder": {
+    "open": "NOT_PERFORMED",
+    "preview": "NOT_PERFORMED",
+    "render": "NOT_PERFORMED",
+    "queryExecution": "NOT_PERFORMED",
+    "export": "NOT_PERFORMED"
+  }
+}

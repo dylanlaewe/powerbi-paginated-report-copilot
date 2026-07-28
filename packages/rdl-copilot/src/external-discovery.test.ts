@@ -122,7 +122,7 @@ describe("RDL Structure Corpus Gate 2D external discovery", () => {
     }
   });
 
-  it("permits only the later Gate 2E Invoice import and leaves paused sources empty", async () => {
+  it("permits only reviewed Invoice and Transcript imports and leaves paused sources empty", async () => {
     const discoveryFiles = await readdir(discoveryRoot, {
       recursive: true,
       withFileTypes: true,
@@ -130,8 +130,12 @@ describe("RDL Structure Corpus Gate 2D external discovery", () => {
     expect(
       discoveryFiles
         .filter((entry) => entry.isFile() && entry.name.endsWith(".rdl"))
-        .map((entry) => resolve(entry.parentPath, entry.name)),
-    ).toEqual([resolve(discoveryRoot, "imported/invoice/source/Invoice.rdl")]);
+        .map((entry) => resolve(entry.parentPath, entry.name))
+        .sort(),
+    ).toEqual([
+      resolve(discoveryRoot, "imported/invoice/source/Invoice.rdl"),
+      resolve(discoveryRoot, "imported/transcript/source/Transcript.rdl"),
+    ]);
     for (const fixture of ["parameterized-report", "alternate-layout"]) {
       const sourcePath = resolve(corpusRoot, fixture, "source");
       const entries = await readdir(sourcePath).catch((error: unknown) => {
