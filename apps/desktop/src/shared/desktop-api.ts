@@ -14,6 +14,12 @@ export const ipcChannels = {
   copyManifestPath: "sidecar:copy-manifest-path",
   clearExistingRdlSession: "sidecar:clear-session",
   resolveExistingRdlField: "sidecar:resolve-field",
+  createExistingRdlReview: "sidecar:review-create",
+  getExistingRdlReview: "sidecar:review-get",
+  selectExistingRdlReviewCandidates: "sidecar:review-select",
+  confirmExistingRdlReviewOperation: "sidecar:review-confirm",
+  declineExistingRdlReviewOperation: "sidecar:review-decline",
+  resetExistingRdlReviewOperation: "sidecar:review-reset",
 } as const;
 export const projectSelectionResultSchema = z.discriminatedUnion("status", [
   z.object({
@@ -315,6 +321,187 @@ export const fieldResolutionResultSchema = z.discriminatedUnion("status", [
     .strict(),
   sidecarErrorSchema,
 ]);
+const reviewCandidateSchema = z.discriminatedUnion("kind", [
+  z
+    .object({
+      kind: z.literal("title"),
+      candidateId: z.string().uuid(),
+      visibleText: z.string(),
+      region: z.enum(["body", "pageHeader", "pageFooter"]),
+      score: z.number().int(),
+      evidence: z.array(
+        z
+          .object({
+            code: z.string(),
+            weight: z.number().int(),
+            message: z.string(),
+          })
+          .strict(),
+      ),
+      ambiguityEvidence: z.array(
+        z
+          .object({
+            code: z.string(),
+            weight: z.number().int(),
+            message: z.string(),
+          })
+          .strict(),
+      ),
+    })
+    .strict(),
+  z
+    .object({
+      kind: z.literal("fieldDisplay"),
+      candidateId: z.string().uuid(),
+      fieldName: z.string(),
+      datasetName: z.string().nullable(),
+      possibleDatasets: z.array(z.string()),
+      region: z.enum(["body", "pageHeader", "pageFooter"]),
+      tablixName: z.string().nullable(),
+      structuralRole: z.string(),
+      expressionKind: z.enum(["directFieldReference", "aggregateExpression"]),
+      currentFormat: z.string().nullable(),
+      evidence: z.array(
+        z.object({ code: z.string(), message: z.string() }).strict(),
+      ),
+      ambiguityEvidence: z.array(
+        z.object({ code: z.string(), message: z.string() }).strict(),
+      ),
+    })
+    .strict(),
+]);
+const operationReviewBase = {
+  operationId: z.string().regex(/^[a-f0-9]{24}$/u),
+  operationType: z.enum([
+    "setText",
+    "setTextStyle",
+    "setPageOrientation",
+    "setNumberFormat",
+  ]),
+  requestedChange: z.string(),
+  mutationAuthorized: z.literal(false),
+};
+const operationReviewSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("readyForConfirmation"),
+      ...operationReviewBase,
+      recommendedCandidate: reviewCandidateSchema,
+      alternatives: z.array(reviewCandidateSchema),
+      selectionPolicy: z.literal("exactlyOne"),
+      selectedCandidateIds: z.array(z.string().uuid()).max(0),
+      confirmed: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("choiceRequired"),
+      ...operationReviewBase,
+      candidates: z.array(reviewCandidateSchema).min(1),
+      selectionPolicy: z.enum(["exactlyOne", "oneOrMore"]),
+      selectedCandidateIds: z.array(z.string().uuid()),
+      confirmed: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("blocked"),
+      ...operationReviewBase,
+      reason: z.string(),
+      message: z.string(),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("confirmed"),
+      ...operationReviewBase,
+      selectedCandidateIds: z.array(z.string().uuid()).min(1),
+      confirmationSummary: z.string(),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("declined"),
+      ...operationReviewBase,
+    })
+    .strict(),
+]);
+const reviewBundleSchema = z
+  .object({
+    version: z.literal(1),
+    reviewDraftId: z.string().uuid(),
+    reportSessionId: z.string().uuid(),
+    sourceSha256: z.string().length(64),
+    planSha256: z.string().length(64),
+    candidateCatalogVersion: z.literal(1),
+    resolutionSummary: z
+      .object({
+        title: z
+          .object({
+            status: z.enum([
+              "resolved",
+              "ambiguous",
+              "notFound",
+              "unsupported",
+            ]),
+            reason: z.string(),
+            mutationAuthorized: z.literal(false),
+          })
+          .strict(),
+        fields: z.array(
+          z
+            .object({
+              fieldName: z.string(),
+              status: z.enum([
+                "resolved",
+                "ambiguous",
+                "notFound",
+                "unsupported",
+              ]),
+              reason: z.string(),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+        ),
+        pageOrientation: z
+          .object({
+            status: z.enum(["structurallyAvailable", "blocked"]),
+            reason: z.string().nullable(),
+            mutationAuthorized: z.literal(false),
+          })
+          .strict(),
+      })
+      .strict(),
+    operations: z.array(operationReviewSchema).min(1),
+    state: z.enum(["incomplete", "fullyReviewed", "blocked", "declined"]),
+    mutationAuthorized: z.literal(false),
+    executable: z.literal(false),
+  })
+  .strict();
+export const createReviewRequestSchema = z
+  .object({
+    reportSessionId: z.string().uuid(),
+    request: z.string().min(1).max(8192),
+  })
+  .strict();
+export const reviewDraftRequestSchema = z
+  .object({ reviewDraftId: z.string().uuid() })
+  .strict();
+export const reviewOperationRequestSchema = z
+  .object({
+    reviewDraftId: z.string().uuid(),
+    operationId: z.string().regex(/^[a-f0-9]{24}$/u),
+  })
+  .strict();
+export const reviewSelectionRequestSchema = reviewOperationRequestSchema
+  .extend({ candidateIds: z.array(z.string().uuid()).min(1) })
+  .strict();
+export const reviewBundleResultSchema = z.discriminatedUnion("status", [
+  z
+    .object({ status: z.literal("review"), bundle: reviewBundleSchema })
+    .strict(),
+  sidecarErrorSchema,
+]);
 const targetDisplaySchema = z
   .object({
     semanticTarget: z.string(),
@@ -382,6 +569,7 @@ export type PlanEditResult = z.infer<typeof planEditResultSchema>;
 export type ApplyEditResult = z.infer<typeof applyEditResultSchema>;
 export type SidecarActionResult = z.infer<typeof actionResultSchema>;
 export type FieldResolutionResult = z.infer<typeof fieldResolutionResultSchema>;
+export type ReviewBundleResult = z.infer<typeof reviewBundleResultSchema>;
 export interface DesktopApi {
   readonly platform: string;
   readonly appMode: "offline-authoring";
@@ -399,6 +587,30 @@ export interface DesktopApi {
     reportSessionId: string;
     fieldName: string;
   }): Promise<FieldResolutionResult>;
+  createExistingRdlReview(input: {
+    reportSessionId: string;
+    request: string;
+  }): Promise<ReviewBundleResult>;
+  getExistingRdlReview(input: {
+    reviewDraftId: string;
+  }): Promise<ReviewBundleResult>;
+  selectExistingRdlReviewCandidates(input: {
+    reviewDraftId: string;
+    operationId: string;
+    candidateIds: string[];
+  }): Promise<ReviewBundleResult>;
+  confirmExistingRdlReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult>;
+  declineExistingRdlReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult>;
+  resetExistingRdlReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult>;
   applyExistingRdlEdit(input: {
     reportSessionId: string;
     planSessionId: string;

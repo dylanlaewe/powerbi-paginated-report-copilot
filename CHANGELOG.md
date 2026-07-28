@@ -4,6 +4,11 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2L: operation-specific, session-bound,
+  read-only review bundles with deterministic operation identities, explicit
+  candidate selection/confirmation/decline/reset states, opaque live review
+  handles, minimal review-only UI, and corpus simulations. Review remains
+  non-executable and never authorizes mutation.
 - RDL Structure Corpus v0.3 Gate 2K: strict dataset- and scope-aware read-only
   field-display resolution, deterministic candidate ordering, explicit
   ambiguity and unsupported outcomes, corpus-wide evidence, and a narrow

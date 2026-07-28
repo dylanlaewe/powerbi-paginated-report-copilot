@@ -1,0 +1,746 @@
+{
+  "version": 1,
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+  },
+  "scenarios": [
+    {
+      "request": "Change the report title to \"Quarterly Department Sales\", switch the page to landscape, and format Revenue as currency with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setText",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "value": "Quarterly Department Sales"
+          },
+          {
+            "type": "setPageOrientation",
+            "orientation": "landscape"
+          },
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "Revenue"
+            },
+            "format": "C0"
+          }
+        ]
+      },
+      "planSha256": "6404a33f5eb8bdf15d645aa89727ca5a2fa2eaf25d82179899be737462e61633",
+      "operationIds": [
+        "cc96307850b0934e722d84f0",
+        "a34d8e329b3e01e327887b06",
+        "3e936423fd5c3b687503658a"
+      ],
+      "initial": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-grouped-report-1",
+        "reportSessionId": "diagnostic-grouped-report",
+        "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+        "planSha256": "6404a33f5eb8bdf15d645aa89727ca5a2fa2eaf25d82179899be737462e61633",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "resolved",
+            "reason": "TITLE_RESOLVED",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Revenue",
+              "status": "ambiguous",
+              "reason": "MULTIPLE_SCOPE_ROLES",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "readyForConfirmation",
+            "operationId": "cc96307850b0934e722d84f0",
+            "operationType": "setText",
+            "requestedChange": "Change report title text to \"Quarterly Department Sales\".",
+            "mutationAuthorized": false,
+            "recommendedCandidate": {
+              "kind": "title",
+              "candidateId": "84b9fb7c3d176cfdebf9",
+              "visibleText": "Synthetic Department Sales Summary",
+              "region": "body",
+              "score": 136,
+              "evidence": [
+                {
+                  "code": "TITLE_ORIENTED_NAME",
+                  "weight": 28,
+                  "message": "report-item name contains a title-oriented token"
+                },
+                {
+                  "code": "LARGE_FONT",
+                  "weight": 24,
+                  "message": "font size is 18.0pt"
+                },
+                {
+                  "code": "STRUCTURALLY_SEPARATE",
+                  "weight": 16,
+                  "message": "textbox is structurally separate from data regions"
+                },
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "TITLE_LENGTH_PHRASE",
+                  "weight": 12,
+                  "message": "visible text is a concise multi-word phrase"
+                },
+                {
+                  "code": "TITLE_SEMANTIC_TOKEN",
+                  "weight": 12,
+                  "message": "visible text contains a generic report-title term"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "STANDALONE_BODY",
+                  "weight": 10,
+                  "message": "candidate is a standalone body textbox"
+                },
+                {
+                  "code": "WIDE_TEXTBOX",
+                  "weight": 10,
+                  "message": "textbox width is consistent with a report heading"
+                }
+              ],
+              "ambiguityEvidence": []
+            },
+            "alternatives": [
+              {
+                "kind": "title",
+                "candidateId": "15fa137857aeb1483d11",
+                "visibleText": "Grand Total",
+                "region": "body",
+                "score": -4,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "19b71ae46245f42a2986",
+                "visibleText": "Department",
+                "region": "body",
+                "score": -18,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "bd9dd4837542a77b1986",
+                "visibleText": "Sale Date",
+                "region": "body",
+                "score": -30,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "09d54b7cbb976fd4f24c",
+                "visibleText": "Representative",
+                "region": "body",
+                "score": -30,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "e0cbf6a7bb90ea8dcde8",
+                "visibleText": "Units",
+                "region": "body",
+                "score": -30,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "48cd60582bcef90e6e05",
+                "visibleText": "Revenue",
+                "region": "body",
+                "score": -30,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              }
+            ],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          },
+          {
+            "status": "blocked",
+            "operationId": "a34d8e329b3e01e327887b06",
+            "operationType": "setPageOrientation",
+            "requestedChange": "Change page orientation to landscape.",
+            "mutationAuthorized": false,
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "message": "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed."
+          },
+          {
+            "status": "choiceRequired",
+            "operationId": "3e936423fd5c3b687503658a",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Revenue as C0.",
+            "mutationAuthorized": false,
+            "candidates": [
+              {
+                "kind": "fieldDisplay",
+                "candidateId": "1f23f9e7674c9d3bb541",
+                "fieldName": "Revenue",
+                "datasetName": "DepartmentSales",
+                "possibleDatasets": [
+                  "DepartmentSales"
+                ],
+                "region": "body",
+                "tablixName": "DepartmentSalesTable",
+                "structuralRole": "detail",
+                "expressionKind": "directFieldReference",
+                "currentFormat": "C2",
+                "evidence": [
+                  {
+                    "code": "EXACT_FIELD_NAME",
+                    "message": "exact field-name match: Revenue"
+                  },
+                  {
+                    "code": "DIRECT_FIELD_REFERENCE",
+                    "message": "expression kind is directFieldReference"
+                  },
+                  {
+                    "code": "STRUCTURAL_PATH_PRESERVED",
+                    "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[2]/cell[3]/Textbox(DetailRevenue)"
+                  },
+                  {
+                    "code": "TABLIX_CONTEXT",
+                    "message": "tablix: DepartmentSalesTable"
+                  },
+                  {
+                    "code": "SCOPE_ROLE",
+                    "message": "structural role: detail"
+                  },
+                  {
+                    "code": "CURRENT_FORMAT",
+                    "message": "current format: C2"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DUPLICATE_VISUAL_LOCATION",
+                    "message": "3 display candidates match the field"
+                  }
+                ]
+              },
+              {
+                "kind": "fieldDisplay",
+                "candidateId": "fd0c1094e84d9adc71d1",
+                "fieldName": "Revenue",
+                "datasetName": "DepartmentSales",
+                "possibleDatasets": [
+                  "DepartmentSales"
+                ],
+                "region": "body",
+                "tablixName": "DepartmentSalesTable",
+                "structuralRole": "groupSubtotal",
+                "expressionKind": "aggregateExpression",
+                "currentFormat": "C2",
+                "evidence": [
+                  {
+                    "code": "EXACT_FIELD_NAME",
+                    "message": "exact field-name match: Revenue"
+                  },
+                  {
+                    "code": "AGGREGATE_FIELD_EXPRESSION",
+                    "message": "expression kind is aggregateExpression"
+                  },
+                  {
+                    "code": "STRUCTURAL_PATH_PRESERVED",
+                    "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[3]/cell[3]/Textbox(DepartmentRevenueSubtotal)"
+                  },
+                  {
+                    "code": "TABLIX_CONTEXT",
+                    "message": "tablix: DepartmentSalesTable"
+                  },
+                  {
+                    "code": "SCOPE_ROLE",
+                    "message": "structural role: groupSubtotal"
+                  },
+                  {
+                    "code": "CURRENT_FORMAT",
+                    "message": "current format: C2"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DUPLICATE_VISUAL_LOCATION",
+                    "message": "3 display candidates match the field"
+                  }
+                ]
+              },
+              {
+                "kind": "fieldDisplay",
+                "candidateId": "de1aa47549ec95211e8a",
+                "fieldName": "Revenue",
+                "datasetName": "DepartmentSales",
+                "possibleDatasets": [
+                  "DepartmentSales"
+                ],
+                "region": "body",
+                "tablixName": "DepartmentSalesTable",
+                "structuralRole": "grandTotal",
+                "expressionKind": "aggregateExpression",
+                "currentFormat": "C2",
+                "evidence": [
+                  {
+                    "code": "EXACT_FIELD_NAME",
+                    "message": "exact field-name match: Revenue"
+                  },
+                  {
+                    "code": "AGGREGATE_FIELD_EXPRESSION",
+                    "message": "expression kind is aggregateExpression"
+                  },
+                  {
+                    "code": "STRUCTURAL_PATH_PRESERVED",
+                    "message": "structural location: section[0]/body/Tablix(DepartmentSalesTable)/row[4]/cell[3]/Textbox(ReportRevenueTotal)"
+                  },
+                  {
+                    "code": "TABLIX_CONTEXT",
+                    "message": "tablix: DepartmentSalesTable"
+                  },
+                  {
+                    "code": "SCOPE_ROLE",
+                    "message": "structural role: grandTotal"
+                  },
+                  {
+                    "code": "CURRENT_FORMAT",
+                    "message": "current format: C2"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DUPLICATE_VISUAL_LOCATION",
+                    "message": "3 display candidates match the field"
+                  }
+                ]
+              }
+            ],
+            "selectionPolicy": "oneOrMore",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          }
+        ],
+        "state": "blocked",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "decisions": [
+        {
+          "operationId": "cc96307850b0934e722d84f0",
+          "action": "confirmRecommendedCandidate",
+          "candidateIds": [
+            "84b9fb7c3d176cfdebf9"
+          ]
+        },
+        {
+          "operationId": "3e936423fd5c3b687503658a",
+          "action": "selectExactCandidatesAndConfirm",
+          "candidateIds": [
+            "1f23f9e7674c9d3bb541"
+          ]
+        }
+      ],
+      "final": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-grouped-report-1",
+        "reportSessionId": "diagnostic-grouped-report",
+        "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+        "planSha256": "6404a33f5eb8bdf15d645aa89727ca5a2fa2eaf25d82179899be737462e61633",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "resolved",
+            "reason": "TITLE_RESOLVED",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Revenue",
+              "status": "ambiguous",
+              "reason": "MULTIPLE_SCOPE_ROLES",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "confirmed",
+            "operationId": "cc96307850b0934e722d84f0",
+            "operationType": "setText",
+            "requestedChange": "Change report title text to \"Quarterly Department Sales\".",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "84b9fb7c3d176cfdebf9"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          },
+          {
+            "status": "blocked",
+            "operationId": "a34d8e329b3e01e327887b06",
+            "operationType": "setPageOrientation",
+            "requestedChange": "Change page orientation to landscape.",
+            "mutationAuthorized": false,
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "message": "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed."
+          },
+          {
+            "status": "confirmed",
+            "operationId": "3e936423fd5c3b687503658a",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Revenue as C0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "1f23f9e7674c9d3bb541"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          }
+        ],
+        "state": "blocked",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "alternativeSimulations": [
+        {
+          "operationId": "3e936423fd5c3b687503658a",
+          "detailOnly": {
+            "status": "confirmed",
+            "operationId": "3e936423fd5c3b687503658a",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Revenue as C0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "1f23f9e7674c9d3bb541"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          },
+          "allThree": {
+            "status": "confirmed",
+            "operationId": "3e936423fd5c3b687503658a",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Revenue as C0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "1f23f9e7674c9d3bb541",
+              "de1aa47549ec95211e8a",
+              "fd0c1094e84d9adc71d1"
+            ],
+            "confirmationSummary": "Reviewed 3 exact candidates."
+          }
+        }
+      ],
+      "resetProof": [
+        {
+          "status": "readyForConfirmation",
+          "operationId": "cc96307850b0934e722d84f0",
+          "operationType": "setText",
+          "requestedChange": "Change report title text to \"Quarterly Department Sales\".",
+          "mutationAuthorized": false,
+          "recommendedCandidate": {
+            "kind": "title",
+            "candidateId": "84b9fb7c3d176cfdebf9",
+            "visibleText": "Synthetic Department Sales Summary",
+            "region": "body",
+            "score": 136,
+            "evidence": [
+              {
+                "code": "TITLE_ORIENTED_NAME",
+                "weight": 28,
+                "message": "report-item name contains a title-oriented token"
+              },
+              {
+                "code": "LARGE_FONT",
+                "weight": 24,
+                "message": "font size is 18.0pt"
+              },
+              {
+                "code": "STRUCTURALLY_SEPARATE",
+                "weight": 16,
+                "message": "textbox is structurally separate from data regions"
+              },
+              {
+                "code": "BOLD",
+                "weight": 14,
+                "message": "text is bold"
+              },
+              {
+                "code": "TITLE_LENGTH_PHRASE",
+                "weight": 12,
+                "message": "visible text is a concise multi-word phrase"
+              },
+              {
+                "code": "TITLE_SEMANTIC_TOKEN",
+                "weight": 12,
+                "message": "visible text contains a generic report-title term"
+              },
+              {
+                "code": "SAFE_VISIBLE_TEXT",
+                "weight": 10,
+                "message": "visible text was safely extracted without expression execution"
+              },
+              {
+                "code": "STANDALONE_BODY",
+                "weight": 10,
+                "message": "candidate is a standalone body textbox"
+              },
+              {
+                "code": "WIDE_TEXTBOX",
+                "weight": 10,
+                "message": "textbox width is consistent with a report heading"
+              }
+            ],
+            "ambiguityEvidence": []
+          },
+          "alternatives": [
+            {
+              "kind": "title",
+              "candidateId": "15fa137857aeb1483d11",
+              "visibleText": "Grand Total",
+              "region": "body",
+              "score": -4,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DATA_REGION_LABEL",
+                  "weight": -28,
+                  "message": "candidate is a label within a data region"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "19b71ae46245f42a2986",
+              "visibleText": "Department",
+              "region": "body",
+              "score": -18,
+              "evidence": [
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DATA_REGION_LABEL",
+                  "weight": -28,
+                  "message": "candidate is a label within a data region"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "bd9dd4837542a77b1986",
+              "visibleText": "Sale Date",
+              "region": "body",
+              "score": -30,
+              "evidence": [
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "09d54b7cbb976fd4f24c",
+              "visibleText": "Representative",
+              "region": "body",
+              "score": -30,
+              "evidence": [
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "e0cbf6a7bb90ea8dcde8",
+              "visibleText": "Units",
+              "region": "body",
+              "score": -30,
+              "evidence": [
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "48cd60582bcef90e6e05",
+              "visibleText": "Revenue",
+              "region": "body",
+              "score": -30,
+              "evidence": [
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            }
+          ],
+          "selectionPolicy": "exactlyOne",
+          "selectedCandidateIds": [],
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "editedRdlGenerated": false
+}

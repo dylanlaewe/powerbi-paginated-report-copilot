@@ -20,6 +20,10 @@ import {
   applyEditRequestSchema,
   outputHandleRequestSchema,
   planEditRequestSchema,
+  createReviewRequestSchema,
+  reviewDraftRequestSchema,
+  reviewOperationRequestSchema,
+  reviewSelectionRequestSchema,
   planSessionIdRequestSchema,
   sessionIdRequestSchema,
   type ProjectSelectionResult,
@@ -87,6 +91,60 @@ ipcMain.handle(
     const parsed = fieldResolutionRequestSchema.safeParse(input);
     return parsed.success
       ? getSidecarService().resolveField(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.createExistingRdlReview,
+  async (_event, input: unknown) => {
+    const parsed = createReviewRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().createReview(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.getExistingRdlReview,
+  async (_event, input: unknown) => {
+    const parsed = reviewDraftRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().getReview(parsed.data.reviewDraftId)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.selectExistingRdlReviewCandidates,
+  async (_event, input: unknown) => {
+    const parsed = reviewSelectionRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().selectReviewCandidates(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.confirmExistingRdlReviewOperation,
+  async (_event, input: unknown) => {
+    const parsed = reviewOperationRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().confirmReviewOperation(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.declineExistingRdlReviewOperation,
+  async (_event, input: unknown) => {
+    const parsed = reviewOperationRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().declineReviewOperation(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.resetExistingRdlReviewOperation,
+  async (_event, input: unknown) => {
+    const parsed = reviewOperationRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().resetReviewOperation(parsed.data)
       : invalidIpc();
   },
 );

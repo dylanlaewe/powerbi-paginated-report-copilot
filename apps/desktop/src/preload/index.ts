@@ -21,6 +21,12 @@ const channels = {
   copyManifestPath: "sidecar:copy-manifest-path",
   clearExistingRdlSession: "sidecar:clear-session",
   resolveExistingRdlField: "sidecar:resolve-field",
+  createExistingRdlReview: "sidecar:review-create",
+  getExistingRdlReview: "sidecar:review-get",
+  selectExistingRdlReviewCandidates: "sidecar:review-select",
+  confirmExistingRdlReviewOperation: "sidecar:review-confirm",
+  declineExistingRdlReviewOperation: "sidecar:review-decline",
+  resetExistingRdlReviewOperation: "sidecar:review-reset",
 } as const;
 
 const desktopApi: DesktopApi = Object.freeze({
@@ -43,6 +49,24 @@ const desktopApi: DesktopApi = Object.freeze({
   resolveExistingRdlField: (
     input: Parameters<DesktopApi["resolveExistingRdlField"]>[0],
   ) => ipcRenderer.invoke(channels.resolveExistingRdlField, input),
+  createExistingRdlReview: (
+    input: Parameters<DesktopApi["createExistingRdlReview"]>[0],
+  ) => ipcRenderer.invoke(channels.createExistingRdlReview, input),
+  getExistingRdlReview: (
+    input: Parameters<DesktopApi["getExistingRdlReview"]>[0],
+  ) => ipcRenderer.invoke(channels.getExistingRdlReview, input),
+  selectExistingRdlReviewCandidates: (
+    input: Parameters<DesktopApi["selectExistingRdlReviewCandidates"]>[0],
+  ) => ipcRenderer.invoke(channels.selectExistingRdlReviewCandidates, input),
+  confirmExistingRdlReviewOperation: (
+    input: Parameters<DesktopApi["confirmExistingRdlReviewOperation"]>[0],
+  ) => ipcRenderer.invoke(channels.confirmExistingRdlReviewOperation, input),
+  declineExistingRdlReviewOperation: (
+    input: Parameters<DesktopApi["declineExistingRdlReviewOperation"]>[0],
+  ) => ipcRenderer.invoke(channels.declineExistingRdlReviewOperation, input),
+  resetExistingRdlReviewOperation: (
+    input: Parameters<DesktopApi["resetExistingRdlReviewOperation"]>[0],
+  ) => ipcRenderer.invoke(channels.resetExistingRdlReviewOperation, input),
   planExistingRdlEdit: (
     input: Parameters<DesktopApi["planExistingRdlEdit"]>[0],
   ) => ipcRenderer.invoke(channels.planExistingRdlEdit, input),

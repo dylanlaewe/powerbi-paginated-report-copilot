@@ -3,27 +3,38 @@ import { readFile, realpath } from "node:fs/promises";
 import { basename, join } from "node:path";
 import {
   applyPreparedSidecarEdit,
+  buildReviewBundle,
   catalogRdlBytes,
+  confirmReviewOperation,
   createEditPlannerContext,
+  declineReviewOperation,
+  editPlanSchema,
   inspectRdlFile,
+  LocalSentenceEditPlanner,
   prepareSidecarEditFromText,
+  resetReviewOperation,
   resolveConfiguredReportTitle,
   resolveReadOnlyReportTitle,
   resolveReadOnlyFieldDisplay,
+  updateReviewSelection,
   SidecarCliError,
   RdlInspectionError,
   validateXmlAgainstXsd,
   type PreparedSidecarEdit,
+  type ReviewBundle,
+  type RdlInventory,
 } from "@powerbi-copilot/rdl-copilot";
 import {
   actionResultSchema,
   applyEditResultSchema,
   existingRdlSelectionResultSchema,
   fieldResolutionResultSchema,
+  reviewBundleResultSchema,
   planEditResultSchema,
   type ApplyEditResult,
   type ExistingRdlSelectionResult,
   type FieldResolutionResult,
+  type ReviewBundleResult,
   type PlanEditResult,
   type SidecarActionResult,
 } from "../shared/desktop-api";
@@ -37,8 +48,10 @@ type ReportSession = {
   sourceSha256: string;
   createdAt: number;
   candidateIds: ReadonlySet<string>;
+  titleCandidateIds: ReadonlyMap<string, string>;
   fieldCandidateIds: ReadonlyMap<string, string>;
   catalog: Awaited<ReturnType<typeof catalogRdlBytes>>;
+  inventory: RdlInventory;
 };
 type PlanSession = {
   id: string;
@@ -50,6 +63,14 @@ type PlanSession = {
 type OutputRecord = {
   rdlPath: string;
   manifestPath: string;
+};
+type ReviewDraft = {
+  id: string;
+  reportSessionId: string;
+  sourceSha256: string;
+  planSha256: string;
+  initial: ReviewBundle;
+  current: ReviewBundle;
 };
 
 export type SidecarPlatform = "darwin" | "win32" | "linux";
@@ -124,6 +145,7 @@ export class ExistingRdlSidecarService {
   private readonly reports = new Map<string, ReportSession>();
   private readonly plans = new Map<string, PlanSession>();
   private readonly outputs = new Map<string, OutputRecord>();
+  private readonly reviews = new Map<string, ReviewDraft>();
 
   constructor(
     private readonly options: {
@@ -185,11 +207,14 @@ export class ExistingRdlSidecarService {
     this.reports.delete(id);
     for (const [planId, plan] of this.plans)
       if (plan.reportSessionId === id) this.plans.delete(planId);
+    for (const [reviewId, review] of this.reviews)
+      if (review.reportSessionId === id) this.reviews.delete(reviewId);
   }
 
   clearAllSessions(): void {
     this.reports.clear();
     this.plans.clear();
+    this.reviews.clear();
   }
 
   async selectPath(
@@ -284,8 +309,10 @@ export class ExistingRdlSidecarService {
           ...titleCandidates.map(({ candidateId }) => candidateId),
           ...fieldDisplayCandidates.map(({ candidateId }) => candidateId),
         ]),
+        titleCandidateIds,
         fieldCandidateIds,
         catalog,
+        inventory,
       });
       let currentTitle: string | null = null;
       try {
@@ -372,6 +399,152 @@ export class ExistingRdlSidecarService {
     } catch (error) {
       return fieldResolutionResultSchema.parse(errorResult(error));
     }
+  }
+
+  private async reviewDraft(id: string): Promise<ReviewDraft> {
+    const draft = this.reviews.get(id);
+    if (!draft)
+      throw new SidecarCliError(
+        "TARGET_MISSING",
+        "The review draft was not found.",
+      );
+    const report = this.report(draft.reportSessionId);
+    if (
+      report.sourceSha256 !== draft.sourceSha256 ||
+      sha256(await readFile(report.sourcePath)) !== draft.sourceSha256
+    ) {
+      this.clearReport(report.id);
+      throw new SidecarCliError(
+        "SOURCE_CHANGED",
+        "The source report changed after review began.",
+      );
+    }
+    return draft;
+  }
+
+  async createReview(input: {
+    reportSessionId: string;
+    request: string;
+  }): Promise<ReviewBundleResult> {
+    try {
+      const report = this.report(input.reportSessionId);
+      if (sha256(await readFile(report.sourcePath)) !== report.sourceSha256)
+        throw new SidecarCliError(
+          "SOURCE_CHANGED",
+          "The source report changed after inspection.",
+        );
+      const planner = new LocalSentenceEditPlanner().plan(
+        input.request,
+        createEditPlannerContext(report.inventory),
+      );
+      if (planner.status === "rejected")
+        throw new SidecarCliError(
+          "PLANNER_REJECTED",
+          `${planner.code}: ${planner.message}`,
+          { unsupportedFragments: planner.unsupportedFragments },
+        );
+      const plan = editPlanSchema.parse(planner.plan);
+      for (const [id, draft] of this.reviews)
+        if (draft.reportSessionId === report.id) this.reviews.delete(id);
+      const reviewDraftId = randomUUID();
+      const mapCandidate = (diagnosticId: string): string => {
+        const live =
+          report.titleCandidateIds.get(diagnosticId) ??
+          report.fieldCandidateIds.get(diagnosticId);
+        if (!live)
+          throw new SidecarCliError(
+            "TARGET_MISSING",
+            "A review candidate is no longer available.",
+          );
+        return live;
+      };
+      const bundle = buildReviewBundle({
+        reviewDraftId,
+        reportSessionId: report.id,
+        sourceSha256: report.sourceSha256,
+        planSha256: planner.planSha256,
+        plan,
+        catalog: report.catalog,
+        inventory: report.inventory,
+        candidateId: mapCandidate,
+      });
+      this.reviews.set(reviewDraftId, {
+        id: reviewDraftId,
+        reportSessionId: report.id,
+        sourceSha256: report.sourceSha256,
+        planSha256: planner.planSha256,
+        initial: bundle,
+        current: bundle,
+      });
+      return reviewBundleResultSchema.parse({ status: "review", bundle });
+    } catch (error) {
+      return reviewBundleResultSchema.parse(errorResult(error));
+    }
+  }
+
+  async getReview(reviewDraftId: string): Promise<ReviewBundleResult> {
+    try {
+      const draft = await this.reviewDraft(reviewDraftId);
+      return reviewBundleResultSchema.parse({
+        status: "review",
+        bundle: draft.current,
+      });
+    } catch (error) {
+      return reviewBundleResultSchema.parse(errorResult(error));
+    }
+  }
+
+  private async updateReview(
+    reviewDraftId: string,
+    update: (current: ReviewBundle, initial: ReviewBundle) => ReviewBundle,
+  ): Promise<ReviewBundleResult> {
+    try {
+      const draft = await this.reviewDraft(reviewDraftId);
+      draft.current = update(draft.current, draft.initial);
+      return reviewBundleResultSchema.parse({
+        status: "review",
+        bundle: draft.current,
+      });
+    } catch (error) {
+      return reviewBundleResultSchema.parse(errorResult(error));
+    }
+  }
+
+  selectReviewCandidates(input: {
+    reviewDraftId: string;
+    operationId: string;
+    candidateIds: string[];
+  }): Promise<ReviewBundleResult> {
+    return this.updateReview(input.reviewDraftId, (current) =>
+      updateReviewSelection(current, input.operationId, input.candidateIds),
+    );
+  }
+
+  confirmReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult> {
+    return this.updateReview(input.reviewDraftId, (current) =>
+      confirmReviewOperation(current, input.operationId),
+    );
+  }
+
+  declineReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult> {
+    return this.updateReview(input.reviewDraftId, (current) =>
+      declineReviewOperation(current, input.operationId),
+    );
+  }
+
+  resetReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult> {
+    return this.updateReview(input.reviewDraftId, (current, initial) =>
+      resetReviewOperation(current, initial, input.operationId),
+    );
   }
 
   async planEdit(input: {

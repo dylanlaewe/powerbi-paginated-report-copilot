@@ -2,6 +2,9 @@ import { describe, expect, it } from "vitest";
 import {
   applyEditRequestSchema,
   fieldResolutionRequestSchema,
+  createReviewRequestSchema,
+  reviewOperationRequestSchema,
+  reviewSelectionRequestSchema,
   generationRequestSchema,
   outputHandleRequestSchema,
   planEditRequestSchema,
@@ -99,6 +102,41 @@ describe("existing RDL sidecar IPC contract", () => {
       { fieldName: "Revenue" },
       { datasetName: "SalesData" },
       { fieldResolution: { status: "resolved" } },
+    ])
+      expect(() =>
+        applyEditRequestSchema.parse({
+          reportSessionId,
+          planSessionId,
+          ...forbidden,
+        }),
+      ).toThrow();
+  });
+
+  it("allows opaque candidates only through strict review-only requests", () => {
+    const reviewDraftId = "44444444-4444-4444-8444-444444444444";
+    const operationId = "a".repeat(24);
+    const candidateId = "55555555-5555-4555-8555-555555555555";
+    expect(
+      createReviewRequestSchema.parse({ reportSessionId, request: "safe" }),
+    ).toEqual({ reportSessionId, request: "safe" });
+    expect(
+      reviewSelectionRequestSchema.parse({
+        reviewDraftId,
+        operationId,
+        candidateIds: [candidateId],
+      }),
+    ).toEqual({ reviewDraftId, operationId, candidateIds: [candidateId] });
+    expect(() =>
+      reviewOperationRequestSchema.parse({
+        reviewDraftId,
+        operationId,
+        structuralPath: "section[0]/body/Textbox(X)",
+      }),
+    ).toThrow();
+    for (const forbidden of [
+      { reviewDraftId },
+      { candidateId },
+      { reviewOutcome: { status: "confirmed" } },
     ])
       expect(() =>
         applyEditRequestSchema.parse({

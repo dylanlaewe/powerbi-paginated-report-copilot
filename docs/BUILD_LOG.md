@@ -406,6 +406,32 @@
   continues to flag pre-existing machine-generated inventories and the
   lockfile; generated evidence remains in its deterministic serializer format.
 
+## 2026-07-28 — RDL Structure Corpus Gate 2L operation review
+
+- Added a strict review-bundle model bound to an active inspection session,
+  source SHA-256, unchanged typed plan and plan SHA-256, catalog version, and
+  one deterministic identity per plan operation.
+- Added explicit ready, choice-required, blocked, confirmed, and declined
+  states. Every state requires `mutationAuthorized: false`; every bundle also
+  requires `executable: false`.
+- Added exact-candidate selection, confirmation, decline, and reset transitions
+  with count, membership, type, duplicate, stale-session, source-change, and
+  plan-change validation.
+- Added main-process-owned opaque review drafts and narrow sandboxed IPC.
+  Candidate UUIDs are accepted only by review IPC and remain invalid for apply.
+- Added a minimal review-only renderer workflow with no generic Apply, Save,
+  Generate, or Execute action. The checksum-reviewed edit workflow remains
+  separate and unchanged.
+- Added deterministic simple, grouped, Invoice, and Transcript simulations.
+  Imported reports were statically read only; neither was opened, rendered,
+  queried, previewed, published, or exported.
+- Passed changed human-authored file formatting, ESLint, workspace typecheck,
+  51 test files / 400 tests, production build, JSON parsing, source/hash and
+  canonical-output immutability, and byte-identical evidence regeneration.
+  Repository-wide Prettier accurately remains a failure on 29 generator-owned
+  JSON/lock files (25 pre-existing and four new fixture artifacts); none was
+  reformatted independently of its deterministic generator.
+
 ## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
 
 - Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.

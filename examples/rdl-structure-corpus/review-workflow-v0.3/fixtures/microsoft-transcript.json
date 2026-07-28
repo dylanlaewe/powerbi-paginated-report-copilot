@@ -1,0 +1,1603 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-transcript",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+  },
+  "scenarios": [
+    {
+      "request": "Change the report title to \"Professional Certification Transcript\" and make the title 20-point bold.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setText",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "value": "Professional Certification Transcript"
+          },
+          {
+            "type": "setTextStyle",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "fontSize": "20pt",
+            "fontWeight": "Bold"
+          }
+        ]
+      },
+      "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+      "operationIds": [
+        "54c373fda0469de75e54ccea",
+        "c0c6e1c1d499a94903603486"
+      ],
+      "initial": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-transcript-1",
+        "reportSessionId": "diagnostic-microsoft-transcript",
+        "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+        "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "resolved",
+            "reason": "TITLE_RESOLVED",
+            "mutationAuthorized": false
+          },
+          "fields": [],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "readyForConfirmation",
+            "operationId": "54c373fda0469de75e54ccea",
+            "operationType": "setText",
+            "requestedChange": "Change report title text to \"Professional Certification Transcript\".",
+            "mutationAuthorized": false,
+            "recommendedCandidate": {
+              "kind": "title",
+              "candidateId": "868868b3c6a8dd1a8bb9",
+              "visibleText": "Contoso Professional Certified Transcript",
+              "region": "pageHeader",
+              "score": 118,
+              "evidence": [
+                {
+                  "code": "LARGE_FONT",
+                  "weight": 24,
+                  "message": "font size is 22.0pt"
+                },
+                {
+                  "code": "STRUCTURALLY_SEPARATE",
+                  "weight": 16,
+                  "message": "textbox is structurally separate from data regions"
+                },
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "PAGE_HEADER",
+                  "weight": 12,
+                  "message": "candidate is located in the page header"
+                },
+                {
+                  "code": "TITLE_LENGTH_PHRASE",
+                  "weight": 12,
+                  "message": "visible text is a concise multi-word phrase"
+                },
+                {
+                  "code": "TITLE_SEMANTIC_TOKEN",
+                  "weight": 12,
+                  "message": "visible text contains a generic report-title term"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "WIDE_TEXTBOX",
+                  "weight": 10,
+                  "message": "textbox width is consistent with a report heading"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": []
+            },
+            "alternatives": [
+              {
+                "kind": "title",
+                "candidateId": "f05bacce914c94b34a24",
+                "visibleText": "Last activity recorded : ",
+                "region": "pageHeader",
+                "score": 7,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "PAGE_HEADER",
+                    "weight": 12,
+                    "message": "candidate is located in the page header"
+                  },
+                  {
+                    "code": "TITLE_LENGTH_PHRASE",
+                    "weight": 12,
+                    "message": "visible text is a concise multi-word phrase"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "METADATA_OR_DISCLAIMER",
+                    "weight": -25,
+                    "message": "text resembles metadata, payment detail, or disclaimer content"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  },
+                  {
+                    "code": "NARROW_TEXTBOX",
+                    "weight": -8,
+                    "message": "textbox is narrow and caption-like"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "f75d0cfc2b120c7378e1",
+                "visibleText": "Student ID : ",
+                "region": "pageHeader",
+                "score": 7,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "PAGE_HEADER",
+                    "weight": 12,
+                    "message": "candidate is located in the page header"
+                  },
+                  {
+                    "code": "TITLE_LENGTH_PHRASE",
+                    "weight": 12,
+                    "message": "visible text is a concise multi-word phrase"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "METADATA_OR_DISCLAIMER",
+                    "weight": -25,
+                    "message": "text resembles metadata, payment detail, or disclaimer content"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  },
+                  {
+                    "code": "NARROW_TEXTBOX",
+                    "weight": -8,
+                    "message": "textbox is narrow and caption-like"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "6850fba726a217a0ead8",
+                "visibleText": "Exam ID",
+                "region": "body",
+                "score": -8,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "2c0ac641ad1210970337",
+                "visibleText": "Description",
+                "region": "body",
+                "score": -8,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "6f95d6eb4b9d9c858c6f",
+                "visibleText": "Date Completed",
+                "region": "body",
+                "score": -8,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "c77663ad615251d7ba55",
+                "visibleText": "Certification Number:",
+                "region": "body",
+                "score": -12,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "53c6362250a7037fb46d",
+                "visibleText": "Achievement Date:",
+                "region": "body",
+                "score": -12,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "9c43277c6d42181be5e3",
+                "visibleText": "Certification Version:",
+                "region": "body",
+                "score": -12,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "028b84f7c53c7da85e56",
+                "visibleText": "Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+                "region": "body",
+                "score": -72,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "WIDE_TEXTBOX",
+                    "weight": 10,
+                    "message": "textbox width is consistent with a report heading"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "LONG_PARAGRAPH",
+                    "weight": -35,
+                    "message": "text is paragraph-length rather than title-like"
+                  },
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "METADATA_OR_DISCLAIMER",
+                    "weight": -25,
+                    "message": "text resembles metadata, payment detail, or disclaimer content"
+                  },
+                  {
+                    "code": "SMALL_FONT",
+                    "weight": -12,
+                    "message": "candidate uses small label-sized text"
+                  }
+                ]
+              }
+            ],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          },
+          {
+            "status": "readyForConfirmation",
+            "operationId": "c0c6e1c1d499a94903603486",
+            "operationType": "setTextStyle",
+            "requestedChange": "Change report title style (font size 20pt, weight Bold).",
+            "mutationAuthorized": false,
+            "recommendedCandidate": {
+              "kind": "title",
+              "candidateId": "868868b3c6a8dd1a8bb9",
+              "visibleText": "Contoso Professional Certified Transcript",
+              "region": "pageHeader",
+              "score": 118,
+              "evidence": [
+                {
+                  "code": "LARGE_FONT",
+                  "weight": 24,
+                  "message": "font size is 22.0pt"
+                },
+                {
+                  "code": "STRUCTURALLY_SEPARATE",
+                  "weight": 16,
+                  "message": "textbox is structurally separate from data regions"
+                },
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "PAGE_HEADER",
+                  "weight": 12,
+                  "message": "candidate is located in the page header"
+                },
+                {
+                  "code": "TITLE_LENGTH_PHRASE",
+                  "weight": 12,
+                  "message": "visible text is a concise multi-word phrase"
+                },
+                {
+                  "code": "TITLE_SEMANTIC_TOKEN",
+                  "weight": 12,
+                  "message": "visible text contains a generic report-title term"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "WIDE_TEXTBOX",
+                  "weight": 10,
+                  "message": "textbox width is consistent with a report heading"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": []
+            },
+            "alternatives": [
+              {
+                "kind": "title",
+                "candidateId": "f05bacce914c94b34a24",
+                "visibleText": "Last activity recorded : ",
+                "region": "pageHeader",
+                "score": 7,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "PAGE_HEADER",
+                    "weight": 12,
+                    "message": "candidate is located in the page header"
+                  },
+                  {
+                    "code": "TITLE_LENGTH_PHRASE",
+                    "weight": 12,
+                    "message": "visible text is a concise multi-word phrase"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "METADATA_OR_DISCLAIMER",
+                    "weight": -25,
+                    "message": "text resembles metadata, payment detail, or disclaimer content"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  },
+                  {
+                    "code": "NARROW_TEXTBOX",
+                    "weight": -8,
+                    "message": "textbox is narrow and caption-like"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "f75d0cfc2b120c7378e1",
+                "visibleText": "Student ID : ",
+                "region": "pageHeader",
+                "score": 7,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "PAGE_HEADER",
+                    "weight": 12,
+                    "message": "candidate is located in the page header"
+                  },
+                  {
+                    "code": "TITLE_LENGTH_PHRASE",
+                    "weight": 12,
+                    "message": "visible text is a concise multi-word phrase"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "METADATA_OR_DISCLAIMER",
+                    "weight": -25,
+                    "message": "text resembles metadata, payment detail, or disclaimer content"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  },
+                  {
+                    "code": "NARROW_TEXTBOX",
+                    "weight": -8,
+                    "message": "textbox is narrow and caption-like"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "6850fba726a217a0ead8",
+                "visibleText": "Exam ID",
+                "region": "body",
+                "score": -8,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "2c0ac641ad1210970337",
+                "visibleText": "Description",
+                "region": "body",
+                "score": -8,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "6f95d6eb4b9d9c858c6f",
+                "visibleText": "Date Completed",
+                "region": "body",
+                "score": -8,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "TABLIX_STATIC_HEADER",
+                    "weight": -40,
+                    "message": "candidate is a static tablix header"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "c77663ad615251d7ba55",
+                "visibleText": "Certification Number:",
+                "region": "body",
+                "score": -12,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "53c6362250a7037fb46d",
+                "visibleText": "Achievement Date:",
+                "region": "body",
+                "score": -12,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "9c43277c6d42181be5e3",
+                "visibleText": "Certification Version:",
+                "region": "body",
+                "score": -12,
+                "evidence": [
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "LABEL_PUNCTUATION",
+                    "weight": -16,
+                    "message": "text ends as a label prompt"
+                  }
+                ]
+              },
+              {
+                "kind": "title",
+                "candidateId": "028b84f7c53c7da85e56",
+                "visibleText": "Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+                "region": "body",
+                "score": -72,
+                "evidence": [
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "WIDE_TEXTBOX",
+                    "weight": 10,
+                    "message": "textbox width is consistent with a report heading"
+                  },
+                  {
+                    "code": "SAFE_CONSTANT_STRING",
+                    "weight": 8,
+                    "message": "constant-string expression was safely decoded"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "LONG_PARAGRAPH",
+                    "weight": -35,
+                    "message": "text is paragraph-length rather than title-like"
+                  },
+                  {
+                    "code": "DATA_REGION_LABEL",
+                    "weight": -28,
+                    "message": "candidate is a label within a data region"
+                  },
+                  {
+                    "code": "METADATA_OR_DISCLAIMER",
+                    "weight": -25,
+                    "message": "text resembles metadata, payment detail, or disclaimer content"
+                  },
+                  {
+                    "code": "SMALL_FONT",
+                    "weight": -12,
+                    "message": "candidate uses small label-sized text"
+                  }
+                ]
+              }
+            ],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          }
+        ],
+        "state": "incomplete",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "decisions": [
+        {
+          "operationId": "54c373fda0469de75e54ccea",
+          "action": "confirmRecommendedCandidate",
+          "candidateIds": [
+            "868868b3c6a8dd1a8bb9"
+          ]
+        },
+        {
+          "operationId": "c0c6e1c1d499a94903603486",
+          "action": "confirmRecommendedCandidate",
+          "candidateIds": [
+            "868868b3c6a8dd1a8bb9"
+          ]
+        }
+      ],
+      "final": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-transcript-1",
+        "reportSessionId": "diagnostic-microsoft-transcript",
+        "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+        "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "resolved",
+            "reason": "TITLE_RESOLVED",
+            "mutationAuthorized": false
+          },
+          "fields": [],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "confirmed",
+            "operationId": "54c373fda0469de75e54ccea",
+            "operationType": "setText",
+            "requestedChange": "Change report title text to \"Professional Certification Transcript\".",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "868868b3c6a8dd1a8bb9"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          },
+          {
+            "status": "confirmed",
+            "operationId": "c0c6e1c1d499a94903603486",
+            "operationType": "setTextStyle",
+            "requestedChange": "Change report title style (font size 20pt, weight Bold).",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "868868b3c6a8dd1a8bb9"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          }
+        ],
+        "state": "fullyReviewed",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "alternativeSimulations": [],
+      "resetProof": [
+        {
+          "status": "readyForConfirmation",
+          "operationId": "54c373fda0469de75e54ccea",
+          "operationType": "setText",
+          "requestedChange": "Change report title text to \"Professional Certification Transcript\".",
+          "mutationAuthorized": false,
+          "recommendedCandidate": {
+            "kind": "title",
+            "candidateId": "868868b3c6a8dd1a8bb9",
+            "visibleText": "Contoso Professional Certified Transcript",
+            "region": "pageHeader",
+            "score": 118,
+            "evidence": [
+              {
+                "code": "LARGE_FONT",
+                "weight": 24,
+                "message": "font size is 22.0pt"
+              },
+              {
+                "code": "STRUCTURALLY_SEPARATE",
+                "weight": 16,
+                "message": "textbox is structurally separate from data regions"
+              },
+              {
+                "code": "BOLD",
+                "weight": 14,
+                "message": "text is bold"
+              },
+              {
+                "code": "PAGE_HEADER",
+                "weight": 12,
+                "message": "candidate is located in the page header"
+              },
+              {
+                "code": "TITLE_LENGTH_PHRASE",
+                "weight": 12,
+                "message": "visible text is a concise multi-word phrase"
+              },
+              {
+                "code": "TITLE_SEMANTIC_TOKEN",
+                "weight": 12,
+                "message": "visible text contains a generic report-title term"
+              },
+              {
+                "code": "SAFE_VISIBLE_TEXT",
+                "weight": 10,
+                "message": "visible text was safely extracted without expression execution"
+              },
+              {
+                "code": "WIDE_TEXTBOX",
+                "weight": 10,
+                "message": "textbox width is consistent with a report heading"
+              },
+              {
+                "code": "SAFE_CONSTANT_STRING",
+                "weight": 8,
+                "message": "constant-string expression was safely decoded"
+              }
+            ],
+            "ambiguityEvidence": []
+          },
+          "alternatives": [
+            {
+              "kind": "title",
+              "candidateId": "f05bacce914c94b34a24",
+              "visibleText": "Last activity recorded : ",
+              "region": "pageHeader",
+              "score": 7,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "PAGE_HEADER",
+                  "weight": 12,
+                  "message": "candidate is located in the page header"
+                },
+                {
+                  "code": "TITLE_LENGTH_PHRASE",
+                  "weight": 12,
+                  "message": "visible text is a concise multi-word phrase"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "METADATA_OR_DISCLAIMER",
+                  "weight": -25,
+                  "message": "text resembles metadata, payment detail, or disclaimer content"
+                },
+                {
+                  "code": "LABEL_PUNCTUATION",
+                  "weight": -16,
+                  "message": "text ends as a label prompt"
+                },
+                {
+                  "code": "NARROW_TEXTBOX",
+                  "weight": -8,
+                  "message": "textbox is narrow and caption-like"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "f75d0cfc2b120c7378e1",
+              "visibleText": "Student ID : ",
+              "region": "pageHeader",
+              "score": 7,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "PAGE_HEADER",
+                  "weight": 12,
+                  "message": "candidate is located in the page header"
+                },
+                {
+                  "code": "TITLE_LENGTH_PHRASE",
+                  "weight": 12,
+                  "message": "visible text is a concise multi-word phrase"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "METADATA_OR_DISCLAIMER",
+                  "weight": -25,
+                  "message": "text resembles metadata, payment detail, or disclaimer content"
+                },
+                {
+                  "code": "LABEL_PUNCTUATION",
+                  "weight": -16,
+                  "message": "text ends as a label prompt"
+                },
+                {
+                  "code": "NARROW_TEXTBOX",
+                  "weight": -8,
+                  "message": "textbox is narrow and caption-like"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "6850fba726a217a0ead8",
+              "visibleText": "Exam ID",
+              "region": "body",
+              "score": -8,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "2c0ac641ad1210970337",
+              "visibleText": "Description",
+              "region": "body",
+              "score": -8,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "6f95d6eb4b9d9c858c6f",
+              "visibleText": "Date Completed",
+              "region": "body",
+              "score": -8,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "TABLIX_STATIC_HEADER",
+                  "weight": -40,
+                  "message": "candidate is a static tablix header"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "c77663ad615251d7ba55",
+              "visibleText": "Certification Number:",
+              "region": "body",
+              "score": -12,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DATA_REGION_LABEL",
+                  "weight": -28,
+                  "message": "candidate is a label within a data region"
+                },
+                {
+                  "code": "LABEL_PUNCTUATION",
+                  "weight": -16,
+                  "message": "text ends as a label prompt"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "53c6362250a7037fb46d",
+              "visibleText": "Achievement Date:",
+              "region": "body",
+              "score": -12,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DATA_REGION_LABEL",
+                  "weight": -28,
+                  "message": "candidate is a label within a data region"
+                },
+                {
+                  "code": "LABEL_PUNCTUATION",
+                  "weight": -16,
+                  "message": "text ends as a label prompt"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "9c43277c6d42181be5e3",
+              "visibleText": "Certification Version:",
+              "region": "body",
+              "score": -12,
+              "evidence": [
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DATA_REGION_LABEL",
+                  "weight": -28,
+                  "message": "candidate is a label within a data region"
+                },
+                {
+                  "code": "LABEL_PUNCTUATION",
+                  "weight": -16,
+                  "message": "text ends as a label prompt"
+                }
+              ]
+            },
+            {
+              "kind": "title",
+              "candidateId": "028b84f7c53c7da85e56",
+              "visibleText": "Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+              "region": "body",
+              "score": -72,
+              "evidence": [
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "WIDE_TEXTBOX",
+                  "weight": 10,
+                  "message": "textbox width is consistent with a report heading"
+                },
+                {
+                  "code": "SAFE_CONSTANT_STRING",
+                  "weight": 8,
+                  "message": "constant-string expression was safely decoded"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "LONG_PARAGRAPH",
+                  "weight": -35,
+                  "message": "text is paragraph-length rather than title-like"
+                },
+                {
+                  "code": "DATA_REGION_LABEL",
+                  "weight": -28,
+                  "message": "candidate is a label within a data region"
+                },
+                {
+                  "code": "METADATA_OR_DISCLAIMER",
+                  "weight": -25,
+                  "message": "text resembles metadata, payment detail, or disclaimer content"
+                },
+                {
+                  "code": "SMALL_FONT",
+                  "weight": -12,
+                  "message": "candidate uses small label-sized text"
+                }
+              ]
+            }
+          ],
+          "selectionPolicy": "exactlyOne",
+          "selectedCandidateIds": [],
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "request": "Format Name as a number with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "Name"
+            },
+            "format": "N0"
+          }
+        ]
+      },
+      "planSha256": "178a950df593aa065c78c45d474c887db85809a6b7cab55b63e84b69a2396d58",
+      "operationIds": [
+        "9a0cc376f93ecb6db7327c62"
+      ],
+      "initial": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-transcript-2",
+        "reportSessionId": "diagnostic-microsoft-transcript",
+        "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+        "planSha256": "178a950df593aa065c78c45d474c887db85809a6b7cab55b63e84b69a2396d58",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "resolved",
+            "reason": "TITLE_RESOLVED",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Name",
+              "status": "ambiguous",
+              "reason": "MULTIPLE_DATASET_CANDIDATES",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "choiceRequired",
+            "operationId": "9a0cc376f93ecb6db7327c62",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Name as N0.",
+            "mutationAuthorized": false,
+            "candidates": [
+              {
+                "kind": "fieldDisplay",
+                "candidateId": "620136486660715d3d90",
+                "fieldName": "Name",
+                "datasetName": "Certification",
+                "possibleDatasets": [
+                  "Certification",
+                  "Users"
+                ],
+                "region": "body",
+                "tablixName": "Tablix2",
+                "structuralRole": "detail",
+                "expressionKind": "directFieldReference",
+                "currentFormat": null,
+                "evidence": [
+                  {
+                    "code": "EXACT_FIELD_NAME",
+                    "message": "exact field-name match: Name"
+                  },
+                  {
+                    "code": "DIRECT_FIELD_REFERENCE",
+                    "message": "expression kind is directFieldReference"
+                  },
+                  {
+                    "code": "STRUCTURAL_PATH_PRESERVED",
+                    "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)"
+                  },
+                  {
+                    "code": "TABLIX_CONTEXT",
+                    "message": "tablix: Tablix2"
+                  },
+                  {
+                    "code": "SCOPE_ROLE",
+                    "message": "structural role: detail"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "MULTIPLE_DATASET_DECLARATIONS",
+                    "message": "field is declared by Certification, Users"
+                  }
+                ]
+              }
+            ],
+            "selectionPolicy": "oneOrMore",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          }
+        ],
+        "state": "incomplete",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "decisions": [
+        {
+          "operationId": "9a0cc376f93ecb6db7327c62",
+          "action": "selectExactCandidatesAndConfirm",
+          "candidateIds": [
+            "620136486660715d3d90"
+          ]
+        }
+      ],
+      "final": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-transcript-2",
+        "reportSessionId": "diagnostic-microsoft-transcript",
+        "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+        "planSha256": "178a950df593aa065c78c45d474c887db85809a6b7cab55b63e84b69a2396d58",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "resolved",
+            "reason": "TITLE_RESOLVED",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Name",
+              "status": "ambiguous",
+              "reason": "MULTIPLE_DATASET_CANDIDATES",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "confirmed",
+            "operationId": "9a0cc376f93ecb6db7327c62",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Name as N0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "620136486660715d3d90"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          }
+        ],
+        "state": "fullyReviewed",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "alternativeSimulations": [],
+      "resetProof": [
+        {
+          "status": "choiceRequired",
+          "operationId": "9a0cc376f93ecb6db7327c62",
+          "operationType": "setNumberFormat",
+          "requestedChange": "Format Name as N0.",
+          "mutationAuthorized": false,
+          "candidates": [
+            {
+              "kind": "fieldDisplay",
+              "candidateId": "620136486660715d3d90",
+              "fieldName": "Name",
+              "datasetName": "Certification",
+              "possibleDatasets": [
+                "Certification",
+                "Users"
+              ],
+              "region": "body",
+              "tablixName": "Tablix2",
+              "structuralRole": "detail",
+              "expressionKind": "directFieldReference",
+              "currentFormat": null,
+              "evidence": [
+                {
+                  "code": "EXACT_FIELD_NAME",
+                  "message": "exact field-name match: Name"
+                },
+                {
+                  "code": "DIRECT_FIELD_REFERENCE",
+                  "message": "expression kind is directFieldReference"
+                },
+                {
+                  "code": "STRUCTURAL_PATH_PRESERVED",
+                  "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)"
+                },
+                {
+                  "code": "TABLIX_CONTEXT",
+                  "message": "tablix: Tablix2"
+                },
+                {
+                  "code": "SCOPE_ROLE",
+                  "message": "structural role: detail"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "MULTIPLE_DATASET_DECLARATIONS",
+                  "message": "field is declared by Certification, Users"
+                }
+              ]
+            }
+          ],
+          "selectionPolicy": "oneOrMore",
+          "selectedCandidateIds": [],
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "editedRdlGenerated": false
+}

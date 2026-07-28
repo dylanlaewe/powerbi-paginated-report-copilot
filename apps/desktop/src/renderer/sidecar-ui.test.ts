@@ -22,6 +22,13 @@ describe("existing RDL sidecar renderer", () => {
     expect(source).toContain("The original report will not be modified.");
     expect(source).toContain("Review Changes");
     expect(source).toContain("Apply Changes");
+    expect(source).toContain("Review only — no RDL file will be changed.");
+    expect(source).toContain("Review Candidates Only");
+    expect(source).toContain("No generic Apply action exists.");
+    expect(source).toContain('? "radio"');
+    expect(source).toContain(': "checkbox"');
+    expect(source).toContain("candidate.datasetName");
+    expect(source).toContain("candidate.structuralRole");
     expect(source).toContain("PRELOAD_BRIDGE_UNAVAILABLE");
     expect(source).toContain("IPC_REJECTED");
     expect(source).not.toContain("editPlan:");

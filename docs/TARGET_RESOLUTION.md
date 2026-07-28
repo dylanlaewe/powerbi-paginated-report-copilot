@@ -127,3 +127,29 @@ Diagnostic IDs are reproducible evidence. Electron replaces them with
 inspection-session UUIDs. Neither form, nor a field name, dataset name,
 report-item name, structural path, or resolution object is accepted by apply
 IPC. Reviewed checksum-based mutation remains unchanged.
+
+## v0.3 Gate 2L review decisions
+
+Read-only resolution no longer flows directly toward any writable construct.
+It may now feed an operation-specific `ReviewBundle`:
+
+```text
+typed resolution outcome
+→ operation-level review decision
+→ future target authorization (not implemented)
+→ future generic mutation (not implemented)
+```
+
+Operation IDs are deterministic hashes of plan identity, operation index, and
+the validated operation. Review-draft IDs are unrelated opaque UUIDs. A draft
+is bound to one inspection session, immutable source hash, typed plan hash, and
+catalog version.
+
+Candidate UUIDs are accepted only by strict review-selection IPC and only when
+they belong to that session, operation, and candidate type. Structural paths,
+report-item names, diagnostic IDs, review objects, and review-draft IDs remain
+invalid mutation inputs.
+
+A fully reviewed bundle still has `mutationAuthorized: false` and
+`executable: false`. Generic Apply behavior and target authorization do not
+exist. Checksum-reviewed v0.2 resolution remains the sole writable authority.

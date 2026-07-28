@@ -246,3 +246,22 @@ The complete matrix is under
 `examples/rdl-structure-corpus/field-resolution-v0.3/`. It evaluates every
 displayed field in all four accepted sources. Every result contains
 `mutationAuthorized: false`; no RDL was written or executed.
+
+## Gate 2L operation-level read-only review
+
+The review layer consumes an unchanged typed plan plus Gate 2J/2K outcomes and
+creates one independently reviewable entry per operation. Title text and title
+style remain separate. Resolved candidates require an explicit confirmation;
+ambiguous titles use exactly-one selection and ambiguous field displays use an
+exact one-or-more subset. No semantic shortcuts or first-candidate defaults
+exist.
+
+Omitted dimensions continue to block orientation with
+`PAGE_DIMENSIONS_UNSPECIFIED`. Blocked entries cannot be confirmed. Declined
+entries require an explicit reset before another decision.
+
+Deterministic corpus simulations are under
+`examples/rdl-structure-corpus/review-workflow-v0.3/`. Live review drafts and
+candidate handles are opaque session UUIDs; artifacts use deterministic
+diagnostic identities. All bundles remain non-executable and
+mutation-unauthorized.

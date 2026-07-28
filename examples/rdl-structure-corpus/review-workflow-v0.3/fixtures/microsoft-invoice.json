@@ -1,0 +1,543 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-invoice",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "scenarios": [
+    {
+      "request": "Format Amount as currency with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "Amount"
+            },
+            "format": "C0"
+          }
+        ]
+      },
+      "planSha256": "a6010ebedea9d96c29e1b7392166d481b2921a20824116fcc5405b34a280d898",
+      "operationIds": [
+        "af1c178eab121e9fc55119ef"
+      ],
+      "initial": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-invoice-1",
+        "reportSessionId": "diagnostic-microsoft-invoice",
+        "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        "planSha256": "a6010ebedea9d96c29e1b7392166d481b2921a20824116fcc5405b34a280d898",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "notFound",
+            "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Amount",
+              "status": "ambiguous",
+              "reason": "DUPLICATE_VISUAL_LOCATIONS",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "choiceRequired",
+            "operationId": "af1c178eab121e9fc55119ef",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Amount as C0.",
+            "mutationAuthorized": false,
+            "candidates": [
+              {
+                "kind": "fieldDisplay",
+                "candidateId": "226fbc39a5291a02f6fa",
+                "fieldName": "Amount",
+                "datasetName": "SalesInvoiceDS",
+                "possibleDatasets": [
+                  "SalesInvoiceDS"
+                ],
+                "region": "body",
+                "tablixName": "Tablix3",
+                "structuralRole": "unknown",
+                "expressionKind": "directFieldReference",
+                "currentFormat": "N2",
+                "evidence": [
+                  {
+                    "code": "EXACT_FIELD_NAME",
+                    "message": "exact field-name match: Amount"
+                  },
+                  {
+                    "code": "DIRECT_FIELD_REFERENCE",
+                    "message": "expression kind is directFieldReference"
+                  },
+                  {
+                    "code": "STRUCTURAL_PATH_PRESERVED",
+                    "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)"
+                  },
+                  {
+                    "code": "TABLIX_CONTEXT",
+                    "message": "tablix: Tablix3"
+                  },
+                  {
+                    "code": "SCOPE_ROLE",
+                    "message": "structural role: unknown"
+                  },
+                  {
+                    "code": "CURRENT_FORMAT",
+                    "message": "current format: N2"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DUPLICATE_VISUAL_LOCATION",
+                    "message": "2 display candidates match the field"
+                  }
+                ]
+              },
+              {
+                "kind": "fieldDisplay",
+                "candidateId": "116d5d5c1bd16eba510e",
+                "fieldName": "Amount",
+                "datasetName": "SalesInvoiceDS",
+                "possibleDatasets": [
+                  "SalesInvoiceDS"
+                ],
+                "region": "body",
+                "tablixName": "Tablix2",
+                "structuralRole": "detail",
+                "expressionKind": "directFieldReference",
+                "currentFormat": "N2",
+                "evidence": [
+                  {
+                    "code": "EXACT_FIELD_NAME",
+                    "message": "exact field-name match: Amount"
+                  },
+                  {
+                    "code": "DIRECT_FIELD_REFERENCE",
+                    "message": "expression kind is directFieldReference"
+                  },
+                  {
+                    "code": "STRUCTURAL_PATH_PRESERVED",
+                    "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)"
+                  },
+                  {
+                    "code": "TABLIX_CONTEXT",
+                    "message": "tablix: Tablix2"
+                  },
+                  {
+                    "code": "SCOPE_ROLE",
+                    "message": "structural role: detail"
+                  },
+                  {
+                    "code": "CURRENT_FORMAT",
+                    "message": "current format: N2"
+                  }
+                ],
+                "ambiguityEvidence": [
+                  {
+                    "code": "DUPLICATE_VISUAL_LOCATION",
+                    "message": "2 display candidates match the field"
+                  }
+                ]
+              }
+            ],
+            "selectionPolicy": "oneOrMore",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          }
+        ],
+        "state": "incomplete",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "decisions": [
+        {
+          "operationId": "af1c178eab121e9fc55119ef",
+          "action": "selectExactCandidatesAndConfirm",
+          "candidateIds": [
+            "226fbc39a5291a02f6fa"
+          ]
+        }
+      ],
+      "final": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-invoice-1",
+        "reportSessionId": "diagnostic-microsoft-invoice",
+        "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        "planSha256": "a6010ebedea9d96c29e1b7392166d481b2921a20824116fcc5405b34a280d898",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "notFound",
+            "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Amount",
+              "status": "ambiguous",
+              "reason": "DUPLICATE_VISUAL_LOCATIONS",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "confirmed",
+            "operationId": "af1c178eab121e9fc55119ef",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Amount as C0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "226fbc39a5291a02f6fa"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          }
+        ],
+        "state": "fullyReviewed",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "alternativeSimulations": [],
+      "resetProof": [
+        {
+          "status": "choiceRequired",
+          "operationId": "af1c178eab121e9fc55119ef",
+          "operationType": "setNumberFormat",
+          "requestedChange": "Format Amount as C0.",
+          "mutationAuthorized": false,
+          "candidates": [
+            {
+              "kind": "fieldDisplay",
+              "candidateId": "226fbc39a5291a02f6fa",
+              "fieldName": "Amount",
+              "datasetName": "SalesInvoiceDS",
+              "possibleDatasets": [
+                "SalesInvoiceDS"
+              ],
+              "region": "body",
+              "tablixName": "Tablix3",
+              "structuralRole": "unknown",
+              "expressionKind": "directFieldReference",
+              "currentFormat": "N2",
+              "evidence": [
+                {
+                  "code": "EXACT_FIELD_NAME",
+                  "message": "exact field-name match: Amount"
+                },
+                {
+                  "code": "DIRECT_FIELD_REFERENCE",
+                  "message": "expression kind is directFieldReference"
+                },
+                {
+                  "code": "STRUCTURAL_PATH_PRESERVED",
+                  "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix3)/row[0]/cell[2]/Textbox(Textbox46)"
+                },
+                {
+                  "code": "TABLIX_CONTEXT",
+                  "message": "tablix: Tablix3"
+                },
+                {
+                  "code": "SCOPE_ROLE",
+                  "message": "structural role: unknown"
+                },
+                {
+                  "code": "CURRENT_FORMAT",
+                  "message": "current format: N2"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DUPLICATE_VISUAL_LOCATION",
+                  "message": "2 display candidates match the field"
+                }
+              ]
+            },
+            {
+              "kind": "fieldDisplay",
+              "candidateId": "116d5d5c1bd16eba510e",
+              "fieldName": "Amount",
+              "datasetName": "SalesInvoiceDS",
+              "possibleDatasets": [
+                "SalesInvoiceDS"
+              ],
+              "region": "body",
+              "tablixName": "Tablix2",
+              "structuralRole": "detail",
+              "expressionKind": "directFieldReference",
+              "currentFormat": "N2",
+              "evidence": [
+                {
+                  "code": "EXACT_FIELD_NAME",
+                  "message": "exact field-name match: Amount"
+                },
+                {
+                  "code": "DIRECT_FIELD_REFERENCE",
+                  "message": "expression kind is directFieldReference"
+                },
+                {
+                  "code": "STRUCTURAL_PATH_PRESERVED",
+                  "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[6]/Textbox(Amount)"
+                },
+                {
+                  "code": "TABLIX_CONTEXT",
+                  "message": "tablix: Tablix2"
+                },
+                {
+                  "code": "SCOPE_ROLE",
+                  "message": "structural role: detail"
+                },
+                {
+                  "code": "CURRENT_FORMAT",
+                  "message": "current format: N2"
+                }
+              ],
+              "ambiguityEvidence": [
+                {
+                  "code": "DUPLICATE_VISUAL_LOCATION",
+                  "message": "2 display candidates match the field"
+                }
+              ]
+            }
+          ],
+          "selectionPolicy": "oneOrMore",
+          "selectedCandidateIds": [],
+          "confirmed": false
+        }
+      ]
+    },
+    {
+      "request": "Format Quantity as a number with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "Quantity"
+            },
+            "format": "N0"
+          }
+        ]
+      },
+      "planSha256": "7ad8e930e61d984da4773f8d06d68036f64e6d109d2060efea5ab4e7bf003ccb",
+      "operationIds": [
+        "6655f74935439b6253f12a20"
+      ],
+      "initial": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-invoice-2",
+        "reportSessionId": "diagnostic-microsoft-invoice",
+        "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        "planSha256": "7ad8e930e61d984da4773f8d06d68036f64e6d109d2060efea5ab4e7bf003ccb",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "notFound",
+            "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Quantity",
+              "status": "resolved",
+              "reason": "FIELD_DISPLAY_RESOLVED",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "readyForConfirmation",
+            "operationId": "6655f74935439b6253f12a20",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Quantity as N0.",
+            "mutationAuthorized": false,
+            "recommendedCandidate": {
+              "kind": "fieldDisplay",
+              "candidateId": "b3482cc5897d2710f4a3",
+              "fieldName": "Quantity",
+              "datasetName": "SalesInvoiceDS",
+              "possibleDatasets": [
+                "SalesInvoiceDS"
+              ],
+              "region": "body",
+              "tablixName": "Tablix2",
+              "structuralRole": "detail",
+              "expressionKind": "directFieldReference",
+              "currentFormat": "#,###,##0.##",
+              "evidence": [
+                {
+                  "code": "EXACT_FIELD_NAME",
+                  "message": "exact field-name match: Quantity"
+                },
+                {
+                  "code": "DIRECT_FIELD_REFERENCE",
+                  "message": "expression kind is directFieldReference"
+                },
+                {
+                  "code": "STRUCTURAL_PATH_PRESERVED",
+                  "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)"
+                },
+                {
+                  "code": "TABLIX_CONTEXT",
+                  "message": "tablix: Tablix2"
+                },
+                {
+                  "code": "SCOPE_ROLE",
+                  "message": "structural role: detail"
+                },
+                {
+                  "code": "CURRENT_FORMAT",
+                  "message": "current format: #,###,##0.##"
+                }
+              ],
+              "ambiguityEvidence": []
+            },
+            "alternatives": [],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          }
+        ],
+        "state": "incomplete",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "decisions": [
+        {
+          "operationId": "6655f74935439b6253f12a20",
+          "action": "confirmRecommendedCandidate",
+          "candidateIds": [
+            "b3482cc5897d2710f4a3"
+          ]
+        }
+      ],
+      "final": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-microsoft-invoice-2",
+        "reportSessionId": "diagnostic-microsoft-invoice",
+        "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        "planSha256": "7ad8e930e61d984da4773f8d06d68036f64e6d109d2060efea5ab4e7bf003ccb",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "notFound",
+            "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "Quantity",
+              "status": "resolved",
+              "reason": "FIELD_DISPLAY_RESOLVED",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "confirmed",
+            "operationId": "6655f74935439b6253f12a20",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format Quantity as N0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "b3482cc5897d2710f4a3"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          }
+        ],
+        "state": "fullyReviewed",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "alternativeSimulations": [],
+      "resetProof": [
+        {
+          "status": "readyForConfirmation",
+          "operationId": "6655f74935439b6253f12a20",
+          "operationType": "setNumberFormat",
+          "requestedChange": "Format Quantity as N0.",
+          "mutationAuthorized": false,
+          "recommendedCandidate": {
+            "kind": "fieldDisplay",
+            "candidateId": "b3482cc5897d2710f4a3",
+            "fieldName": "Quantity",
+            "datasetName": "SalesInvoiceDS",
+            "possibleDatasets": [
+              "SalesInvoiceDS"
+            ],
+            "region": "body",
+            "tablixName": "Tablix2",
+            "structuralRole": "detail",
+            "expressionKind": "directFieldReference",
+            "currentFormat": "#,###,##0.##",
+            "evidence": [
+              {
+                "code": "EXACT_FIELD_NAME",
+                "message": "exact field-name match: Quantity"
+              },
+              {
+                "code": "DIRECT_FIELD_REFERENCE",
+                "message": "expression kind is directFieldReference"
+              },
+              {
+                "code": "STRUCTURAL_PATH_PRESERVED",
+                "message": "structural location: section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Quantity)"
+              },
+              {
+                "code": "TABLIX_CONTEXT",
+                "message": "tablix: Tablix2"
+              },
+              {
+                "code": "SCOPE_ROLE",
+                "message": "structural role: detail"
+              },
+              {
+                "code": "CURRENT_FORMAT",
+                "message": "current format: #,###,##0.##"
+              }
+            ],
+            "ambiguityEvidence": []
+          },
+          "alternatives": [],
+          "selectionPolicy": "exactlyOne",
+          "selectedCandidateIds": [],
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "editedRdlGenerated": false
+}

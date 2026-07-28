@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2K dataset- and scope-aware read-only field-display resolution complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2L operation-level read-only review complete, review pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -77,6 +77,25 @@ remain ambiguous across separate visual locations, and Transcript `Name`
 retains its multiple-dataset ambiguity. Every outcome denies mutation; the
 narrow Electron method returns session UUIDs and neither planning nor apply
 accepts field-resolution evidence.
+
+Gate 2L adds the next read-only architectural layer: each unchanged typed plan
+operation receives a deterministic operation ID and an independent
+`readyForConfirmation`, `choiceRequired`, `blocked`, `confirmed`, or `declined`
+state. Resolved candidates are never auto-confirmed. Ambiguous titles require
+exactly one candidate; ambiguous field displays accept one or more exact
+candidate UUIDs.
+
+Review drafts are fresh main-process UUIDs bound to the active inspection
+session, source SHA-256, plan SHA-256, and candidate catalog. Reload, session
+closure, source change, or plan replacement invalidates them. The renderer
+receives a sanitized bundle and can select, confirm, decline, or reset only
+through strict review IPC.
+
+Every review object retains `mutationAuthorized: false` and
+`executable: false`. The generic UI explicitly says no RDL will change and has
+no Apply, Save, Generate, or Execute action. The existing checksum-reviewed
+workflow remains the only writable path; target authorization is a future,
+separate layer.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

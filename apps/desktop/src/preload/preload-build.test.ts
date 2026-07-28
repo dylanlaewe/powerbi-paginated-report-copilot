@@ -25,6 +25,9 @@ describe("production preload output", () => {
       'resolveExistingRdlField: "sidecar:resolve-field"',
     );
     expect(preload).toContain(
+      'createExistingRdlReview: "sidecar:review-create"',
+    );
+    expect(preload).toContain(
       "generateReport: (request) => electron.ipcRenderer.invoke(channels.generateReport",
     );
 
@@ -38,6 +41,10 @@ describe("production preload output", () => {
       "fieldResolutionRequestSchema.safeParse(input)",
     );
     expect(mainSource).toContain("applyEditRequestSchema.safeParse(input)");
+    expect(mainSource).toContain("createReviewRequestSchema.safeParse(input)");
+    expect(mainSource).toContain(
+      "reviewSelectionRequestSchema.safeParse(input)",
+    );
     expect(mainSource).toContain("contextIsolation: true");
     expect(mainSource).toContain("nodeIntegration: false");
     expect(mainSource).toContain("sandbox: true");
