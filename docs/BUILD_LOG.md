@@ -1,5 +1,18 @@
 # Build log
 
+## 2026-07-27 — RDL structure corpus Gate 2C grouped-report acceptance
+
+- Ingested Dylan's personally authored 52,651-byte grouped source read-only and confirmed SHA-256 `03c7a6ea…174b` against the Windows original.
+- Passed safe `libxml2-wasm` parsing with NONET/NO_XXE and the Microsoft RDL 2016/01 XSD without changing the source.
+- Recorded the typed eight-row/five-field ENTERDATA dataset, four Department values with two rows each, one 4×5 tablix body, 26 textboxes, and zero parameters/charts.
+- Inventoried the exact Department → Details hierarchy, body-row/hierarchy-leaf relationship, four scoped aggregates, one outside-group Grand Total, between-group page break, and tablix repeated-heading flags.
+- Recorded actual names and display formats, omitted page dimensions, default DateTime rendering, Double Revenue type, structural aggregate scope, and the Windows working-directory deviation.
+- Corrected the authoring guide and manifest with accepted canonical title `Synthetic Department Sales Summary`, noting that the requirement was not correctly captured before manual authoring.
+- Recorded independent four-page Preview/PDF and four-worksheet Excel acceptance with no repair, conversion, blanks, clipping, or `#Error`.
+- Added exact identity, immutability, safe parse, XSD, inventory, row/type, hierarchy, aggregate, pagination, title, format, and absence regressions.
+- Passed changed-file formatting, ESLint, workspace typecheck, 42 test files / 313 tests, and the production build.
+- Made no resolver, generic-inspector, mutation, planner, Electron, or LLM change. Parameterized authoring and later gates remain unstarted.
+
 ## 2026-07-23 — RDL structure corpus Gate 2B simple-table acceptance
 
 - Ingested Dylan's personally authored 21,402-byte simple-table source read-only and confirmed SHA-256 `e3a34afe…448e3` before validation.

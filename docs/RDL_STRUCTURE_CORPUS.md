@@ -38,6 +38,24 @@ Report Builder authored several material differences from the design:
 
 The current generic inspector stops on the omitted physical dimensions. Gate 2B records that limitation and does not change or evaluate resolution. Gate 2C remains blocked pending review.
 
+## Gate 2C grouped-report result
+
+Dylan personally authored and independently validated `synthetic-department-sales.rdl`. The 52,651-byte repository source matches the Windows original at SHA-256 `03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b`; read-only validation preserved the bytes.
+
+The grouped source passes safe XML parsing and the Microsoft RDL 2016/01 XSD. Its exact Report Builder hierarchy is:
+
+- one `DepartmentSalesTable` with four body columns, five body rows, and a separate one-inch Department row-header region;
+- semantic `Department` group on `=Fields!Department.Value`, sorted ascending, with `PageBreak/BreakLocation=Between`;
+- nested implicit `Details` member;
+- Department subtotal member beneath the group;
+- one static Grand Total member outside the Department group;
+- four aggregate expressions whose Department versus dataset scope derives from hierarchy position;
+- `RepeatRowHeaders=true` and `FixedRowHeaders=true`, with no `RepeatOnNewPage` element.
+
+The accepted canonical title is `Synthetic Department Sales Summary` in body textbox `ReportTitle`, 18pt Bold. This title requirement was not correctly captured before manual authoring, so Gate 2C corrects the authoring guide and manifest without modifying the source.
+
+Authored deviations include Revenue as `System.Double` rather than Decimal, no literal SaleDate format despite accepted short-date rendering, omitted PageWidth/PageHeight, and structural rather than explicit aggregate scope. The generic inspector again stops on omitted physical dimensions; resolver evaluation remains deferred.
+
 ## Provenance and licensing plan
 
 All four additional fixtures will be authored personally by Dylan in Microsoft Power BI Report Builder on a personally controlled Windows 11 VM:
@@ -66,7 +84,7 @@ Primary risk: the static Unit Cost column label must never be selected as a titl
 
 ### Grouped report
 
-`Synthetic Department Sales` uses eight fictional rows, Department parent grouping, details, a group subtotal, Grand Total, repeating headings, and between-group page breaks. Revenue appears at detail, group-subtotal, and report-total scopes.
+`Synthetic Department Sales Summary` uses eight fictional rows, Department parent grouping, details, a group subtotal, Grand Total, repeating headings, and between-group page breaks. Revenue appears at detail, group-subtotal, and report-total scopes.
 
 Edit: change and style the title; format every true Revenue display as `C0`.
 

@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2B simple-table acceptance**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2C grouped-report acceptance**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -10,9 +10,11 @@ Independent macOS and packaged Windows customer-path validation passed. The Wind
 
 Work continues on `codex/rdl-structure-corpus-v0.3`. Gate 1 and Gate 2A are accepted. Dylan personally authored the simple-table fixture, and Gate 2B read-only validation confirms exact source identity, safe XML/XSD validity, deterministic structural inventory, and independent one-page Preview/PDF plus one-worksheet Excel behavior.
 
-The accepted source has recorded structural deviations: string-typed numeric fields, split/competing title evidence, Report Builder-altered detail names, explicit currency pattern, omitted physical dimensions, and one implicit Details member. No resolver behavior was evaluated or changed. Gate 2C and grouped-report authoring have not started.
+The simple-table source remains accepted with its recorded deviations. Gate 2C now also accepts Dylan's immutable grouped-report source: one typed eight-row ENTERDATA dataset, one Department → Details hierarchy, four group subtotals, one outside-group Grand Total, between-group page breaks, repeated headings, and independent four-page Preview/PDF plus four-worksheet Excel validation.
 
-No resolver, mutation, planner, Electron, LLM, or supported-operation change is part of Gate 2B.
+The grouped source records actual `System.Double` Revenue typing, defaulted SaleDate formatting, omitted physical dimensions, tablix-level repeated-heading flags, and hierarchy-derived aggregate scope. The missing canonical title instruction is corrected in the kit without rewriting the source. No resolver behavior was evaluated or changed. The parameterized fixture and later gates have not started.
+
+No resolver, mutation, planner, Electron, LLM, or supported-operation change is part of Gate 2C.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

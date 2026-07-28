@@ -2,6 +2,8 @@
 
 Create this report personally from a new blank Report Builder report. Use only `department-sales.tsv` through Enter Data.
 
+> Gate 2C correction: the canonical title requirement was not correctly captured before manual authoring. The accepted authored result uses `Synthetic Department Sales Summary` in body textbox `ReportTitle`, formatted 18pt Bold and left aligned. This correction records the accepted source; do not resave or alter that RDL.
+
 ## Dataset
 
 Name: `DepartmentSales`; exactly eight rows.
@@ -39,7 +41,7 @@ Expected totals:
 11. Preserve the Details member beneath the Department group. Do not add another dynamic group.
 12. Set the outer Department group to page break **Between each instance**.
 13. Configure the static column-heading member to repeat on new pages using Report Builder's grouping/advanced-mode properties. Preserve any companion `KeepWithGroup`, `RepeatOnNewPage`, or `FixedData` values authored by Report Builder.
-14. Add a body textbox above the tablix with exact text `Synthetic Department Sales`; name it `DepartmentSalesTitle`; format it 18pt bold.
+14. Add a body textbox above the tablix with exact text `Synthetic Department Sales Summary`; name it `ReportTitle`; format it 18pt bold and left aligned.
 15. Add no page header or footer. Add no parameters, charts, images, rectangles, or other totals.
 16. Set Letter portrait (`8.5in` × `11in`), four `0.5in` margins, and body width no greater than `7.5in` (target `7in`).
 17. Preview and confirm four alphabetically ordered departments, two details beneath each, the exact totals above, repeated column headings after page breaks, and no `#Error`.

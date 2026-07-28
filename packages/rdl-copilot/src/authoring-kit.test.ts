@@ -88,11 +88,13 @@ describe("RDL structure corpus Gate 2A authoring kit", () => {
       expect(worksheet).toContain("Excel");
       if (fixture.id === "simple-table")
         expect(worksheet).toContain("Gate 2B is complete");
+      else if (fixture.id === "grouped-report")
+        expect(worksheet).toContain("Gate 2C is complete");
       else expect(worksheet).toContain("[RECORD");
     }
   });
 
-  it("permits only the hash-pinned simple-table source after Gate 2B", async () => {
+  it("permits only the hash-pinned simple and grouped sources after Gate 2C", async () => {
     async function findRdlFiles(directory: string): Promise<string[]> {
       const entries = await readdir(directory, { withFileTypes: true });
       const matches = await Promise.all(
@@ -106,6 +108,10 @@ describe("RDL structure corpus Gate 2A authoring kit", () => {
     }
 
     expect(await findRdlFiles(corpusRoot)).toEqual([
+      resolve(
+        corpusRoot,
+        "grouped-report/source/synthetic-department-sales.rdl",
+      ),
       resolve(corpusRoot, "simple-table/source/synthetic-inventory-detail.rdl"),
     ]);
   });

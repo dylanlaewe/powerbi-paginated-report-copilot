@@ -47,6 +47,15 @@
       "sourceRelativePath": "grouped-report/source/synthetic-department-sales.rdl",
       "instructionsRelativePath": "grouped-report/authoring-kit/README.md",
       "validationWorksheetRelativePath": "grouped-report/authoring-kit/source-validation.md",
+      "baselineTitle": {
+        "text": "Synthetic Department Sales Summary",
+        "reportItemName": "ReportTitle",
+        "location": "body",
+        "fontSize": "18pt",
+        "fontWeight": "Bold",
+        "textAlign": "Left",
+        "revisionNote": "Gate 2C correction after the canonical title requirement was not correctly captured before manual authoring."
+      },
       "datasets": [
         {
           "name": "DepartmentSales",

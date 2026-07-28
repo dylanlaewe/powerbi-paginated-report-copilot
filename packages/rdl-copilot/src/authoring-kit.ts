@@ -51,6 +51,18 @@ const authoringFixtureSchema = z
     validationWorksheetRelativePath: z
       .string()
       .regex(/^[a-z0-9-]+\/authoring-kit\/source-validation\.md$/u),
+    baselineTitle: z
+      .object({
+        text: z.string().min(1),
+        reportItemName: z.string().min(1),
+        location: z.enum(["body", "pageHeader"]),
+        fontSize: z.string().regex(/^\d+pt$/u),
+        fontWeight: z.literal("Bold"),
+        textAlign: z.literal("Left"),
+        revisionNote: z.string().min(1),
+      })
+      .strict()
+      .optional(),
     datasets: z.array(datasetSchema).min(1),
     expectedTotals: expectedTotalsSchema,
   })
@@ -99,6 +111,16 @@ export const rdlAuthoringKitSchema = z
           context.addIssue({
             code: "custom",
             message: "Fixtures must retain the approved authoring order",
+          });
+        const grouped = fixtures.find(({ id }) => id === "grouped-report");
+        if (
+          grouped?.baselineTitle?.text !==
+            "Synthetic Department Sales Summary" ||
+          grouped.baselineTitle.reportItemName !== "ReportTitle"
+        )
+          context.addIssue({
+            code: "custom",
+            message: "Grouped fixture must record the accepted Gate 2C title",
           });
         const paths = fixtures.flatMap((fixture) => [
           fixture.sourceRelativePath,

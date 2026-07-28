@@ -1,0 +1,49 @@
+{
+  "gate": "2C",
+  "status": "PASS_WITH_RECORDED_DEVIATIONS",
+  "sourceIdentity": {
+    "byteSize": 52651,
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "windowsOriginalMatchedRepositoryCopy": true,
+    "postValidationSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "sourceModifiedByGate2C": false
+  },
+  "validation": {
+    "safeXmlParsing": "PASS — libxml2-wasm NONET and NO_XXE",
+    "xmlWellFormedness": "PASS",
+    "xsd": "PASS",
+    "xsdEngine": "libxml2-wasm",
+    "genericSidecarInspection": "NOT EVALUATED — current inspector requires literal PageWidth/PageHeight and rejected the authored defaulted dimensions before producing inventory",
+    "resolverEvaluation": "DEFERRED TO LATER GATE"
+  },
+  "windowsBaseline": {
+    "open": "PASS",
+    "initialPreview": "PASS",
+    "reopenPreview": "PASS",
+    "previewPageCount": 4,
+    "pdf": "PASS",
+    "pdfPageCount": 4,
+    "excel": "PASS",
+    "excelWorksheetCount": 4,
+    "repairConversionOrUpgradeWarning": "NONE",
+    "blankPages": "NONE",
+    "horizontalClipping": "NONE",
+    "errorValues": "NONE"
+  },
+  "expectedTotals": {
+    "Design": { "Units": 13, "Revenue": 3390 },
+    "Field Services": { "Units": 18, "Revenue": 4620 },
+    "Operations": { "Units": 23, "Revenue": 5550 },
+    "Research": { "Units": 11, "Revenue": 5650 },
+    "Grand Total": { "Units": 65, "Revenue": 19210 }
+  },
+  "deviations": [
+    "The Windows authoring file was organized under the simple-table working directory; the repository destination is correct.",
+    "Revenue serialized as System.Double/Float rather than the intended Decimal.",
+    "SaleDate short-date rendering has no literal Format element and relies on Report Builder's default DateTime display.",
+    "PageWidth and PageHeight are omitted; independent Report Builder validation confirms effective Letter portrait behavior.",
+    "Repeated headings serialize as RepeatRowHeaders=true and FixedRowHeaders=true, with no RepeatOnNewPage element.",
+    "Subtotal and Grand Total expressions contain no explicit scope argument; their scopes derive from distinct hierarchy positions.",
+    "The authoring kit's canonical title requirement was corrected after the manual-authoring omission was discovered."
+  ]
+}

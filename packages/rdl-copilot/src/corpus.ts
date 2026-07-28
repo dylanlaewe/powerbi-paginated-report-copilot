@@ -49,7 +49,11 @@ const corpusFixtureSchema = z
         method: z.string().min(1),
         ownership: z.literal("personally authored synthetic fixture"),
         license: z.literal("MIT"),
-        reportBuilderValidation: z.enum(["pending Gate 2", "PASS Gate 2B"]),
+        reportBuilderValidation: z.enum([
+          "pending Gate 2",
+          "PASS Gate 2B",
+          "PASS Gate 2C",
+        ]),
       })
       .strict(),
     syntheticDataDesign: z
@@ -104,9 +108,13 @@ const corpusFixtureSchema = z
     reportBuilderBaseline: z
       .object({
         open: z.enum(["pending Gate 2", "PASS"]),
-        preview: z.enum(["pending Gate 2", "PASS — 1 page"]),
-        pdf: z.enum(["pending Gate 2", "PASS — 1 page"]),
-        excel: z.enum(["pending Gate 2", "PASS — 1 worksheet"]),
+        preview: z.enum(["pending Gate 2", "PASS — 1 page", "PASS — 4 pages"]),
+        pdf: z.enum(["pending Gate 2", "PASS — 1 page", "PASS — 4 pages"]),
+        excel: z.enum([
+          "pending Gate 2",
+          "PASS — 1 worksheet",
+          "PASS — 4 worksheets",
+        ]),
       })
       .strict(),
   })
@@ -121,7 +129,7 @@ const corpusFixtureSchema = z
       });
     if (
       accepted !==
-      (fixture.provenance.reportBuilderValidation === "PASS Gate 2B")
+      fixture.provenance.reportBuilderValidation.startsWith("PASS Gate 2")
     )
       context.addIssue({
         code: "custom",
@@ -133,8 +141,12 @@ export const rdlStructureCorpusIndexSchema = z
   .object({
     corpusVersion: z.literal(1),
     milestone: z.literal("RDL Structure Corpus and Resolver Validation v0.3"),
-    gate: z.union([z.literal(1), z.literal("2B")]),
-    status: z.enum(["DESIGN_ONLY", "SIMPLE_TABLE_VALIDATED"]),
+    gate: z.union([z.literal(1), z.literal("2B"), z.literal("2C")]),
+    status: z.enum([
+      "DESIGN_ONLY",
+      "SIMPLE_TABLE_VALIDATED",
+      "GROUPED_REPORT_VALIDATED",
+    ]),
     frozenOperations: z.tuple([
       z.literal("setText"),
       z.literal("setTextStyle"),

@@ -25,11 +25,11 @@ describe("RDL structure corpus Gate 1 design", () => {
     ]);
   });
 
-  it("records the accepted simple-table identity while later fixtures remain pending", async () => {
+  it("records accepted simple/grouped identities while later fixtures remain pending", async () => {
     const index = rdlStructureCorpusIndexSchema.parse(
       JSON.parse(await readFile(indexPath, "utf8")),
     );
-    const [simpleTable, ...pending] = index.fixtures;
+    const [simpleTable, groupedReport, ...pending] = index.fixtures;
     expect(simpleTable).toMatchObject({
       id: "simple-table",
       status: "authoredValidated",
@@ -42,6 +42,20 @@ describe("RDL structure corpus Gate 1 design", () => {
         preview: "PASS — 1 page",
         pdf: "PASS — 1 page",
         excel: "PASS — 1 worksheet",
+      },
+    });
+    expect(groupedReport).toMatchObject({
+      id: "grouped-report",
+      status: "authoredValidated",
+      sourceSha256:
+        "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      namespace:
+        "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      reportBuilderBaseline: {
+        open: "PASS",
+        preview: "PASS — 4 pages",
+        pdf: "PASS — 4 pages",
+        excel: "PASS — 4 worksheets",
       },
     });
     for (const fixture of pending) {

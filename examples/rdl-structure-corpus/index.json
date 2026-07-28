@@ -1,8 +1,8 @@
 {
   "corpusVersion": 1,
   "milestone": "RDL Structure Corpus and Resolver Validation v0.3",
-  "gate": "2B",
-  "status": "SIMPLE_TABLE_VALIDATED",
+  "gate": "2C",
+  "status": "GROUPED_REPORT_VALIDATED",
   "frozenOperations": [
     "setText",
     "setTextStyle",
@@ -117,17 +117,17 @@
       "name": "Synthetic Department Sales",
       "description": "Grouped portrait report with department/detail hierarchy, subtotal, Grand Total, repeating headings, and Revenue at three scopes.",
       "structuralCategory": "groupedReport",
-      "status": "proposed",
+      "status": "authoredValidated",
       "sourceRelativePath": "grouped-report/source/synthetic-department-sales.rdl",
-      "sourceSha256": null,
-      "namespace": null,
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
       "provenance": {
         "authoringApplication": "Microsoft Power BI Report Builder",
         "author": "Dylan Laewe",
         "method": "Create in Report Builder from a blank report with Enter Data, add a Department parent group, detail rows, Add Total after the group, Add Total outside the group, repeating headings, and between-group page breaks; preview, save, close, reopen, preview, and contribute the saved bytes.",
         "ownership": "personally authored synthetic fixture",
         "license": "MIT",
-        "reportBuilderValidation": "pending Gate 2"
+        "reportBuilderValidation": "PASS Gate 2C"
       },
       "syntheticDataDesign": {
         "datasets": [
@@ -152,18 +152,19 @@
         "parameters": 0,
         "tablixes": 1,
         "groups": 2,
-        "textboxes": null,
+        "textboxes": 26,
         "reportSections": 1
       },
       "anticipatedOrientation": "portrait",
       "expectedTitle": {
-        "reportItemName": "DepartmentSalesTitle",
+        "reportItemName": "ReportTitle",
         "location": "body",
         "evidencePlan": [
-          "top-level static textbox above the grouped tablix",
-          "font prominence and width",
+          "exact static value Synthetic Department Sales Summary",
+          "top-level static body textbox above the grouped tablix",
+          "18pt Bold style and report-width placement",
           "no field or aggregate expression",
-          "explicit descriptive report-item name"
+          "ReportTitle item name"
         ],
         "ambiguityRisks": [
           "Department group header and subtotal labels are prominent static text",
@@ -188,8 +189,8 @@
         }
       ],
       "anticipatedResolution": {
-        "mode": "generic",
-        "rationale": "General expression, tablix membership, and hierarchy evidence should classify all three Revenue displays without a global target-count rule."
+        "mode": "notEvaluated",
+        "rationale": "Gate 2C records authored hierarchy and Revenue evidence without running or changing generic resolution."
       },
       "editScenario": {
         "requestRelativePath": "grouped-report/requests/canonical-edit.txt",
@@ -226,10 +227,10 @@
         }
       },
       "reportBuilderBaseline": {
-        "open": "pending Gate 2",
-        "preview": "pending Gate 2",
-        "pdf": "pending Gate 2",
-        "excel": "pending Gate 2"
+        "open": "PASS",
+        "preview": "PASS — 4 pages",
+        "pdf": "PASS — 4 pages",
+        "excel": "PASS — 4 worksheets"
       }
     },
     {
