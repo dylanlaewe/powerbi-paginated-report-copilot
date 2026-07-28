@@ -1,8 +1,8 @@
 {
   "corpusVersion": 1,
   "milestone": "RDL Structure Corpus and Resolver Validation v0.3",
-  "gate": "2C",
-  "status": "GROUPED_REPORT_VALIDATED",
+  "gate": "2E",
+  "status": "INVOICE_IMPORTED_STATICALLY",
   "frozenOperations": [
     "setText",
     "setTextStyle",
@@ -450,6 +450,40 @@
         "pdf": "pending Gate 2",
         "excel": "pending Gate 2"
       }
+    }
+  ],
+  "externalFixtureCount": 1,
+  "externalFixtures": [
+    {
+      "id": "microsoft-invoice",
+      "name": "Microsoft Reporting Services Invoice",
+      "sourceKind": "externalPinnedCompatibilityFixture",
+      "status": "staticallyValidated",
+      "canonicalSourceRelativePath": "external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+      "upstream": {
+        "repository": "https://github.com/microsoft/Reporting-Services.git",
+        "branch": "master",
+        "commit": "acc2ee0d1884765e4b5213149430fb063d166719",
+        "sourcePath": "PaginatedReportSamples/Invoice.rdl"
+      },
+      "byteSize": 222297,
+      "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "license": {
+        "name": "MIT",
+        "copyright": "Copyright (c) 2016 Microsoft",
+        "licenseSha256": "e1406b32500b4622444e91ec3b50a473b97c5c4470b7b1f137c36abcfb248b59",
+        "noticeRelativePath": "external-sources/microsoft-reporting-services/imported/invoice/LICENSE.microsoft.txt"
+      },
+      "reportBuilderValidation": "NOT_PERFORMED",
+      "purpose": [
+        "five embedded Enter Data datasets",
+        "overlapping field names across datasets",
+        "lookup-driven Company parameter and dataset filter",
+        "three tablixes and nine rectangles",
+        "scoped aggregate and advanced visibility expressions",
+        "embedded image plus page header and footer compatibility"
+      ]
     }
   ]
 }

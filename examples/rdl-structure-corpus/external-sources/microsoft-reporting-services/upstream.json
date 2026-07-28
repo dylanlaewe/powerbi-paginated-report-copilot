@@ -11,5 +11,16 @@
   "documentationUrl": "https://learn.microsoft.com/power-bi/paginated-reports/paginated-reports-samples",
   "inventoryGenerator": "scripts/discover-official-rdl-samples.mts v1",
   "inventoryOrdering": "relative path ascending; nested names and expressions ascending where order is not structural",
-  "inspectionPolicy": "static XML only; NONET; NO_XXE; no DTD or external resolution; no rendering, query execution, credentials, report code execution, or referenced network access"
+  "inspectionPolicy": "static XML only; NONET; NO_XXE; no DTD or external resolution; no rendering, query execution, credentials, report code execution, or referenced network access",
+  "imports": [
+    {
+      "gate": "2E",
+      "sourcePath": "PaginatedReportSamples/Invoice.rdl",
+      "canonicalImportedPath": "imported/invoice/source/Invoice.rdl",
+      "byteSize": 222297,
+      "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "byteIdentical": true,
+      "reportBuilderValidation": "NOT_PERFORMED"
+    }
+  ]
 }

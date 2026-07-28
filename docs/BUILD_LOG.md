@@ -358,3 +358,13 @@
 - Recommended Invoice, Transcript, Labels, and Letter for a later import review; kept Country Sales Performance and Regional Sales reference-only; deferred chart-only Organization Expenditures.
 - Narrowed the still-paused parameterized fixture to deliberate field ambiguity and the still-paused alternate-layout fixture to uncovered controlled layout conditions.
 - Added discovery-integrity regressions. No upstream RDL was committed and no resolver, inspector, mutation, planner, Electron, LLM, or packaging implementation changed.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2E pinned Invoice import
+
+- Reacquired Microsoft Reporting Services at pinned `master` commit `acc2ee0d1884765e4b5213149430fb063d166719` outside the repository and fail-closed on the expected source and license identities.
+- Imported only `PaginatedReportSamples/Invoice.rdl` through an exact byte copy: 222,297 bytes, SHA-256 `6251f6b9…53fdc`.
+- Preserved the unmodified upstream MIT license and Microsoft copyright notice adjacent to the canonical imported source.
+- Re-ran safe static parsing, XML/XSD validation, security verification, deterministic inventory comparison, attribution checks, and source immutability checks.
+- Registered Invoice separately from the four controlled personally authored fixtures and recorded that Report Builder open, Preview, query execution, rendering, and export were not performed.
+- Added fixture-level identity, structure, overlap, lookup-parameter, security, attribution, and immutability regressions. No other RDL, manual fixture, product behavior, or later gate was started.
+- Passed changed-file formatting, ESLint, workspace typecheck, 44 test files / 322 tests, production build, JSON parsing, deterministic regeneration, exact byte comparison, and upstream-clean verification.

@@ -3,6 +3,7 @@
   "deterministicOrdering": "relativePath ascending; nested names and expressions ascending where order is not structural",
   "inventoryGenerator": "scripts/discover-official-rdl-samples.mts v1",
   "sourceCount": 7,
+  "importedSourceCount": 1,
   "sources": [
     {
       "relativePath": "PaginatedReportSamples/CountrySalesPerformance.rdl",
@@ -30,7 +31,10 @@
         "status": "PASS",
         "schema": "ReportDefinition-2016.xsd"
       },
-      "inventoryRelativePath": "inventories/Invoice.inventory.json"
+      "inventoryRelativePath": "inventories/Invoice.inventory.json",
+      "importStatus": "STATICALLY_VALIDATED",
+      "canonicalImportedRelativePath": "imported/invoice/source/Invoice.rdl",
+      "importValidationRelativePath": "imported/invoice/validation/gate-2e-validation.json"
     },
     {
       "relativePath": "PaginatedReportSamples/Labels.rdl",

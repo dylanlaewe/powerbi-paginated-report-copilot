@@ -1,0 +1,1305 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/Invoice.rdl",
+    "fileName": "Invoice.rdl",
+    "byteSize": 222297,
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "8932495c-f74a-4485-b7c1-b808da812081"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "DataSource",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "SalesInvoiceDS",
+      "fields": [
+        {
+          "name": "Company",
+          "typeName": "System.String",
+          "dataField": "Company"
+        },
+        {
+          "name": "InvoiceId",
+          "typeName": "System.String",
+          "dataField": "InvoiceId"
+        },
+        {
+          "name": "Item",
+          "typeName": "System.String",
+          "dataField": "Item"
+        },
+        {
+          "name": "Description",
+          "typeName": "System.String",
+          "dataField": "Description"
+        },
+        {
+          "name": "Quantity",
+          "typeName": "System.String",
+          "dataField": "Quantity"
+        },
+        {
+          "name": "SalesPrice",
+          "typeName": "System.String",
+          "dataField": "SalesPrice"
+        },
+        {
+          "name": "Discount",
+          "typeName": "System.String",
+          "dataField": "Discount"
+        },
+        {
+          "name": "Amount",
+          "typeName": "System.Double",
+          "dataField": "Amount"
+        },
+        {
+          "name": "SalesUnitTxt",
+          "typeName": "System.String",
+          "dataField": "SalesUnitTxt"
+        },
+        {
+          "name": "FormLetterRemarksTxt",
+          "typeName": "System.String",
+          "dataField": "FormLetterRemarksTxt"
+        },
+        {
+          "name": "HeaderNotes",
+          "typeName": "System.String",
+          "dataField": "HeaderNotes"
+        },
+        {
+          "name": "BankAccountNum",
+          "typeName": "System.String",
+          "dataField": "BankAccountNum"
+        },
+        {
+          "name": "ShowTotals1",
+          "typeName": "System.String",
+          "dataField": "ShowTotals1"
+        },
+        {
+          "name": "CurrencySymbol",
+          "typeName": "System.String",
+          "dataField": "CurrencySymbol"
+        },
+        {
+          "name": "CashDisc",
+          "typeName": "System.String",
+          "dataField": "CashDisc"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "Company",
+      "fields": [
+        {
+          "name": "Name",
+          "typeName": "System.String",
+          "dataField": "Name"
+        },
+        {
+          "name": "Address",
+          "typeName": "System.String",
+          "dataField": "Address"
+        },
+        {
+          "name": "City",
+          "typeName": "System.String",
+          "dataField": "City"
+        },
+        {
+          "name": "State",
+          "typeName": "System.String",
+          "dataField": "State"
+        },
+        {
+          "name": "ZipCode",
+          "typeName": "System.String",
+          "dataField": "ZipCode"
+        },
+        {
+          "name": "Country",
+          "typeName": "System.String",
+          "dataField": "Country"
+        },
+        {
+          "name": "Phone",
+          "typeName": "System.String",
+          "dataField": "Phone"
+        },
+        {
+          "name": "Website",
+          "typeName": "System.String",
+          "dataField": "Website"
+        },
+        {
+          "name": "PrimaryColor",
+          "typeName": "System.String",
+          "dataField": "PrimaryColor"
+        },
+        {
+          "name": "PaymTermDescription",
+          "typeName": "System.String",
+          "dataField": "PaymTermDescription"
+        },
+        {
+          "name": "PaymDueDate",
+          "typeName": "System.String",
+          "dataField": "PaymDueDate"
+        },
+        {
+          "name": "SecondaryColor",
+          "typeName": "System.String",
+          "dataField": "SecondaryColor"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": [
+        {
+          "expression": "=Fields!Name.Value",
+          "operator": "Equal",
+          "values": [
+            "=Parameters!Company.Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "fields": [
+        {
+          "name": "Name",
+          "typeName": "System.String",
+          "dataField": "Name"
+        },
+        {
+          "name": "Id",
+          "typeName": "System.String",
+          "dataField": "Id"
+        },
+        {
+          "name": "Address",
+          "typeName": "System.String",
+          "dataField": "Address"
+        },
+        {
+          "name": "City",
+          "typeName": "System.String",
+          "dataField": "City"
+        },
+        {
+          "name": "State",
+          "typeName": "System.String",
+          "dataField": "State"
+        },
+        {
+          "name": "Zipcode",
+          "typeName": "System.String",
+          "dataField": "Zipcode"
+        },
+        {
+          "name": "Country",
+          "typeName": "System.String",
+          "dataField": "Country"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "SalesInvoiceHeaderFooterDS",
+      "fields": [
+        {
+          "name": "Company",
+          "typeName": "System.String",
+          "dataField": "Company"
+        },
+        {
+          "name": "InvoicingName",
+          "typeName": "System.String",
+          "dataField": "InvoicingName"
+        },
+        {
+          "name": "InvoicingAddress",
+          "typeName": "System.String",
+          "dataField": "InvoicingAddress"
+        },
+        {
+          "name": "InvoiceDate",
+          "typeName": "System.String",
+          "dataField": "InvoiceDate"
+        },
+        {
+          "name": "InvoiceAccount",
+          "typeName": "System.String",
+          "dataField": "InvoiceAccount"
+        },
+        {
+          "name": "CompanyGiro",
+          "typeName": "System.String",
+          "dataField": "CompanyGiro"
+        },
+        {
+          "name": "ShowCompanyVATNum",
+          "typeName": "System.String",
+          "dataField": "ShowCompanyVATNum"
+        },
+        {
+          "name": "CompanyVATNum",
+          "typeName": "System.String",
+          "dataField": "CompanyVATNum"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "CompanyList",
+      "fields": [
+        {
+          "name": "Company",
+          "typeName": "System.String",
+          "dataField": "Company"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Company",
+      "dataType": "String",
+      "prompt": "Select company:",
+      "availableValues": {
+        "datasetName": "CompanyList",
+        "valueField": "Company",
+        "labelField": "Company",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    }
+  ],
+  "tablixes": [
+    {
+      "name": "Tablix1",
+      "datasetName": "SalesInvoiceDS",
+      "body": {
+        "columns": 1,
+        "rows": 5
+      },
+      "groups": [
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        },
+        {
+          "name": "Invoice_Group",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!InvoiceId.Value"
+          ],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    },
+    {
+      "name": "Tablix2",
+      "datasetName": "SalesInvoiceDS",
+      "body": {
+        "columns": 7,
+        "rows": 2
+      },
+      "groups": [
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    },
+    {
+      "name": "Tablix3",
+      "datasetName": "SalesInvoiceDS",
+      "body": {
+        "columns": 3,
+        "rows": 4
+      },
+      "groups": [],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    }
+  ],
+  "expressions": {
+    "groupExpressions": [
+      "=Fields!InvoiceId.Value"
+    ],
+    "filterExpressions": [
+      "=Fields!Name.Value"
+    ],
+    "sortExpressions": [],
+    "aggregateExpressions": [
+      "=\"Payment due\" & Space(1) & FormatDateTime(First(Fields!PaymDueDate.Value, \"Company\"), DateFormat.ShortDate)",
+      "=\"Payment terms\" & \": \" & First(Fields!PaymTermDescription.Value, \"Company\")",
+      "=\"Telephone\" & Space(1) & First(Fields!Phone.Value, \"Company\")",
+      "=0.04 * Sum(Fields!Amount.Value)",
+      "=0.04 * Sum(Fields!Amount.Value) + Sum(Fields!Amount.Value)",
+      "=First(Fields!Address.Value, \"Company\") & vbCrlf & First(Fields!City.Value, \"Company\") & \",\" & First(Fields!State.Value, \"Company\") & \" \" & First(Fields!ZipCode.Value, \"Company\") & vbCrlf & First(Fields!Country.Value, \"Company\") & vbCrlf",
+      "=First(Fields!BankAccountNum.Value, \"SalesInvoiceDS\")",
+      "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\")",
+      "=First(Fields!CompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\")",
+      "=First(Fields!InvoiceAccount.Value, \"SalesInvoiceHeaderFooterDS\")",
+      "=First(Fields!InvoiceDate.Value, \"SalesInvoiceHeaderFooterDS\")",
+      "=First(Fields!InvoiceId.Value, \"SalesInvoiceDS\")",
+      "=First(Fields!InvoicingName.Value, \"SalesInvoiceHeaderFooterDS\") & VbCRLF & First(Fields!InvoicingAddress.Value, \"SalesInvoiceHeaderFooterDS\")",
+      "=First(Fields!Name.Value, \"Company\")",
+      "=First(Fields!Website.Value, \"Company\")"
+    ],
+    "visibilityExpressions": [
+      "=Fields!FormLetterRemarksTxt.Value = \"\"",
+      "=Fields!HeaderNotes.Value = \"\"",
+      "=Fields!HeaderNotes.Value = \"\" AND Fields!FormLetterRemarksTxt.Value = \"\"",
+      "=First(Fields!CashDisc.Value, \"SalesInvoiceDS\") = 0",
+      "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\") = \"\"",
+      "=First(Fields!ShowCompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\") = \"No\"",
+      "=LCase(Fields!ShowTotals1.Value) = \"no\""
+    ]
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "Textbox5",
+        "container": "tablix",
+        "values": [
+          "=First(Fields!InvoicingName.Value, \"SalesInvoiceHeaderFooterDS\") & VbCRLF & First(Fields!InvoicingAddress.Value, \"SalesInvoiceHeaderFooterDS\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox7",
+        "container": "tablix",
+        "values": [
+          "=\"Invoice CIV-000676\"",
+          "=First(Fields!InvoiceId.Value, \"SalesInvoiceDS\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "12pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox9",
+        "container": "tablix",
+        "values": [
+          "=0.04 * Sum(Fields!Amount.Value) + Sum(Fields!Amount.Value)"
+        ],
+        "formats": [
+          "'$'#,0.00;('$'#,0.00)"
+        ],
+        "fontSizes": [
+          "20pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox8",
+        "container": "tablix",
+        "values": [
+          "=First(Fields!InvoiceDate.Value, \"SalesInvoiceHeaderFooterDS\")"
+        ],
+        "formats": [
+          "d MMMM yyyy"
+        ],
+        "fontSizes": [
+          "12pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox22",
+        "container": "tablix",
+        "values": [
+          "=\"Payment terms\" & \": \" & First(Fields!PaymTermDescription.Value, \"Company\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox23",
+        "container": "tablix",
+        "values": [
+          "=\"Payment due\" & Space(1) & FormatDateTime(First(Fields!PaymDueDate.Value, \"Company\"), DateFormat.ShortDate)"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox6",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox13",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"item\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox14",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"description\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox15",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"Quantity\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox16",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"sales price\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox17",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"discount\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox18",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"Amount\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Item",
+        "container": "tablix",
+        "values": [
+          "=Fields!Item.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Description",
+        "container": "tablix",
+        "values": [
+          "=Fields!Description.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Quantity",
+        "container": "tablix",
+        "values": [
+          "=Fields!Quantity.Value"
+        ],
+        "formats": [
+          "#,###,##0.##"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "SalesUnitTxt",
+        "container": "tablix",
+        "values": [
+          "=Fields!SalesUnitTxt.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "SalesPrice",
+        "container": "tablix",
+        "values": [
+          "=Fields!SalesPrice.Value"
+        ],
+        "formats": [
+          "N2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Discount",
+        "container": "tablix",
+        "values": [
+          "=Fields!Discount.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Amount",
+        "container": "tablix",
+        "values": [
+          "=Fields!Amount.Value"
+        ],
+        "formats": [
+          "N2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox44",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox45",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"Sales subtotal amount\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox46",
+        "container": "tablix",
+        "values": [
+          "=Fields!Amount.Value"
+        ],
+        "formats": [
+          "N2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox53",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox54",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"Total Discount\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox55",
+        "container": "tablix",
+        "values": [
+          "=Fields!Discount.Value"
+        ],
+        "formats": [
+          "N2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox59",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox61",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"Sales tax\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox62",
+        "container": "tablix",
+        "values": [
+          "=0.04 * Sum(Fields!Amount.Value)"
+        ],
+        "formats": [
+          "N2"
+        ],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox66",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox67",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"USD TOTAL\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "LineAmount2",
+        "container": "tablix",
+        "values": [
+          "=0.04 * Sum(Fields!Amount.Value) + Sum(Fields!Amount.Value)"
+        ],
+        "formats": [
+          "N2"
+        ],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox19",
+        "container": "tablix",
+        "values": [
+          "=Fields!FormLetterRemarksTxt.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": "=Fields!FormLetterRemarksTxt.Value = \"\""
+      },
+      {
+        "name": "Textbox21",
+        "container": "tablix",
+        "values": [
+          "=Fields!HeaderNotes.Value"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": "=Fields!HeaderNotes.Value = \"\""
+      },
+      {
+        "name": "Textbox34",
+        "container": "tablix",
+        "values": [
+          "=\"Payment reference\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "3mm"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox35",
+        "container": "tablix",
+        "values": [
+          "=First(Fields!InvoiceAccount.Value, \"SalesInvoiceHeaderFooterDS\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "3mm"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox38",
+        "container": "tablix",
+        "values": [
+          "=\" \""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "3mm"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox36",
+        "container": "tablix",
+        "values": [
+          "=\"Sort code\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "3mm"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox37",
+        "container": "tablix",
+        "values": [
+          "=\"Account No.\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "3mm"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox39",
+        "container": "tablix",
+        "values": [
+          "=First(Fields!BankAccountNum.Value, \"SalesInvoiceDS\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "2.5mm"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox10",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"METHODS OF PAYMENT\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "11pt"
+        ],
+        "fontWeights": [
+          "Normal"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox42",
+        "container": "tablix",
+        "values": [
+          "=\"Electronic payment\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox43",
+        "container": "tablix",
+        "values": [
+          "=\"Check\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox40",
+        "container": "tablix",
+        "values": [
+          "Make check payable to",
+          "=First(Fields!Name.Value, \"Company\")",
+          ".",
+          "Write reference",
+          "=First(Fields!InvoiceAccount.Value, \"SalesInvoiceHeaderFooterDS\")",
+          "on the check."
+        ],
+        "formats": [],
+        "fontSizes": [
+          "2.5mm",
+          "3mm"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox11",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"OTHER INFORMATION\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "11pt"
+        ],
+        "fontWeights": [
+          "Normal"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox24",
+        "container": "tablix",
+        "values": [
+          "=\"Tax registration no.\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": "=First(Fields!ShowCompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\") = \"No\""
+      },
+      {
+        "name": "Textbox27",
+        "container": "tablix",
+        "values": [
+          "=First(Fields!CompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": "=First(Fields!ShowCompanyVATNum.Value, \"SalesInvoiceHeaderFooterDS\") = \"No\""
+      },
+      {
+        "name": "Textbox33",
+        "container": "tablix",
+        "values": [
+          "=\"Our reference\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\") = \"\""
+      },
+      {
+        "name": "Textbox41",
+        "container": "tablix",
+        "values": [
+          "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": "=First(Fields!CompanyGiro.Value, \"SalesInvoiceHeaderFooterDS\") = \"\""
+      },
+      {
+        "name": "Textbox1",
+        "container": "pageHeader",
+        "values": [
+          "=First(Fields!Name.Value, \"Company\")"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox2",
+        "container": "pageHeader",
+        "values": [
+          "=First(Fields!Address.Value, \"Company\") & vbCrlf & First(Fields!City.Value, \"Company\") & \",\" & First(Fields!State.Value, \"Company\") & \" \" & First(Fields!ZipCode.Value, \"Company\") & vbCrlf & First(Fields!Country.Value, \"Company\") & vbCrlf"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox3",
+        "container": "pageHeader",
+        "values": [
+          "=\"Telephone\" & Space(1) & First(Fields!Phone.Value, \"Company\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox4",
+        "container": "pageHeader",
+        "values": [
+          "=First(Fields!Website.Value, \"Company\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "9pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox20",
+        "container": "pageFooter",
+        "values": [
+          "=\"Page\" & Space(1) & CStr(Globals!PageNumber) & Space(1) & \"of\" & Space(1) & CStr(Globals!TotalPages)"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox12",
+        "container": "pageFooter",
+        "values": [
+          "=\"Disclaimer:This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      }
+    ],
+    "rectangles": [
+      {
+        "name": "Rectangle4",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle3",
+        "container": "tablix",
+        "nestingDepth": 1
+      },
+      {
+        "name": "Rectangle9",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle19",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle21",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle5",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle24",
+        "container": "tablix",
+        "nestingDepth": 1
+      },
+      {
+        "name": "Rectangle2",
+        "container": "pageHeader",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle1",
+        "container": "pageFooter",
+        "nestingDepth": 0
+      }
+    ],
+    "lists": [],
+    "charts": [],
+    "gauges": [],
+    "maps": [],
+    "images": [
+      {
+        "name": "Image1",
+        "source": "Embedded",
+        "value": "Contoso_LogoSmall"
+      }
+    ],
+    "subreports": [],
+    "pageHeaders": 1,
+    "pageFooters": 1
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "8.5in",
+        "pageWidth": null,
+        "pageHeight": null,
+        "orientation": "not serialized",
+        "margins": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "columns": null,
+        "columnSpacing": null
+      }
+    ],
+    "pageBreaks": [],
+    "repeatOnNewPageCount": 1,
+    "hiddenItemCount": 9
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "stopped before target resolution",
+      "reason": "ReportSection 0 lacks PageWidth"
+    }
+  }
+}

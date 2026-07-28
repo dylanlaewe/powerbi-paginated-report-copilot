@@ -94,7 +94,7 @@ describe("RDL structure corpus Gate 2A authoring kit", () => {
     }
   });
 
-  it("permits only the hash-pinned simple and grouped sources after Gate 2C", async () => {
+  it("permits only accepted controlled sources and the Gate 2E Invoice import", async () => {
     async function findRdlFiles(directory: string): Promise<string[]> {
       const entries = await readdir(directory, { withFileTypes: true });
       const matches = await Promise.all(
@@ -108,6 +108,10 @@ describe("RDL structure corpus Gate 2A authoring kit", () => {
     }
 
     expect(await findRdlFiles(corpusRoot)).toEqual([
+      resolve(
+        corpusRoot,
+        "external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+      ),
       resolve(
         corpusRoot,
         "grouped-report/source/synthetic-department-sales.rdl",

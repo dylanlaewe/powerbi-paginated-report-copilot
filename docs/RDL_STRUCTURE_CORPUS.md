@@ -66,6 +66,16 @@ Invoice, Transcript, Labels, and Letter are candidates for a later, separately r
 
 The parameterized controlled fixture is paused and narrowed to its still-uncovered deliberate `RegionCode`/`MetricValue` ambiguity. The alternate-layout fixture is paused and narrowed to a controlled static page-header title, literal landscape dimensions, nonstandard names, and deterministic Cost displays. Neither fixture was authored in Gate 2D, and no resolver, inspector, mutation, planner, Electron, LLM, or packaging behavior changed.
 
+## Gate 2E pinned Invoice import
+
+Gate 2E imports exactly one external source: Microsoft's official `PaginatedReportSamples/Invoice.rdl` from pinned commit `acc2ee0d1884765e4b5213149430fb063d166719`. The canonical source is `external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl`, preserved byte-for-byte at 222,297 bytes and SHA-256 `6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc`.
+
+This external fixture is registered separately from the four controlled fixtures. Its unmodified upstream MIT license and Microsoft copyright notice are adjacent to the source. Safe static parsing, XML well-formedness, 2016/01 XSD validation, security scanning, inventory regeneration, attribution, and immutability checks pass.
+
+Invoice provides realistic five-dataset overlap, a Company lookup parameter and filtered dataset, three tablixes, nine rectangles, 15 aggregate expressions, an embedded image, header/footer content, repeated-heading evidence, and advanced visibility. It remains insufficient for the deliberately isolated `RegionCode`/`MetricValue` ambiguity.
+
+No Report Builder open, Preview, rendering, query execution, or export was performed. No resolver or mutation evaluation occurred.
+
 ## Provenance and licensing plan
 
 All four additional fixtures will be authored personally by Dylan in Microsoft Power BI Report Builder on a personally controlled Windows 11 VM:
@@ -133,6 +143,7 @@ The index records source identity, namespace, structural/count summary, title an
 - Gate 2A: prepare the manual authoring kit without creating source RDL
 - Gate 2B onward: personally author and independently validate source baselines in the approved order
 - Gate 2D: discover and classify official external samples without importing source RDLs
+- Gate 2E: import and statically validate only the pinned Microsoft Invoice source
 - Gate 3: inventory and record pre-generalization ambiguity
 - Gate 4: evidence-based resolver changes only
 - Gate 5: deterministic mutations and preservation

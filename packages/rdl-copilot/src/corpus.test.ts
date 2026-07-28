@@ -87,6 +87,24 @@ describe("RDL structure corpus Gate 1 design", () => {
     );
   });
 
+  it("registers the pinned Invoice as static external evidence, not a controlled fixture", async () => {
+    const index = rdlStructureCorpusIndexSchema.parse(
+      JSON.parse(await readFile(indexPath, "utf8")),
+    );
+    expect(index.fixtureCount).toBe(4);
+    expect(index.externalFixtureCount).toBe(1);
+    expect(index.externalFixtures).toEqual([
+      expect.objectContaining({
+        id: "microsoft-invoice",
+        sourceKind: "externalPinnedCompatibilityFixture",
+        status: "staticallyValidated",
+        sha256:
+          "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        reportBuilderValidation: "NOT_PERFORMED",
+      }),
+    ]);
+  });
+
   it("requires synthetic, credential-free, MIT-licensed provenance plans", async () => {
     const index = rdlStructureCorpusIndexSchema.parse(
       JSON.parse(await readFile(indexPath, "utf8")),
