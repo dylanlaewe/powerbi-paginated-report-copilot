@@ -4,6 +4,11 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2N: unsigned Windows x64 portable v0.3.0
+  release candidate, self-contained four-scenario Windows validation bundle,
+  byte-identical accepted inputs and Microsoft attribution, complete SHA-256
+  inventory, unfilled expected-results record, and packaging/integrity
+  regressions. Independent Report Builder validation remains pending.
 - RDL Structure Corpus v0.3 Gate 2M: review-bound generic mutation for exact
   title text/style and existing-field format candidates, main-process-only
   single-use authorization, exact multi-candidate formatting, atomic

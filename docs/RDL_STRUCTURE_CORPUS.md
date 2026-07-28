@@ -285,3 +285,20 @@ grouped all-three and detail-only Revenue formatting, Invoice exact
 Amount/Quantity locations, and Transcript page-header title/style. Generated
 RDL bytes are hashed but not committed. Imported sources remain immutable and
 are not described as Report Builder-validated.
+
+## Gate 2N Windows v0.3 release candidate
+
+The complete Gate 2M inspect → plan → resolve → review → confirm exact
+candidates → create reviewed copy → validate → write manifest workflow is
+packaged as an unsigned Windows x64 portable application at version `0.3.0`.
+
+The self-contained `artifacts/windows-v0.3-validation/` package includes exact
+copies of the controlled simple/grouped reports and pinned Microsoft
+Invoice/Transcript reports. Microsoft attribution travels with the external
+samples. Package regressions compare every copy byte-for-byte with its accepted
+source and verify the complete checksum inventory.
+
+`EXPECTED_RESULTS.json` records required application and Report Builder
+outcomes without recording any manual result. Windows open, Preview, PDF, and
+Excel validation remain pending. No accepted source was edited, and omitted
+page dimensions still prohibit orientation mutation.

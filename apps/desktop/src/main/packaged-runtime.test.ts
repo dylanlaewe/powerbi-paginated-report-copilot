@@ -5,8 +5,13 @@ import { describe, expect, it } from "vitest";
 const repositoryRoot = resolve(import.meta.dirname, "../../../..");
 const desktopPackagePath = resolve(repositoryRoot, "apps/desktop/package.json");
 interface DesktopPackage {
+  version: string;
   build: {
-    win: { target: { target: string; arch: string[] }[] };
+    win: {
+      target: { target: string; arch: string[] }[];
+      artifactName: string;
+      signExecutable: boolean;
+    };
     extraResources: { from: string; to: string }[];
   };
   dependencies: Record<string, string>;
@@ -17,9 +22,14 @@ describe("packaged Windows runtime", () => {
     const desktopPackage = JSON.parse(
       readFileSync(desktopPackagePath, "utf8"),
     ) as DesktopPackage;
+    expect(desktopPackage.version).toBe("0.3.0");
     expect(desktopPackage.build.win.target).toEqual([
       { target: "portable", arch: ["x64"] },
     ]);
+    expect(desktopPackage.build.win.artifactName).toBe(
+      "Power-BI-RDL-Copilot-${version}-windows-${arch}-portable.${ext}",
+    );
+    expect(desktopPackage.build.win.signExecutable).toBe(false);
     expect(desktopPackage.build.extraResources).toEqual([
       {
         from: "../../artifacts/rdl-compatibility-ladder/06b-production-pagination-letter.rdl",

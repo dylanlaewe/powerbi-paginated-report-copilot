@@ -647,7 +647,7 @@ export class ExistingRdlSidecarService {
       manifestPath = `${outputPath}.manifest.json`;
       const manifest = genericMutationManifestSchema.parse({
         manifestVersion: 1,
-        applicationVersion: "0.1.0",
+        applicationVersion: "0.3.0",
         invocationSurface: "electron-sidecar",
         source: {
           filename: basename(report.sourcePath),

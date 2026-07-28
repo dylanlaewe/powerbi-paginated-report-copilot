@@ -456,6 +456,29 @@
   remains a failure on 34 generator-owned JSON/lock files (29 pre-existing and
   five new result artifacts).
 
+## 2026-07-28 — RDL Structure Corpus Gate 2N Windows v0.3 release candidate
+
+- Set the application release-candidate version to `0.3.0` and regenerated the
+  Gate 2M deterministic evidence with matching manifest metadata.
+- Built the unsigned Windows x64 portable executable with Electron Builder:
+  `Power-BI-RDL-Copilot-0.3.0-windows-x64-portable.exe`, 89,642,264 bytes,
+  SHA-256 `c1097489…d50a`.
+- Assembled `artifacts/windows-v0.3-validation/` with the executable, four
+  byte-identical accepted RDL inputs, Microsoft MIT license, exact manual
+  walkthrough, structured expected results, and per-file SHA-256 inventory.
+- Created the integrity-tested `artifacts/windows-v0.3-validation.zip`,
+  89,707,237 bytes, SHA-256 `a11431c5…6932`.
+- Added release-bundle regressions for application version, unsigned portable
+  x64 configuration, executable identity, copied source/license identity,
+  checksum coverage, and unfilled independent-validation fields.
+- Passed changed human-authored formatting, ESLint, workspace typecheck, 53
+  test files / 413 tests, production build, Windows packaging, executable and
+  bundle hashing, ZIP integrity, JSON validation, canonical v0.2 regression,
+  source immutability, and byte-identical Gate 2M evidence regeneration.
+- Independent Windows/Report Builder/PDF/Excel results remain pending. No
+  release, merge, milestone tag, new operation, grammar change, dimension
+  inference, or v0.4 work is part of this gate.
+
 ## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
 
 - Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.

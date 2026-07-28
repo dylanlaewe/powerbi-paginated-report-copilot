@@ -153,7 +153,7 @@ for (const scenario of scenarios) {
   const outputFilename = `${scenario.id}-regenerated.rdl`;
   const manifest = genericMutationManifestSchema.parse({
     manifestVersion: 1,
-    applicationVersion: "0.1.0",
+    applicationVersion: "0.3.0",
     invocationSurface: "test-evidence",
     source: { filename: basename(sourcePath), sha256: sourceSha256 },
     planSha256: planned.planSha256,

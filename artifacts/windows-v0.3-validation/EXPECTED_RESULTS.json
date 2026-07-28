@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "applicationVersion": "0.3.0",
+  "releaseStatus": "awaitingWindowsValidation",
+  "executable": {
+    "filename": "Power-BI-RDL-Copilot-0.3.0-windows-x64-portable.exe",
+    "byteSize": 89642264,
+    "sha256": "c10974891ed23308d7bae13118adb7803592a174cda7f95952909aa3a886d50a",
+    "architecture": "windows-x64",
+    "format": "portable",
+    "signed": false
+  },
+  "inputs": [
+    {
+      "id": "simple-table",
+      "filename": "inputs/synthetic-inventory-detail.rdl",
+      "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "provenance": "personally authored controlled synthetic fixture"
+    },
+    {
+      "id": "grouped-report",
+      "filename": "inputs/synthetic-department-sales.rdl",
+      "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "provenance": "personally authored controlled synthetic fixture"
+    },
+    {
+      "id": "microsoft-invoice",
+      "filename": "inputs/Invoice.rdl",
+      "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "provenance": "pinned Microsoft Reporting Services sample under included MIT license"
+    },
+    {
+      "id": "microsoft-transcript",
+      "filename": "inputs/Transcript.rdl",
+      "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "provenance": "pinned Microsoft Reporting Services sample under included MIT license"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "simple-table",
+      "request": "Change the report title to \"Quarterly Inventory Detail\", make the title 20-point bold, and format UnitCost as currency with no decimal places.",
+      "requiredReviewDecisions": [
+        "choose the candidate displaying Synthetic Inventory Detail for title text",
+        "choose the same visible candidate for title size and weight",
+        "confirm the unique UnitCost detail candidate"
+      ],
+      "expectedMutationPostconditions": [
+        "original input unchanged",
+        "new RDL and manifest created",
+        "visible title is Quarterly Inventory Detail",
+        "selected title is 20pt Bold",
+        "UnitCost detail format is C0",
+        "no unrelated report item changes",
+        "application XML/XSD validation passes"
+      ],
+      "requiredReportBuilderObservations": [
+        "opens without repair or conversion warning",
+        "Preview succeeds",
+        "five inventory detail rows remain",
+        "title and UnitCost format are correct",
+        "no #Error, clipping, or unexpected blank page",
+        "PDF export succeeds",
+        "Excel export succeeds"
+      ],
+      "manualResults": {
+        "appCopy": null,
+        "reportBuilderOpen": null,
+        "previewPageCount": null,
+        "pdfPageCount": null,
+        "excelWorksheetCount": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "grouped-report",
+      "request": "Change the report title to \"Quarterly Department Sales\" and format Revenue as currency with no decimal places.",
+      "requiredReviewDecisions": [
+        "confirm the resolved title",
+        "select detail Revenue",
+        "select Department subtotal Revenue",
+        "select Grand Total Revenue"
+      ],
+      "expectedMutationPostconditions": [
+        "original input unchanged",
+        "new RDL and manifest created",
+        "title updated",
+        "exactly three Revenue formats are C0",
+        "grouping and pagination structure preserved",
+        "application XML/XSD validation passes"
+      ],
+      "requiredReportBuilderObservations": [
+        "opens without repair or conversion warning",
+        "Preview succeeds with four Department groups and eight detail rows",
+        "four subtotals and one Grand Total remain",
+        "headings and page breaks remain",
+        "Revenue displays have no decimals",
+        "no #Error, clipping, or unexpected blank page",
+        "Preview has 4 pages",
+        "PDF has 4 pages",
+        "Excel has 4 worksheets"
+      ],
+      "manualResults": {
+        "appCopy": null,
+        "reportBuilderOpen": null,
+        "previewPageCount": null,
+        "pdfPageCount": null,
+        "excelWorksheetCount": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "microsoft-invoice",
+      "request": "Format Quantity as a number with no decimal places.",
+      "requiredReviewDecisions": ["confirm the unique Quantity candidate"],
+      "expectedMutationPostconditions": [
+        "original input unchanged",
+        "new RDL and manifest created",
+        "only the reviewed Quantity display changes to N0",
+        "structural-preservation validation passes",
+        "application XML/XSD validation passes"
+      ],
+      "requiredReportBuilderObservations": [
+        "opens without repair or conversion warning",
+        "Preview succeeds without external connections or credentials",
+        "invoice content and embedded logo remain",
+        "Quantity is a whole number",
+        "header and footer remain",
+        "no #Error or unexpected blank page",
+        "PDF export succeeds",
+        "Excel export succeeds"
+      ],
+      "manualResults": {
+        "appCopy": null,
+        "reportBuilderOpen": null,
+        "previewPageCount": null,
+        "pdfPageCount": null,
+        "excelWorksheetCount": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "microsoft-transcript",
+      "request": "Change the report title to \"Professional Certification Transcript\" and make the title 20-point bold.",
+      "requiredReviewDecisions": [
+        "confirm the resolved page-header title for title text",
+        "confirm the same page-header candidate for title size and weight"
+      ],
+      "expectedMutationPostconditions": [
+        "original input unchanged",
+        "new RDL and manifest created",
+        "page-header title is Professional Certification Transcript",
+        "title is 20pt Bold",
+        "embedded images and nested containers remain structurally unchanged",
+        "application XML/XSD validation passes"
+      ],
+      "requiredReportBuilderObservations": [
+        "opens without repair or conversion warning",
+        "Preview succeeds without external connections or credentials",
+        "page-header title and body transcript content remain",
+        "embedded images remain",
+        "no #Error, clipping, or unexpected blank page",
+        "PDF export succeeds",
+        "Excel export succeeds"
+      ],
+      "manualResults": {
+        "appCopy": null,
+        "reportBuilderOpen": null,
+        "previewPageCount": null,
+        "pdfPageCount": null,
+        "excelWorksheetCount": null,
+        "notes": null
+      }
+    }
+  ],
+  "manualReleaseResults": {
+    "windowsLaunch": null,
+    "originalInputsUnchanged": null,
+    "manifestsCreated": null,
+    "unexpectedWarningsOrErrors": null
+  }
+}

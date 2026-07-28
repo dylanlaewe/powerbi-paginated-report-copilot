@@ -1,6 +1,6 @@
 {
   "name": "@powerbi-copilot/desktop",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "description": "Deterministic desktop generator for approved Power BI paginated-report templates",
   "author": "Power BI RDL Copilot contributors",
   "private": true,

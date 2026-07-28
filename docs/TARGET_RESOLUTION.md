@@ -174,3 +174,17 @@ scope. Structural normalization supports independent title text/style targets.
 The output is always a new duplicate-safe file with an atomic audit manifest.
 The original remains byte-identical. Omitted page dimensions continue to block
 the entire atomic plan with `PAGE_DIMENSIONS_UNSPECIFIED`.
+
+## v0.3 Gate 2N packaged validation boundary
+
+The Gate 2M resolver, review, and authorization semantics are unchanged in the
+v0.3.0 Windows release candidate. The portable package includes the same narrow
+sandboxed IPC workflow and application-bundled XML/XSD runtime; packaging does
+not introduce a fallback target, arbitrary candidate input, or orientation
+default.
+
+The validation guide requires the operator to select only the exact reviewed
+candidates described for each of four accepted inputs. Independent results are
+intentionally blank until Windows Report Builder testing is returned. Generic
+mutation remains limited to explicitly reviewed targets, and v0.4 LLM planning
+is deferred.

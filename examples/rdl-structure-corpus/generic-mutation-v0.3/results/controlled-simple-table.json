@@ -151,7 +151,7 @@
   },
   "manifest": {
     "manifestVersion": 1,
-    "applicationVersion": "0.1.0",
+    "applicationVersion": "0.3.0",
     "invocationSurface": "test-evidence",
     "source": {
       "filename": "synthetic-inventory-detail.rdl",

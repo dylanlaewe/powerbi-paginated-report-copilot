@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2M review-bound generic mutation complete, review pending**.
+Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2N Windows release candidate packaged, independent validation pending**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -115,7 +115,18 @@ values, title font size/weight/alignment, direct-field formats, aggregate
 formats, and exact reviewed subsets. Omitted page dimensions remain blocked;
 no dimensions are inferred or materialized. Microsoft Invoice and Transcript
 copies pass static XML/XSD/structural validation but have not been Report
-Builder-rendered. Gate 2N independent Windows validation is next.
+Builder-rendered.
+
+Gate 2N packages the complete Gate 2M workflow as the unsigned Windows x64
+portable v0.3.0 release candidate. The self-contained validation bundle
+contains the executable, byte-identical copies of all four accepted inputs,
+Microsoft attribution, exact scenarios, expected postconditions, and SHA-256
+verification. All manual Windows and Report Builder results remain unfilled.
+
+The candidate is not released, merged, or tagged. Independent testing must use
+Dylan's personally controlled Windows 11 VM and must not bypass managed-device
+security policy. Orientation remains blocked when dimensions are omitted. LLM
+planning remains deferred to v0.4, which has not started.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 
