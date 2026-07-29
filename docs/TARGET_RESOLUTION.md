@@ -203,3 +203,15 @@ No resolver outcome became implicit authority: ambiguous operations still
 require exact user selection and confirmation, and only confirmed candidates
 are writable. No grammar, operation, discovery, or omitted-dimension behavior
 changed for release.
+
+## v0.4 beta LLM planning boundary
+
+The optional provider operates strictly before resolution. Its only executable
+shape is the unchanged `EditPlan`; it receives no candidate identifiers or
+structural locations and cannot nominate writable nodes. Title and field
+resolution, ambiguity, operation review, exact subset selection, and
+single-use authorization remain identical for Deterministic and Claude plans.
+
+Smart mode avoids an API call whenever local parsing succeeds.
+Deterministic-only mode forbids provider use. Unsupported and clarification
+results create neither review nor output.

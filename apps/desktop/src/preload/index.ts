@@ -28,6 +28,12 @@ const channels = {
   declineExistingRdlReviewOperation: "sidecar:review-decline",
   resetExistingRdlReviewOperation: "sidecar:review-reset",
   createExistingRdlReviewedCopy: "sidecar:review-create-copy",
+  getLlmSettings: "llm:settings-get",
+  updateLlmSettings: "llm:settings-update",
+  setAnthropicApiKey: "llm:key-set",
+  clearAnthropicApiKey: "llm:key-clear",
+  testAnthropicConnection: "llm:connection-test",
+  cancelLlmPlanning: "llm:planning-cancel",
 } as const;
 
 const desktopApi: DesktopApi = Object.freeze({
@@ -71,6 +77,16 @@ const desktopApi: DesktopApi = Object.freeze({
   createExistingRdlReviewedCopy: (
     input: Parameters<DesktopApi["createExistingRdlReviewedCopy"]>[0],
   ) => ipcRenderer.invoke(channels.createExistingRdlReviewedCopy, input),
+  getLlmSettings: () => ipcRenderer.invoke(channels.getLlmSettings),
+  updateLlmSettings: (input: Parameters<DesktopApi["updateLlmSettings"]>[0]) =>
+    ipcRenderer.invoke(channels.updateLlmSettings, input),
+  setAnthropicApiKey: (
+    input: Parameters<DesktopApi["setAnthropicApiKey"]>[0],
+  ) => ipcRenderer.invoke(channels.setAnthropicApiKey, input),
+  clearAnthropicApiKey: () => ipcRenderer.invoke(channels.clearAnthropicApiKey),
+  testAnthropicConnection: () =>
+    ipcRenderer.invoke(channels.testAnthropicConnection),
+  cancelLlmPlanning: () => ipcRenderer.invoke(channels.cancelLlmPlanning),
   planExistingRdlEdit: (
     input: Parameters<DesktopApi["planExistingRdlEdit"]>[0],
   ) => ipcRenderer.invoke(channels.planExistingRdlEdit, input),

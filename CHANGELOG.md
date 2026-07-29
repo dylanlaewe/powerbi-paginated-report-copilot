@@ -4,6 +4,11 @@
 
 ### Added
 
+- v0.4 Sprint 1: optional Anthropic Messages API planner with strict tool
+  results, deterministic-first routing, sanitized context, encrypted or
+  session-only key handling, privacy acknowledgement, stable errors, compact
+  Electron controls, fake-transport/paraphrase tests, opt-in smoke command, and
+  unsigned Windows beta package.
 - RDL Structure Corpus v0.3 Gate 2O: independent Windows acceptance records
   for all four reviewed-copy scenarios, including original preservation,
   manifest creation, Report Builder Preview, PDF, and Excel passes. Exact

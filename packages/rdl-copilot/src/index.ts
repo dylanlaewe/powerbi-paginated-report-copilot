@@ -102,6 +102,7 @@ export * from "./xsd-validator";
 export * from "./inspection";
 export * from "./edit-plan";
 export * from "./edit-planner";
+export * from "./llm-planner";
 export * from "./field-resolution";
 export * from "./operation-review";
 export * from "./generic-mutation";

@@ -118,7 +118,7 @@ describe("existing RDL sidecar IPC contract", () => {
     const candidateId = "55555555-5555-4555-8555-555555555555";
     expect(
       createReviewRequestSchema.parse({ reportSessionId, request: "safe" }),
-    ).toEqual({ reportSessionId, request: "safe" });
+    ).toEqual({ reportSessionId, request: "safe", plannerMode: "smart" });
     expect(
       reviewSelectionRequestSchema.parse({
         reviewDraftId,

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "applicationVersion": "0.4.0-beta.1",
+  "releaseStatus": "awaitingWindowsValidation",
+  "provider": {
+    "name": "Anthropic",
+    "sdk": "@anthropic-ai/sdk",
+    "sdkVersion": "0.115.0",
+    "defaultModel": "claude-sonnet-5"
+  },
+  "executable": {
+    "filename": "Power-BI-RDL-Copilot-0.4.0-beta.1-windows-x64-portable.exe",
+    "byteSize": 90199019,
+    "sha256": "7c05ac7407bf91451de76ef2b64fc6cf8d373bdf9ec1f8591713382df0f5c3a6",
+    "architecture": "windows-x64",
+    "signed": false
+  },
+  "scenarios": [
+    {
+      "id": "simple-table",
+      "inputSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "request": "Rename this report to Quarterly Inventory Detail, make the heading 20-point bold, and show UnitCost as whole-dollar currency.",
+      "expected": "plannedWithExistingReview",
+      "manualResult": null
+    },
+    {
+      "id": "grouped-report",
+      "inputSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "request": "Call this Quarterly Department Sales and show Revenue as currency without cents.",
+      "expected": "plannedWithThreeRevenueChoices",
+      "manualResult": null
+    },
+    {
+      "id": "microsoft-invoice",
+      "inputSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "request": "Show Quantity as a whole number.",
+      "expected": "plannedWithUniqueQuantity",
+      "manualResult": null
+    },
+    {
+      "id": "microsoft-transcript",
+      "inputSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "request": "Rename this Professional Certification Transcript and make the title 20-point bold.",
+      "expected": "plannedWithPageHeaderTitle",
+      "manualResult": null
+    },
+    {
+      "id": "unsupported-chart",
+      "request": "Add a chart to Invoice",
+      "expected": "unsupportedNoReviewNoOutput",
+      "manualResult": null
+    },
+    {
+      "id": "clarification",
+      "request": "Make this report better",
+      "expected": "clarificationNoReviewNoOutput",
+      "manualResult": null
+    }
+  ],
+  "manualResults": {
+    "windowsLaunch": null,
+    "connectionTest": null,
+    "smartMode": null,
+    "deterministicOnlyMode": null,
+    "reportBuilderValidation": null,
+    "pdfExport": null,
+    "excelExport": null,
+    "warningsOrErrors": null
+  }
+}

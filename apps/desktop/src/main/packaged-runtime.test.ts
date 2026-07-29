@@ -22,7 +22,7 @@ describe("packaged Windows runtime", () => {
     const desktopPackage = JSON.parse(
       readFileSync(desktopPackagePath, "utf8"),
     ) as DesktopPackage;
-    expect(desktopPackage.version).toBe("0.3.0");
+    expect(desktopPackage.version).toBe("0.4.0-beta.1");
     expect(desktopPackage.build.win.target).toEqual([
       { target: "portable", arch: ["x64"] },
     ]);

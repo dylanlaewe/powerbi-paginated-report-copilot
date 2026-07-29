@@ -57,7 +57,7 @@ export type GenericMutationAuthorization = {
 export const genericMutationManifestSchema = z
   .object({
     manifestVersion: z.literal(1),
-    applicationVersion: z.literal("0.3.0"),
+    applicationVersion: z.enum(["0.3.0", "0.4.0-beta.1"]),
     invocationSurface: z.enum(["electron-sidecar", "test-evidence"]),
     source: z
       .object({

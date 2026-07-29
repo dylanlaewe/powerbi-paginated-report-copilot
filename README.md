@@ -4,7 +4,9 @@ A local-first desktop companion for deterministic generation of real RDL paginat
 
 ## Current status
 
-Existing RDL Sidecar Editor v0.3 is independently accepted on packaged Windows.
+Existing RDL Sidecar Editor v0.3 is independently accepted and frozen. The
+v0.4.0-beta.1 branch adds an optional Claude-backed planner while retaining the
+v0.3 review and mutation authority.
 It safely inspects Microsoft RDL 2016/01, discovers title and existing-field
 display candidates with dataset and structural scope, requires operation-level
 review and exact candidate confirmation, then writes a validated copy plus
@@ -15,7 +17,8 @@ Microsoft Invoice and Transcript—passed the reviewed-copy workflow, Power BI
 Report Builder open/Preview, PDF export, and Excel export. The v0.3 executable
 is unsigned, and orientation changes remain blocked when page dimensions are
 omitted. Earlier milestone tags remain frozen. See
-[known limitations](docs/KNOWN_LIMITATIONS.md).
+[known limitations](docs/KNOWN_LIMITATIONS.md) and
+[LLM planner boundary](docs/LLM_PLANNER.md).
 
 ## Development
 

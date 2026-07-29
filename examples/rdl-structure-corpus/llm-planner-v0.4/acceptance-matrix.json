@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "provider": "fake",
+  "liveNetworkUsed": false,
+  "scenarios": [
+    {
+      "fixture": "simple-table",
+      "request": "Rename this report to Quarterly Inventory Detail, make the heading 20-point bold, and show UnitCost as whole-dollar currency.",
+      "planningStatus": "planned",
+      "planSource": "claude",
+      "existingResolutionOutcome": "title ambiguity and unique UnitCost resolution preserved",
+      "mutationAuthorized": false
+    },
+    {
+      "fixture": "grouped-report",
+      "request": "Call this Quarterly Department Sales and show Revenue as currency without cents.",
+      "planningStatus": "planned",
+      "planSource": "claude",
+      "existingResolutionOutcome": "title resolution and three-way Revenue choice preserved",
+      "mutationAuthorized": false
+    },
+    {
+      "fixture": "microsoft-invoice",
+      "request": "Show Quantity as a whole number.",
+      "planningStatus": "planned",
+      "planSource": "claude",
+      "existingResolutionOutcome": "unique Quantity resolution preserved",
+      "mutationAuthorized": false
+    },
+    {
+      "fixture": "microsoft-transcript",
+      "request": "Rename this Professional Certification Transcript and make the title 20-point bold.",
+      "planningStatus": "planned",
+      "planSource": "claude",
+      "existingResolutionOutcome": "page-header title resolution preserved",
+      "mutationAuthorized": false
+    },
+    {
+      "fixture": "microsoft-invoice",
+      "request": "Add a chart to Invoice",
+      "planningStatus": "unsupported",
+      "reviewCreated": false,
+      "outputCreated": false,
+      "mutationAuthorized": false
+    }
+  ]
+}

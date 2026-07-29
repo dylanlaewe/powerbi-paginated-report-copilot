@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **Existing RDL Sidecar v0.3 — accepted and release-frozen after independent Windows validation**.
+Current milestone: **Existing RDL Sidecar v0.4.0-beta.1 — optional LLM planner packaged for independent Windows validation**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -129,6 +129,13 @@ Generic reviewed mutation is released at v0.3. The executable remains unsigned,
 and orientation remains blocked when page dimensions are omitted. v0.4 is
 planned to focus on LLM-backed planning and product validation; no v0.4
 implementation began during this release gate.
+
+Sprint 1 adds an optional Anthropic-backed planner without changing the v0.3
+operation allowlist or mutation authority. Smart mode prefers deterministic
+parsing; otherwise Claude must submit one strict typed result. Sanitized
+context, main-process key custody, privacy acknowledgement, and operation
+review remain mandatory. The unsigned Windows beta is awaiting independent
+validation; v0.4 is not merged or tagged.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

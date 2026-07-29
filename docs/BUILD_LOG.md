@@ -497,6 +497,28 @@
 - No accepted source, release executable, validation ZIP, operation, grammar,
   resolver, page-dimension behavior, or v0.4 implementation changed.
 
+## 2026-07-28 — v0.4 Sprint 1 optional LLM planner beta
+
+- Added provider-neutral planning and the Anthropic Messages adapter using
+  `@anthropic-ai/sdk` 0.115.0 and pinned model `claude-sonnet-5`.
+- Added strict single-tool results, deterministic-first routing, one schema
+  retry, timeout, cancellation, structured errors, and sanitized metadata.
+- Added main-process `safeStorage` key custody, environment configuration,
+  session-only fallback, privacy acknowledgement, connection testing, and
+  narrow sandboxed IPC/UI controls.
+- Added fake provider/transport paraphrase, malformed-output, error, privacy,
+  storage, deterministic-first, and no-new-operation regressions. Normal tests
+  make no live API calls.
+- Built unsigned Windows x64 beta
+  `Power-BI-RDL-Copilot-0.4.0-beta.1-windows-x64-portable.exe`, 90,199,019
+  bytes, SHA-256 `7c05ac74…f5c3a6`, and validation ZIP, 90,262,323 bytes,
+  SHA-256 `61fb440c…f2ab`.
+- Passed changed-file formatting, ESLint, workspace typecheck, 57 test files /
+  463 tests, production build, Windows packaging, JSON/ZIP/checksum validation,
+  source and v0.2/v0.3 freeze checks, byte-identical Gate 2M regeneration,
+  preload isolation, and secret/logging scans. The opt-in live Anthropic smoke
+  test was not run.
+
 ## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
 
 - Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.

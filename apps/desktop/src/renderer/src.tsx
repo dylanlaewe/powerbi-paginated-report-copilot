@@ -1,10 +1,11 @@
-import { StrictMode, useState } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import type {
   ApplyEditResult,
   ExistingRdlSelectionResult,
   PlanEditResult,
   ReviewBundleResult,
+  LlmSettings,
 } from "../shared/desktop-api";
 import "./style.css";
 
@@ -40,6 +41,15 @@ function App(): React.JSX.Element {
     message: string;
     fragments?: string[];
   }>();
+  const [plannerMode, setPlannerMode] = useState<"smart" | "deterministicOnly">(
+    "smart",
+  );
+  const [llmSettings, setLlmSettings] = useState<LlmSettings>();
+  const [apiKey, setApiKey] = useState("");
+
+  useEffect(() => {
+    void window.powerBiCopilot?.getLlmSettings().then(setLlmSettings);
+  }, []);
 
   const failure = (
     code: string,
@@ -117,6 +127,7 @@ function App(): React.JSX.Element {
       const result = await window.powerBiCopilot?.createExistingRdlReview({
         reportSessionId: selection.reportSessionId,
         request,
+        plannerMode,
       });
       if (!result)
         return failure(
@@ -125,7 +136,12 @@ function App(): React.JSX.Element {
           "inspected",
         );
       if (result.status === "error")
-        return failure(result.code, result.message, "inspected");
+        return failure(
+          result.code,
+          result.message,
+          "rejected",
+          result.unsupportedFragments,
+        );
       setCandidateReview(result);
       setError(undefined);
       setView("candidateReview");
@@ -352,6 +368,115 @@ function App(): React.JSX.Element {
             view === "reviewingCandidates" ||
             view === "rejected") && (
             <section className="request-card">
+              <div className="planner-settings">
+                <label>
+                  Planner mode
+                  <select
+                    value={plannerMode}
+                    onChange={(event) =>
+                      setPlannerMode(
+                        event.target.value as "smart" | "deterministicOnly",
+                      )
+                    }
+                  >
+                    <option value="smart">Smart</option>
+                    <option value="deterministicOnly">
+                      Deterministic only
+                    </option>
+                  </select>
+                </label>
+                {plannerMode === "smart" && llmSettings && (
+                  <div>
+                    <strong>AI settings</strong>
+                    <p>API key: {llmSettings.keyStatus}</p>
+                    <label>
+                      Anthropic model
+                      <input
+                        value={llmSettings.model}
+                        onChange={(event) =>
+                          setLlmSettings({
+                            ...llmSettings,
+                            model: event.target.value,
+                          })
+                        }
+                      />
+                    </label>
+                    <label>
+                      API key
+                      <input
+                        type="password"
+                        value={apiKey}
+                        autoComplete="off"
+                        onChange={(event) => setApiKey(event.target.value)}
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={llmSettings.privacyAcknowledged}
+                        onChange={(event) => {
+                          void window
+                            .powerBiCopilot!.updateLlmSettings({
+                              model: llmSettings.model,
+                              privacyAcknowledged: event.target.checked,
+                            })
+                            .then(setLlmSettings);
+                        }}
+                      />
+                      I understand that my typed request and limited report
+                      metadata will be sent to Anthropic. Raw RDL XML, report
+                      data, queries, credentials, and file paths are not sent.
+                    </label>
+                    <div className="actions">
+                      <button
+                        disabled={!apiKey.trim()}
+                        onClick={() => {
+                          void (async () => {
+                            await window.powerBiCopilot!.updateLlmSettings({
+                              model: llmSettings.model,
+                              privacyAcknowledged:
+                                llmSettings.privacyAcknowledged,
+                            });
+                            setLlmSettings(
+                              await window.powerBiCopilot!.setAnthropicApiKey({
+                                apiKey,
+                                persist: llmSettings.persistenceAvailable,
+                              }),
+                            );
+                            setApiKey("");
+                          })();
+                        }}
+                      >
+                        Save key
+                      </button>
+                      <button
+                        onClick={() => {
+                          void window
+                            .powerBiCopilot!.clearAnthropicApiKey()
+                            .then(setLlmSettings);
+                        }}
+                      >
+                        Clear key
+                      </button>
+                      <button
+                        onClick={() => {
+                          void window
+                            .powerBiCopilot!.testAnthropicConnection()
+                            .then(setLlmSettings);
+                        }}
+                      >
+                        Test connection
+                      </button>
+                    </div>
+                    {!llmSettings.persistenceAvailable && (
+                      <p>
+                        Secure persistence is unavailable; the key is
+                        session-only.
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
               <label htmlFor="request">Describe the change</label>
               <textarea
                 id="request"
@@ -362,6 +487,17 @@ function App(): React.JSX.Element {
               />
               {view === "rejected" && error && <ErrorCard error={error} />}
               <div className="actions">
+                {view === "reviewingCandidates" && (
+                  <button
+                    onClick={() => {
+                      void window.powerBiCopilot
+                        ?.cancelLlmPlanning()
+                        .then(() => setView("inspected"));
+                    }}
+                  >
+                    Cancel AI request
+                  </button>
+                )}
                 <button
                   className="primary"
                   disabled={
@@ -372,7 +508,7 @@ function App(): React.JSX.Element {
                   onClick={() => void reviewCandidates()}
                 >
                   {view === "reviewingCandidates"
-                    ? "Preparing review…"
+                    ? "Understanding request…"
                     : "Review Candidates Only"}
                 </button>
                 <button
@@ -401,6 +537,9 @@ function App(): React.JSX.Element {
             <section className="review-card">
               <p className="eyebrow">OPERATION REVIEW</p>
               <h2>Review only — no RDL file will be changed.</h2>
+              <p>
+                Plan source: <strong>{candidateReview.planSource}</strong>
+              </p>
               <Hash
                 label="Source SHA-256"
                 value={candidateReview.bundle.sourceSha256}

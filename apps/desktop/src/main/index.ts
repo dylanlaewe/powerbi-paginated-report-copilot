@@ -4,6 +4,7 @@ import {
   clipboard,
   dialog,
   ipcMain,
+  safeStorage,
   shell,
 } from "electron";
 import { join } from "node:path";
@@ -26,6 +27,9 @@ import {
   reviewSelectionRequestSchema,
   planSessionIdRequestSchema,
   sessionIdRequestSchema,
+  llmSettingsSchema,
+  updateLlmSettingsRequestSchema,
+  setApiKeyRequestSchema,
   type ProjectSelectionResult,
 } from "../shared/desktop-api";
 import {
@@ -34,9 +38,29 @@ import {
   resolveElectronApprovedResources,
 } from "./report-generation";
 import { ExistingRdlSidecarService } from "./existing-rdl-sidecar";
+import { AnthropicPlannerProvider } from "./anthropic-planner";
+import { LlmSettingsStore } from "./llm-settings";
 
 let generatedReportPath: string | undefined;
 let sidecarService: ExistingRdlSidecarService | undefined;
+let llmSettingsStore: LlmSettingsStore | undefined;
+let planningAbortController: AbortController | undefined;
+
+const getLlmSettingsStore = (): LlmSettingsStore => {
+  llmSettingsStore ??= new LlmSettingsStore(
+    app.getPath("userData"),
+    safeStorage,
+  );
+  return llmSettingsStore;
+};
+
+const configuredPlanner = async () => {
+  const store = getLlmSettingsStore();
+  const preferences = await store.getPreferences();
+  if (!preferences.privacyAcknowledged) return undefined;
+  const key = await store.apiKey();
+  return key ? new AnthropicPlannerProvider(key, preferences.model) : undefined;
+};
 
 const getSidecarService = (): ExistingRdlSidecarService => {
   if (sidecarService) return sidecarService;
@@ -62,6 +86,7 @@ const getSidecarService = (): ExistingRdlSidecarService => {
           : "linux",
     revealPath: (path) => shell.showItemInFolder(path),
     copyText: (value) => clipboard.writeText(value),
+    plannerProvider: configuredPlanner,
   });
   return sidecarService;
 };
@@ -98,11 +123,67 @@ ipcMain.handle(
   ipcChannels.createExistingRdlReview,
   async (_event, input: unknown) => {
     const parsed = createReviewRequestSchema.safeParse(input);
-    return parsed.success
-      ? getSidecarService().createReview(parsed.data)
-      : invalidIpc();
+    if (!parsed.success) return invalidIpc();
+    planningAbortController?.abort();
+    planningAbortController = new AbortController();
+    return getSidecarService().createReview({
+      ...parsed.data,
+      signal: planningAbortController.signal,
+    });
   },
 );
+ipcMain.handle(ipcChannels.getLlmSettings, async () =>
+  llmSettingsSchema.parse(await getLlmSettingsStore().status()),
+);
+ipcMain.handle(
+  ipcChannels.updateLlmSettings,
+  async (_event, input: unknown) => {
+    const parsed = updateLlmSettingsRequestSchema.safeParse(input);
+    if (!parsed.success) return invalidIpc();
+    await getLlmSettingsStore().setPreferences(parsed.data);
+    return llmSettingsSchema.parse(await getLlmSettingsStore().status());
+  },
+);
+ipcMain.handle(
+  ipcChannels.setAnthropicApiKey,
+  async (_event, input: unknown) => {
+    const parsed = setApiKeyRequestSchema.safeParse(input);
+    if (!parsed.success) return invalidIpc();
+    await getLlmSettingsStore().setApiKey(
+      parsed.data.apiKey,
+      parsed.data.persist,
+    );
+    return llmSettingsSchema.parse(await getLlmSettingsStore().status());
+  },
+);
+ipcMain.handle(ipcChannels.clearAnthropicApiKey, async () => {
+  await getLlmSettingsStore().clearApiKey();
+  return llmSettingsSchema.parse(await getLlmSettingsStore().status());
+});
+ipcMain.handle(ipcChannels.testAnthropicConnection, async () => {
+  const store = getLlmSettingsStore();
+  const provider = await configuredPlanner();
+  if (!provider)
+    return llmSettingsSchema.parse({
+      ...(await store.status()),
+      keyStatus: "connectionFailed",
+    });
+  try {
+    await provider.testConnection();
+    store.markConnectionVerified(true);
+    return llmSettingsSchema.parse(await store.status());
+  } catch {
+    store.markConnectionVerified(false);
+    return llmSettingsSchema.parse({
+      ...(await store.status()),
+      keyStatus: "connectionFailed",
+    });
+  }
+});
+ipcMain.handle(ipcChannels.cancelLlmPlanning, () => {
+  planningAbortController?.abort();
+  return actionResultSchema.parse({ status: "ok" });
+});
 ipcMain.handle(
   ipcChannels.getExistingRdlReview,
   async (_event, input: unknown) => {

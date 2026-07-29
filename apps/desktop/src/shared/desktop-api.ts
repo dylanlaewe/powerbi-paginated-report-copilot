@@ -21,6 +21,12 @@ export const ipcChannels = {
   declineExistingRdlReviewOperation: "sidecar:review-decline",
   resetExistingRdlReviewOperation: "sidecar:review-reset",
   createExistingRdlReviewedCopy: "sidecar:review-create-copy",
+  getLlmSettings: "llm:settings-get",
+  updateLlmSettings: "llm:settings-update",
+  setAnthropicApiKey: "llm:key-set",
+  clearAnthropicApiKey: "llm:key-clear",
+  testAnthropicConnection: "llm:connection-test",
+  cancelLlmPlanning: "llm:planning-cancel",
 } as const;
 export const projectSelectionResultSchema = z.discriminatedUnion("status", [
   z.object({
@@ -483,6 +489,7 @@ export const createReviewRequestSchema = z
   .object({
     reportSessionId: z.string().uuid(),
     request: z.string().min(1).max(8192),
+    plannerMode: z.enum(["smart", "deterministicOnly"]).default("smart"),
   })
   .strict();
 export const reviewDraftRequestSchema = z
@@ -499,10 +506,39 @@ export const reviewSelectionRequestSchema = reviewOperationRequestSchema
   .strict();
 export const reviewBundleResultSchema = z.discriminatedUnion("status", [
   z
-    .object({ status: z.literal("review"), bundle: reviewBundleSchema })
+    .object({
+      status: z.literal("review"),
+      planSource: z.enum(["deterministic", "claude"]),
+      bundle: reviewBundleSchema,
+    })
     .strict(),
   sidecarErrorSchema,
 ]);
+export const llmSettingsSchema = z
+  .object({
+    keyStatus: z.enum([
+      "notConfigured",
+      "configured",
+      "connectionVerified",
+      "connectionFailed",
+    ]),
+    persistenceAvailable: z.boolean(),
+    model: z.string().min(1).max(128),
+    privacyAcknowledged: z.boolean(),
+  })
+  .strict();
+export const updateLlmSettingsRequestSchema = z
+  .object({
+    model: z.string().trim().min(1).max(128),
+    privacyAcknowledged: z.boolean(),
+  })
+  .strict();
+export const setApiKeyRequestSchema = z
+  .object({
+    apiKey: z.string().trim().min(20).max(512),
+    persist: z.boolean(),
+  })
+  .strict();
 export const reviewedCopyResultSchema = z.discriminatedUnion("status", [
   z
     .object({
@@ -588,6 +624,7 @@ export type SidecarActionResult = z.infer<typeof actionResultSchema>;
 export type FieldResolutionResult = z.infer<typeof fieldResolutionResultSchema>;
 export type ReviewBundleResult = z.infer<typeof reviewBundleResultSchema>;
 export type ReviewedCopyResult = z.infer<typeof reviewedCopyResultSchema>;
+export type LlmSettings = z.infer<typeof llmSettingsSchema>;
 export interface DesktopApi {
   readonly platform: string;
   readonly appMode: "offline-authoring";
@@ -608,7 +645,20 @@ export interface DesktopApi {
   createExistingRdlReview(input: {
     reportSessionId: string;
     request: string;
+    plannerMode?: "smart" | "deterministicOnly";
   }): Promise<ReviewBundleResult>;
+  getLlmSettings(): Promise<LlmSettings>;
+  updateLlmSettings(input: {
+    model: string;
+    privacyAcknowledged: boolean;
+  }): Promise<LlmSettings>;
+  setAnthropicApiKey(input: {
+    apiKey: string;
+    persist: boolean;
+  }): Promise<LlmSettings>;
+  clearAnthropicApiKey(): Promise<LlmSettings>;
+  testAnthropicConnection(): Promise<LlmSettings>;
+  cancelLlmPlanning(): Promise<SidecarActionResult>;
   getExistingRdlReview(input: {
     reviewDraftId: string;
   }): Promise<ReviewBundleResult>;

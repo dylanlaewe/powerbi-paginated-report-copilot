@@ -20,7 +20,9 @@ import {
   genericMutationManifestSchema,
   GenericMutationError,
   inspectRdlFile,
-  LocalSentenceEditPlanner,
+  LlmPlannerError,
+  createSanitizedPlanningContext,
+  planSmart,
   mutateAuthorizedRdl,
   prepareSidecarEditFromText,
   resetReviewOperation,
@@ -33,6 +35,7 @@ import {
   validateXmlAgainstXsd,
   type PreparedSidecarEdit,
   type EditPlan,
+  type LlmPlannerProvider,
   type ReviewBundle,
   type RdlInventory,
   type TargetFieldCandidate,
@@ -92,6 +95,7 @@ type ReviewDraft = {
   initial: ReviewBundle;
   current: ReviewBundle;
   plan: EditPlan;
+  planSource: "deterministic" | "claude";
   consumed: boolean;
 };
 
@@ -117,6 +121,14 @@ const errorResult = (
   unsupportedFragments?: string[];
 } => {
   if (error instanceof GenericMutationError)
+    return {
+      status: "error",
+      code: error.code,
+      message: error.message,
+      noOutputWritten: true,
+      sourceUnchanged: true,
+    };
+  if (error instanceof LlmPlannerError)
     return {
       status: "error",
       code: error.code,
@@ -186,6 +198,7 @@ export class ExistingRdlSidecarService {
       sessionLifetimeMs?: number;
       revealPath: (path: string) => void;
       copyText: (value: string) => void;
+      plannerProvider?: () => Promise<LlmPlannerProvider | undefined>;
     },
   ) {}
 
@@ -477,6 +490,8 @@ export class ExistingRdlSidecarService {
   async createReview(input: {
     reportSessionId: string;
     request: string;
+    plannerMode?: "smart" | "deterministicOnly";
+    signal?: AbortSignal;
   }): Promise<ReviewBundleResult> {
     try {
       const report = this.report(input.reportSessionId);
@@ -485,17 +500,33 @@ export class ExistingRdlSidecarService {
           "SOURCE_CHANGED",
           "The source report changed after inspection.",
         );
-      const planner = new LocalSentenceEditPlanner().plan(
-        input.request,
-        createEditPlannerContext(report.inventory),
-      );
-      if (planner.status === "rejected")
-        throw new SidecarCliError(
-          "PLANNER_REJECTED",
-          `${planner.code}: ${planner.message}`,
-          { unsupportedFragments: planner.unsupportedFragments },
-        );
-      const plan = editPlanSchema.parse(planner.plan);
+      const provider = await this.options.plannerProvider?.();
+      const planning = await planSmart({
+        request: input.request,
+        deterministicContext: createEditPlannerContext(report.inventory),
+        sanitizedContext: createSanitizedPlanningContext(report.inventory),
+        mode: input.plannerMode ?? "smart",
+        ...(provider ? { provider } : {}),
+        ...(input.signal ? { signal: input.signal } : {}),
+      });
+      if (planning.status === "unsupported")
+        return reviewBundleResultSchema.parse({
+          status: "error",
+          code: "LLM_UNSUPPORTED_REQUEST",
+          message: planning.explanation,
+          unsupportedFragments: planning.unsupportedFragments,
+          noOutputWritten: true,
+          sourceUnchanged: true,
+        });
+      if (planning.status === "clarificationRequired")
+        return reviewBundleResultSchema.parse({
+          status: "error",
+          code: "LLM_CLARIFICATION_REQUIRED",
+          message: planning.question,
+          noOutputWritten: true,
+          sourceUnchanged: true,
+        });
+      const plan = editPlanSchema.parse(planning.plan);
       for (const [id, draft] of this.reviews)
         if (draft.reportSessionId === report.id) this.reviews.delete(id);
       const reviewDraftId = randomUUID();
@@ -514,7 +545,7 @@ export class ExistingRdlSidecarService {
         reviewDraftId,
         reportSessionId: report.id,
         sourceSha256: report.sourceSha256,
-        planSha256: planner.planSha256,
+        planSha256: planning.planSha256,
         plan,
         catalog: report.catalog,
         inventory: report.inventory,
@@ -524,13 +555,18 @@ export class ExistingRdlSidecarService {
         id: reviewDraftId,
         reportSessionId: report.id,
         sourceSha256: report.sourceSha256,
-        planSha256: planner.planSha256,
+        planSha256: planning.planSha256,
         initial: bundle,
         current: bundle,
         plan,
+        planSource: planning.source,
         consumed: false,
       });
-      return reviewBundleResultSchema.parse({ status: "review", bundle });
+      return reviewBundleResultSchema.parse({
+        status: "review",
+        planSource: planning.source,
+        bundle,
+      });
     } catch (error) {
       return reviewBundleResultSchema.parse(errorResult(error));
     }
@@ -541,6 +577,7 @@ export class ExistingRdlSidecarService {
       const draft = await this.reviewDraft(reviewDraftId);
       return reviewBundleResultSchema.parse({
         status: "review",
+        planSource: draft.planSource,
         bundle: draft.current,
       });
     } catch (error) {
@@ -557,6 +594,7 @@ export class ExistingRdlSidecarService {
       draft.current = update(draft.current, draft.initial);
       return reviewBundleResultSchema.parse({
         status: "review",
+        planSource: draft.planSource,
         bundle: draft.current,
       });
     } catch (error) {
@@ -647,7 +685,7 @@ export class ExistingRdlSidecarService {
       manifestPath = `${outputPath}.manifest.json`;
       const manifest = genericMutationManifestSchema.parse({
         manifestVersion: 1,
-        applicationVersion: "0.3.0",
+        applicationVersion: "0.4.0-beta.1",
         invocationSurface: "electron-sidecar",
         source: {
           filename: basename(report.sourcePath),

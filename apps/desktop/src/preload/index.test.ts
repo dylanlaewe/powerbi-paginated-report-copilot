@@ -25,6 +25,8 @@ describe("sandboxed preload bridge", () => {
       "appMode",
       "applyExistingRdlEdit",
       "cancelExistingRdlPlan",
+      "cancelLlmPlanning",
+      "clearAnthropicApiKey",
       "clearExistingRdlSession",
       "confirmExistingRdlReviewOperation",
       "copyEditedRdlPath",
@@ -35,6 +37,7 @@ describe("sandboxed preload bridge", () => {
       "declineExistingRdlReviewOperation",
       "generateReport",
       "getExistingRdlReview",
+      "getLlmSettings",
       "planExistingRdlEdit",
       "platform",
       "resetExistingRdlReviewOperation",
@@ -44,6 +47,9 @@ describe("sandboxed preload bridge", () => {
       "selectExistingRdl",
       "selectExistingRdlReviewCandidates",
       "selectProject",
+      "setAnthropicApiKey",
+      "testAnthropicConnection",
+      "updateLlmSettings",
       "windowsValidation",
     ]);
     expect(api.generateReport).toBeTypeOf("function");
