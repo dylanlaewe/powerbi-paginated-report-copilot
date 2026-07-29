@@ -302,3 +302,23 @@ source and verify the complete checksum inventory.
 outcomes without recording any manual result. Windows open, Preview, PDF, and
 Excel validation remain pending. No accepted source was edited, and omitted
 page dimensions still prohibit orientation mutation.
+
+## Gate 2O Windows acceptance and v0.3 freeze
+
+Dylan independently validated the unsigned v0.3.0 portable application in a
+personally controlled Windows 11 VM with Microsoft Power BI Report Builder.
+All four packaged inputs passed reviewed-copy generation, original-source
+preservation, manifest creation, Report Builder open/Preview, PDF export, and
+Excel export.
+
+The controlled simple report passed title, 20pt Bold, and UnitCost `C0`
+mutation. The grouped report passed title and exact three-candidate Revenue
+`C0` mutation while preserving groups, details, subtotals, Grand Total,
+headings, and page breaks. Invoice passed exact Quantity `N0` mutation while
+preserving its logo/header/footer. Transcript passed page-header title/style
+mutation while preserving body content, images, and nesting.
+
+No unexpected warning, repair prompt, clipping, blank page, or `#Error` was
+reported. Exact page and worksheet counts were not captured during final
+confirmation. Accepted source bytes remain unchanged. Orientation still fails
+closed for omitted dimensions.

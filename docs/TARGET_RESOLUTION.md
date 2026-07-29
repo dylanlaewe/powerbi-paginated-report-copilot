@@ -188,3 +188,18 @@ candidates described for each of four accepted inputs. Independent results are
 intentionally blank until Windows Report Builder testing is returned. Generic
 mutation remains limited to explicitly reviewed targets, and v0.4 LLM planning
 is deferred.
+
+## v0.3 Gate 2O release acceptance
+
+Independent Windows validation confirmed the exact reviewed-candidate boundary
+across four structurally different reports. Simple title/style and direct-field
+formatting, grouped detail/subtotal/Grand Total subset formatting, Invoice
+Quantity formatting, and Transcript page-header title/style mutation all
+opened and previewed successfully in Report Builder and exported to PDF and
+Excel.
+
+Original preservation and adjacent manifest creation passed in every scenario.
+No resolver outcome became implicit authority: ambiguous operations still
+require exact user selection and confirmation, and only confirmed candidates
+are writable. No grammar, operation, discovery, or omitted-dimension behavior
+changed for release.

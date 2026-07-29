@@ -52,6 +52,32 @@ interface ExpectedResults {
   manualReleaseResults: Record<string, unknown>;
 }
 
+interface ValidationResults {
+  applicationVersion: string;
+  userConfirmedDate: string;
+  executable: {
+    filename: string;
+    byteSize: number;
+    sha256: string;
+    signed: boolean;
+    launch: string;
+  };
+  inputs: Record<string, string>;
+  scenarios: {
+    id: string;
+    originalPreserved: string;
+    manifestCreated: string;
+    reportBuilderOpen: string;
+    preview: string;
+    pdfExport: string;
+    excelExport: string;
+    warningsOrErrors: string;
+    counts: Record<string, string>;
+  }[];
+  overallResults: Record<string, string>;
+  finalStatus: string;
+}
+
 describe("Windows v0.3 validation release candidate", () => {
   it("pins the unsigned Windows x64 executable identity", () => {
     const expected = JSON.parse(
@@ -121,5 +147,60 @@ describe("Windows v0.3 validation release candidate", () => {
         Array(Object.keys(expected.manualReleaseResults).length).fill(null),
       ),
     );
+  });
+
+  it("records the independent acceptance without inventing exact counts", () => {
+    const results = JSON.parse(
+      readFileSync(resolve(packageRoot, "VALIDATION_RESULTS.json"), "utf8"),
+    ) as ValidationResults;
+
+    expect(results.applicationVersion).toBe("0.3.0");
+    expect(results.userConfirmedDate).toBe("2026-07-28");
+    expect(results.executable).toMatchObject({
+      filename: executableName,
+      byteSize: 89_642_264,
+      sha256:
+        "c10974891ed23308d7bae13118adb7803592a174cda7f95952909aa3a886d50a",
+      signed: false,
+      launch: "PASS",
+    });
+    expect(Object.values(results.inputs)).toEqual([
+      "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+    ]);
+    expect(results.scenarios.map(({ id }) => id)).toEqual([
+      "simple-table",
+      "grouped-report",
+      "microsoft-invoice",
+      "microsoft-transcript",
+    ]);
+    for (const scenario of results.scenarios) {
+      expect(scenario).toMatchObject({
+        originalPreserved: "PASS",
+        manifestCreated: "PASS",
+        reportBuilderOpen: "PASS",
+        preview: "PASS",
+        pdfExport: "PASS",
+        excelExport: "PASS",
+        warningsOrErrors: "NONE",
+      });
+      expect(Object.values(scenario.counts)).toEqual([
+        "not captured during final user confirmation",
+        "not captured during final user confirmation",
+        "not captured during final user confirmation",
+      ]);
+    }
+    expect(results.overallResults).toEqual({
+      originalPreservation: "PASS",
+      manifestCreation: "PASS",
+      reportBuilderOpen: "PASS",
+      preview: "PASS",
+      pdfExport: "PASS",
+      excelExport: "PASS",
+      warningsOrErrors: "NONE",
+    });
+    expect(results.finalStatus).toBe("accepted");
   });
 });

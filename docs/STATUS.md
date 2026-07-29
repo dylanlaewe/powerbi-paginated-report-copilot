@@ -1,6 +1,6 @@
 # Status
 
-Current milestone: **RDL Structure Corpus and Resolver Validation v0.3 — Gate 2N Windows release candidate packaged, independent validation pending**.
+Current milestone: **Existing RDL Sidecar v0.3 — accepted and release-frozen after independent Windows validation**.
 
 The frozen `rdl-copilot-mvp-v0.1`, `rdl-copilot-windows-v0.1`, and `rdl-copilot-sidecar-v0.2` checkpoints remain unchanged.
 
@@ -117,16 +117,18 @@ no dimensions are inferred or materialized. Microsoft Invoice and Transcript
 copies pass static XML/XSD/structural validation but have not been Report
 Builder-rendered.
 
-Gate 2N packages the complete Gate 2M workflow as the unsigned Windows x64
-portable v0.3.0 release candidate. The self-contained validation bundle
-contains the executable, byte-identical copies of all four accepted inputs,
-Microsoft attribution, exact scenarios, expected postconditions, and SHA-256
-verification. All manual Windows and Report Builder results remain unfilled.
+Gate 2N packaged the complete Gate 2M workflow as the unsigned Windows x64
+portable v0.3.0 release candidate. Gate 2O records independent validation in
+Dylan's personally controlled Windows 11 VM. Controlled simple, controlled
+grouped, Microsoft Invoice, and Microsoft Transcript scenarios all passed the
+reviewed-copy workflow, original preservation, manifest creation, Report
+Builder open/Preview, PDF export, and Excel export. Exact page and worksheet
+counts were not captured during final confirmation and are not inferred.
 
-The candidate is not released, merged, or tagged. Independent testing must use
-Dylan's personally controlled Windows 11 VM and must not bypass managed-device
-security policy. Orientation remains blocked when dimensions are omitted. LLM
-planning remains deferred to v0.4, which has not started.
+Generic reviewed mutation is released at v0.3. The executable remains unsigned,
+and orientation remains blocked when page dimensions are omitted. v0.4 is
+planned to focus on LLM-backed planning and product validation; no v0.4
+implementation began during this release gate.
 
 The deterministic CLI and minimal Electron UI accept a constrained title-plus-JSON request, validate a versioned nine-field `ReportSpecification`, select one checksum-pinned Report Builder-authored template, safely replace the title and embedded rows, preserve protected report structures, calculate expected totals, validate the RDL, and write it atomically to a controlled location.
 

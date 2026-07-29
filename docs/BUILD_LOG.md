@@ -479,6 +479,24 @@
   release, merge, milestone tag, new operation, grammar change, dimension
   inference, or v0.4 work is part of this gate.
 
+## 2026-07-28 — RDL Structure Corpus Gate 2O Windows acceptance
+
+- Recorded Dylan's independent Windows 11 VM acceptance of the unsigned v0.3.0
+  portable executable across controlled simple, controlled grouped, Microsoft
+  Invoice, and Microsoft Transcript scenarios.
+- All four passed reviewed-copy creation, original preservation, manifest
+  creation, Report Builder open/Preview, PDF export, and Excel export with no
+  reported unexpected warning, repair prompt, blank page, or `#Error`.
+- Recorded exact Preview/PDF/Excel counts as not captured during final user
+  confirmation rather than inferring them.
+- Added deterministic Markdown and JSON release-validation records and a
+  regression preventing fabricated counts or identity drift.
+- Passed changed-file formatting, ESLint, workspace typecheck, 53 test files /
+  414 tests, production build, executable/ZIP/source/canonical v0.2 identity
+  checks, JSON and ZIP validation, and byte-identical Gate 2M regeneration.
+- No accepted source, release executable, validation ZIP, operation, grammar,
+  resolver, page-dimension behavior, or v0.4 implementation changed.
+
 ## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
 
 - Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.
