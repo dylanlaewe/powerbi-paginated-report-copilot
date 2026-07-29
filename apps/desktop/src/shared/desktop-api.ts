@@ -13,6 +13,14 @@ export const ipcChannels = {
   copyEditedRdlPath: "sidecar:copy-rdl-path",
   copyManifestPath: "sidecar:copy-manifest-path",
   clearExistingRdlSession: "sidecar:clear-session",
+  resolveExistingRdlField: "sidecar:resolve-field",
+  createExistingRdlReview: "sidecar:review-create",
+  getExistingRdlReview: "sidecar:review-get",
+  selectExistingRdlReviewCandidates: "sidecar:review-select",
+  confirmExistingRdlReviewOperation: "sidecar:review-confirm",
+  declineExistingRdlReviewOperation: "sidecar:review-decline",
+  resetExistingRdlReviewOperation: "sidecar:review-reset",
+  createExistingRdlReviewedCopy: "sidecar:review-create-copy",
 } as const;
 export const projectSelectionResultSchema = z.discriminatedUnion("status", [
   z.object({
@@ -67,6 +75,24 @@ const sidecarErrorSchema = z
     sourceUnchanged: z.boolean().optional(),
   })
   .strict();
+const titleEvidenceContributionSchema = z
+  .object({
+    code: z.string(),
+    weight: z.number().int(),
+    message: z.string(),
+  })
+  .strict();
+const liveRankedTitleCandidateSchema = z
+  .object({
+    candidateId: z.string().uuid(),
+    visibleText: z.string(),
+    structuralPath: z.string(),
+    region: z.enum(["body", "pageHeader", "pageFooter"]),
+    score: z.number().int(),
+    evidence: z.array(titleEvidenceContributionSchema),
+    negativeEvidence: z.array(titleEvidenceContributionSchema),
+  })
+  .strict();
 export const reportSummarySchema = z
   .object({
     filename: z.string(),
@@ -78,7 +104,100 @@ export const reportSummarySchema = z
     tablixNames: z.array(z.string()),
     groupNames: z.array(z.string()),
     textboxCount: z.number().int().nonnegative(),
-    pageOrientation: z.enum(["portrait", "landscape", "square"]),
+    pageOrientation: z.enum(["portrait", "landscape", "square", "unspecified"]),
+    pageWidth: z.string(),
+    pageHeight: z.string(),
+    candidateCatalog: z
+      .object({
+        titleCount: z.number().int().nonnegative(),
+        fieldDisplayCount: z.number().int().nonnegative(),
+        titleCandidates: z.array(
+          z
+            .object({
+              candidateId: z.string().uuid(),
+              reportItemName: z.string(),
+              structuralPath: z.string(),
+              region: z.enum(["body", "pageHeader", "pageFooter"]),
+              visibleText: z.string(),
+              evidence: z.array(z.string()),
+            })
+            .strict(),
+        ),
+        fieldDisplayCandidates: z.array(
+          z
+            .object({
+              candidateId: z.string().uuid(),
+              reportItemName: z.string(),
+              structuralPath: z.string(),
+              region: z.enum(["body", "pageHeader", "pageFooter"]),
+              fieldName: z.string(),
+              expressionKind: z.enum([
+                "directFieldReference",
+                "aggregateExpression",
+              ]),
+              datasetCertainty: z.enum(["certain", "ambiguous", "unavailable"]),
+              scopeRole: z.enum([
+                "detail",
+                "groupHeader",
+                "groupSubtotal",
+                "grandTotal",
+                "staticHeader",
+                "staticLabel",
+                "standalone",
+                "unknown",
+              ]),
+            })
+            .strict(),
+        ),
+        titleResolution: z.discriminatedUnion("status", [
+          z
+            .object({
+              status: z.literal("resolved"),
+              reason: z.literal("TITLE_RESOLVED"),
+              candidateId: z.string().uuid(),
+              confidence: z.enum(["high", "medium"]),
+              evidence: z.array(titleEvidenceContributionSchema),
+              alternatives: z.array(liveRankedTitleCandidateSchema),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+          z
+            .object({
+              status: z.literal("ambiguous"),
+              reason: z.enum([
+                "MULTIPLE_PLAUSIBLE_TITLE_CANDIDATES",
+                "CONFLICTING_TITLE_EVIDENCE",
+              ]),
+              candidates: z.array(liveRankedTitleCandidateSchema).min(2),
+              evidence: z.array(z.string()),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+          z
+            .object({
+              status: z.literal("notFound"),
+              reason: z.enum([
+                "NO_TITLE_CANDIDATE",
+                "NO_CONFIDENT_TITLE_CANDIDATE",
+              ]),
+              consideredCandidateCount: z.number().int().nonnegative(),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+          z
+            .object({
+              status: z.literal("unsupported"),
+              reason: z.enum([
+                "UNSUPPORTED_TITLE_EXPRESSION",
+                "TITLE_CONTEXT_INSUFFICIENT",
+              ]),
+              evidence: z.array(z.string()),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+        ]),
+      })
+      .strict(),
     currentTitle: z.string().nullable(),
   })
   .strict();
@@ -104,6 +223,302 @@ export const planEditRequestSchema = z
     request: z.string().min(1).max(8192),
   })
   .strict();
+export const fieldResolutionRequestSchema = z
+  .object({
+    reportSessionId: z.string().uuid(),
+    fieldName: z.string().trim().min(1).max(256),
+  })
+  .strict();
+const liveFieldCandidateSchema = z
+  .object({
+    candidateId: z.string().uuid(),
+    reportItemName: z.string(),
+    structuralPath: z.string(),
+    region: z.enum(["body", "pageHeader", "pageFooter"]),
+    fieldName: z.string(),
+    expressionKind: z.enum(["directFieldReference", "aggregateExpression"]),
+    aggregateFunction: z.string().nullable(),
+    explicitAggregateScope: z.string().nullable(),
+    datasetCertainty: z.enum(["certain", "ambiguous", "unavailable"]),
+    datasetName: z.string().nullable(),
+    possibleDatasets: z.array(z.string()),
+    tablixName: z.string().nullable(),
+    scopeRole: z.enum([
+      "detail",
+      "groupHeader",
+      "groupSubtotal",
+      "grandTotal",
+      "staticHeader",
+      "staticLabel",
+      "standalone",
+      "unknown",
+    ]),
+    groupNames: z.array(z.string()),
+    currentFormat: z.string().nullable(),
+    serializedType: z.string().nullable(),
+    likelyNumericDisplay: z.boolean(),
+    compatibilityUnknown: z.boolean(),
+    hiddenStatus: z.enum(["visible", "hidden", "expression", "unspecified"]),
+    evidence: z.array(
+      z.object({ code: z.string(), message: z.string() }).strict(),
+    ),
+    ambiguityEvidence: z.array(
+      z.object({ code: z.string(), message: z.string() }).strict(),
+    ),
+  })
+  .strict();
+export const fieldResolutionResultSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("resolved"),
+      reason: z.literal("FIELD_DISPLAY_RESOLVED"),
+      fieldName: z.string(),
+      candidateId: z.string().uuid(),
+      confidence: z.enum(["high", "medium"]),
+      evidence: z.array(
+        z.object({ code: z.string(), message: z.string() }).strict(),
+      ),
+      alternatives: z.array(liveFieldCandidateSchema),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("ambiguous"),
+      reason: z.enum([
+        "MULTIPLE_FIELD_DISPLAY_CANDIDATES",
+        "MULTIPLE_DATASET_CANDIDATES",
+        "DATASET_IDENTITY_AMBIGUOUS",
+        "MULTIPLE_SCOPE_ROLES",
+        "CONFLICTING_FIELD_SCOPE",
+        "DUPLICATE_VISUAL_LOCATIONS",
+      ]),
+      fieldName: z.string(),
+      candidates: z.array(liveFieldCandidateSchema).min(1),
+      evidence: z.array(z.string()),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("notFound"),
+      reason: z.literal("NO_FIELD_DISPLAY_CANDIDATE"),
+      fieldName: z.string(),
+      consideredCandidateCount: z.number().int().nonnegative(),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("unsupported"),
+      reason: z.enum([
+        "UNSUPPORTED_FIELD_EXPRESSION",
+        "FIELD_CONTEXT_INSUFFICIENT",
+      ]),
+      fieldName: z.string(),
+      evidence: z.array(z.string()),
+      mutationAuthorized: z.literal(false),
+    })
+    .strict(),
+  sidecarErrorSchema,
+]);
+const reviewCandidateSchema = z.discriminatedUnion("kind", [
+  z
+    .object({
+      kind: z.literal("title"),
+      candidateId: z.string().uuid(),
+      visibleText: z.string(),
+      region: z.enum(["body", "pageHeader", "pageFooter"]),
+      score: z.number().int(),
+      evidence: z.array(
+        z
+          .object({
+            code: z.string(),
+            weight: z.number().int(),
+            message: z.string(),
+          })
+          .strict(),
+      ),
+      ambiguityEvidence: z.array(
+        z
+          .object({
+            code: z.string(),
+            weight: z.number().int(),
+            message: z.string(),
+          })
+          .strict(),
+      ),
+    })
+    .strict(),
+  z
+    .object({
+      kind: z.literal("fieldDisplay"),
+      candidateId: z.string().uuid(),
+      fieldName: z.string(),
+      datasetName: z.string().nullable(),
+      possibleDatasets: z.array(z.string()),
+      region: z.enum(["body", "pageHeader", "pageFooter"]),
+      tablixName: z.string().nullable(),
+      structuralRole: z.string(),
+      expressionKind: z.enum(["directFieldReference", "aggregateExpression"]),
+      currentFormat: z.string().nullable(),
+      evidence: z.array(
+        z.object({ code: z.string(), message: z.string() }).strict(),
+      ),
+      ambiguityEvidence: z.array(
+        z.object({ code: z.string(), message: z.string() }).strict(),
+      ),
+    })
+    .strict(),
+]);
+const operationReviewBase = {
+  operationId: z.string().regex(/^[a-f0-9]{24}$/u),
+  operationType: z.enum([
+    "setText",
+    "setTextStyle",
+    "setPageOrientation",
+    "setNumberFormat",
+  ]),
+  requestedChange: z.string(),
+  mutationAuthorized: z.literal(false),
+};
+const operationReviewSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("readyForConfirmation"),
+      ...operationReviewBase,
+      recommendedCandidate: reviewCandidateSchema,
+      alternatives: z.array(reviewCandidateSchema),
+      selectionPolicy: z.literal("exactlyOne"),
+      selectedCandidateIds: z.array(z.string().uuid()).max(0),
+      confirmed: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("choiceRequired"),
+      ...operationReviewBase,
+      candidates: z.array(reviewCandidateSchema).min(1),
+      selectionPolicy: z.enum(["exactlyOne", "oneOrMore"]),
+      selectedCandidateIds: z.array(z.string().uuid()),
+      confirmed: z.literal(false),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("blocked"),
+      ...operationReviewBase,
+      reason: z.string(),
+      message: z.string(),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("confirmed"),
+      ...operationReviewBase,
+      selectedCandidateIds: z.array(z.string().uuid()).min(1),
+      confirmationSummary: z.string(),
+    })
+    .strict(),
+  z
+    .object({
+      status: z.literal("declined"),
+      ...operationReviewBase,
+    })
+    .strict(),
+]);
+const reviewBundleSchema = z
+  .object({
+    version: z.literal(1),
+    reviewDraftId: z.string().uuid(),
+    reportSessionId: z.string().uuid(),
+    sourceSha256: z.string().length(64),
+    planSha256: z.string().length(64),
+    candidateCatalogVersion: z.literal(1),
+    resolutionSummary: z
+      .object({
+        title: z
+          .object({
+            status: z.enum([
+              "resolved",
+              "ambiguous",
+              "notFound",
+              "unsupported",
+            ]),
+            reason: z.string(),
+            mutationAuthorized: z.literal(false),
+          })
+          .strict(),
+        fields: z.array(
+          z
+            .object({
+              fieldName: z.string(),
+              status: z.enum([
+                "resolved",
+                "ambiguous",
+                "notFound",
+                "unsupported",
+              ]),
+              reason: z.string(),
+              mutationAuthorized: z.literal(false),
+            })
+            .strict(),
+        ),
+        pageOrientation: z
+          .object({
+            status: z.enum(["structurallyAvailable", "blocked"]),
+            reason: z.string().nullable(),
+            mutationAuthorized: z.literal(false),
+          })
+          .strict(),
+      })
+      .strict(),
+    operations: z.array(operationReviewSchema).min(1),
+    state: z.enum(["incomplete", "fullyReviewed", "blocked", "declined"]),
+    mutationAuthorized: z.literal(false),
+    executable: z.literal(false),
+  })
+  .strict();
+export const createReviewRequestSchema = z
+  .object({
+    reportSessionId: z.string().uuid(),
+    request: z.string().min(1).max(8192),
+  })
+  .strict();
+export const reviewDraftRequestSchema = z
+  .object({ reviewDraftId: z.string().uuid() })
+  .strict();
+export const reviewOperationRequestSchema = z
+  .object({
+    reviewDraftId: z.string().uuid(),
+    operationId: z.string().regex(/^[a-f0-9]{24}$/u),
+  })
+  .strict();
+export const reviewSelectionRequestSchema = reviewOperationRequestSchema
+  .extend({ candidateIds: z.array(z.string().uuid()).min(1) })
+  .strict();
+export const reviewBundleResultSchema = z.discriminatedUnion("status", [
+  z
+    .object({ status: z.literal("review"), bundle: reviewBundleSchema })
+    .strict(),
+  sidecarErrorSchema,
+]);
+export const reviewedCopyResultSchema = z.discriminatedUnion("status", [
+  z
+    .object({
+      status: z.literal("complete"),
+      outputHandle: z.string().uuid(),
+      editedFilename: z.string(),
+      manifestFilename: z.string(),
+      sourceSha256: z.string().length(64),
+      planSha256: z.string().length(64),
+      outputSha256: z.string().length(64),
+      sourceUnchanged: z.literal(true),
+      validation: z.literal("PASS"),
+    })
+    .strict(),
+  sidecarErrorSchema,
+]);
 const targetDisplaySchema = z
   .object({
     semanticTarget: z.string(),
@@ -170,6 +585,9 @@ export type ExistingRdlSelectionResult = z.infer<
 export type PlanEditResult = z.infer<typeof planEditResultSchema>;
 export type ApplyEditResult = z.infer<typeof applyEditResultSchema>;
 export type SidecarActionResult = z.infer<typeof actionResultSchema>;
+export type FieldResolutionResult = z.infer<typeof fieldResolutionResultSchema>;
+export type ReviewBundleResult = z.infer<typeof reviewBundleResultSchema>;
+export type ReviewedCopyResult = z.infer<typeof reviewedCopyResultSchema>;
 export interface DesktopApi {
   readonly platform: string;
   readonly appMode: "offline-authoring";
@@ -183,6 +601,37 @@ export interface DesktopApi {
     reportSessionId: string;
     request: string;
   }): Promise<PlanEditResult>;
+  resolveExistingRdlField(input: {
+    reportSessionId: string;
+    fieldName: string;
+  }): Promise<FieldResolutionResult>;
+  createExistingRdlReview(input: {
+    reportSessionId: string;
+    request: string;
+  }): Promise<ReviewBundleResult>;
+  getExistingRdlReview(input: {
+    reviewDraftId: string;
+  }): Promise<ReviewBundleResult>;
+  selectExistingRdlReviewCandidates(input: {
+    reviewDraftId: string;
+    operationId: string;
+    candidateIds: string[];
+  }): Promise<ReviewBundleResult>;
+  confirmExistingRdlReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult>;
+  declineExistingRdlReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult>;
+  resetExistingRdlReviewOperation(input: {
+    reviewDraftId: string;
+    operationId: string;
+  }): Promise<ReviewBundleResult>;
+  createExistingRdlReviewedCopy(input: {
+    reviewDraftId: string;
+  }): Promise<ReviewedCopyResult>;
   applyExistingRdlEdit(input: {
     reportSessionId: string;
     planSessionId: string;

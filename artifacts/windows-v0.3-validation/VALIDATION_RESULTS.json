@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "applicationVersion": "0.3.0",
+  "userConfirmedDate": "2026-07-28",
+  "environment": {
+    "ownership": "personallyControlled",
+    "operatingSystem": "Windows 11",
+    "virtualization": "virtualMachine",
+    "reportApplication": "Microsoft Power BI Report Builder"
+  },
+  "executable": {
+    "filename": "Power-BI-RDL-Copilot-0.3.0-windows-x64-portable.exe",
+    "byteSize": 89642264,
+    "sha256": "c10974891ed23308d7bae13118adb7803592a174cda7f95952909aa3a886d50a",
+    "architecture": "windows-x64",
+    "format": "portable",
+    "signed": false,
+    "launch": "PASS"
+  },
+  "inputs": {
+    "simpleTable": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+    "groupedReport": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "microsoftInvoice": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+    "microsoftTranscript": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+  },
+  "scenarios": [
+    {
+      "id": "simple-table",
+      "applicationReviewedCopy": "PASS",
+      "originalPreserved": "PASS",
+      "manifestCreated": "PASS",
+      "reportBuilderOpen": "PASS",
+      "preview": "PASS",
+      "mutationResults": {
+        "titleText": "PASS",
+        "title20PointBold": "PASS",
+        "unitCostC0": "PASS"
+      },
+      "preservationResults": "PASS",
+      "pdfExport": "PASS",
+      "excelExport": "PASS",
+      "warningsOrErrors": "NONE",
+      "counts": {
+        "previewPages": "not captured during final user confirmation",
+        "pdfPages": "not captured during final user confirmation",
+        "excelWorksheets": "not captured during final user confirmation"
+      }
+    },
+    {
+      "id": "grouped-report",
+      "applicationReviewedCopy": "PASS",
+      "originalPreserved": "PASS",
+      "manifestCreated": "PASS",
+      "reportBuilderOpen": "PASS",
+      "preview": "PASS",
+      "mutationResults": {
+        "titleText": "PASS",
+        "revenueDetailC0": "PASS",
+        "revenueDepartmentSubtotalsC0": "PASS",
+        "revenueGrandTotalC0": "PASS"
+      },
+      "preservationResults": {
+        "fourDepartmentGroups": "PASS",
+        "eightDetailRows": "PASS",
+        "fourDepartmentSubtotals": "PASS",
+        "oneGrandTotal": "PASS",
+        "repeatedHeadings": "PASS",
+        "departmentPageBreaks": "PASS"
+      },
+      "pdfExport": "PASS",
+      "excelExport": "PASS",
+      "warningsOrErrors": "NONE",
+      "counts": {
+        "previewPages": "not captured during final user confirmation",
+        "pdfPages": "not captured during final user confirmation",
+        "excelWorksheets": "not captured during final user confirmation"
+      }
+    },
+    {
+      "id": "microsoft-invoice",
+      "applicationReviewedCopy": "PASS",
+      "originalPreserved": "PASS",
+      "manifestCreated": "PASS",
+      "reportBuilderOpen": "PASS",
+      "preview": "PASS",
+      "mutationResults": {
+        "selectedQuantityN0": "PASS"
+      },
+      "preservationResults": {
+        "unselectedContent": "PASS",
+        "embeddedLogo": "PASS",
+        "header": "PASS",
+        "footer": "PASS"
+      },
+      "externalConnectionOrCredentials": "NONE",
+      "pdfExport": "PASS",
+      "excelExport": "PASS",
+      "warningsOrErrors": "NONE",
+      "counts": {
+        "previewPages": "not captured during final user confirmation",
+        "pdfPages": "not captured during final user confirmation",
+        "excelWorksheets": "not captured during final user confirmation"
+      }
+    },
+    {
+      "id": "microsoft-transcript",
+      "applicationReviewedCopy": "PASS",
+      "originalPreserved": "PASS",
+      "manifestCreated": "PASS",
+      "reportBuilderOpen": "PASS",
+      "preview": "PASS",
+      "mutationResults": {
+        "pageHeaderTitleText": "PASS",
+        "pageHeaderTitle20PointBold": "PASS"
+      },
+      "preservationResults": {
+        "bodyContent": "PASS",
+        "embeddedImages": "PASS",
+        "nestedReportStructure": "PASS"
+      },
+      "externalConnectionOrCredentials": "NONE",
+      "pdfExport": "PASS",
+      "excelExport": "PASS",
+      "warningsOrErrors": "NONE",
+      "counts": {
+        "previewPages": "not captured during final user confirmation",
+        "pdfPages": "not captured during final user confirmation",
+        "excelWorksheets": "not captured during final user confirmation"
+      }
+    }
+  ],
+  "overallResults": {
+    "originalPreservation": "PASS",
+    "manifestCreation": "PASS",
+    "reportBuilderOpen": "PASS",
+    "preview": "PASS",
+    "pdfExport": "PASS",
+    "excelExport": "PASS",
+    "warningsOrErrors": "NONE"
+  },
+  "finalStatus": "accepted"
+}

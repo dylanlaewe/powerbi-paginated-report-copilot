@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "scenarioId": "controlled-simple-table",
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "planSha256": "ec45b65e04380d25b76e862f1115aa787bd3b56e63f56e3dd85d8e5a7261fe48",
+      "outputSha256": "ffb801657bc6e2552cf03f814edfd23eb0a642cebaa7bb60cd1e734e4513d750",
+      "selectedTargetCount": 3,
+      "validation": {
+        "xmlParse": "PASS",
+        "xsd": "PASS",
+        "namespace": "PASS",
+        "structuralAllowlist": "PASS",
+        "operationPostconditions": "PASS",
+        "finalReparse": "PASS",
+        "sourceUnchanged": "PASS"
+      },
+      "originalUnchanged": true,
+      "editedRdlCommitted": false
+    },
+    {
+      "scenarioId": "controlled-grouped-all-three",
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "planSha256": "54c7a7f397da0f78714059c2c9f074d8430a185907b05fc250f20156bd868482",
+      "outputSha256": "1c27c519f028eabac301592b16ce3d1ab362cf1f1444b85da0dc4d6dab19fbea",
+      "selectedTargetCount": 4,
+      "validation": {
+        "xmlParse": "PASS",
+        "xsd": "PASS",
+        "namespace": "PASS",
+        "structuralAllowlist": "PASS",
+        "operationPostconditions": "PASS",
+        "finalReparse": "PASS",
+        "sourceUnchanged": "PASS"
+      },
+      "originalUnchanged": true,
+      "editedRdlCommitted": false
+    },
+    {
+      "scenarioId": "controlled-grouped-detail-only",
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "planSha256": "8c803b459b47c26ea0ba233b688dd2410a79ac475b3e6a9d95f622db67ff8c98",
+      "outputSha256": "fe14bda164dc4566efe8adc78ca4a3b581cc4a2321453fa3ca4ab48037754b70",
+      "selectedTargetCount": 1,
+      "validation": {
+        "xmlParse": "PASS",
+        "xsd": "PASS",
+        "namespace": "PASS",
+        "structuralAllowlist": "PASS",
+        "operationPostconditions": "PASS",
+        "finalReparse": "PASS",
+        "sourceUnchanged": "PASS"
+      },
+      "originalUnchanged": true,
+      "editedRdlCommitted": false
+    },
+    {
+      "scenarioId": "static-microsoft-invoice",
+      "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "planSha256": "df7aad470fc604c3851117f118e947fb7c4e52a018121effe14d783e72c8ff1f",
+      "outputSha256": "826b9d08075b634b7d0aa57c4929fcc656d7ceecef5ce6e84939ce122c4d5c25",
+      "selectedTargetCount": 2,
+      "validation": {
+        "xmlParse": "PASS",
+        "xsd": "PASS",
+        "namespace": "PASS",
+        "structuralAllowlist": "PASS",
+        "operationPostconditions": "PASS",
+        "finalReparse": "PASS",
+        "sourceUnchanged": "PASS"
+      },
+      "originalUnchanged": true,
+      "editedRdlCommitted": false
+    },
+    {
+      "scenarioId": "static-microsoft-transcript",
+      "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+      "outputSha256": "1cd0e522e1a2bacf410914e3fc5d2952635336d8b5022b132e5663946096a47e",
+      "selectedTargetCount": 2,
+      "validation": {
+        "xmlParse": "PASS",
+        "xsd": "PASS",
+        "namespace": "PASS",
+        "structuralAllowlist": "PASS",
+        "operationPostconditions": "PASS",
+        "finalReparse": "PASS",
+        "sourceUnchanged": "PASS"
+      },
+      "originalUnchanged": true,
+      "editedRdlCommitted": false
+    }
+  ]
+}

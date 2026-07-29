@@ -114,14 +114,38 @@ describe("typed deterministic RDL mutation", () => {
       {
         index: 0,
         bodyWidth: "7in",
-        pageWidth: "11in",
-        pageHeight: "8.5in",
-        orientation: "landscape",
+        pageWidth: {
+          presence: "explicit",
+          raw: "11in",
+          normalizedInches: 11,
+        },
+        pageHeight: {
+          presence: "explicit",
+          raw: "8.5in",
+          normalizedInches: 8.5,
+        },
+        orientation: { status: "known", value: "landscape" },
         margins: {
-          left: "0.5in",
-          right: "0.5in",
-          top: "0.5in",
-          bottom: "0.5in",
+          left: {
+            presence: "explicit",
+            raw: "0.5in",
+            normalizedInches: 0.5,
+          },
+          right: {
+            presence: "explicit",
+            raw: "0.5in",
+            normalizedInches: 0.5,
+          },
+          top: {
+            presence: "explicit",
+            raw: "0.5in",
+            normalizedInches: 0.5,
+          },
+          bottom: {
+            presence: "explicit",
+            raw: "0.5in",
+            normalizedInches: 0.5,
+          },
         },
       },
     ]);
@@ -141,9 +165,9 @@ describe("typed deterministic RDL mutation", () => {
       schema,
     });
     expect(portrait.outputInventory.reportSections[0]).toMatchObject({
-      pageWidth: "8.5in",
-      pageHeight: "11in",
-      orientation: "portrait",
+      pageWidth: { presence: "explicit", raw: "8.5in" },
+      pageHeight: { presence: "explicit", raw: "11in" },
+      orientation: { status: "known", value: "portrait" },
       bodyWidth: "7in",
       margins: landscape.outputInventory.reportSections[0]?.margins,
     });

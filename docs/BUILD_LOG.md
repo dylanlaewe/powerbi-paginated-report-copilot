@@ -1,5 +1,82 @@
 # Build log
 
+## 2026-07-27 — RDL structure corpus Gate 2J title resolution
+
+- Added strict read-only `resolved`, `ambiguous`, `notFound`, and `unsupported`
+  outcomes with stable reason codes and permanently false mutation authority.
+- Added inspectable deterministic positive and negative evidence contributions,
+  stable ranking, meaningful confidence thresholds, and ambiguity preservation.
+- Resolved Grouped and Transcript with high confidence, retained the
+  simple-table name/style versus visible-semantic conflict, and returned
+  `NO_CONFIDENT_TITLE_CANDIDATE` for Invoice.
+- Added page-header and constant-string support without expression execution.
+- Added sanitized live outcomes using session-scoped candidate UUIDs; no
+  deterministic ID, item name, structural path, or outcome enters mutation IPC.
+- Preserved checksum-reviewed title mutation, planner grammar, field candidate
+  catalogs, orientation safety, and all source bytes.
+
+## 2026-07-27 — RDL structure corpus Gate 2I target context
+
+- Added strict structural location, expression, dataset identity, scope role,
+  title candidate, field-display candidate, and catalog runtime schemas.
+- Preserved report region, nested rectangle/tablix containment, bound dataset,
+  row/column member paths, groups, repetition/page-break context, visibility,
+  positions, dimensions, styles, formats, and aggregate metadata.
+- Classified static text, constant-string, direct field, aggregate, parameter,
+  report-global, code, compound, and unknown expressions without execution.
+- Kept detail, group header, group subtotal, Grand Total, static header, and
+  standalone evidence distinct; ambiguous dataset declarations remain explicit.
+- Added sanitized Electron candidate summaries with session-scoped opaque UUIDs.
+  No mutation IPC accepts a candidate handle.
+- Generated deterministic four-fixture catalogs without selecting or
+  authorizing a target. No RDL source or output was written.
+
+## 2026-07-27 — RDL structure corpus Gate 2H page-geometry normalization
+
+- Added runtime-validated `explicit`/`omitted` page measurements; malformed
+  serialized values remain `INVALID_REPORT`.
+- Added known/unknown orientation without inferring physical-page defaults.
+- Completed production inspection and sanitized summaries for all four corpus
+  sources with deterministic before/after evidence.
+- Added atomic pre-write `PAGE_DIMENSIONS_UNSPECIFIED` orientation blocking.
+- Preserved safe XML parsing, explicit-dimension orientation behavior,
+  resolver behavior, planner grammar, Electron security, and source bytes.
+- No imported report was opened, rendered, queried, published, previewed, or
+  exported; this read-only normalization needs no Report Builder validation.
+
+## 2026-07-27 — RDL structure corpus Gate 2C grouped-report acceptance
+
+- Ingested Dylan's personally authored 52,651-byte grouped source read-only and confirmed SHA-256 `03c7a6ea…174b` against the Windows original.
+- Passed safe `libxml2-wasm` parsing with NONET/NO_XXE and the Microsoft RDL 2016/01 XSD without changing the source.
+- Recorded the typed eight-row/five-field ENTERDATA dataset, four Department values with two rows each, one 4×5 tablix body, 26 textboxes, and zero parameters/charts.
+- Inventoried the exact Department → Details hierarchy, body-row/hierarchy-leaf relationship, four scoped aggregates, one outside-group Grand Total, between-group page break, and tablix repeated-heading flags.
+- Recorded actual names and display formats, omitted page dimensions, default DateTime rendering, Double Revenue type, structural aggregate scope, and the Windows working-directory deviation.
+- Corrected the authoring guide and manifest with accepted canonical title `Synthetic Department Sales Summary`, noting that the requirement was not correctly captured before manual authoring.
+- Recorded independent four-page Preview/PDF and four-worksheet Excel acceptance with no repair, conversion, blanks, clipping, or `#Error`.
+- Added exact identity, immutability, safe parse, XSD, inventory, row/type, hierarchy, aggregate, pagination, title, format, and absence regressions.
+- Passed changed-file formatting, ESLint, workspace typecheck, 42 test files / 313 tests, and the production build.
+- Made no resolver, generic-inspector, mutation, planner, Electron, or LLM change. Parameterized authoring and later gates remain unstarted.
+
+## 2026-07-23 — RDL structure corpus Gate 2B simple-table acceptance
+
+- Ingested Dylan's personally authored 21,402-byte simple-table source read-only and confirmed SHA-256 `e3a34afe…448e3` before validation.
+- Parsed the source with `libxml2-wasm` using NONET/NO_XXE protections and passed the Microsoft RDL 2016/01 XSD.
+- Added a deterministic corpus inventory that permits honest null serialized dimensions instead of assigning unproven defaults.
+- Recorded one ENTERDATA dataset, five rows, one tablix, one implicit Details member, zero non-detail groups, zero parameters, ten textboxes, zero aggregate expressions, and zero page breaks.
+- Recorded actual item names, competing title candidates, Units/UnitCost binding evidence, string-typed numeric fields, explicit currency format, omitted dimensions, and the generic inspector's pre-resolution dimension limitation.
+- Recorded independent Windows one-page Preview/PDF and one-worksheet Excel acceptance, with no repair, conversion, blank page, clipping, or `#Error`.
+- Added exact identity, safe parse, deterministic inventory, immutability, XSD, embedded data, type, hierarchy, and candidate-evidence regressions.
+- Passed changed-file formatting, ESLint, workspace typecheck, 41 test files / 304 tests, and the production build.
+- Made no resolver, mutation, planner, Electron, or LLM change. The grouped fixture and Gate 2C remain unstarted.
+
+## 2026-07-23 — RDL Structure Corpus v0.3 Gate 1 design
+
+- Created `codex/rdl-structure-corpus-v0.3` from the independently accepted v0.2 merge without changing any frozen tag.
+- Defined simple-table, grouped, parameterized/multi-dataset, and alternate-layout Report Builder fixture plans using personally authored MIT-licensed synthetic Enter Data content.
+- Added a strict runtime corpus-index schema covering provenance, structure, title/field evidence, expected classifications, frozen EditPlans, pending source identity, and baseline status.
+- Documented likely ambiguity, generic versus profile-review hypotheses, directory contracts, and the seven-gate ladder.
+- No RDL source, resolver behavior, mutation, UI, LLM, or Report Builder validation work began.
+
 ## 2026-07-23 — Existing RDL Sidecar Gate 6 independent Windows acceptance
 
 - Dylan independently verified the portable EXE size/SHA and executed it from a Windows-local directory in a personally controlled Windows 11 VM.
@@ -304,3 +381,171 @@
 - Power BI Report Builder passed open, three-page Preview, six-row completeness, Region subtotals, Grand Total, Region page breaks, repeating headings, Page N of M, no blank pages, no clipping, and no `#Error` values.
 - PDF export passed with three pages; Excel export passed with three worksheets, no repair warning, preserved totals, and numeric values.
 - Recorded PowerShell's default-decoding corruption of the UTF-8 em dash as a test-environment issue resolved by explicit UTF-8 input. Deferred the Windows `Reveal in Finder` label as cosmetic.
+
+## 2026-07-28 — RDL Structure Corpus Gate 2K read-only field resolution
+
+- Added strict `{ fieldName }` runtime validation and case-insensitive exact
+  matching over the unchanged Gate 2I field-display catalog.
+- Preserved dataset declarations and tablix binding, expression and aggregate
+  metadata, member/group context, structural scope roles, existing formats,
+  hidden state, and deterministic structural ordering in every ranked result.
+- Added explicit resolved, ambiguous, not-found, and unsupported outcomes with
+  stable reason codes and permanent `mutationAuthorized: false`.
+- Added corpus-wide deterministic evidence for every displayed field. Verified
+  the required UnitCost, grouped Revenue, Invoice Amount/Discount/Quantity/
+  SalesPrice, and Transcript Name/Date outcomes.
+- Added one narrow main-process field-resolution method. It accepts only a live
+  report-session UUID and field name, translates diagnostic IDs to fresh
+  session UUIDs, performs no filesystem write, and is not accepted by planner
+  or mutation IPC.
+- Changed no RDL source, reviewed mutation target, planner grammar, title
+  resolver, renderer controls, or LLM behavior.
+- Passed changed human-authored file formatting, ESLint, workspace typecheck,
+  50 test files / 386 tests, production build, JSON validation, and
+  byte-identical evidence regeneration. The repository-wide Prettier check
+  continues to flag pre-existing machine-generated inventories and the
+  lockfile; generated evidence remains in its deterministic serializer format.
+
+## 2026-07-28 — RDL Structure Corpus Gate 2L operation review
+
+- Added a strict review-bundle model bound to an active inspection session,
+  source SHA-256, unchanged typed plan and plan SHA-256, catalog version, and
+  one deterministic identity per plan operation.
+- Added explicit ready, choice-required, blocked, confirmed, and declined
+  states. Every state requires `mutationAuthorized: false`; every bundle also
+  requires `executable: false`.
+- Added exact-candidate selection, confirmation, decline, and reset transitions
+  with count, membership, type, duplicate, stale-session, source-change, and
+  plan-change validation.
+- Added main-process-owned opaque review drafts and narrow sandboxed IPC.
+  Candidate UUIDs are accepted only by review IPC and remain invalid for apply.
+- Added a minimal review-only renderer workflow with no generic Apply, Save,
+  Generate, or Execute action. The checksum-reviewed edit workflow remains
+  separate and unchanged.
+- Added deterministic simple, grouped, Invoice, and Transcript simulations.
+  Imported reports were statically read only; neither was opened, rendered,
+  queried, previewed, published, or exported.
+- Passed changed human-authored file formatting, ESLint, workspace typecheck,
+  51 test files / 400 tests, production build, JSON parsing, source/hash and
+  canonical-output immutability, and byte-identical evidence regeneration.
+  Repository-wide Prettier accurately remains a failure on 29 generator-owned
+  JSON/lock files (25 pre-existing and four new fixture artifacts); none was
+  reformatted independently of its deterministic generator.
+
+## 2026-07-28 — RDL Structure Corpus Gate 2M generic mutation
+
+- Added main-process-only authorization from fully reviewed, unblocked bundles.
+  It binds source/plan/review/catalog/operation/candidate identities and is
+  single-use.
+- Added exact title TextRun mutation for static and constant-string values,
+  independent size/weight/alignment changes, and exact direct/aggregate field
+  formatting including reviewed multi-candidate subsets.
+- Added full captured-candidate revalidation, in-memory mutation, NONET parsing,
+  2016/01 XSD validation, semantic structural preservation, final inspection,
+  source rehashing, and atomic duplicate/manifest output.
+- Added “Create reviewed copy” to the review UI only when all operations are
+  confirmed or declined and none is blocked. Authorization internals and
+  writable targets never enter renderer data.
+- Added deterministic controlled simple/grouped-all/grouped-detail evidence and
+  static Invoice/Transcript evidence. Generated RDL bytes are validated and
+  hashed but not committed; imported sources were not queried or rendered.
+- Passed changed human-authored formatting, ESLint, workspace typecheck, 52
+  test files / 409 tests, production build, JSON parsing, generated-output
+  XML/XSD validation, canonical v0.2 output regression, source immutability,
+  and byte-identical evidence regeneration. Repository-wide Prettier accurately
+  remains a failure on 34 generator-owned JSON/lock files (29 pre-existing and
+  five new result artifacts).
+
+## 2026-07-28 — RDL Structure Corpus Gate 2N Windows v0.3 release candidate
+
+- Set the application release-candidate version to `0.3.0` and regenerated the
+  Gate 2M deterministic evidence with matching manifest metadata.
+- Built the unsigned Windows x64 portable executable with Electron Builder:
+  `Power-BI-RDL-Copilot-0.3.0-windows-x64-portable.exe`, 89,642,264 bytes,
+  SHA-256 `c1097489…d50a`.
+- Assembled `artifacts/windows-v0.3-validation/` with the executable, four
+  byte-identical accepted RDL inputs, Microsoft MIT license, exact manual
+  walkthrough, structured expected results, and per-file SHA-256 inventory.
+- Created the integrity-tested `artifacts/windows-v0.3-validation.zip`,
+  89,707,237 bytes, SHA-256 `a11431c5…6932`.
+- Added release-bundle regressions for application version, unsigned portable
+  x64 configuration, executable identity, copied source/license identity,
+  checksum coverage, and unfilled independent-validation fields.
+- Passed changed human-authored formatting, ESLint, workspace typecheck, 53
+  test files / 413 tests, production build, Windows packaging, executable and
+  bundle hashing, ZIP integrity, JSON validation, canonical v0.2 regression,
+  source immutability, and byte-identical Gate 2M evidence regeneration.
+- Independent Windows/Report Builder/PDF/Excel results remain pending. No
+  release, merge, milestone tag, new operation, grammar change, dimension
+  inference, or v0.4 work is part of this gate.
+
+## 2026-07-28 — RDL Structure Corpus Gate 2O Windows acceptance
+
+- Recorded Dylan's independent Windows 11 VM acceptance of the unsigned v0.3.0
+  portable executable across controlled simple, controlled grouped, Microsoft
+  Invoice, and Microsoft Transcript scenarios.
+- All four passed reviewed-copy creation, original preservation, manifest
+  creation, Report Builder open/Preview, PDF export, and Excel export with no
+  reported unexpected warning, repair prompt, blank page, or `#Error`.
+- Recorded exact Preview/PDF/Excel counts as not captured during final user
+  confirmation rather than inferring them.
+- Added deterministic Markdown and JSON release-validation records and a
+  regression preventing fabricated counts or identity drift.
+- Passed changed-file formatting, ESLint, workspace typecheck, 53 test files /
+  414 tests, production build, executable/ZIP/source/canonical v0.2 identity
+  checks, JSON and ZIP validation, and byte-identical Gate 2M regeneration.
+- No accepted source, release executable, validation ZIP, operation, grammar,
+  resolver, page-dimension behavior, or v0.4 implementation changed.
+
+## 2026-07-23 — RDL structure corpus Gate 2A authoring kit
+
+- Continued from accepted Gate 1 commit `d7989831` without changing any frozen milestone tag.
+- Added a runtime-validated Gate 2A manifest that locks the manual fixture order, synthetic-only safety policy, source destinations, field schemas/types, row counts, authoring-kit paths, and expected totals.
+- Added six UTF-8 tab-delimited Enter Data files: five inventory rows, eight department-sales rows, six budget rows, three parameter-lookup rows, and six project-cost rows.
+- Added four Report Builder construction guides covering blank-report creation, exact structures and item names, formats, page settings, Preview, save/close/reopen, PDF, and Excel.
+- Added four source-validation worksheets with unfilled SHA-256, namespace, version, page/sheet counts, warnings, authorship, licensing, and behavior evidence.
+- Added regressions for manifest policy/order, TSV schemas and counts, required guide/worksheet evidence, and the absence of any corpus `.rdl`.
+- Passed changed-file formatting, ESLint, workspace typecheck, 40 test files / 297 tests, and the production build.
+- Created no source RDL and changed no resolver, mutation, planner, Electron, or LLM implementation. Gate 2B remains blocked pending Dylan's manual simple-table authoring and validation.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2D official-sample discovery
+
+- Acquired the official Microsoft Reporting Services repository into a temporary external directory and pinned `master` commit `acc2ee0d1884765e4b5213149430fb063d166719`.
+- Read the upstream `License.md` directly, recorded its MIT terms and SHA-256, and defined later-import attribution requirements.
+- Statically inspected all seven `PaginatedReportSamples` RDLs with network, DTD, and external-entity resolution disabled; no report, query, code, credential, or referenced resource was executed.
+- Recorded exact source identities, security findings, 2016/01 namespace and XSD passes, deterministic structural inventories, generic-inspector stop evidence, selection classifications, and a complete corpus feature matrix.
+- Recommended Invoice, Transcript, Labels, and Letter for a later import review; kept Country Sales Performance and Regional Sales reference-only; deferred chart-only Organization Expenditures.
+- Narrowed the still-paused parameterized fixture to deliberate field ambiguity and the still-paused alternate-layout fixture to uncovered controlled layout conditions.
+- Added discovery-integrity regressions. No upstream RDL was committed and no resolver, inspector, mutation, planner, Electron, LLM, or packaging implementation changed.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2E pinned Invoice import
+
+- Reacquired Microsoft Reporting Services at pinned `master` commit `acc2ee0d1884765e4b5213149430fb063d166719` outside the repository and fail-closed on the expected source and license identities.
+- Imported only `PaginatedReportSamples/Invoice.rdl` through an exact byte copy: 222,297 bytes, SHA-256 `6251f6b9…53fdc`.
+- Preserved the unmodified upstream MIT license and Microsoft copyright notice adjacent to the canonical imported source.
+- Re-ran safe static parsing, XML/XSD validation, security verification, deterministic inventory comparison, attribution checks, and source immutability checks.
+- Registered Invoice separately from the four controlled personally authored fixtures and recorded that Report Builder open, Preview, query execution, rendering, and export were not performed.
+- Added fixture-level identity, structure, overlap, lookup-parameter, security, attribution, and immutability regressions. No other RDL, manual fixture, product behavior, or later gate was started.
+- Passed changed-file formatting, ESLint, workspace typecheck, 44 test files / 322 tests, production build, JSON parsing, deterministic regeneration, exact byte comparison, and upstream-clean verification.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2F pinned Transcript import
+
+- Reacquired the pinned Microsoft repository outside the product repository and fail-closed on commit, Transcript size/hash, and license hash.
+- Imported only `PaginatedReportSamples/Transcript.rdl` through an exact byte copy: 116,709 bytes, SHA-256 `9693231c…2e81`.
+- Preserved the unmodified upstream MIT license and attribution adjacent to the canonical source; verified Invoice remained `6251f6b9…53fdc`.
+- Re-ran safe parsing, 2016/01 XSD validation, complete static security scanning, source immutability checks, and deterministic inventory regeneration.
+- Added deterministic evidence for overlapping fields, page-header title styling, tablix containers, nested row members, rectangle parents/children, and the depth-two `Rectangle2 → Rectangle5 → Rectangle6` path.
+- Registered Transcript as the second static external fixture without changing or canceling either paused controlled fixture.
+- Neither imported report was opened, rendered, queried, published, or exported. No resolver, inspector, mutation, planner, Electron, LLM, packaging behavior, other Microsoft import, or later gate was started.
+- Passed changed-file formatting, ESLint, workspace typecheck, 45 test files / 326 tests, production build, all corpus JSON parsing, deterministic regeneration, exact Transcript/Invoice byte verification, and upstream-clean verification.
+
+# 2026-07-27 — RDL Structure Corpus Gate 2G inspector/resolver baseline
+
+- Hash-verified all four accepted sources before evaluation and invoked the unchanged `inspectRdlFile` production entry point used by the Electron sidecar.
+- Recorded the identical production stop for all four: XML/namespace pass, page-settings normalization fails with `INVALID_REPORT: ReportSection 0 lacks PageWidth`, no partial inventory, and no renderer summary.
+- Added a separate NONET corpus-assisted diagnostic for candidate evidence only; it is not routed into production services.
+- Recorded deterministic title evidence/scores, direct and `Sum` field bindings, dataset overlap, tablix context, page blockers, grammar results, and stable operation classifications.
+- Confirmed simple title logic would select the wrong styled placeholder; grouped title is correct; Invoice has no confident title; Transcript's page-header title is unsupported by current discovery.
+- Parsed simple/grouped requests into typed plans with diagnostic contexts and recorded Transcript's atomic `UNSUPPORTED_REQUEST` rejection for `left aligned`; executed no plan.
+- Added a nine-stage smallest-safe implementation recommendation. No source, inspector, resolver, planner, mutation, IPC, renderer, packaging, or RDL output changed.
+- Passed changed-file formatting, ESLint, workspace typecheck, 46 test files / 331 tests, production build, all baseline JSON parsing, deterministic regeneration, eight production-source identity checks, and four post-evaluation RDL hash checks.

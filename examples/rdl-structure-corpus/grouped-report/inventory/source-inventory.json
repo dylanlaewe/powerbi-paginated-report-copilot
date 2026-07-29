@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "source": {
+    "fileName": "synthetic-department-sales.rdl",
+    "byteSize": 52651,
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "utf8Bom": true,
+    "lineEndings": "CRLF"
+  },
+  "xml": {
+    "wellFormed": true,
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "reportBuilderName": "PBIRB",
+    "reportBuilderVersion": "15.7.1819.28"
+  },
+  "dataSources": [
+    {
+      "name": "DataSource1",
+      "provider": "ENTERDATA",
+      "connectionString": "",
+      "integratedSecurity": true
+    }
+  ],
+  "datasets": [
+    {
+      "name": "DepartmentSales",
+      "fields": [
+        {
+          "name": "SaleDate",
+          "typeName": "System.DateTime",
+          "designerType": "Date"
+        },
+        {
+          "name": "Department",
+          "typeName": "System.String",
+          "designerType": "String"
+        },
+        {
+          "name": "Representative",
+          "typeName": "System.String",
+          "designerType": "String"
+        },
+        {
+          "name": "Units",
+          "typeName": "System.Int32",
+          "designerType": "Integer"
+        },
+        {
+          "name": "Revenue",
+          "typeName": "System.Double",
+          "designerType": "Float"
+        }
+      ],
+      "embeddedData": {
+        "rowCount": 8,
+        "columnCount": 5,
+        "departments": ["Design", "Field Services", "Operations", "Research"],
+        "rowsPerDepartment": {
+          "Design": 2,
+          "Field Services": 2,
+          "Operations": 2,
+          "Research": 2
+        }
+      }
+    }
+  ],
+  "counts": {
+    "dataSources": 1,
+    "datasets": 1,
+    "parameters": 0,
+    "tablixes": 1,
+    "serializedGroups": 2,
+    "nonDetailGroups": 1,
+    "semanticGroups": 1,
+    "detailsMembers": 1,
+    "textboxes": 26,
+    "aggregateExpressions": 4,
+    "pageBreaks": 1,
+    "charts": 0
+  },
+  "tablix": {
+    "name": "DepartmentSalesTable",
+    "datasetName": "DepartmentSales",
+    "bodyColumnCount": 4,
+    "bodyRowCount": 5,
+    "rowHeaderWidth": "1in",
+    "width": "5in",
+    "repeatRowHeaders": true,
+    "fixedRowHeaders": true,
+    "bodyRows": [
+      {
+        "index": 0,
+        "classification": "staticColumnHeaders",
+        "textboxNames": ["Textbox7", "Textbox11", "Textbox13", "Textbox15"]
+      },
+      {
+        "index": 1,
+        "classification": "departmentHeaderCompanion",
+        "textboxNames": ["Textbox57", "Textbox59", "Textbox60", "Textbox61"]
+      },
+      {
+        "index": 2,
+        "classification": "details",
+        "textboxNames": [
+          "DetailSaleDate",
+          "DetailRepresentative",
+          "DetailUnits",
+          "DetailRevenue"
+        ]
+      },
+      {
+        "index": 3,
+        "classification": "departmentSubtotal",
+        "textboxNames": [
+          "Textbox51",
+          "Textbox53",
+          "Textbox54",
+          "DepartmentRevenueSubtotal"
+        ]
+      },
+      {
+        "index": 4,
+        "classification": "grandTotal",
+        "textboxNames": [
+          "Textbox65",
+          "Textbox66",
+          "Textbox67",
+          "ReportRevenueTotal"
+        ]
+      }
+    ],
+    "rowHierarchy": [
+      {
+        "path": "0",
+        "kind": "static",
+        "headerTextbox": "Textbox48",
+        "value": "Department",
+        "keepWithGroup": "After"
+      },
+      {
+        "path": "1",
+        "kind": "dynamicGroup",
+        "groupName": "Department",
+        "groupExpression": "=Fields!Department.Value",
+        "sortExpression": "=Fields!Department.Value",
+        "pageBreak": "Between"
+      },
+      {
+        "path": "1.0",
+        "kind": "staticWithinDepartment",
+        "headerTextbox": "Department",
+        "value": "=Fields!Department.Value"
+      },
+      {
+        "path": "1.1",
+        "kind": "staticWithinDepartment",
+        "headerTextbox": "Textbox62",
+        "value": ""
+      },
+      {
+        "path": "1.1.0",
+        "kind": "details",
+        "groupName": "Details",
+        "groupExpression": null
+      },
+      {
+        "path": "1.2",
+        "kind": "departmentSubtotal",
+        "headerTextbox": "Textbox63",
+        "value": "=Fields!Department.Value & \" Subtotal\"",
+        "keepWithGroup": "Before"
+      },
+      {
+        "path": "2",
+        "kind": "grandTotalOutsideDepartment",
+        "headerTextbox": "Textbox64",
+        "value": "Grand Total",
+        "keepWithGroup": "Before"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "name": "Department",
+      "kind": "semantic",
+      "expression": "=Fields!Department.Value",
+      "sortExpression": "=Fields!Department.Value",
+      "pageBreak": "Between"
+    },
+    {
+      "name": "Details",
+      "kind": "implicitDetails",
+      "expression": null,
+      "parentGroup": "Department"
+    }
+  ],
+  "aggregateExpressions": [
+    {
+      "textboxName": "Textbox54",
+      "expression": "=Sum(Fields!Units.Value)",
+      "format": "0",
+      "scopeEvidence": "body row 3 and hierarchy member 1.2 beneath Department"
+    },
+    {
+      "textboxName": "DepartmentRevenueSubtotal",
+      "expression": "=Sum(Fields!Revenue.Value)",
+      "format": "C2",
+      "scopeEvidence": "body row 3 and hierarchy member 1.2 beneath Department"
+    },
+    {
+      "textboxName": "Textbox67",
+      "expression": "=Sum(Fields!Units.Value)",
+      "format": "0",
+      "scopeEvidence": "body row 4 and hierarchy member 2 outside Department"
+    },
+    {
+      "textboxName": "ReportRevenueTotal",
+      "expression": "=Sum(Fields!Revenue.Value)",
+      "format": "C2",
+      "scopeEvidence": "body row 4 and hierarchy member 2 outside Department"
+    }
+  ],
+  "reportItems": {
+    "textboxNames": [
+      "ReportTitle",
+      "Textbox7",
+      "Textbox11",
+      "Textbox13",
+      "Textbox15",
+      "Textbox57",
+      "Textbox59",
+      "Textbox60",
+      "Textbox61",
+      "DetailSaleDate",
+      "DetailRepresentative",
+      "DetailUnits",
+      "DetailRevenue",
+      "Textbox51",
+      "Textbox53",
+      "Textbox54",
+      "DepartmentRevenueSubtotal",
+      "Textbox65",
+      "Textbox66",
+      "Textbox67",
+      "ReportRevenueTotal",
+      "Textbox48",
+      "Department",
+      "Textbox62",
+      "Textbox63",
+      "Textbox64"
+    ],
+    "title": {
+      "name": "ReportTitle",
+      "value": "Synthetic Department Sales Summary",
+      "container": "body",
+      "fontSize": "18pt",
+      "fontWeight": "Bold",
+      "textAlign": "default left"
+    },
+    "displayEvidence": [
+      {
+        "name": "DetailSaleDate",
+        "expression": "=Fields!SaleDate.Value",
+        "format": null,
+        "note": "short-date rendering passed in Report Builder but no literal Format serialized"
+      },
+      {
+        "name": "DetailUnits",
+        "expression": "=Fields!Units.Value",
+        "format": "0"
+      },
+      {
+        "name": "DetailRevenue",
+        "expression": "=Fields!Revenue.Value",
+        "format": "C2"
+      },
+      {
+        "name": "Textbox54",
+        "expression": "=Sum(Fields!Units.Value)",
+        "format": "0"
+      },
+      {
+        "name": "DepartmentRevenueSubtotal",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "format": "C2"
+      },
+      {
+        "name": "Textbox67",
+        "expression": "=Sum(Fields!Units.Value)",
+        "format": "0"
+      },
+      {
+        "name": "ReportRevenueTotal",
+        "expression": "=Sum(Fields!Revenue.Value)",
+        "format": "C2"
+      }
+    ]
+  },
+  "pagination": {
+    "departmentPageBreak": {
+      "groupName": "Department",
+      "breakLocation": "Between"
+    },
+    "repeatedHeadingSerialization": {
+      "repeatRowHeaders": true,
+      "fixedRowHeaders": true,
+      "repeatOnNewPageElements": 0
+    }
+  },
+  "reportSection": {
+    "bodyWidth": "7.08333in",
+    "serializedPageWidth": null,
+    "serializedPageHeight": null,
+    "margins": {
+      "left": "0.5in",
+      "right": "0.5in",
+      "top": "0.5in",
+      "bottom": "0.5in"
+    },
+    "effectiveWindowsPage": {
+      "width": "8.5in",
+      "height": "11in",
+      "orientation": "portrait"
+    }
+  }
+}

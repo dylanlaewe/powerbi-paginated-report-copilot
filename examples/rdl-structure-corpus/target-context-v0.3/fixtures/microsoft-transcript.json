@@ -1,0 +1,1696 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-transcript",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+    "byteLength": 116709,
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+  },
+  "productionInspectionResult": "PASS",
+  "structuralLocationInventory": {
+    "regions": [
+      "body",
+      "pageHeader"
+    ],
+    "containerPaths": [
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Name2)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[0]/Textbox(Textbox63)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[0]/Textbox(Textbox47)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[1]/Textbox(Textbox49)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[2]/Textbox(Textbox51)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[5]/cell[0]/Textbox(Textbox19)",
+      "section[0]/pageHeader/Textbox(Textbox1)",
+      "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox34)",
+      "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox36)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(Date1)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[1]/Textbox(Version)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)",
+      "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[1]/Textbox(Description)",
+      "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox39)"
+    ],
+    "tablixes": [
+      {
+        "name": "Tablix1",
+        "datasetName": "Certification"
+      },
+      {
+        "name": "Tablix2",
+        "datasetName": "Certification"
+      },
+      {
+        "name": "Tablix6",
+        "datasetName": "Certification"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Name",
+        "expressions": [
+          "=Fields!Name.Value"
+        ]
+      },
+      {
+        "name": "Details",
+        "expressions": [
+          "=Fields!Name.Value"
+        ]
+      },
+      {
+        "name": "Details1",
+        "expressions": []
+      }
+    ]
+  },
+  "titleCandidateCatalog": [
+    {
+      "diagnosticId": "c77663ad615251d7ba55",
+      "reportItemType": "Textbox",
+      "reportItemName": "Name",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Certification Number:\"",
+        "text": "Certification Number:"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "visibleText": "Certification Number:",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "bold text; located in body"
+    },
+    {
+      "diagnosticId": "53c6362250a7037fb46d",
+      "reportItemType": "Textbox",
+      "reportItemName": "Name2",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Name2)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Achievement Date:\"",
+        "text": "Achievement Date:"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "visibleText": "Achievement Date:",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "bold text; located in body"
+    },
+    {
+      "diagnosticId": "9c43277c6d42181be5e3",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox63",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[0]/Textbox(Textbox63)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Certification Version:\"",
+        "text": "Certification Version:"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Right"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "visibleText": "Certification Version:",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "bold text; located in body"
+    },
+    {
+      "diagnosticId": "6850fba726a217a0ead8",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox47",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[0]/Textbox(Textbox47)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix6"
+        ],
+        "tablixName": "Tablix6",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Exam ID\"",
+        "text": "Exam ID"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Exam ID",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "bold text; located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "2c0ac641ad1210970337",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox49",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[1]/Textbox(Textbox49)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix6"
+        ],
+        "tablixName": "Tablix6",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Description\"",
+        "text": "Description"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Description",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "bold text; located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "6f95d6eb4b9d9c858c6f",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox51",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[2]/Textbox(Textbox51)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix6"
+        ],
+        "tablixName": "Tablix6",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Date Completed\"",
+        "text": "Date Completed"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Date Completed",
+      "positiveEvidence": [
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header"
+      ],
+      "evidenceSummary": "bold text; located in body; located in a tablix static header"
+    },
+    {
+      "diagnosticId": "028b84f7c53c7da85e56",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox19",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[5]/cell[0]/Textbox(Textbox19)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle21)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle21"
+        ],
+        "tablixAncestry": [
+          "Tablix1"
+        ],
+        "tablixName": "Tablix1",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[3]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.5cm",
+        "left": "0.26935cm",
+        "width": "18.80392cm",
+        "height": "0.67639cm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\"",
+        "text": "Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred."
+      },
+      "fontSizes": [
+        "8pt"
+      ],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticLabel",
+        "confidence": "medium",
+        "evidence": [
+          "static text appears in a tablix row"
+        ]
+      },
+      "visibleText": "Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+      "positiveEvidence": [
+        "font size 8pt",
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "likely static label or caption"
+      ],
+      "evidenceSummary": "font size 8pt; located in body; likely static label or caption"
+    },
+    {
+      "diagnosticId": "868868b3c6a8dd1a8bb9",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox1",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageHeader",
+        "structuralPath": "section[0]/pageHeader/Textbox(Textbox1)",
+        "containerChain": [],
+        "rectangleAncestry": [],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": "8.48in",
+        "height": "0.54862in",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Contoso Professional Certified Transcript\"",
+        "text": "Contoso Professional Certified Transcript"
+      },
+      "fontSizes": [
+        "22pt"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "Contoso Professional Certified Transcript",
+      "positiveEvidence": [
+        "font size 22pt",
+        "bold text",
+        "located in pageHeader"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "font size 22pt; bold text; located in pageHeader"
+    },
+    {
+      "diagnosticId": "f05bacce914c94b34a24",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox34",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageHeader",
+        "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox34)",
+        "containerChain": [
+          "Rectangle(Rectangle2)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle2",
+          "Rectangle5",
+          "Rectangle6"
+        ],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.36284mm",
+        "left": "0.23268mm",
+        "width": "42.55618mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Last activity recorded : \"",
+        "text": "Last activity recorded : "
+      },
+      "fontSizes": [
+        "4mm"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "Last activity recorded : ",
+      "positiveEvidence": [
+        "font size 4mm",
+        "bold text",
+        "located in pageHeader"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "font size 4mm; bold text; located in pageHeader"
+    },
+    {
+      "diagnosticId": "f75d0cfc2b120c7378e1",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox36",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageHeader",
+        "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox36)",
+        "containerChain": [
+          "Rectangle(Rectangle2)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle2",
+          "Rectangle5",
+          "Rectangle6"
+        ],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "5.42117mm",
+        "left": "0.23266mm",
+        "width": "22.35421mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "constantStringExpression",
+        "expression": "=\"Student ID : \"",
+        "text": "Student ID : "
+      },
+      "fontSizes": [
+        "4mm"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "Student ID : ",
+      "positiveEvidence": [
+        "font size 4mm",
+        "bold text",
+        "located in pageHeader"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "font size 4mm; bold text; located in pageHeader"
+    }
+  ],
+  "fieldDisplayCandidateCatalog": [
+    {
+      "diagnosticId": "fe7540a28eadaf3eacb7",
+      "reportItemType": "Textbox",
+      "reportItemName": "Number1",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Number.Value",
+        "fieldName": "Number"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Number",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 2
+    },
+    {
+      "diagnosticId": "646b0aff6aa67f24ae30",
+      "reportItemType": "Textbox",
+      "reportItemName": "Date1",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(Date1)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Date.Value",
+        "fieldName": "Date"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Date",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "fe9d58fc15a4403e48e4",
+      "reportItemType": "Textbox",
+      "reportItemName": "Version",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[1]/Textbox(Version)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Version.Value",
+        "fieldName": "Version"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Version",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "620136486660715d3d90",
+      "reportItemType": "Textbox",
+      "reportItemName": "Name1",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle9)",
+          "Tablix(Tablix2)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle9"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix2"
+        ],
+        "tablixName": "Tablix2",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[0]",
+          "rowMember[1]",
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Name",
+          "Details"
+        ],
+        "groupExpressions": [
+          "=Fields!Name.Value",
+          "=Fields!Name.Value"
+        ],
+        "memberKinds": [
+          "dynamic",
+          "dynamic",
+          "static"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Name.Value",
+        "fieldName": "Name"
+      },
+      "fontSizes": [],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [
+        "Center"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Name",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": false
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "daed15b91333d86ecf9e",
+      "reportItemType": "Textbox",
+      "reportItemName": "Number",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix6"
+        ],
+        "tablixName": "Tablix6",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Details1"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Number.Value",
+        "fieldName": "Number"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Number",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 2
+    },
+    {
+      "diagnosticId": "cda526fcf40796f8e835",
+      "reportItemType": "Textbox",
+      "reportItemName": "Description",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[1]/Textbox(Description)",
+        "containerChain": [
+          "Tablix(Tablix1)",
+          "Rectangle(Rectangle19)",
+          "Tablix(Tablix6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle19"
+        ],
+        "tablixAncestry": [
+          "Tablix1",
+          "Tablix6"
+        ],
+        "tablixName": "Tablix6",
+        "tablixDatasetName": "Certification",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [
+          "Details1"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Description.Value",
+        "fieldName": "Description"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Description",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "4c992ba6ac5dbc28626a",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox39",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "pageHeader",
+        "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox39)",
+        "containerChain": [
+          "Rectangle(Rectangle2)",
+          "Rectangle(Rectangle5)",
+          "Rectangle(Rectangle6)"
+        ],
+        "rectangleAncestry": [
+          "Rectangle2",
+          "Rectangle5",
+          "Rectangle6"
+        ],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "5.42117mm",
+        "left": "23.29242mm",
+        "width": "25.75972mm",
+        "height": "4mm",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!UserId.Value, \"Certification\")",
+        "functionName": "First",
+        "fieldName": "UserId",
+        "explicitScope": "Certification"
+      },
+      "fontSizes": [
+        "4mm"
+      ],
+      "fontWeights": [],
+      "textAlignments": [
+        "Left"
+      ],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "UserId",
+        "datasetName": "Certification",
+        "possibleDatasets": [
+          "Certification"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    }
+  ],
+  "datasetOverlapEvidence": [
+    {
+      "fieldName": "Name",
+      "datasetNames": [
+        "Certification",
+        "Users"
+      ]
+    }
+  ],
+  "aggregateScopeEvidence": [
+    {
+      "diagnosticId": "4c992ba6ac5dbc28626a",
+      "reportItemName": "Textbox39",
+      "expression": {
+        "kind": "aggregateExpression",
+        "expression": "=First(Fields!UserId.Value, \"Certification\")",
+        "functionName": "First",
+        "fieldName": "UserId",
+        "explicitScope": "Certification"
+      },
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "groupNames": []
+    }
+  ],
+  "containerHierarchyEvidence": [
+    {
+      "diagnosticId": "c77663ad615251d7ba55",
+      "reportItemName": "Name",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "53c6362250a7037fb46d",
+      "reportItemName": "Name2",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[2]/Textbox(Name2)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "9c43277c6d42181be5e3",
+      "reportItemName": "Textbox63",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[0]/Textbox(Textbox63)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "6850fba726a217a0ead8",
+      "reportItemName": "Textbox47",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[0]/Textbox(Textbox47)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix6)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "2c0ac641ad1210970337",
+      "reportItemName": "Textbox49",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[1]/Textbox(Textbox49)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix6)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "6f95d6eb4b9d9c858c6f",
+      "reportItemName": "Textbox51",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[0]/cell[2]/Textbox(Textbox51)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix6)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "028b84f7c53c7da85e56",
+      "reportItemName": "Textbox19",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle21)/row[5]/cell[0]/Textbox(Textbox19)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle21)"
+      ],
+      "rowMemberPath": [
+        "rowMember[3]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "f05bacce914c94b34a24",
+      "reportItemName": "Textbox34",
+      "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox34)",
+      "containerChain": [
+        "Rectangle(Rectangle2)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle6)"
+      ],
+      "rowMemberPath": [],
+      "columnMemberPath": []
+    },
+    {
+      "diagnosticId": "f75d0cfc2b120c7378e1",
+      "reportItemName": "Textbox36",
+      "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox36)",
+      "containerChain": [
+        "Rectangle(Rectangle2)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle6)"
+      ],
+      "rowMemberPath": [],
+      "columnMemberPath": []
+    },
+    {
+      "diagnosticId": "fe7540a28eadaf3eacb7",
+      "reportItemName": "Number1",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[1]/Textbox(Number1)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "646b0aff6aa67f24ae30",
+      "reportItemName": "Date1",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[3]/Textbox(Date1)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "fe9d58fc15a4403e48e4",
+      "reportItemName": "Version",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[2]/cell[1]/Textbox(Version)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "620136486660715d3d90",
+      "reportItemName": "Name1",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle9)/Tablix(Tablix2)/row[1]/cell[0]/Textbox(Name1)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle9)",
+        "Tablix(Tablix2)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]",
+        "rowMember[1]",
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "daed15b91333d86ecf9e",
+      "reportItemName": "Number",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[0]/Textbox(Number)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix6)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "cda526fcf40796f8e835",
+      "reportItemName": "Description",
+      "structuralPath": "section[0]/body/Tablix(Tablix1)/Rectangle(Rectangle19)/Tablix(Tablix6)/row[1]/cell[1]/Textbox(Description)",
+      "containerChain": [
+        "Tablix(Tablix1)",
+        "Rectangle(Rectangle19)",
+        "Tablix(Tablix6)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "4c992ba6ac5dbc28626a",
+      "reportItemName": "Textbox39",
+      "structuralPath": "section[0]/pageHeader/Rectangle(Rectangle2)/Rectangle(Rectangle5)/Rectangle(Rectangle6)/Textbox(Textbox39)",
+      "containerChain": [
+        "Rectangle(Rectangle2)",
+        "Rectangle(Rectangle5)",
+        "Rectangle(Rectangle6)"
+      ],
+      "rowMemberPath": [],
+      "columnMemberPath": []
+    }
+  ],
+  "candidateOrdering": {
+    "titleDiagnosticIds": [
+      "c77663ad615251d7ba55",
+      "53c6362250a7037fb46d",
+      "9c43277c6d42181be5e3",
+      "6850fba726a217a0ead8",
+      "2c0ac641ad1210970337",
+      "6f95d6eb4b9d9c858c6f",
+      "028b84f7c53c7da85e56",
+      "868868b3c6a8dd1a8bb9",
+      "f05bacce914c94b34a24",
+      "f75d0cfc2b120c7378e1"
+    ],
+    "fieldDiagnosticIds": [
+      "fe7540a28eadaf3eacb7",
+      "646b0aff6aa67f24ae30",
+      "fe9d58fc15a4403e48e4",
+      "620136486660715d3d90",
+      "daed15b91333d86ecf9e",
+      "cda526fcf40796f8e835",
+      "4c992ba6ac5dbc28626a"
+    ]
+  },
+  "remainingInformationLoss": [
+    "Candidate discovery does not select or score a generic target.",
+    "Structural role inference is conservative and remains review evidence.",
+    "No candidate identifier is mutation authority."
+  ],
+  "selectedTarget": null,
+  "mutationAuthorized": false
+}

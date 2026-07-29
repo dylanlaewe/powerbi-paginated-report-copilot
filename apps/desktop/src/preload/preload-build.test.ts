@@ -22,6 +22,15 @@ describe("production preload output", () => {
     expect(preload).toContain('generateReport: "report:generate"');
     expect(preload).toContain('planExistingRdlEdit: "sidecar:plan-edit"');
     expect(preload).toContain(
+      'resolveExistingRdlField: "sidecar:resolve-field"',
+    );
+    expect(preload).toContain(
+      'createExistingRdlReview: "sidecar:review-create"',
+    );
+    expect(preload).toContain(
+      'createExistingRdlReviewedCopy: "sidecar:review-create-copy"',
+    );
+    expect(preload).toContain(
       "generateReport: (request) => electron.ipcRenderer.invoke(channels.generateReport",
     );
 
@@ -31,7 +40,14 @@ describe("production preload output", () => {
     );
     expect(mainSource).toContain("generationRequestSchema.safeParse(input)");
     expect(mainSource).toContain("planEditRequestSchema.safeParse(input)");
+    expect(mainSource).toContain(
+      "fieldResolutionRequestSchema.safeParse(input)",
+    );
     expect(mainSource).toContain("applyEditRequestSchema.safeParse(input)");
+    expect(mainSource).toContain("createReviewRequestSchema.safeParse(input)");
+    expect(mainSource).toContain(
+      "reviewSelectionRequestSchema.safeParse(input)",
+    );
     expect(mainSource).toContain("contextIsolation: true");
     expect(mainSource).toContain("nodeIntegration: false");
     expect(mainSource).toContain("sandbox: true");

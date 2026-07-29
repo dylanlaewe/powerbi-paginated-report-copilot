@@ -27,6 +27,7 @@ export class RdlMutationError extends Error {
     public readonly code:
       | "SOURCE_CHECKSUM_MISMATCH"
       | "SOURCE_CHANGED"
+      | "PAGE_DIMENSIONS_UNSPECIFIED"
       | "INVALID_OUTPUT"
       | "TARGET_COUNT_MISMATCH"
       | "MUTATION_TARGET_MISSING"
@@ -37,6 +38,23 @@ export class RdlMutationError extends Error {
     this.name = "RdlMutationError";
   }
 }
+
+export const assertPageOrientationCapability = (
+  inventory: RdlInventory,
+  plan: EditPlan,
+): void => {
+  if (
+    plan.operations.some(({ type }) => type === "setPageOrientation") &&
+    inventory.reportSections.some(
+      ({ pageWidth, pageHeight }) =>
+        pageWidth.presence === "omitted" || pageHeight.presence === "omitted",
+    )
+  )
+    throw new RdlMutationError(
+      "PAGE_DIMENSIONS_UNSPECIFIED",
+      "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed.",
+    );
+};
 
 const setElementText = (element: XmlElement, value: string): void => {
   const first = element.firstChild;
@@ -301,7 +319,10 @@ const verifyOperations = (
         );
     } else if (operation.type === "setPageOrientation") {
       for (const [index, section] of output.reportSections.entries()) {
-        if (section.orientation !== operation.orientation)
+        if (
+          section.orientation.status !== "known" ||
+          section.orientation.value !== operation.orientation
+        )
           throw new RdlMutationError(
             "POST_MUTATION_VERIFICATION_FAILED",
             `ReportSection ${index} orientation did not match the plan`,
@@ -309,8 +330,10 @@ const verifyOperations = (
         const before = source.reportSections[index];
         if (
           !before ||
-          section.pageWidth !== before.pageHeight ||
-          section.pageHeight !== before.pageWidth ||
+          JSON.stringify(section.pageWidth) !==
+            JSON.stringify(before.pageHeight) ||
+          JSON.stringify(section.pageHeight) !==
+            JSON.stringify(before.pageWidth) ||
           section.bodyWidth !== before.bodyWidth ||
           JSON.stringify(section.margins) !== JSON.stringify(before.margins)
         )
@@ -359,6 +382,7 @@ export const mutateExistingRdl = async (input: {
     input.source,
     input.sourceFileName,
   );
+  assertPageOrientationCapability(sourceInventory, plan);
   const resolved = resolveTargets(sourceInventory, plan);
   const allowlist = mutationAllowlist(plan, resolved.title, resolved.fields);
   const { ParseOption, XmlDocument } = await import("libxml2-wasm");

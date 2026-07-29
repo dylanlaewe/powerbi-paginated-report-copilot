@@ -1,0 +1,528 @@
+{
+  "version": 1,
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+  },
+  "scenarios": [
+    {
+      "request": "Change the report title to \"Quarterly Inventory Detail\", make the title 20-point bold, switch the page to landscape, and format UnitCost as currency with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setText",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "value": "Quarterly Inventory Detail"
+          },
+          {
+            "type": "setTextStyle",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "fontSize": "20pt",
+            "fontWeight": "Bold"
+          },
+          {
+            "type": "setPageOrientation",
+            "orientation": "landscape"
+          },
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "UnitCost"
+            },
+            "format": "C0"
+          }
+        ]
+      },
+      "planSha256": "6fa8e965bfb1e951b024cb1859c8f133d375337414fa16dcea9f3f513d1a7502",
+      "operationIds": [
+        "4fabb0e4d73e40aab0d0c8e8",
+        "a91b8e866c89cb11b992745f",
+        "f1e8e668dba8998aa4e9dadc",
+        "b369f4c53658a2a2633c2566"
+      ],
+      "initial": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-simple-table-1",
+        "reportSessionId": "diagnostic-simple-table",
+        "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+        "planSha256": "6fa8e965bfb1e951b024cb1859c8f133d375337414fa16dcea9f3f513d1a7502",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "ambiguous",
+            "reason": "CONFLICTING_TITLE_EVIDENCE",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "UnitCost",
+              "status": "resolved",
+              "reason": "FIELD_DISPLAY_RESOLVED",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "choiceRequired",
+            "operationId": "4fabb0e4d73e40aab0d0c8e8",
+            "operationType": "setText",
+            "requestedChange": "Change report title text to \"Quarterly Inventory Detail\".",
+            "mutationAuthorized": false,
+            "candidates": [
+              {
+                "kind": "title",
+                "candidateId": "e0a85e4b19730e63af0b",
+                "visibleText": "InventoryReportTitle",
+                "region": "body",
+                "score": 112,
+                "evidence": [
+                  {
+                    "code": "TITLE_ORIENTED_NAME",
+                    "weight": 28,
+                    "message": "report-item name contains a title-oriented token"
+                  },
+                  {
+                    "code": "LARGE_FONT",
+                    "weight": 24,
+                    "message": "font size is 18.0pt"
+                  },
+                  {
+                    "code": "STRUCTURALLY_SEPARATE",
+                    "weight": 16,
+                    "message": "textbox is structurally separate from data regions"
+                  },
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "STANDALONE_BODY",
+                    "weight": 10,
+                    "message": "candidate is a standalone body textbox"
+                  },
+                  {
+                    "code": "WIDE_TEXTBOX",
+                    "weight": 10,
+                    "message": "textbox width is consistent with a report heading"
+                  }
+                ],
+                "ambiguityEvidence": []
+              },
+              {
+                "kind": "title",
+                "candidateId": "71cde69251d3210527fb",
+                "visibleText": "Synthetic Inventory Detail",
+                "region": "body",
+                "score": 60,
+                "evidence": [
+                  {
+                    "code": "STRUCTURALLY_SEPARATE",
+                    "weight": 16,
+                    "message": "textbox is structurally separate from data regions"
+                  },
+                  {
+                    "code": "TITLE_LENGTH_PHRASE",
+                    "weight": 12,
+                    "message": "visible text is a concise multi-word phrase"
+                  },
+                  {
+                    "code": "TITLE_SEMANTIC_TOKEN",
+                    "weight": 12,
+                    "message": "visible text contains a generic report-title term"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "STANDALONE_BODY",
+                    "weight": 10,
+                    "message": "candidate is a standalone body textbox"
+                  }
+                ],
+                "ambiguityEvidence": []
+              }
+            ],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          },
+          {
+            "status": "choiceRequired",
+            "operationId": "a91b8e866c89cb11b992745f",
+            "operationType": "setTextStyle",
+            "requestedChange": "Change report title style (font size 20pt, weight Bold).",
+            "mutationAuthorized": false,
+            "candidates": [
+              {
+                "kind": "title",
+                "candidateId": "e0a85e4b19730e63af0b",
+                "visibleText": "InventoryReportTitle",
+                "region": "body",
+                "score": 112,
+                "evidence": [
+                  {
+                    "code": "TITLE_ORIENTED_NAME",
+                    "weight": 28,
+                    "message": "report-item name contains a title-oriented token"
+                  },
+                  {
+                    "code": "LARGE_FONT",
+                    "weight": 24,
+                    "message": "font size is 18.0pt"
+                  },
+                  {
+                    "code": "STRUCTURALLY_SEPARATE",
+                    "weight": 16,
+                    "message": "textbox is structurally separate from data regions"
+                  },
+                  {
+                    "code": "BOLD",
+                    "weight": 14,
+                    "message": "text is bold"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "STANDALONE_BODY",
+                    "weight": 10,
+                    "message": "candidate is a standalone body textbox"
+                  },
+                  {
+                    "code": "WIDE_TEXTBOX",
+                    "weight": 10,
+                    "message": "textbox width is consistent with a report heading"
+                  }
+                ],
+                "ambiguityEvidence": []
+              },
+              {
+                "kind": "title",
+                "candidateId": "71cde69251d3210527fb",
+                "visibleText": "Synthetic Inventory Detail",
+                "region": "body",
+                "score": 60,
+                "evidence": [
+                  {
+                    "code": "STRUCTURALLY_SEPARATE",
+                    "weight": 16,
+                    "message": "textbox is structurally separate from data regions"
+                  },
+                  {
+                    "code": "TITLE_LENGTH_PHRASE",
+                    "weight": 12,
+                    "message": "visible text is a concise multi-word phrase"
+                  },
+                  {
+                    "code": "TITLE_SEMANTIC_TOKEN",
+                    "weight": 12,
+                    "message": "visible text contains a generic report-title term"
+                  },
+                  {
+                    "code": "SAFE_VISIBLE_TEXT",
+                    "weight": 10,
+                    "message": "visible text was safely extracted without expression execution"
+                  },
+                  {
+                    "code": "STANDALONE_BODY",
+                    "weight": 10,
+                    "message": "candidate is a standalone body textbox"
+                  }
+                ],
+                "ambiguityEvidence": []
+              }
+            ],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          },
+          {
+            "status": "blocked",
+            "operationId": "f1e8e668dba8998aa4e9dadc",
+            "operationType": "setPageOrientation",
+            "requestedChange": "Change page orientation to landscape.",
+            "mutationAuthorized": false,
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "message": "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed."
+          },
+          {
+            "status": "readyForConfirmation",
+            "operationId": "b369f4c53658a2a2633c2566",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format UnitCost as C0.",
+            "mutationAuthorized": false,
+            "recommendedCandidate": {
+              "kind": "fieldDisplay",
+              "candidateId": "4b25eb7148a21f314a0c",
+              "fieldName": "UnitCost",
+              "datasetName": "InventoryData",
+              "possibleDatasets": [
+                "InventoryData"
+              ],
+              "region": "body",
+              "tablixName": "InventoryTable",
+              "structuralRole": "detail",
+              "expressionKind": "directFieldReference",
+              "currentFormat": "'$'0.00;('$'0.00)",
+              "evidence": [
+                {
+                  "code": "EXACT_FIELD_NAME",
+                  "message": "exact field-name match: UnitCost"
+                },
+                {
+                  "code": "DIRECT_FIELD_REFERENCE",
+                  "message": "expression kind is directFieldReference"
+                },
+                {
+                  "code": "STRUCTURAL_PATH_PRESERVED",
+                  "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)"
+                },
+                {
+                  "code": "TABLIX_CONTEXT",
+                  "message": "tablix: InventoryTable"
+                },
+                {
+                  "code": "SCOPE_ROLE",
+                  "message": "structural role: detail"
+                },
+                {
+                  "code": "CURRENT_FORMAT",
+                  "message": "current format: '$'0.00;('$'0.00)"
+                }
+              ],
+              "ambiguityEvidence": []
+            },
+            "alternatives": [],
+            "selectionPolicy": "exactlyOne",
+            "selectedCandidateIds": [],
+            "confirmed": false
+          }
+        ],
+        "state": "blocked",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "decisions": [
+        {
+          "operationId": "4fabb0e4d73e40aab0d0c8e8",
+          "action": "selectExactCandidatesAndConfirm",
+          "candidateIds": [
+            "71cde69251d3210527fb"
+          ]
+        },
+        {
+          "operationId": "a91b8e866c89cb11b992745f",
+          "action": "selectExactCandidatesAndConfirm",
+          "candidateIds": [
+            "71cde69251d3210527fb"
+          ]
+        },
+        {
+          "operationId": "b369f4c53658a2a2633c2566",
+          "action": "confirmRecommendedCandidate",
+          "candidateIds": [
+            "4b25eb7148a21f314a0c"
+          ]
+        }
+      ],
+      "final": {
+        "version": 1,
+        "reviewDraftId": "diagnostic-simple-table-1",
+        "reportSessionId": "diagnostic-simple-table",
+        "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+        "planSha256": "6fa8e965bfb1e951b024cb1859c8f133d375337414fa16dcea9f3f513d1a7502",
+        "candidateCatalogVersion": 1,
+        "resolutionSummary": {
+          "title": {
+            "status": "ambiguous",
+            "reason": "CONFLICTING_TITLE_EVIDENCE",
+            "mutationAuthorized": false
+          },
+          "fields": [
+            {
+              "fieldName": "UnitCost",
+              "status": "resolved",
+              "reason": "FIELD_DISPLAY_RESOLVED",
+              "mutationAuthorized": false
+            }
+          ],
+          "pageOrientation": {
+            "status": "blocked",
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "mutationAuthorized": false
+          }
+        },
+        "operations": [
+          {
+            "status": "confirmed",
+            "operationId": "4fabb0e4d73e40aab0d0c8e8",
+            "operationType": "setText",
+            "requestedChange": "Change report title text to \"Quarterly Inventory Detail\".",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "71cde69251d3210527fb"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          },
+          {
+            "status": "confirmed",
+            "operationId": "a91b8e866c89cb11b992745f",
+            "operationType": "setTextStyle",
+            "requestedChange": "Change report title style (font size 20pt, weight Bold).",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "71cde69251d3210527fb"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          },
+          {
+            "status": "blocked",
+            "operationId": "f1e8e668dba8998aa4e9dadc",
+            "operationType": "setPageOrientation",
+            "requestedChange": "Change page orientation to landscape.",
+            "mutationAuthorized": false,
+            "reason": "PAGE_DIMENSIONS_UNSPECIFIED",
+            "message": "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed."
+          },
+          {
+            "status": "confirmed",
+            "operationId": "b369f4c53658a2a2633c2566",
+            "operationType": "setNumberFormat",
+            "requestedChange": "Format UnitCost as C0.",
+            "mutationAuthorized": false,
+            "selectedCandidateIds": [
+              "4b25eb7148a21f314a0c"
+            ],
+            "confirmationSummary": "Reviewed 1 exact candidate."
+          }
+        ],
+        "state": "blocked",
+        "mutationAuthorized": false,
+        "executable": false
+      },
+      "alternativeSimulations": [],
+      "resetProof": [
+        {
+          "status": "choiceRequired",
+          "operationId": "4fabb0e4d73e40aab0d0c8e8",
+          "operationType": "setText",
+          "requestedChange": "Change report title text to \"Quarterly Inventory Detail\".",
+          "mutationAuthorized": false,
+          "candidates": [
+            {
+              "kind": "title",
+              "candidateId": "e0a85e4b19730e63af0b",
+              "visibleText": "InventoryReportTitle",
+              "region": "body",
+              "score": 112,
+              "evidence": [
+                {
+                  "code": "TITLE_ORIENTED_NAME",
+                  "weight": 28,
+                  "message": "report-item name contains a title-oriented token"
+                },
+                {
+                  "code": "LARGE_FONT",
+                  "weight": 24,
+                  "message": "font size is 18.0pt"
+                },
+                {
+                  "code": "STRUCTURALLY_SEPARATE",
+                  "weight": 16,
+                  "message": "textbox is structurally separate from data regions"
+                },
+                {
+                  "code": "BOLD",
+                  "weight": 14,
+                  "message": "text is bold"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "STANDALONE_BODY",
+                  "weight": 10,
+                  "message": "candidate is a standalone body textbox"
+                },
+                {
+                  "code": "WIDE_TEXTBOX",
+                  "weight": 10,
+                  "message": "textbox width is consistent with a report heading"
+                }
+              ],
+              "ambiguityEvidence": []
+            },
+            {
+              "kind": "title",
+              "candidateId": "71cde69251d3210527fb",
+              "visibleText": "Synthetic Inventory Detail",
+              "region": "body",
+              "score": 60,
+              "evidence": [
+                {
+                  "code": "STRUCTURALLY_SEPARATE",
+                  "weight": 16,
+                  "message": "textbox is structurally separate from data regions"
+                },
+                {
+                  "code": "TITLE_LENGTH_PHRASE",
+                  "weight": 12,
+                  "message": "visible text is a concise multi-word phrase"
+                },
+                {
+                  "code": "TITLE_SEMANTIC_TOKEN",
+                  "weight": 12,
+                  "message": "visible text contains a generic report-title term"
+                },
+                {
+                  "code": "SAFE_VISIBLE_TEXT",
+                  "weight": 10,
+                  "message": "visible text was safely extracted without expression execution"
+                },
+                {
+                  "code": "STANDALONE_BODY",
+                  "weight": 10,
+                  "message": "candidate is a standalone body textbox"
+                }
+              ],
+              "ambiguityEvidence": []
+            }
+          ],
+          "selectionPolicy": "exactlyOne",
+          "selectedCandidateIds": [],
+          "confirmed": false
+        }
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "editedRdlGenerated": false
+}

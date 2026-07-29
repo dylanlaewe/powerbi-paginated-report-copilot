@@ -26,15 +26,23 @@ describe("sandboxed preload bridge", () => {
       "applyExistingRdlEdit",
       "cancelExistingRdlPlan",
       "clearExistingRdlSession",
+      "confirmExistingRdlReviewOperation",
       "copyEditedRdlPath",
       "copyGeneratedPath",
       "copyManifestPath",
+      "createExistingRdlReview",
+      "createExistingRdlReviewedCopy",
+      "declineExistingRdlReviewOperation",
       "generateReport",
+      "getExistingRdlReview",
       "planExistingRdlEdit",
       "platform",
+      "resetExistingRdlReviewOperation",
+      "resolveExistingRdlField",
       "revealEditedRdl",
       "revealGeneratedReport",
       "selectExistingRdl",
+      "selectExistingRdlReviewCandidates",
       "selectProject",
       "windowsValidation",
     ]);
@@ -53,6 +61,24 @@ describe("sandboxed preload bridge", () => {
     expect(invoke).toHaveBeenLastCalledWith("sidecar:plan-edit", {
       reportSessionId: "opaque",
       request: "safe",
+    });
+    await (api.createExistingRdlReview as (input: unknown) => Promise<unknown>)(
+      {
+        reportSessionId: "opaque",
+        request: "safe",
+      },
+    );
+    expect(invoke).toHaveBeenLastCalledWith("sidecar:review-create", {
+      reportSessionId: "opaque",
+      request: "safe",
+    });
+    await (
+      api.createExistingRdlReviewedCopy as (input: unknown) => Promise<unknown>
+    )({
+      reviewDraftId: "opaque",
+    });
+    expect(invoke).toHaveBeenLastCalledWith("sidecar:review-create-copy", {
+      reviewDraftId: "opaque",
     });
     expect(api).not.toHaveProperty("invoke");
     expect(api).not.toHaveProperty("ipcRenderer");

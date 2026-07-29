@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "byteLength": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+  },
+  "candidateOrdering": [
+    {
+      "candidateId": "e0a85e4b19730e63af0b",
+      "visibleText": "InventoryReportTitle",
+      "structuralPath": "section[0]/body/Textbox(ReportTitle)",
+      "region": "body",
+      "score": 112,
+      "evidence": [
+        {
+          "code": "TITLE_ORIENTED_NAME",
+          "weight": 28,
+          "message": "report-item name contains a title-oriented token"
+        },
+        {
+          "code": "LARGE_FONT",
+          "weight": 24,
+          "message": "font size is 18.0pt"
+        },
+        {
+          "code": "STRUCTURALLY_SEPARATE",
+          "weight": 16,
+          "message": "textbox is structurally separate from data regions"
+        },
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "STANDALONE_BODY",
+          "weight": 10,
+          "message": "candidate is a standalone body textbox"
+        },
+        {
+          "code": "WIDE_TEXTBOX",
+          "weight": 10,
+          "message": "textbox width is consistent with a report heading"
+        }
+      ],
+      "negativeEvidence": []
+    },
+    {
+      "candidateId": "71cde69251d3210527fb",
+      "visibleText": "Synthetic Inventory Detail",
+      "structuralPath": "section[0]/body/Textbox(Textbox9)",
+      "region": "body",
+      "score": 60,
+      "evidence": [
+        {
+          "code": "STRUCTURALLY_SEPARATE",
+          "weight": 16,
+          "message": "textbox is structurally separate from data regions"
+        },
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "TITLE_SEMANTIC_TOKEN",
+          "weight": 12,
+          "message": "visible text contains a generic report-title term"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "STANDALONE_BODY",
+          "weight": 10,
+          "message": "candidate is a standalone body textbox"
+        }
+      ],
+      "negativeEvidence": []
+    },
+    {
+      "candidateId": "fc0871c94f1367b46a2d",
+      "visibleText": "Item",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[0]/Textbox(Textbox1)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "e86faf71542610799251",
+      "visibleText": "Warehouse",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[1]/Textbox(Textbox2)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "f0ce7929cfc7c90ce2d7",
+      "visibleText": "Units",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[2]/Textbox(DetailUnits)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "cbe0ee12eb9b4050f377",
+      "visibleText": "Unit Cost",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[3]/Textbox(Textbox4)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    }
+  ],
+  "resolution": {
+    "status": "ambiguous",
+    "reason": "CONFLICTING_TITLE_EVIDENCE",
+    "candidates": [
+      {
+        "candidateId": "e0a85e4b19730e63af0b",
+        "visibleText": "InventoryReportTitle",
+        "structuralPath": "section[0]/body/Textbox(ReportTitle)",
+        "region": "body",
+        "score": 112,
+        "evidence": [
+          {
+            "code": "TITLE_ORIENTED_NAME",
+            "weight": 28,
+            "message": "report-item name contains a title-oriented token"
+          },
+          {
+            "code": "LARGE_FONT",
+            "weight": 24,
+            "message": "font size is 18.0pt"
+          },
+          {
+            "code": "STRUCTURALLY_SEPARATE",
+            "weight": 16,
+            "message": "textbox is structurally separate from data regions"
+          },
+          {
+            "code": "BOLD",
+            "weight": 14,
+            "message": "text is bold"
+          },
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          },
+          {
+            "code": "STANDALONE_BODY",
+            "weight": 10,
+            "message": "candidate is a standalone body textbox"
+          },
+          {
+            "code": "WIDE_TEXTBOX",
+            "weight": 10,
+            "message": "textbox width is consistent with a report heading"
+          }
+        ],
+        "negativeEvidence": []
+      },
+      {
+        "candidateId": "71cde69251d3210527fb",
+        "visibleText": "Synthetic Inventory Detail",
+        "structuralPath": "section[0]/body/Textbox(Textbox9)",
+        "region": "body",
+        "score": 60,
+        "evidence": [
+          {
+            "code": "STRUCTURALLY_SEPARATE",
+            "weight": 16,
+            "message": "textbox is structurally separate from data regions"
+          },
+          {
+            "code": "TITLE_LENGTH_PHRASE",
+            "weight": 12,
+            "message": "visible text is a concise multi-word phrase"
+          },
+          {
+            "code": "TITLE_SEMANTIC_TOKEN",
+            "weight": 12,
+            "message": "visible text contains a generic report-title term"
+          },
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          },
+          {
+            "code": "STANDALONE_BODY",
+            "weight": 10,
+            "message": "candidate is a standalone body textbox"
+          }
+        ],
+        "negativeEvidence": []
+      }
+    ],
+    "evidence": [
+      "title-oriented name and style evidence favors one candidate",
+      "standalone visible semantic-title evidence favors another candidate",
+      "automatically selecting either candidate would be unsafe"
+    ],
+    "mutationAuthorized": false
+  },
+  "selectedDiagnosticCandidate": null,
+  "alternatives": [
+    {
+      "candidateId": "e0a85e4b19730e63af0b",
+      "visibleText": "InventoryReportTitle",
+      "structuralPath": "section[0]/body/Textbox(ReportTitle)",
+      "region": "body",
+      "score": 112,
+      "evidence": [
+        {
+          "code": "TITLE_ORIENTED_NAME",
+          "weight": 28,
+          "message": "report-item name contains a title-oriented token"
+        },
+        {
+          "code": "LARGE_FONT",
+          "weight": 24,
+          "message": "font size is 18.0pt"
+        },
+        {
+          "code": "STRUCTURALLY_SEPARATE",
+          "weight": 16,
+          "message": "textbox is structurally separate from data regions"
+        },
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "STANDALONE_BODY",
+          "weight": 10,
+          "message": "candidate is a standalone body textbox"
+        },
+        {
+          "code": "WIDE_TEXTBOX",
+          "weight": 10,
+          "message": "textbox width is consistent with a report heading"
+        }
+      ],
+      "negativeEvidence": []
+    },
+    {
+      "candidateId": "71cde69251d3210527fb",
+      "visibleText": "Synthetic Inventory Detail",
+      "structuralPath": "section[0]/body/Textbox(Textbox9)",
+      "region": "body",
+      "score": 60,
+      "evidence": [
+        {
+          "code": "STRUCTURALLY_SEPARATE",
+          "weight": 16,
+          "message": "textbox is structurally separate from data regions"
+        },
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "TITLE_SEMANTIC_TOKEN",
+          "weight": 12,
+          "message": "visible text contains a generic report-title term"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "STANDALONE_BODY",
+          "weight": 10,
+          "message": "candidate is a standalone body textbox"
+        }
+      ],
+      "negativeEvidence": []
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "gate2GComparison": "Styled ReportTitle and visible Textbox9 conflict was observed diagnostically.",
+  "remainingLimitations": [
+    "Resolution is read-only and cannot authorize a title mutation.",
+    "No user review or generic target authorization exists.",
+    "Existing checksum-reviewed title mappings remain the only writable path."
+  ]
+}

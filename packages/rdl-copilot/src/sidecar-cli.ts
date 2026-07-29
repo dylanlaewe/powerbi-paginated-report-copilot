@@ -31,7 +31,11 @@ import {
   resolveFieldDisplays,
   type RdlInventory,
 } from "./inspection";
-import { mutateExistingRdl } from "./mutation";
+import {
+  assertPageOrientationCapability,
+  mutateExistingRdl,
+  RdlMutationError,
+} from "./mutation";
 
 const hash = (value: Uint8Array): string =>
   createHash("sha256").update(value).digest("hex");
@@ -58,6 +62,7 @@ export type SidecarCliErrorCode =
   | "TARGET_AMBIGUOUS"
   | "TARGET_COUNT_MISMATCH"
   | "SOURCE_CHANGED"
+  | "PAGE_DIMENSIONS_UNSPECIFIED"
   | "MUTATION_FAILED"
   | "STRUCTURAL_GUARD_FAILED"
   | "OUTPUT_VALIDATION_FAILED"
@@ -395,10 +400,21 @@ const resolveTargets = (inventory: RdlInventory, plan: EditPlan) => {
       semanticTarget: "report.pageOrientation",
       reportItemName: "ReportSection0/Page",
       evidence: [
-        `existing PageWidth ${inventory.reportSections[0]?.pageWidth}`,
-        `existing PageHeight ${inventory.reportSections[0]?.pageHeight}`,
+        `existing PageWidth ${
+          inventory.reportSections[0]?.pageWidth.presence === "explicit"
+            ? inventory.reportSections[0].pageWidth.raw
+            : "not serialized"
+        }`,
+        `existing PageHeight ${
+          inventory.reportSections[0]?.pageHeight.presence === "explicit"
+            ? inventory.reportSections[0].pageHeight.raw
+            : "not serialized"
+        }`,
       ],
-      expectedBefore: inventory.reportSections[0]?.orientation ?? "missing",
+      expectedBefore:
+        inventory.reportSections[0]?.orientation.status === "known"
+          ? inventory.reportSections[0].orientation.value
+          : "unspecified",
       expectedAfter: orientation.orientation,
     });
   for (const operation of plan.operations)
@@ -446,6 +462,22 @@ export type PreparedSidecarEdit = {
   targets: z.infer<typeof resolvedTargetSchema>[];
 };
 
+const assertPlanCapabilities = (
+  inventory: RdlInventory,
+  plan: EditPlan,
+): void => {
+  try {
+    assertPageOrientationCapability(inventory, plan);
+  } catch (error) {
+    if (
+      error instanceof RdlMutationError &&
+      error.code === "PAGE_DIMENSIONS_UNSPECIFIED"
+    )
+      throw new SidecarCliError(error.code, error.message);
+    throw error;
+  }
+};
+
 export const prepareSidecarEdit = async (input: {
   sourcePath: string;
   requestFilePath: string;
@@ -481,6 +513,7 @@ export const prepareSidecarEdit = async (input: {
   } catch {
     throw new SidecarCliError("PLAN_INVALID", "The planned edit is invalid.");
   }
+  assertPlanCapabilities(inventory, plan);
   let targets: z.infer<typeof resolvedTargetSchema>[];
   try {
     targets = resolveTargets(inventory, plan);
@@ -530,6 +563,7 @@ export const prepareSidecarEditFromText = async (input: {
       },
     );
   const plan = editPlanSchema.parse(plannerResult.plan);
+  assertPlanCapabilities(inventory, plan);
   const targets = resolveTargets(inventory, plan);
   return {
     source,
@@ -697,6 +731,11 @@ export const applyPreparedSidecarEdit = async (
       schema: await readFile(schemaPath),
     });
   } catch (error) {
+    if (
+      error instanceof RdlMutationError &&
+      error.code === "PAGE_DIMENSIONS_UNSPECIFIED"
+    )
+      throw new SidecarCliError(error.code, error.message);
     throw new SidecarCliError(
       "MUTATION_FAILED",
       "The deterministic RDL mutation failed.",
@@ -750,7 +789,9 @@ export const applyPreparedSidecarEdit = async (
       textboxCount: prepared.inventory.textboxes.length,
       tablixNames: prepared.inventory.tablixes.map(({ name }) => name),
       pageOrientation:
-        prepared.inventory.reportSections[0]?.orientation ?? "square",
+        prepared.inventory.reportSections[0]?.orientation.status === "known"
+          ? prepared.inventory.reportSections[0].orientation.value
+          : "unspecified",
     },
     resolvedTargets: prepared.targets,
     output: {

@@ -1,0 +1,430 @@
+{
+  "baselineVersion": 1,
+  "fixtureId": "microsoft-transcript",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/transcript/source/Transcript.rdl",
+    "fileName": "Transcript.rdl",
+    "byteSize": 116709,
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+    "unchangedAfterEvaluation": true
+  },
+  "productionInspector": {
+    "loadStarted": true,
+    "xmlParse": "PASS",
+    "namespace": "PASS",
+    "modelNormalization": "STARTED_NOT_RETURNED",
+    "pageSettingsNormalization": "FAIL",
+    "structuralInventory": "NOT_REACHED",
+    "candidateDiscovery": "NOT_REACHED",
+    "stoppingStage": "pageSettingsNormalization",
+    "errorCode": "INVALID_REPORT",
+    "error": "ReportSection 0 lacks PageWidth",
+    "partialModelAvailable": false,
+    "rendererReceivesUsableSummary": false,
+    "returnedInventorySha256": null
+  },
+  "corpusAssistedDiagnosticOnly": {
+    "warning": "CORPUS-ASSISTED DIAGNOSTIC ONLY — not current product behavior and not routed into production services",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "title": {
+      "requestedSemanticTarget": "report title",
+      "candidates": [
+        {
+          "reportItemName": "Textbox1",
+          "container": "pageHeader",
+          "tablix": null,
+          "visibleText": "Contoso Professional Certified Transcript",
+          "serializedValue": "=\"Contoso Professional Certified Transcript\"",
+          "fontSizes": [
+            "22pt"
+          ],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Left"
+          ],
+          "score": 55,
+          "evidence": [
+            "+15 pageHeader container",
+            "+25 prominent 22.00pt font",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox34",
+          "container": "pageHeader",
+          "tablix": null,
+          "visibleText": "Last activity recorded : ",
+          "serializedValue": "=\"Last activity recorded : \"",
+          "fontSizes": [
+            "4mm"
+          ],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [],
+          "score": 15,
+          "evidence": [
+            "+15 pageHeader container",
+            "+10 Bold",
+            "+5 single visible constant",
+            "-15 label-like trailing colon"
+          ]
+        },
+        {
+          "reportItemName": "Textbox36",
+          "container": "pageHeader",
+          "tablix": null,
+          "visibleText": "Student ID : ",
+          "serializedValue": "=\"Student ID : \"",
+          "fontSizes": [
+            "4mm"
+          ],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [],
+          "score": 15,
+          "evidence": [
+            "+15 pageHeader container",
+            "+10 Bold",
+            "+5 single visible constant",
+            "-15 label-like trailing colon"
+          ]
+        },
+        {
+          "reportItemName": "Textbox47",
+          "container": "tablix",
+          "tablix": "Tablix6",
+          "visibleText": "Exam ID",
+          "serializedValue": "=\"Exam ID\"",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Left"
+          ],
+          "score": -5,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox49",
+          "container": "tablix",
+          "tablix": "Tablix6",
+          "visibleText": "Description",
+          "serializedValue": "=\"Description\"",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Left"
+          ],
+          "score": -5,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox51",
+          "container": "tablix",
+          "tablix": "Tablix6",
+          "visibleText": "Date Completed",
+          "serializedValue": "=\"Date Completed\"",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Left"
+          ],
+          "score": -5,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox19",
+          "container": "tablix",
+          "tablix": "Tablix1",
+          "visibleText": "Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.",
+          "serializedValue": "=\"Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\"",
+          "fontSizes": [
+            "8pt"
+          ],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Name",
+          "container": "tablix",
+          "tablix": "Tablix2",
+          "visibleText": "Certification Number:",
+          "serializedValue": "=\"Certification Number:\"",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Right"
+          ],
+          "score": -20,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant",
+            "-15 label-like trailing colon"
+          ]
+        },
+        {
+          "reportItemName": "Name2",
+          "container": "tablix",
+          "tablix": "Tablix2",
+          "visibleText": "Achievement Date:",
+          "serializedValue": "=\"Achievement Date:\"",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Right"
+          ],
+          "score": -20,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant",
+            "-15 label-like trailing colon"
+          ]
+        },
+        {
+          "reportItemName": "Textbox63",
+          "container": "tablix",
+          "tablix": "Tablix2",
+          "visibleText": "Certification Version:",
+          "serializedValue": "=\"Certification Version:\"",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [
+            "Right"
+          ],
+          "score": -20,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant",
+            "-15 label-like trailing colon"
+          ]
+        }
+      ],
+      "productionResolutionArchitecture": {
+        "sidecarAndMutationEntryPoint": "resolveConfiguredReportTitle",
+        "sourceChecksumConfigured": false,
+        "resultIfInspectionWereReachable": {
+          "code": "TITLE_NOT_FOUND",
+          "message": "No checksum-reviewed report-title target is configured for this source"
+        },
+        "genericResolveReportTitleIsNotUsedByProductionSidecar": true,
+        "productionCandidateScoresExist": false
+      },
+      "currentProductionCandidateLogicAppliedToDiagnosticModel": {
+        "outcome": "noCandidate",
+        "reportItemName": null,
+        "scoring": "none; conservative filter found zero candidates"
+      },
+      "expectedVisibleTitle": "Contoso Professional Certified Transcript",
+      "classification": "BLOCKED_UNSUPPORTED_STRUCTURE",
+      "textAndStyleUseSameSemanticHandle": true,
+      "containerContextRepresentedInResolvedHandle": false
+    },
+    "numericDisplays": {
+      "requestedField": null,
+      "allExistingDirectAndSumCandidates": [
+        {
+          "fieldName": "Date",
+          "declaringDatasets": [
+            "Certification"
+          ],
+          "reportItemName": "Date1",
+          "tablix": "Tablix2",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Date.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Description",
+          "declaringDatasets": [
+            "Certification"
+          ],
+          "reportItemName": "Description",
+          "tablix": "Tablix6",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Description.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Name",
+          "declaringDatasets": [
+            "Users",
+            "Certification"
+          ],
+          "reportItemName": "Name1",
+          "tablix": "Tablix2",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Name.Value",
+          "format": null,
+          "ambiguity": "field declared by multiple datasets",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Number",
+          "declaringDatasets": [
+            "Certification"
+          ],
+          "reportItemName": "Number",
+          "tablix": "Tablix6",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Number.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Number",
+          "declaringDatasets": [
+            "Certification"
+          ],
+          "reportItemName": "Number1",
+          "tablix": "Tablix2",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Number.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Version",
+          "declaringDatasets": [
+            "Certification"
+          ],
+          "reportItemName": "Version",
+          "tablix": "Tablix2",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Version.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        }
+      ],
+      "requestedCandidates": [],
+      "classification": "NOT_APPLICABLE"
+    },
+    "pageOrientation": {
+      "request": "switch the page to landscape",
+      "serializedPage": {
+        "width": null,
+        "height": null,
+        "margins": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        }
+      },
+      "normalizedByProduction": false,
+      "effectiveDefaultsRepresented": false,
+      "safeTargetExists": false,
+      "materializationRequired": true,
+      "blocker": "ReportSection 0 lacks PageWidth",
+      "classification": "BLOCKED_INSPECTOR"
+    }
+  },
+  "plannerBaseline": {
+    "request": "Change the report title to \"Professional Certification Transcript\" and make the title 20-point bold and left aligned.",
+    "contextSource": "corpus-assisted diagnostic context because production inventory is unreachable",
+    "result": {
+      "status": "rejected",
+      "code": "UNSUPPORTED_REQUEST",
+      "message": "Every meaningful clause must be supported; no partial plan was produced.",
+      "unsupportedFragments": [
+        "left aligned"
+      ],
+      "suggestions": [
+        "Use only the documented Gate 3 sentence forms."
+      ]
+    },
+    "planCouldReachReviewSafely": false,
+    "mutationBlockedBeforeWrite": true
+  },
+  "operationClassifications": [
+    {
+      "operation": "reportTitle",
+      "classification": "BLOCKED_UNSUPPORTED_STRUCTURE",
+      "evidence": "Production unreachable: ReportSection 0 lacks PageWidth; corpus-assisted current candidate logic: noCandidate"
+    },
+    {
+      "operation": "numericDisplay",
+      "classification": "NOT_APPLICABLE",
+      "evidence": "No requested meaningful numeric-format baseline"
+    },
+    {
+      "operation": "pageOrientation",
+      "classification": "BLOCKED_INSPECTOR",
+      "evidence": "Literal PageWidth/PageHeight are omitted; production rejects before orientation normalization and has no effective/default-page representation"
+    },
+    {
+      "operation": "planner",
+      "classification": "BLOCKED_UNSUPPORTED_STRUCTURE",
+      "evidence": "Grammar rejected atomically: UNSUPPORTED_REQUEST — Every meaningful clause must be supported; no partial plan was produced."
+    }
+  ],
+  "falsePositiveNegativeReview": {
+    "visibleTitlesMissed": [
+      "Textbox1 is excluded because production title discovery searches reportBody static text only and the title is a pageHeader constant expression"
+    ],
+    "decorativeTitleRisks": [],
+    "styledPlaceholderPreferred": [],
+    "staticHeadersMistakenForFieldDisplays": false,
+    "aggregatesConflatedWithDetails": false,
+    "datasetIdentityLost": true,
+    "tablixAndGroupContextLost": true,
+    "mutationHasRevenueTargetCountSpecialCase": false,
+    "containerHierarchyReduced": true,
+    "omittedPageDefaultsRejected": true,
+    "forcedAmbiguityRisk": true
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/OrganizationExpenditures.rdl",
+    "fileName": "OrganizationExpenditures.rdl",
+    "byteSize": 111790,
+    "sha256": "22a41b7a8f504795ac68c4dad094d6f9bb7aa2d95cd0a3167c457e5d2cbe43f5"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "5a7cb844-808d-4210-afab-dc2d76bbdecf"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "EnterData",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "dsOrganization",
+      "fields": [
+        {
+          "name": "OrganizationKey",
+          "typeName": "System.String",
+          "dataField": "OrganizationKey"
+        },
+        {
+          "name": "OrganizationName",
+          "typeName": "System.String",
+          "dataField": "OrganizationName"
+        }
+      ],
+      "query": {
+        "dataSourceName": "EnterData",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "dsDepartmentGroup",
+      "fields": [
+        {
+          "name": "DepartmentGroupKey",
+          "typeName": "System.String",
+          "dataField": "DepartmentGroupKey"
+        },
+        {
+          "name": "DepartmentGroupName",
+          "typeName": "System.String",
+          "dataField": "DepartmentGroupName"
+        }
+      ],
+      "query": {
+        "dataSourceName": "EnterData",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "dsMain",
+      "fields": [
+        {
+          "name": "Level_01",
+          "typeName": "System.String",
+          "dataField": "Level_01"
+        },
+        {
+          "name": "Level_02",
+          "typeName": "System.String",
+          "dataField": "Level_02"
+        },
+        {
+          "name": "Level_03",
+          "typeName": "System.String",
+          "dataField": "Level_03"
+        },
+        {
+          "name": "Amount",
+          "typeName": "System.Double",
+          "dataField": "Amount"
+        },
+        {
+          "name": "OrganizationKey",
+          "typeName": "System.String",
+          "dataField": "OrganizationKey"
+        },
+        {
+          "name": "Date",
+          "typeName": "System.String",
+          "dataField": "Date"
+        },
+        {
+          "name": "DepartmentGroupKey",
+          "typeName": "System.String",
+          "dataField": "DepartmentGroupKey"
+        }
+      ],
+      "query": {
+        "dataSourceName": "EnterData",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "OrganizationKey",
+      "dataType": "Integer",
+      "prompt": "Organization:",
+      "availableValues": {
+        "datasetName": "dsOrganization",
+        "valueField": "OrganizationKey",
+        "labelField": "OrganizationName",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    },
+    {
+      "name": "DateFrom",
+      "dataType": "DateTime",
+      "prompt": "Date From:",
+      "availableValues": {
+        "datasetName": null,
+        "valueField": null,
+        "labelField": null,
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    },
+    {
+      "name": "DateTo",
+      "dataType": "DateTime",
+      "prompt": "Date To:",
+      "availableValues": {
+        "datasetName": null,
+        "valueField": null,
+        "labelField": null,
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    },
+    {
+      "name": "DepartmentGroupKey",
+      "dataType": "Integer",
+      "prompt": "Department Group:",
+      "availableValues": {
+        "datasetName": "dsDepartmentGroup",
+        "valueField": "DepartmentGroupKey",
+        "labelField": "DepartmentGroupName",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 1
+      }
+    }
+  ],
+  "tablixes": [],
+  "expressions": {
+    "groupExpressions": [
+      "=Fields!Level_01.Value",
+      "=Fields!Level_02.Value",
+      "=Fields!Level_03.Value"
+    ],
+    "filterExpressions": [],
+    "sortExpressions": [
+      "=Fields!Level_01.Value",
+      "=Fields!Level_02.Value",
+      "=Fields!Level_03.Value"
+    ],
+    "aggregateExpressions": [],
+    "visibilityExpressions": []
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "ReportTitle",
+        "container": "rectangle",
+        "values": [
+          "Organization Expenditures"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "28pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "ReportSubtitle2",
+        "container": "rectangle",
+        "values": [
+          "Organization:",
+          "=Parameters!OrganizationKey.Label",
+          "|",
+          "Period:",
+          "=Format(Parameters!DateFrom.Value, \"d\") & \" to \" & Format(Parameters!DateTo.Value, \"d\")",
+          "|",
+          "Department:",
+          "=Parameters!DepartmentGroupKey.Label"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Footer1",
+        "container": "pageFooter",
+        "values": [
+          "Run at",
+          "=Globals!ExecutionTime"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Footer2",
+        "container": "pageFooter",
+        "values": [
+          "Page",
+          "=Globals!PageNumber",
+          "of",
+          "=Globals!TotalPages"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold",
+          "Normal"
+        ],
+        "hidden": null
+      }
+    ],
+    "rectangles": [
+      {
+        "name": "TitleTile",
+        "container": "body",
+        "nestingDepth": 0
+      }
+    ],
+    "lists": [],
+    "charts": [
+      "Chart1",
+      "Chart2"
+    ],
+    "gauges": [],
+    "maps": [],
+    "images": [
+      {
+        "name": "ReportLogo",
+        "source": "Embedded",
+        "value": "Contoso_LogoSmall"
+      }
+    ],
+    "subreports": [],
+    "pageHeaders": 0,
+    "pageFooters": 1
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "10in",
+        "pageWidth": "11in",
+        "pageHeight": "8.5in",
+        "orientation": "landscape",
+        "margins": {
+          "left": "0.2in",
+          "right": "0.2in",
+          "top": "0.2in",
+          "bottom": "0.2in"
+        },
+        "columns": null,
+        "columnSpacing": null
+      }
+    ],
+    "pageBreaks": [],
+    "repeatOnNewPageCount": 0,
+    "hiddenItemCount": 0
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "inventory accepted; target resolution not evaluated",
+      "reason": "none"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "gate": "2B",
+  "status": "PASS_WITH_RECORDED_DEVIATIONS",
+  "sourceIdentity": {
+    "byteSize": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+    "windowsOriginalMatchedRepositoryCopy": true,
+    "postValidationSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+    "sourceModifiedByGate2B": false
+  },
+  "validation": {
+    "safeXmlParsing": "PASS — libxml2-wasm NONET and NO_XXE",
+    "xmlWellFormedness": "PASS",
+    "xsd": "PASS",
+    "xsdEngine": "libxml2-wasm",
+    "genericSidecarInspection": "NOT EVALUATED — current inspector requires literal PageWidth/PageHeight and rejected the authored defaulted dimensions before producing inventory",
+    "resolverEvaluation": "DEFERRED TO LATER GATE"
+  },
+  "windowsBaseline": {
+    "open": "PASS",
+    "initialPreview": "PASS",
+    "reopenPreview": "PASS",
+    "previewPageCount": 1,
+    "pdf": "PASS",
+    "pdfPageCount": 1,
+    "excel": "PASS",
+    "excelWorksheetCount": 1,
+    "repairConversionOrUpgradeWarning": "NONE",
+    "blankPages": "NONE",
+    "horizontalClipping": "NONE",
+    "errorValues": "NONE"
+  },
+  "reportBuilderEffectivePageConfiguration": {
+    "orientation": "portrait",
+    "pageWidth": "8.5in",
+    "pageHeight": "11in",
+    "sourceOfEvidence": "independent Report Builder validation; dimensions are not literal source elements"
+  },
+  "candidateEvidence": {
+    "title": [
+      {
+        "reportItemName": "ReportTitle",
+        "value": "InventoryReportTitle",
+        "evidence": ["body textbox", "18pt", "Bold", "ReportTitle name"],
+        "risk": "strongest style/name evidence but value differs from accepted visible baseline title"
+      },
+      {
+        "reportItemName": "Textbox9",
+        "value": "Synthetic Inventory Detail",
+        "evidence": [
+          "exact accepted baseline title text",
+          "body textbox above tablix"
+        ],
+        "risk": "generic name and no serialized 18pt/Bold style"
+      }
+    ],
+    "Units": [
+      {
+        "reportItemName": "DetailUnits",
+        "value": "Units",
+        "classification": "static header",
+        "format": "0"
+      },
+      {
+        "reportItemName": "DetailUnit",
+        "value": "=Fields!Units.Value",
+        "classification": "detail field display",
+        "format": "0"
+      }
+    ],
+    "UnitCost": [
+      {
+        "reportItemName": "Textbox4",
+        "value": "Unit Cost",
+        "classification": "static header",
+        "format": null
+      },
+      {
+        "reportItemName": "DetailUnitCose",
+        "value": "=Fields!UnitCost.Value",
+        "classification": "detail field display",
+        "format": "'$'0.00;('$'0.00)"
+      }
+    ]
+  },
+  "deviations": [
+    "All four dataset fields and DesignerState columns serialized as String/System.String; Units did not serialize as Int32 and UnitCost did not serialize as Decimal.",
+    "The 18pt Bold ReportTitle textbox contains InventoryReportTitle, while the accepted visible title Synthetic Inventory Detail is in unstyled Textbox9.",
+    "The intended detail names serialized as DetailUnit and the misspelled DetailUnitCose rather than DetailUnits and DetailUnitCost; DetailUnits names the static Units header.",
+    "UnitCost uses Report Builder's explicit currency pattern rather than the literal C2 token.",
+    "PageWidth and PageHeight are omitted; independent Report Builder validation confirms effective Letter portrait behavior.",
+    "One implicit Details member serialized, but there are zero non-detail grouping expressions."
+  ]
+}

@@ -1,0 +1,841 @@
+{
+  "version": 1,
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "byteLength": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+  },
+  "productionInspectionResult": "PASS",
+  "structuralLocationInventory": {
+    "regions": [
+      "body"
+    ],
+    "containerPaths": [
+      "section[0]/body/Textbox(ReportTitle)",
+      "section[0]/body/Tablix(InventoryTable)/row[0]/cell[0]/Textbox(Textbox1)",
+      "section[0]/body/Tablix(InventoryTable)/row[0]/cell[1]/Textbox(Textbox2)",
+      "section[0]/body/Tablix(InventoryTable)/row[0]/cell[2]/Textbox(DetailUnits)",
+      "section[0]/body/Tablix(InventoryTable)/row[0]/cell[3]/Textbox(Textbox4)",
+      "section[0]/body/Textbox(Textbox9)",
+      "section[0]/body/Tablix(InventoryTable)/row[1]/cell[0]/Textbox(DetailItem)",
+      "section[0]/body/Tablix(InventoryTable)/row[1]/cell[1]/Textbox(DetailWarehouse)",
+      "section[0]/body/Tablix(InventoryTable)/row[1]/cell[2]/Textbox(DetailUnit)",
+      "section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)"
+    ],
+    "tablixes": [
+      {
+        "name": "InventoryTable",
+        "datasetName": "InventoryData"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Details",
+        "expressions": []
+      }
+    ]
+  },
+  "titleCandidateCatalog": [
+    {
+      "diagnosticId": "e0a85e4b19730e63af0b",
+      "reportItemType": "Textbox",
+      "reportItemName": "ReportTitle",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Textbox(ReportTitle)",
+        "containerChain": [],
+        "rectangleAncestry": [],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": "5.5in",
+        "height": "0.5in",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "InventoryReportTitle"
+      },
+      "fontSizes": [
+        "18pt"
+      ],
+      "fontWeights": [
+        "Bold"
+      ],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "InventoryReportTitle",
+      "positiveEvidence": [
+        "report-item name contains title",
+        "font size 18pt",
+        "bold text",
+        "located in body"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "report-item name contains title; font size 18pt; bold text; located in body"
+    },
+    {
+      "diagnosticId": "fc0871c94f1367b46a2d",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox1",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[0]/Textbox(Textbox1)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Item"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Item",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "e86faf71542610799251",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox2",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[1]/Textbox(Textbox2)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Warehouse"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Warehouse",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "f0ce7929cfc7c90ce2d7",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailUnits",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[2]/Textbox(DetailUnits)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Units"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": "0",
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Units",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "cbe0ee12eb9b4050f377",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox4",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[3]/Textbox(Textbox4)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[0]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [
+          "static"
+        ],
+        "repeatProperties": [
+          "KeepWithGroup=After"
+        ],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Unit Cost"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "staticHeader",
+        "confidence": "high",
+        "evidence": [
+          "static text appears in first tablix row"
+        ]
+      },
+      "visibleText": "Unit Cost",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [
+        "located in a tablix static header",
+        "short label-like text"
+      ],
+      "evidenceSummary": "located in body; located in a tablix static header; short label-like text"
+    },
+    {
+      "diagnosticId": "71cde69251d3210527fb",
+      "reportItemType": "Textbox",
+      "reportItemName": "Textbox9",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Textbox(Textbox9)",
+        "containerChain": [],
+        "rectangleAncestry": [],
+        "tablixAncestry": [],
+        "tablixName": null,
+        "tablixDatasetName": null,
+        "rowMemberPath": [],
+        "columnMemberPath": [],
+        "groupNames": [],
+        "groupExpressions": [],
+        "memberKinds": [],
+        "repeatProperties": [],
+        "detailGroup": false,
+        "pageBreakContext": [],
+        "top": "0.58729in",
+        "left": "0.05083in",
+        "width": "3.05729in",
+        "height": "0.40104in",
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "staticText",
+        "text": "Synthetic Inventory Detail"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "standalone",
+        "confidence": "high",
+        "evidence": [
+          "textbox is outside a tablix"
+        ]
+      },
+      "visibleText": "Synthetic Inventory Detail",
+      "positiveEvidence": [
+        "located in body"
+      ],
+      "negativeEvidence": [],
+      "evidenceSummary": "located in body"
+    }
+  ],
+  "fieldDisplayCandidateCatalog": [
+    {
+      "diagnosticId": "411d49313861912ba286",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailItem",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[0]/Textbox(DetailItem)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[0]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Item.Value",
+        "fieldName": "Item"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Item",
+        "datasetName": "InventoryData",
+        "possibleDatasets": [
+          "InventoryData"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "a9e7ab0bf8886109535f",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailWarehouse",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[1]/Textbox(DetailWarehouse)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[1]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Warehouse.Value",
+        "fieldName": "Warehouse"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": null,
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Warehouse",
+        "datasetName": "InventoryData",
+        "possibleDatasets": [
+          "InventoryData"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "b570d8a610e7123e9c12",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailUnit",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[2]/Textbox(DetailUnit)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[2]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!Units.Value",
+        "fieldName": "Units"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": "0",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "Units",
+        "datasetName": "InventoryData",
+        "possibleDatasets": [
+          "InventoryData"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    },
+    {
+      "diagnosticId": "4b25eb7148a21f314a0c",
+      "reportItemType": "Textbox",
+      "reportItemName": "DetailUnitCose",
+      "location": {
+        "reportSectionIndex": 0,
+        "region": "body",
+        "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)",
+        "containerChain": [
+          "Tablix(InventoryTable)"
+        ],
+        "rectangleAncestry": [],
+        "tablixAncestry": [
+          "InventoryTable"
+        ],
+        "tablixName": "InventoryTable",
+        "tablixDatasetName": "InventoryData",
+        "rowMemberPath": [
+          "rowMember[1]"
+        ],
+        "columnMemberPath": [
+          "columnMember[3]"
+        ],
+        "groupNames": [
+          "Details"
+        ],
+        "groupExpressions": [],
+        "memberKinds": [
+          "dynamic"
+        ],
+        "repeatProperties": [],
+        "detailGroup": true,
+        "pageBreakContext": [],
+        "top": null,
+        "left": null,
+        "width": null,
+        "height": null,
+        "hidden": {
+          "status": "unspecified",
+          "expression": null
+        }
+      },
+      "expression": {
+        "kind": "directFieldReference",
+        "expression": "=Fields!UnitCost.Value",
+        "fieldName": "UnitCost"
+      },
+      "fontSizes": [],
+      "fontWeights": [],
+      "textAlignments": [],
+      "currentFormat": "'$'0.00;('$'0.00)",
+      "scope": {
+        "role": "detail",
+        "confidence": "high",
+        "evidence": [
+          "row member is within a detail group"
+        ]
+      },
+      "fieldIdentity": {
+        "certainty": "certain",
+        "fieldName": "UnitCost",
+        "datasetName": "InventoryData",
+        "possibleDatasets": [
+          "InventoryData"
+        ],
+        "uniqueAcrossReport": true
+      },
+      "safeFromStaticHeader": true,
+      "sameFieldLocations": 1
+    }
+  ],
+  "datasetOverlapEvidence": [],
+  "aggregateScopeEvidence": [],
+  "containerHierarchyEvidence": [
+    {
+      "diagnosticId": "fc0871c94f1367b46a2d",
+      "reportItemName": "Textbox1",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[0]/Textbox(Textbox1)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "e86faf71542610799251",
+      "reportItemName": "Textbox2",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[1]/Textbox(Textbox2)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "f0ce7929cfc7c90ce2d7",
+      "reportItemName": "DetailUnits",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[2]/Textbox(DetailUnits)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "cbe0ee12eb9b4050f377",
+      "reportItemName": "Textbox4",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[0]/cell[3]/Textbox(Textbox4)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[0]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    },
+    {
+      "diagnosticId": "411d49313861912ba286",
+      "reportItemName": "DetailItem",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[0]/Textbox(DetailItem)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[0]"
+      ]
+    },
+    {
+      "diagnosticId": "a9e7ab0bf8886109535f",
+      "reportItemName": "DetailWarehouse",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[1]/Textbox(DetailWarehouse)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[1]"
+      ]
+    },
+    {
+      "diagnosticId": "b570d8a610e7123e9c12",
+      "reportItemName": "DetailUnit",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[2]/Textbox(DetailUnit)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[2]"
+      ]
+    },
+    {
+      "diagnosticId": "4b25eb7148a21f314a0c",
+      "reportItemName": "DetailUnitCose",
+      "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)",
+      "containerChain": [
+        "Tablix(InventoryTable)"
+      ],
+      "rowMemberPath": [
+        "rowMember[1]"
+      ],
+      "columnMemberPath": [
+        "columnMember[3]"
+      ]
+    }
+  ],
+  "candidateOrdering": {
+    "titleDiagnosticIds": [
+      "e0a85e4b19730e63af0b",
+      "fc0871c94f1367b46a2d",
+      "e86faf71542610799251",
+      "f0ce7929cfc7c90ce2d7",
+      "cbe0ee12eb9b4050f377",
+      "71cde69251d3210527fb"
+    ],
+    "fieldDiagnosticIds": [
+      "411d49313861912ba286",
+      "a9e7ab0bf8886109535f",
+      "b570d8a610e7123e9c12",
+      "4b25eb7148a21f314a0c"
+    ]
+  },
+  "remainingInformationLoss": [
+    "Candidate discovery does not select or score a generic target.",
+    "Structural role inference is conservative and remains review evidence.",
+    "No candidate identifier is mutation authority."
+  ],
+  "selectedTarget": null,
+  "mutationAuthorized": false
+}

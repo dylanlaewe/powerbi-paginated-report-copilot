@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "fixtureId": "simple-table",
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "scenarios": [
+        {
+          "planSha256": "6fa8e965bfb1e951b024cb1859c8f133d375337414fa16dcea9f3f513d1a7502",
+          "initialState": "blocked",
+          "initialOperationStates": [
+            {
+              "operationType": "setText",
+              "status": "choiceRequired"
+            },
+            {
+              "operationType": "setTextStyle",
+              "status": "choiceRequired"
+            },
+            {
+              "operationType": "setPageOrientation",
+              "status": "blocked"
+            },
+            {
+              "operationType": "setNumberFormat",
+              "status": "readyForConfirmation"
+            }
+          ],
+          "finalState": "blocked",
+          "mutationAuthorized": false,
+          "executable": false
+        }
+      ]
+    },
+    {
+      "fixtureId": "grouped-report",
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "scenarios": [
+        {
+          "planSha256": "6404a33f5eb8bdf15d645aa89727ca5a2fa2eaf25d82179899be737462e61633",
+          "initialState": "blocked",
+          "initialOperationStates": [
+            {
+              "operationType": "setText",
+              "status": "readyForConfirmation"
+            },
+            {
+              "operationType": "setPageOrientation",
+              "status": "blocked"
+            },
+            {
+              "operationType": "setNumberFormat",
+              "status": "choiceRequired"
+            }
+          ],
+          "finalState": "blocked",
+          "mutationAuthorized": false,
+          "executable": false
+        }
+      ]
+    },
+    {
+      "fixtureId": "microsoft-invoice",
+      "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "scenarios": [
+        {
+          "planSha256": "a6010ebedea9d96c29e1b7392166d481b2921a20824116fcc5405b34a280d898",
+          "initialState": "incomplete",
+          "initialOperationStates": [
+            {
+              "operationType": "setNumberFormat",
+              "status": "choiceRequired"
+            }
+          ],
+          "finalState": "fullyReviewed",
+          "mutationAuthorized": false,
+          "executable": false
+        },
+        {
+          "planSha256": "7ad8e930e61d984da4773f8d06d68036f64e6d109d2060efea5ab4e7bf003ccb",
+          "initialState": "incomplete",
+          "initialOperationStates": [
+            {
+              "operationType": "setNumberFormat",
+              "status": "readyForConfirmation"
+            }
+          ],
+          "finalState": "fullyReviewed",
+          "mutationAuthorized": false,
+          "executable": false
+        }
+      ]
+    },
+    {
+      "fixtureId": "microsoft-transcript",
+      "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "scenarios": [
+        {
+          "planSha256": "4a6df017dbf5c1c2946eccfed0a1e86445225c8752df9ee3df3d2cf992549f39",
+          "initialState": "incomplete",
+          "initialOperationStates": [
+            {
+              "operationType": "setText",
+              "status": "readyForConfirmation"
+            },
+            {
+              "operationType": "setTextStyle",
+              "status": "readyForConfirmation"
+            }
+          ],
+          "finalState": "fullyReviewed",
+          "mutationAuthorized": false,
+          "executable": false
+        },
+        {
+          "planSha256": "178a950df593aa065c78c45d474c887db85809a6b7cab55b63e84b69a2396d58",
+          "initialState": "incomplete",
+          "initialOperationStates": [
+            {
+              "operationType": "setNumberFormat",
+              "status": "choiceRequired"
+            }
+          ],
+          "finalState": "fullyReviewed",
+          "mutationAuthorized": false,
+          "executable": false
+        }
+      ]
+    }
+  ]
+}

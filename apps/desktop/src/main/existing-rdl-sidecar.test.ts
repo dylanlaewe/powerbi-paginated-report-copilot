@@ -109,11 +109,342 @@ describe("native selection and report sessions", () => {
       groupNames: ["Region", "Region1", "Details"],
       textboxCount: 42,
       pageOrientation: "portrait",
+      pageWidth: "8.5in",
+      pageHeight: "11in",
       currentTitle: "Regional Sales Subtotal Compatibility Test",
     });
     expect(JSON.stringify(result)).not.toMatch(
       /Central|DataGrid|<Report|CommandText/iu,
     );
+    expect(result.summary.candidateCatalog.titleCount).toBeGreaterThan(0);
+    expect(
+      result.summary.candidateCatalog.titleCandidates[0]?.candidateId,
+    ).toMatch(/^[a-f0-9-]{36}$/u);
+    expect(JSON.stringify(result.summary.candidateCatalog)).not.toContain(
+      copiedSource,
+    );
+    expect(result.summary.candidateCatalog.titleResolution).toMatchObject({
+      status: "resolved",
+      confidence: "high",
+      mutationAuthorized: false,
+    });
+    if (result.summary.candidateCatalog.titleResolution.status !== "resolved")
+      throw new Error("Expected read-only title resolution");
+    expect(result.summary.candidateCatalog.titleResolution.candidateId).toMatch(
+      /^[a-f0-9-]{36}$/u,
+    );
+    expect(JSON.stringify(result.summary.candidateCatalog)).not.toContain(
+      "84b9fb7c3d176cfdebf9",
+    );
+  });
+
+  it("scopes opaque candidate handles to each inspection session", async () => {
+    const { service, copiedSource } = await setup();
+    const first = await selected(service, copiedSource);
+    const second = await selected(service, copiedSource);
+    const firstIds = new Set([
+      ...first.summary.candidateCatalog.titleCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+      ...first.summary.candidateCatalog.fieldDisplayCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+    ]);
+    const secondIds = [
+      ...second.summary.candidateCatalog.titleCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+      ...second.summary.candidateCatalog.fieldDisplayCandidates.map(
+        ({ candidateId }) => candidateId,
+      ),
+    ];
+    expect(secondIds.every((id) => !firstIds.has(id))).toBe(true);
+    expect(JSON.stringify(second.summary)).not.toMatch(/<Report|CommandText/iu);
+  });
+
+  it("resolves a field through the live report session with only opaque candidate handles", async () => {
+    const { service } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+      ),
+    );
+    const result = service.resolveField({
+      reportSessionId: selection.reportSessionId,
+      fieldName: "UnitCost",
+    });
+    expect(result).toMatchObject({
+      status: "resolved",
+      reason: "FIELD_DISPLAY_RESOLVED",
+      fieldName: "UnitCost",
+      confidence: "high",
+      mutationAuthorized: false,
+    });
+    if (result.status !== "resolved") throw new Error("Expected resolution");
+    expect(result.candidateId).toMatch(/^[a-f0-9-]{36}$/u);
+    expect(JSON.stringify(result)).not.toMatch(
+      /e3a34afe7c29|synthetic-inventory-detail\.rdl|<Report/iu,
+    );
+  });
+
+  it("returns all ambiguous field candidates as session-scoped opaque handles", async () => {
+    const { service } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+      ),
+    );
+    const result = service.resolveField({
+      reportSessionId: selection.reportSessionId,
+      fieldName: "Revenue",
+    });
+    expect(result).toMatchObject({
+      status: "ambiguous",
+      reason: "MULTIPLE_SCOPE_ROLES",
+      mutationAuthorized: false,
+    });
+    if (result.status !== "ambiguous") throw new Error("Expected ambiguity");
+    expect(result.candidates).toHaveLength(3);
+    expect(
+      result.candidates.every(({ candidateId }) =>
+        /^[a-f0-9-]{36}$/u.test(candidateId),
+      ),
+    ).toBe(true);
+  });
+
+  it("rejects a stale report session before field resolution", async () => {
+    const { service, copiedSource } = await setup();
+    const first = await selected(service, copiedSource);
+    await selected(service, copiedSource);
+    expect(
+      service.resolveField({
+        reportSessionId: first.reportSessionId,
+        fieldName: "Revenue",
+      }),
+    ).toEqual({
+      status: "error",
+      code: "TARGET_MISSING",
+      message: "The report session was not found.",
+      noOutputWritten: true,
+      sourceUnchanged: true,
+    });
+  });
+
+  it("creates opaque session-bound review drafts without automatic confirmation", async () => {
+    const { service } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+      ),
+    );
+    const result = await service.createReview({
+      reportSessionId: selection.reportSessionId,
+      request:
+        'Change the report title to "Quarterly Department Sales", switch the page to landscape, and format Revenue as currency with no decimal places.',
+    });
+    expect(result.status).toBe("review");
+    if (result.status !== "review") throw new Error(result.message);
+    expect(result.bundle.reviewDraftId).toMatch(/^[a-f0-9-]{36}$/u);
+    expect(result.bundle).toMatchObject({
+      state: "blocked",
+      mutationAuthorized: false,
+      executable: false,
+    });
+    expect(result.bundle.operations.map(({ status }) => status)).toEqual([
+      "readyForConfirmation",
+      "blocked",
+      "choiceRequired",
+    ]);
+    expect(JSON.stringify(result)).not.toMatch(
+      /<Report|sourcePath|structuralPath|reportItemName|synthetic-department-sales\.rdl/iu,
+    );
+  });
+
+  it("validates live candidate membership and records exact review choices only", async () => {
+    const { service } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+      ),
+    );
+    const created = await service.createReview({
+      reportSessionId: selection.reportSessionId,
+      request: "Format Revenue as currency with no decimal places.",
+    });
+    if (created.status !== "review") throw new Error(created.message);
+    const operation = created.bundle.operations[0]!;
+    if (operation.status !== "choiceRequired") throw new Error("choice");
+    expect(
+      operation.candidates.every(({ candidateId }) =>
+        /^[a-f0-9-]{36}$/u.test(candidateId),
+      ),
+    ).toBe(true);
+    const rejected = await service.selectReviewCandidates({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+      candidateIds: ["66666666-6666-4666-8666-666666666666"],
+    });
+    expect(rejected).toMatchObject({ status: "error", noOutputWritten: true });
+    const selectedReview = await service.selectReviewCandidates({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+      candidateIds: [operation.candidates[0]!.candidateId],
+    });
+    if (selectedReview.status !== "review")
+      throw new Error(selectedReview.message);
+    const confirmed = await service.confirmReviewOperation({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+    });
+    expect(confirmed).toMatchObject({
+      status: "review",
+      bundle: {
+        state: "fullyReviewed",
+        mutationAuthorized: false,
+        executable: false,
+      },
+    });
+  });
+
+  it("invalidates a review when its report session closes or source changes", async () => {
+    const { service, copiedSource } = await setup();
+    const first = await selected(service, copiedSource);
+    const firstReview = await service.createReview({
+      reportSessionId: first.reportSessionId,
+      request: 'Change the report title to "Quarterly Sales".',
+    });
+    if (firstReview.status !== "review") throw new Error(firstReview.message);
+    await selected(service, copiedSource);
+    expect(
+      await service.getReview(firstReview.bundle.reviewDraftId),
+    ).toMatchObject({ status: "error", code: "TARGET_MISSING" });
+
+    const second = await selected(service, copiedSource);
+    const secondReview = await service.createReview({
+      reportSessionId: second.reportSessionId,
+      request: 'Change the report title to "Quarterly Sales".',
+    });
+    if (secondReview.status !== "review") throw new Error(secondReview.message);
+    const changedPlan = await service.createReview({
+      reportSessionId: second.reportSessionId,
+      request: 'Change the report title to "Monthly Sales".',
+    });
+    if (changedPlan.status !== "review") throw new Error(changedPlan.message);
+    expect(
+      await service.getReview(secondReview.bundle.reviewDraftId),
+    ).toMatchObject({ status: "error", code: "TARGET_MISSING" });
+    await writeFile(copiedSource, `${await readFile(copiedSource, "utf8")}\n`);
+    expect(
+      await service.getReview(changedPlan.bundle.reviewDraftId),
+    ).toMatchObject({ status: "error", code: "SOURCE_CHANGED" });
+  });
+
+  it("atomically creates one reviewed copy and consumes its authorization", async () => {
+    const { service, userData } = await setup();
+    const selection = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+      ),
+    );
+    const created = await service.createReview({
+      reportSessionId: selection.reportSessionId,
+      request: "Format Revenue as currency with no decimal places.",
+    });
+    if (created.status !== "review") throw new Error(created.message);
+    const operation = created.bundle.operations[0]!;
+    if (operation.status !== "choiceRequired") throw new Error("choice");
+    const selectedReview = await service.selectReviewCandidates({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+      candidateIds: operation.candidates.map(({ candidateId }) => candidateId),
+    });
+    if (selectedReview.status !== "review")
+      throw new Error(selectedReview.message);
+    const confirmed = await service.confirmReviewOperation({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+    });
+    if (confirmed.status !== "review") throw new Error(confirmed.message);
+    const result = await service.createReviewedCopy({
+      reviewDraftId: created.bundle.reviewDraftId,
+    });
+    expect(result).toMatchObject({
+      status: "complete",
+      sourceUnchanged: true,
+      validation: "PASS",
+    });
+    if (result.status !== "complete") throw new Error(result.message);
+    const output = join(userData, "edited-reports", result.editedFilename);
+    const manifest = join(userData, "edited-reports", result.manifestFilename);
+    expect(await readFile(output)).toBeTruthy();
+    expect(JSON.parse(await readFile(manifest, "utf8"))).toMatchObject({
+      invocationSurface: "electron-sidecar",
+      planSha256: result.planSha256,
+      output: { sha256: result.outputSha256 },
+      validation: { atomicWrite: "PASS" },
+    });
+    expect(
+      await service.createReviewedCopy({
+        reviewDraftId: created.bundle.reviewDraftId,
+      }),
+    ).toMatchObject({ status: "error", code: "PLAN_INVALID" });
+  });
+
+  it("writes no generic output when the source changes before authorization", async () => {
+    const { service, copiedSource, userData } = await setup();
+    const selection = await selected(service, copiedSource);
+    const created = await service.createReview({
+      reportSessionId: selection.reportSessionId,
+      request: 'Change the report title to "Quarterly Sales".',
+    });
+    if (created.status !== "review") throw new Error(created.message);
+    const operation = created.bundle.operations[0]!;
+    const confirmed = await service.confirmReviewOperation({
+      reviewDraftId: created.bundle.reviewDraftId,
+      operationId: operation.operationId,
+    });
+    if (confirmed.status !== "review") throw new Error(confirmed.message);
+    await writeFile(copiedSource, `${await readFile(copiedSource, "utf8")}\n`);
+    expect(
+      await service.createReviewedCopy({
+        reviewDraftId: created.bundle.reviewDraftId,
+      }),
+    ).toMatchObject({
+      status: "error",
+      code: "SOURCE_CHANGED",
+      noOutputWritten: true,
+      sourceUnchanged: true,
+    });
+    await expect(
+      readFile(join(userData, "edited-reports", "unexpected.rdl")),
+    ).rejects.toMatchObject({ code: "ENOENT" });
+  });
+
+  it("sanitizes omitted physical dimensions without fabricating defaults", async () => {
+    const { service } = await setup();
+    const result = await selected(
+      service,
+      join(
+        root,
+        "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+      ),
+    );
+    expect(result.summary).toMatchObject({
+      pageOrientation: "unspecified",
+      pageWidth: "Not serialized",
+      pageHeight: "Not serialized",
+    });
+    expect(JSON.stringify(result)).not.toContain("7.08729in");
   });
 
   it("rejects non-RDL, directory, oversized, and invalid XML selections", async () => {

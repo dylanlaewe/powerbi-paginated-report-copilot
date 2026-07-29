@@ -4,6 +4,7 @@ import type {
   ApplyEditResult,
   ExistingRdlSelectionResult,
   PlanEditResult,
+  ReviewBundleResult,
 } from "../shared/desktop-api";
 import "./style.css";
 
@@ -14,6 +15,8 @@ type View =
   | "planning"
   | "rejected"
   | "ready"
+  | "reviewingCandidates"
+  | "candidateReview"
   | "applying"
   | "complete"
   | "error";
@@ -30,6 +33,8 @@ function App(): React.JSX.Element {
     useState<Extract<PlanEditResult, { status: "planned" }>>();
   const [complete, setComplete] =
     useState<Extract<ApplyEditResult, { status: "complete" }>>();
+  const [candidateReview, setCandidateReview] =
+    useState<Extract<ReviewBundleResult, { status: "review" }>>();
   const [error, setError] = useState<{
     code: string;
     message: string;
@@ -105,6 +110,104 @@ function App(): React.JSX.Element {
     }
   };
 
+  const reviewCandidates = async () => {
+    if (!selection) return;
+    setView("reviewingCandidates");
+    try {
+      const result = await window.powerBiCopilot?.createExistingRdlReview({
+        reportSessionId: selection.reportSessionId,
+        request,
+      });
+      if (!result)
+        return failure(
+          "PRELOAD_BRIDGE_UNAVAILABLE",
+          "The desktop sidecar service failed to initialize.",
+          "inspected",
+        );
+      if (result.status === "error")
+        return failure(result.code, result.message, "inspected");
+      setCandidateReview(result);
+      setError(undefined);
+      setView("candidateReview");
+    } catch {
+      failure(
+        "IPC_REJECTED",
+        "The review draft could not be created.",
+        "inspected",
+      );
+    }
+  };
+
+  const updateCandidateReview = async (
+    action: "select" | "confirm" | "decline" | "reset",
+    operationId: string,
+    candidateIds: string[] = [],
+  ) => {
+    if (!candidateReview) return;
+    const input = {
+      reviewDraftId: candidateReview.bundle.reviewDraftId,
+      operationId,
+    };
+    try {
+      const api = window.powerBiCopilot;
+      if (!api)
+        return failure(
+          "PRELOAD_BRIDGE_UNAVAILABLE",
+          "The desktop sidecar service failed to initialize.",
+          "candidateReview",
+        );
+      const result =
+        action === "select"
+          ? await api.selectExistingRdlReviewCandidates({
+              ...input,
+              candidateIds,
+            })
+          : action === "confirm"
+            ? await api.confirmExistingRdlReviewOperation(input)
+            : action === "decline"
+              ? await api.declineExistingRdlReviewOperation(input)
+              : await api.resetExistingRdlReviewOperation(input);
+      if (result.status === "error")
+        return failure(result.code, result.message, "candidateReview");
+      setCandidateReview(result);
+    } catch {
+      failure(
+        "IPC_REJECTED",
+        "The review decision could not be recorded.",
+        "candidateReview",
+      );
+    }
+  };
+
+  const createReviewedCopy = async () => {
+    if (!candidateReview) return;
+    setView("applying");
+    try {
+      const result = await window.powerBiCopilot?.createExistingRdlReviewedCopy(
+        {
+          reviewDraftId: candidateReview.bundle.reviewDraftId,
+        },
+      );
+      if (!result)
+        return failure(
+          "PRELOAD_BRIDGE_UNAVAILABLE",
+          "The desktop sidecar service failed to initialize.",
+          "candidateReview",
+        );
+      if (result.status === "error")
+        return failure(result.code, result.message, "candidateReview");
+      setComplete(result);
+      setError(undefined);
+      setView("complete");
+    } catch {
+      failure(
+        "IPC_REJECTED",
+        "The reviewed copy could not be created.",
+        "candidateReview",
+      );
+    }
+  };
+
   const apply = async () => {
     if (!selection || !plan) return;
     setView("applying");
@@ -131,11 +234,13 @@ function App(): React.JSX.Element {
   };
 
   const editRequest = async () => {
-    if (plan)
+    if (plan) {
       await window.powerBiCopilot
         ?.cancelExistingRdlPlan({ planSessionId: plan.planSessionId })
         .catch(() => undefined);
+    }
     setPlan(undefined);
+    setCandidateReview(undefined);
     setError(undefined);
     setView("inspected");
   };
@@ -149,6 +254,7 @@ function App(): React.JSX.Element {
         .catch(() => undefined);
     setSelection(undefined);
     setPlan(undefined);
+    setCandidateReview(undefined);
     setComplete(undefined);
     setRequest("");
     setError(undefined);
@@ -227,6 +333,10 @@ function App(): React.JSX.Element {
               <div>
                 <dt>Page</dt>
                 <dd>{selection.summary.pageOrientation}</dd>
+                <dt>Page size</dt>
+                <dd>
+                  {selection.summary.pageWidth} × {selection.summary.pageHeight}
+                </dd>
               </div>
               {selection.summary.currentTitle && (
                 <div className="wide">
@@ -239,6 +349,7 @@ function App(): React.JSX.Element {
 
           {(view === "inspected" ||
             view === "planning" ||
+            view === "reviewingCandidates" ||
             view === "rejected") && (
             <section className="request-card">
               <label htmlFor="request">Describe the change</label>
@@ -253,16 +364,211 @@ function App(): React.JSX.Element {
               <div className="actions">
                 <button
                   className="primary"
-                  disabled={view === "planning" || !request.trim()}
+                  disabled={
+                    view === "planning" ||
+                    view === "reviewingCandidates" ||
+                    !request.trim()
+                  }
+                  onClick={() => void reviewCandidates()}
+                >
+                  {view === "reviewingCandidates"
+                    ? "Preparing review…"
+                    : "Review Candidates Only"}
+                </button>
+                <button
+                  disabled={
+                    view === "planning" ||
+                    view === "reviewingCandidates" ||
+                    !request.trim()
+                  }
                   onClick={() => void review()}
                 >
-                  {view === "planning" ? "Planning…" : "Review Changes"}
+                  {view === "planning"
+                    ? "Planning…"
+                    : "Review Changes (Checksum-Reviewed)"}
                 </button>
                 <button
                   disabled={view === "planning"}
                   onClick={() => void select()}
                 >
                   Choose Different Report
+                </button>
+              </div>
+            </section>
+          )}
+
+          {view === "candidateReview" && candidateReview && (
+            <section className="review-card">
+              <p className="eyebrow">OPERATION REVIEW</p>
+              <h2>Review only — no RDL file will be changed.</h2>
+              <Hash
+                label="Source SHA-256"
+                value={candidateReview.bundle.sourceSha256}
+              />
+              <Hash
+                label="Plan SHA-256"
+                value={candidateReview.bundle.planSha256}
+              />
+              <p>
+                Bundle state: <strong>{candidateReview.bundle.state}</strong>
+              </p>
+              <div className="targets">
+                {candidateReview.bundle.operations.map((operation) => {
+                  const candidates =
+                    operation.status === "readyForConfirmation"
+                      ? [
+                          operation.recommendedCandidate,
+                          ...operation.alternatives,
+                        ]
+                      : operation.status === "choiceRequired"
+                        ? operation.candidates
+                        : [];
+                  return (
+                    <article key={operation.operationId}>
+                      <strong>{operation.requestedChange}</strong>
+                      <small>{operation.status}</small>
+                      {operation.status === "blocked" && (
+                        <p>
+                          {operation.reason}: {operation.message}
+                        </p>
+                      )}
+                      {candidates.map((candidate) => (
+                        <label key={candidate.candidateId}>
+                          {operation.status === "choiceRequired" && (
+                            <input
+                              type={
+                                operation.selectionPolicy === "exactlyOne"
+                                  ? "radio"
+                                  : "checkbox"
+                              }
+                              name={operation.operationId}
+                              checked={operation.selectedCandidateIds.includes(
+                                candidate.candidateId,
+                              )}
+                              onChange={() => {
+                                const selected =
+                                  operation.selectionPolicy === "exactlyOne"
+                                    ? [candidate.candidateId]
+                                    : operation.selectedCandidateIds.includes(
+                                          candidate.candidateId,
+                                        )
+                                      ? operation.selectedCandidateIds.filter(
+                                          (id) => id !== candidate.candidateId,
+                                        )
+                                      : [
+                                          ...operation.selectedCandidateIds,
+                                          candidate.candidateId,
+                                        ];
+                                if (selected.length)
+                                  void updateCandidateReview(
+                                    "select",
+                                    operation.operationId,
+                                    selected,
+                                  );
+                              }}
+                            />
+                          )}
+                          <span>
+                            {candidate.kind === "title"
+                              ? candidate.visibleText
+                              : candidate.fieldName}
+                            {" · "}
+                            {candidate.region}
+                            {candidate.kind === "fieldDisplay" && (
+                              <>
+                                {" · "}
+                                {candidate.datasetName ??
+                                  (candidate.possibleDatasets.join(" / ") ||
+                                    "dataset unknown")}
+                                {" · "}
+                                {candidate.tablixName ?? "outside tablix"}
+                                {" · "}
+                                {candidate.structuralRole}
+                                {" · "}
+                                {candidate.expressionKind}
+                                {candidate.currentFormat
+                                  ? ` · ${candidate.currentFormat}`
+                                  : ""}
+                              </>
+                            )}
+                          </span>
+                          <ul>
+                            {candidate.evidence.slice(0, 3).map((item) => (
+                              <li key={`${candidate.candidateId}-${item.code}`}>
+                                {item.message}
+                              </li>
+                            ))}
+                            {candidate.ambiguityEvidence
+                              .slice(0, 3)
+                              .map((item) => (
+                                <li
+                                  key={`${candidate.candidateId}-ambiguity-${item.code}`}
+                                >
+                                  {item.message}
+                                </li>
+                              ))}
+                          </ul>
+                        </label>
+                      ))}
+                      {(operation.status === "readyForConfirmation" ||
+                        operation.status === "choiceRequired") && (
+                        <div className="actions">
+                          <button
+                            onClick={() =>
+                              void updateCandidateReview(
+                                "confirm",
+                                operation.operationId,
+                              )
+                            }
+                          >
+                            Confirm review
+                          </button>
+                          <button
+                            onClick={() =>
+                              void updateCandidateReview(
+                                "decline",
+                                operation.operationId,
+                              )
+                            }
+                          >
+                            Decline
+                          </button>
+                        </div>
+                      )}
+                      {(operation.status === "confirmed" ||
+                        operation.status === "declined") && (
+                        <button
+                          onClick={() =>
+                            void updateCandidateReview(
+                              "reset",
+                              operation.operationId,
+                            )
+                          }
+                        >
+                          Reset review
+                        </button>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+              <p className="assurance">
+                Review decisions are session-bound and never authorize mutation.
+                The original RDL remains unchanged. A duplicate-safe new RDL
+                includes only explicitly confirmed operations.
+              </p>
+              <div className="actions">
+                {(candidateReview.bundle.state === "fullyReviewed" ||
+                  candidateReview.bundle.state === "declined") && (
+                  <button
+                    className="primary"
+                    onClick={() => void createReviewedCopy()}
+                  >
+                    Create reviewed copy
+                  </button>
+                )}
+                <button onClick={() => void editRequest()}>
+                  Back to request
                 </button>
               </div>
             </section>

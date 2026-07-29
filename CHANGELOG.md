@@ -4,6 +4,51 @@
 
 ### Added
 
+- RDL Structure Corpus v0.3 Gate 2O: independent Windows acceptance records
+  for all four reviewed-copy scenarios, including original preservation,
+  manifest creation, Report Builder Preview, PDF, and Excel passes. Exact
+  page/worksheet counts were not captured during final confirmation.
+- RDL Structure Corpus v0.3 Gate 2N: unsigned Windows x64 portable v0.3.0
+  release candidate, self-contained four-scenario Windows validation bundle,
+  byte-identical accepted inputs and Microsoft attribution, complete SHA-256
+  inventory, unfilled expected-results record, and packaging/integrity
+  regressions. Independent Report Builder validation subsequently passed in
+  Gate 2O.
+- RDL Structure Corpus v0.3 Gate 2M: review-bound generic mutation for exact
+  title text/style and existing-field format candidates, main-process-only
+  single-use authorization, exact multi-candidate formatting, atomic
+  duplicate/manifest output, deterministic controlled/static evidence, and a
+  “Create reviewed copy” UI action.
+- RDL Structure Corpus v0.3 Gate 2L: operation-specific, session-bound,
+  read-only review bundles with deterministic operation identities, explicit
+  candidate selection/confirmation/decline/reset states, opaque live review
+  handles, minimal review-only UI, and corpus simulations. Review remains
+  non-executable and never authorizes mutation.
+- RDL Structure Corpus v0.3 Gate 2K: strict dataset- and scope-aware read-only
+  field-display resolution, deterministic candidate ordering, explicit
+  ambiguity and unsupported outcomes, corpus-wide evidence, and a narrow
+  session-scoped Electron inspection method. All outcomes deny mutation.
+- RDL Structure Corpus v0.3 Gate 2J: deterministic evidence-based read-only
+  report-title ranking with strict resolved/ambiguous/not-found/unsupported
+  outcomes, page-header and constant-string support, stable reason codes,
+  sanitized session UUIDs, and explicit non-mutation authority.
+- RDL Structure Corpus v0.3 Gate 2I: runtime-validated structural target
+  context, conservative expression and scope classification, dataset-aware
+  read-only title/field candidate catalogs, deterministic diagnostic evidence,
+  and sanitized session-scoped opaque Electron candidate handles. Generic
+  selection and mutation authority remain absent.
+- RDL Structure Corpus v0.3 Gate 2H: discriminated explicit/omitted page
+  measurements, unknown-orientation normalization, four-fixture production
+  inspection evidence, sanitized unspecified-dimension summaries, and an
+  atomic `PAGE_DIMENSIONS_UNSPECIFIED` orientation guard.
+- RDL Structure Corpus v0.3 Gate 2G: deterministic read-only production inspector/resolver/planner baselines for four immutable fixtures, clearly separated corpus-assisted candidate diagnostics, stable operation classifications, false-positive/negative evidence, and a smallest-safe implementation sequence. No RDL output or product behavior change.
+- RDL Structure Corpus v0.3 Gate 2F: one byte-identical, hash-pinned Microsoft Transcript compatibility fixture with the unmodified upstream MIT license, attribution, deterministic nested-layout inventory, static security evidence, XML/XSD validation, corpus registration, and fixture-level regressions. Invoice remains unchanged and Report Builder execution remains unperformed.
+- RDL Structure Corpus v0.3 Gate 2E: one byte-identical, hash-pinned Microsoft Invoice compatibility fixture with the unmodified upstream MIT license, attribution, deterministic inventory, static security evidence, XML/XSD validation, corpus registration, and fixture-level regressions. Report Builder execution remains unperformed.
+- RDL Structure Corpus v0.3 Gate 2D: reproducible static discovery of seven hash-pinned official Microsoft Reporting Services samples, direct MIT license review, security scans, XML/XSD results, deterministic structural inventories, feature-coverage matrix, and later-import classifications without committing source RDLs or changing product behavior.
+- RDL Structure Corpus v0.3 Gate 2C: immutable personally authored grouped source, complete hierarchy/aggregate/pagination inventory, XML/XSD and fixture regressions, completed four-page/four-worksheet validation evidence, and corrected canonical title requirements without resolver evaluation.
+- RDL Structure Corpus v0.3 Gate 2B: immutable personally authored simple-table source, safe corpus inventory service, committed structural inventory, XML/XSD and fixture regressions, completed provenance/Windows validation evidence, and explicit authored-design deviations without resolver evaluation.
+- RDL Structure Corpus v0.3 Gate 2A authoring kit: runtime-validated safety/fixture metadata, four synthetic UTF-8 Enter Data row sets, exact field types and totals, Report Builder construction guides, and source-validation worksheets. No RDL source fixture is included.
+- RDL Structure Corpus v0.3 Gate 1 design: four proposed synthetic Report Builder structural categories, runtime-validated corpus index, provenance/licensing plan, frozen edit scenarios, anticipated target evidence, ambiguity risks, and explicit pending validation states.
 - Existing RDL Sidecar Editor Gate 1: a dedicated accepted-report fixture, strict versioned RDL inventory, in-process safe parsing, deterministic title/Revenue target resolution, committed inspection evidence, and fail-closed ambiguity regressions.
 - Existing RDL Sidecar Editor Gate 2: a strict EditPlan v1, checksum-reviewed target resolution, deterministic parsed mutation, semantic structural-diff allowlist, embedded-data and report-structure preservation hashes, atomic edited fixture generation, and comprehensive failure/determinism coverage.
 - Existing RDL Sidecar Editor Gate 3: a constrained deterministic `LocalSentenceEditPlanner`, minimized safe context, full-clause span coverage, conflict and partial-request rejection, canonical operation ordering/hash, plan-derived proposals, phrase variations, and bounded malformed-input fuzz coverage.

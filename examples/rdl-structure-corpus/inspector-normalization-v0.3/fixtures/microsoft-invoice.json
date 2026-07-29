@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "fixtureId": "microsoft-invoice",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/external-sources/microsoft-reporting-services/imported/invoice/source/Invoice.rdl",
+    "byteLength": 222297,
+    "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc"
+  },
+  "priorGate2GResult": {
+    "status": "BLOCKED_INSPECTOR",
+    "code": "INVALID_REPORT",
+    "message": "ReportSection 0 lacks PageWidth"
+  },
+  "newInspectionResult": "PASS",
+  "xmlParseResult": "PASS",
+  "namespaceResult": {
+    "status": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "version": "2016/01"
+  },
+  "modelNormalizationResult": "PASS",
+  "pageSettingsResult": {
+    "status": "PASS",
+    "pageWidth": {
+      "presence": "omitted"
+    },
+    "pageHeight": {
+      "presence": "omitted"
+    },
+    "margins": {
+      "left": {
+        "presence": "omitted"
+      },
+      "right": {
+        "presence": "omitted"
+      },
+      "top": {
+        "presence": "omitted"
+      },
+      "bottom": {
+        "presence": "omitted"
+      }
+    },
+    "orientation": {
+      "status": "unknown",
+      "reason": "PAGE_DIMENSIONS_UNSPECIFIED"
+    },
+    "bodyWidth": "8.5in"
+  },
+  "structuralInventoryResult": {
+    "status": "PASS",
+    "counts": {
+      "dataSources": 1,
+      "datasets": 5,
+      "parameters": 1,
+      "tablixes": 3,
+      "textboxes": 55,
+      "rectangles": 9,
+      "images": 1,
+      "groups": 2,
+      "expressions": 52
+    },
+    "pageHeaderPresent": true,
+    "pageFooterPresent": true,
+    "groups": [
+      {
+        "name": "Details",
+        "expressions": []
+      },
+      {
+        "name": "Invoice_Group",
+        "expressions": [
+          "=Fields!InvoiceId.Value"
+        ]
+      }
+    ],
+    "warnings": [
+      "ReportSection 0 omits explicit PageWidth or PageHeight; orientation is unknown."
+    ],
+    "unsupportedElements": []
+  },
+  "candidateDiscoveryReachability": "REACHED",
+  "rendererSummaryAvailability": {
+    "status": "PASS",
+    "summary": {
+      "filename": "Invoice.rdl",
+      "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "namespaceVersion": "2016/01",
+      "datasetNames": [
+        "SalesInvoiceDS",
+        "Company",
+        "Users",
+        "SalesInvoiceHeaderFooterDS",
+        "CompanyList"
+      ],
+      "fieldCount": 36,
+      "tablixNames": [
+        "Tablix1",
+        "Tablix2",
+        "Tablix3"
+      ],
+      "groupNames": [
+        "Details",
+        "Invoice_Group"
+      ],
+      "textboxCount": 55,
+      "pageOrientation": "unspecified",
+      "pageWidth": "Not serialized",
+      "pageHeight": "Not serialized"
+    }
+  },
+  "titleResolution": {
+    "status": "BLOCKED",
+    "code": "TITLE_NOT_FOUND",
+    "message": "No checksum-reviewed report-title target is configured for this source"
+  },
+  "numericResolution": {
+    "status": "NOT_EVALUATED",
+    "reason": "No Gate 2H numeric mutation target was approved."
+  },
+  "orientationCapability": {
+    "status": "BLOCKED",
+    "code": "PAGE_DIMENSIONS_UNSPECIFIED",
+    "message": "The source omits explicit PageWidth or PageHeight, so deterministic orientation mutation cannot proceed."
+  },
+  "exactRemainingBlockers": [
+    "Page orientation mutation requires explicit serialized PageWidth and PageHeight.",
+    "Checksum-reviewed report-title target is not configured for this source."
+  ]
+}

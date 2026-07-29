@@ -1,0 +1,378 @@
+{
+  "version": 1,
+  "fixtureId": "simple-table",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/simple-table/source/synthetic-inventory-detail.rdl",
+    "byteLength": 21402,
+    "sha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3"
+  },
+  "evaluatedFieldNames": [
+    "Item",
+    "UnitCost",
+    "Units",
+    "Warehouse"
+  ],
+  "evaluations": [
+    {
+      "fieldName": "Item",
+      "candidateOrdering": [
+        {
+          "candidateId": "411d49313861912ba286",
+          "reportItemName": "DetailItem",
+          "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[0]/Textbox(DetailItem)",
+          "region": "body",
+          "fieldName": "Item",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "InventoryData",
+          "possibleDatasets": [
+            "InventoryData"
+          ],
+          "tablixName": "InventoryTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Item"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[0]/Textbox(DetailItem)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: InventoryTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Item",
+        "candidateId": "411d49313861912ba286",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Item"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[0]/Textbox(DetailItem)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: InventoryTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "UnitCost",
+      "candidateOrdering": [
+        {
+          "candidateId": "4b25eb7148a21f314a0c",
+          "reportItemName": "DetailUnitCose",
+          "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)",
+          "region": "body",
+          "fieldName": "UnitCost",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "InventoryData",
+          "possibleDatasets": [
+            "InventoryData"
+          ],
+          "tablixName": "InventoryTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": "'$'0.00;('$'0.00)",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: UnitCost"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: InventoryTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: '$'0.00;('$'0.00)"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "UnitCost",
+        "candidateId": "4b25eb7148a21f314a0c",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: UnitCost"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[3]/Textbox(DetailUnitCose)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: InventoryTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          },
+          {
+            "code": "CURRENT_FORMAT",
+            "message": "current format: '$'0.00;('$'0.00)"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Units",
+      "candidateOrdering": [
+        {
+          "candidateId": "b570d8a610e7123e9c12",
+          "reportItemName": "DetailUnit",
+          "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[2]/Textbox(DetailUnit)",
+          "region": "body",
+          "fieldName": "Units",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "InventoryData",
+          "possibleDatasets": [
+            "InventoryData"
+          ],
+          "tablixName": "InventoryTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": "0",
+          "serializedType": null,
+          "likelyNumericDisplay": true,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Units"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[2]/Textbox(DetailUnit)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: InventoryTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            },
+            {
+              "code": "CURRENT_FORMAT",
+              "message": "current format: 0"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Units",
+        "candidateId": "b570d8a610e7123e9c12",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Units"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[2]/Textbox(DetailUnit)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: InventoryTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          },
+          {
+            "code": "CURRENT_FORMAT",
+            "message": "current format: 0"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    },
+    {
+      "fieldName": "Warehouse",
+      "candidateOrdering": [
+        {
+          "candidateId": "a9e7ab0bf8886109535f",
+          "reportItemName": "DetailWarehouse",
+          "structuralPath": "section[0]/body/Tablix(InventoryTable)/row[1]/cell[1]/Textbox(DetailWarehouse)",
+          "region": "body",
+          "fieldName": "Warehouse",
+          "expressionKind": "directFieldReference",
+          "aggregateFunction": null,
+          "explicitAggregateScope": null,
+          "datasetCertainty": "certain",
+          "datasetName": "InventoryData",
+          "possibleDatasets": [
+            "InventoryData"
+          ],
+          "tablixName": "InventoryTable",
+          "scopeRole": "detail",
+          "groupNames": [
+            "Details"
+          ],
+          "currentFormat": null,
+          "serializedType": null,
+          "likelyNumericDisplay": false,
+          "compatibilityUnknown": true,
+          "hiddenStatus": "unspecified",
+          "evidence": [
+            {
+              "code": "EXACT_FIELD_NAME",
+              "message": "exact field-name match: Warehouse"
+            },
+            {
+              "code": "DIRECT_FIELD_REFERENCE",
+              "message": "expression kind is directFieldReference"
+            },
+            {
+              "code": "STRUCTURAL_PATH_PRESERVED",
+              "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[1]/Textbox(DetailWarehouse)"
+            },
+            {
+              "code": "TABLIX_CONTEXT",
+              "message": "tablix: InventoryTable"
+            },
+            {
+              "code": "SCOPE_ROLE",
+              "message": "structural role: detail"
+            }
+          ],
+          "ambiguityEvidence": []
+        }
+      ],
+      "outcome": {
+        "status": "resolved",
+        "reason": "FIELD_DISPLAY_RESOLVED",
+        "fieldName": "Warehouse",
+        "candidateId": "a9e7ab0bf8886109535f",
+        "confidence": "high",
+        "evidence": [
+          {
+            "code": "EXACT_FIELD_NAME",
+            "message": "exact field-name match: Warehouse"
+          },
+          {
+            "code": "DIRECT_FIELD_REFERENCE",
+            "message": "expression kind is directFieldReference"
+          },
+          {
+            "code": "STRUCTURAL_PATH_PRESERVED",
+            "message": "structural location: section[0]/body/Tablix(InventoryTable)/row[1]/cell[1]/Textbox(DetailWarehouse)"
+          },
+          {
+            "code": "TABLIX_CONTEXT",
+            "message": "tablix: InventoryTable"
+          },
+          {
+            "code": "SCOPE_ROLE",
+            "message": "structural role: detail"
+          }
+        ],
+        "alternatives": [],
+        "mutationAuthorized": false
+      }
+    }
+  ],
+  "datasetOverlapEvidence": [],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "remainingLimitations": [
+    "Field-name-only requests cannot select detail, subtotal, or Grand Total scope.",
+    "No multi-location formatting policy is authorized.",
+    "Serialized field types are unavailable in the current production catalog; compatibility remains unknown.",
+    "Checksum-reviewed numeric targets remain the only writable path."
+  ]
+}

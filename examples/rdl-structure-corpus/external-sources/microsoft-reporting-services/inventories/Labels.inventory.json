@@ -1,0 +1,216 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/Labels.rdl",
+    "fileName": "Labels.rdl",
+    "byteSize": 121433,
+    "sha256": "d6f2f0580357efe676dd3b490ed982d5fbddd0a99e059e24fb8df10e014cbd6c"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "25dec737-7984-4af1-9abd-542c16ef63e2"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "DataSource",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "DataSet",
+      "fields": [
+        {
+          "name": "Title",
+          "typeName": "System.String",
+          "dataField": "Title"
+        },
+        {
+          "name": "FirstName",
+          "typeName": "System.String",
+          "dataField": "FirstName"
+        },
+        {
+          "name": "MiddleName",
+          "typeName": "System.String",
+          "dataField": "MiddleName"
+        },
+        {
+          "name": "LastName",
+          "typeName": "System.String",
+          "dataField": "LastName"
+        },
+        {
+          "name": "AddressLine1",
+          "typeName": "System.String",
+          "dataField": "AddressLine1"
+        },
+        {
+          "name": "AddressLine2",
+          "typeName": "System.String",
+          "dataField": "AddressLine2"
+        },
+        {
+          "name": "City",
+          "typeName": "System.String",
+          "dataField": "City"
+        },
+        {
+          "name": "StateProvinceCode",
+          "typeName": "System.String",
+          "dataField": "StateProvinceCode"
+        },
+        {
+          "name": "PostalCode",
+          "typeName": "System.String",
+          "dataField": "PostalCode"
+        },
+        {
+          "name": "Country",
+          "typeName": "System.String",
+          "dataField": "Country"
+        },
+        {
+          "name": "FullName",
+          "typeName": "System.String",
+          "dataField": "FullName"
+        }
+      ],
+      "query": {
+        "dataSourceName": "DataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Names",
+      "dataType": "String",
+      "prompt": "Label names:",
+      "availableValues": {
+        "datasetName": "DataSet",
+        "valueField": "FullName",
+        "labelField": "FullName",
+        "staticValueCount": 0
+      },
+      "defaultValues": {
+        "datasetName": null,
+        "valueField": null,
+        "staticValueCount": 0
+      }
+    }
+  ],
+  "tablixes": [
+    {
+      "name": "Tablix4",
+      "datasetName": "DataSet",
+      "body": {
+        "columns": 1,
+        "rows": 1
+      },
+      "groups": [
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    }
+  ],
+  "expressions": {
+    "groupExpressions": [],
+    "filterExpressions": [],
+    "sortExpressions": [],
+    "aggregateExpressions": [],
+    "visibilityExpressions": []
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "LabelCell",
+        "container": "tablix",
+        "values": [
+          "=Fields!FirstName.Value",
+          "=Fields!MiddleName.Value",
+          "=Fields!LastName.Value",
+          "=Fields!AddressLine1.Value",
+          "=Fields!AddressLine2.Value",
+          "=Fields!City.Value",
+          "=Fields!StateProvinceCode.Value",
+          "=Fields!PostalCode.Value",
+          "=Fields!Country.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      }
+    ],
+    "rectangles": [],
+    "lists": [],
+    "charts": [],
+    "gauges": [],
+    "maps": [],
+    "images": [],
+    "subreports": [],
+    "pageHeaders": 0,
+    "pageFooters": 0
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "2.5935in",
+        "pageWidth": null,
+        "pageHeight": null,
+        "orientation": "not serialized",
+        "margins": {
+          "left": "0.21975in",
+          "right": "0.21975in",
+          "top": "0.5in",
+          "bottom": "0.5in"
+        },
+        "columns": "3",
+        "columnSpacing": "0.14in"
+      }
+    ],
+    "pageBreaks": [],
+    "repeatOnNewPageCount": 0,
+    "hiddenItemCount": 0
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "stopped before target resolution",
+      "reason": "ReportSection 0 lacks PageWidth"
+    }
+  }
+}

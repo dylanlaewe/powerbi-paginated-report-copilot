@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "fixtureId": "simple-table",
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "consideredCandidateCount": 6,
+      "status": "ambiguous",
+      "reason": "CONFLICTING_TITLE_EVIDENCE",
+      "confidence": null,
+      "selectedDiagnosticCandidate": null,
+      "mutationAuthorized": false
+    },
+    {
+      "fixtureId": "grouped-report",
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "consideredCandidateCount": 7,
+      "status": "resolved",
+      "reason": "TITLE_RESOLVED",
+      "confidence": "high",
+      "selectedDiagnosticCandidate": "84b9fb7c3d176cfdebf9",
+      "mutationAuthorized": false
+    },
+    {
+      "fixtureId": "microsoft-invoice",
+      "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "consideredCandidateCount": 11,
+      "status": "notFound",
+      "reason": "NO_CONFIDENT_TITLE_CANDIDATE",
+      "confidence": null,
+      "selectedDiagnosticCandidate": null,
+      "mutationAuthorized": false
+    },
+    {
+      "fixtureId": "microsoft-transcript",
+      "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "consideredCandidateCount": 10,
+      "status": "resolved",
+      "reason": "TITLE_RESOLVED",
+      "confidence": "high",
+      "selectedDiagnosticCandidate": "868868b3c6a8dd1a8bb9",
+      "mutationAuthorized": false
+    }
+  ]
+}

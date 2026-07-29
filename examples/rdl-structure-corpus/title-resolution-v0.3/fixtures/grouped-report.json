@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "byteLength": 52651,
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b"
+  },
+  "candidateOrdering": [
+    {
+      "candidateId": "84b9fb7c3d176cfdebf9",
+      "visibleText": "Synthetic Department Sales Summary",
+      "structuralPath": "section[0]/body/Textbox(ReportTitle)",
+      "region": "body",
+      "score": 136,
+      "evidence": [
+        {
+          "code": "TITLE_ORIENTED_NAME",
+          "weight": 28,
+          "message": "report-item name contains a title-oriented token"
+        },
+        {
+          "code": "LARGE_FONT",
+          "weight": 24,
+          "message": "font size is 18.0pt"
+        },
+        {
+          "code": "STRUCTURALLY_SEPARATE",
+          "weight": 16,
+          "message": "textbox is structurally separate from data regions"
+        },
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "TITLE_LENGTH_PHRASE",
+          "weight": 12,
+          "message": "visible text is a concise multi-word phrase"
+        },
+        {
+          "code": "TITLE_SEMANTIC_TOKEN",
+          "weight": 12,
+          "message": "visible text contains a generic report-title term"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        },
+        {
+          "code": "STANDALONE_BODY",
+          "weight": 10,
+          "message": "candidate is a standalone body textbox"
+        },
+        {
+          "code": "WIDE_TEXTBOX",
+          "weight": 10,
+          "message": "textbox width is consistent with a report heading"
+        }
+      ],
+      "negativeEvidence": []
+    },
+    {
+      "candidateId": "15fa137857aeb1483d11",
+      "visibleText": "Grand Total",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox64)",
+      "region": "body",
+      "score": -4,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        }
+      ]
+    },
+    {
+      "candidateId": "19b71ae46245f42a2986",
+      "visibleText": "Department",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox48)",
+      "region": "body",
+      "score": -18,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        }
+      ]
+    },
+    {
+      "candidateId": "bd9dd4837542a77b1986",
+      "visibleText": "Sale Date",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[0]/Textbox(Textbox7)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "09d54b7cbb976fd4f24c",
+      "visibleText": "Representative",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[1]/Textbox(Textbox11)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "e0cbf6a7bb90ea8dcde8",
+      "visibleText": "Units",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[2]/Textbox(Textbox13)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "48cd60582bcef90e6e05",
+      "visibleText": "Revenue",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[3]/Textbox(Textbox15)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    }
+  ],
+  "resolution": {
+    "status": "resolved",
+    "reason": "TITLE_RESOLVED",
+    "candidateId": "84b9fb7c3d176cfdebf9",
+    "confidence": "high",
+    "evidence": [
+      {
+        "code": "TITLE_ORIENTED_NAME",
+        "weight": 28,
+        "message": "report-item name contains a title-oriented token"
+      },
+      {
+        "code": "LARGE_FONT",
+        "weight": 24,
+        "message": "font size is 18.0pt"
+      },
+      {
+        "code": "STRUCTURALLY_SEPARATE",
+        "weight": 16,
+        "message": "textbox is structurally separate from data regions"
+      },
+      {
+        "code": "BOLD",
+        "weight": 14,
+        "message": "text is bold"
+      },
+      {
+        "code": "TITLE_LENGTH_PHRASE",
+        "weight": 12,
+        "message": "visible text is a concise multi-word phrase"
+      },
+      {
+        "code": "TITLE_SEMANTIC_TOKEN",
+        "weight": 12,
+        "message": "visible text contains a generic report-title term"
+      },
+      {
+        "code": "SAFE_VISIBLE_TEXT",
+        "weight": 10,
+        "message": "visible text was safely extracted without expression execution"
+      },
+      {
+        "code": "STANDALONE_BODY",
+        "weight": 10,
+        "message": "candidate is a standalone body textbox"
+      },
+      {
+        "code": "WIDE_TEXTBOX",
+        "weight": 10,
+        "message": "textbox width is consistent with a report heading"
+      }
+    ],
+    "alternatives": [
+      {
+        "candidateId": "15fa137857aeb1483d11",
+        "visibleText": "Grand Total",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox64)",
+        "region": "body",
+        "score": -4,
+        "evidence": [
+          {
+            "code": "BOLD",
+            "weight": 14,
+            "message": "text is bold"
+          },
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          }
+        ],
+        "negativeEvidence": [
+          {
+            "code": "DATA_REGION_LABEL",
+            "weight": -28,
+            "message": "candidate is a label within a data region"
+          }
+        ]
+      },
+      {
+        "candidateId": "19b71ae46245f42a2986",
+        "visibleText": "Department",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox48)",
+        "region": "body",
+        "score": -18,
+        "evidence": [
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          }
+        ],
+        "negativeEvidence": [
+          {
+            "code": "DATA_REGION_LABEL",
+            "weight": -28,
+            "message": "candidate is a label within a data region"
+          }
+        ]
+      },
+      {
+        "candidateId": "bd9dd4837542a77b1986",
+        "visibleText": "Sale Date",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[0]/Textbox(Textbox7)",
+        "region": "body",
+        "score": -30,
+        "evidence": [
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          }
+        ],
+        "negativeEvidence": [
+          {
+            "code": "TABLIX_STATIC_HEADER",
+            "weight": -40,
+            "message": "candidate is a static tablix header"
+          }
+        ]
+      },
+      {
+        "candidateId": "09d54b7cbb976fd4f24c",
+        "visibleText": "Representative",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[1]/Textbox(Textbox11)",
+        "region": "body",
+        "score": -30,
+        "evidence": [
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          }
+        ],
+        "negativeEvidence": [
+          {
+            "code": "TABLIX_STATIC_HEADER",
+            "weight": -40,
+            "message": "candidate is a static tablix header"
+          }
+        ]
+      },
+      {
+        "candidateId": "e0cbf6a7bb90ea8dcde8",
+        "visibleText": "Units",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[2]/Textbox(Textbox13)",
+        "region": "body",
+        "score": -30,
+        "evidence": [
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          }
+        ],
+        "negativeEvidence": [
+          {
+            "code": "TABLIX_STATIC_HEADER",
+            "weight": -40,
+            "message": "candidate is a static tablix header"
+          }
+        ]
+      },
+      {
+        "candidateId": "48cd60582bcef90e6e05",
+        "visibleText": "Revenue",
+        "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[3]/Textbox(Textbox15)",
+        "region": "body",
+        "score": -30,
+        "evidence": [
+          {
+            "code": "SAFE_VISIBLE_TEXT",
+            "weight": 10,
+            "message": "visible text was safely extracted without expression execution"
+          }
+        ],
+        "negativeEvidence": [
+          {
+            "code": "TABLIX_STATIC_HEADER",
+            "weight": -40,
+            "message": "candidate is a static tablix header"
+          }
+        ]
+      }
+    ],
+    "mutationAuthorized": false
+  },
+  "selectedDiagnosticCandidate": "84b9fb7c3d176cfdebf9",
+  "alternatives": [
+    {
+      "candidateId": "15fa137857aeb1483d11",
+      "visibleText": "Grand Total",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox64)",
+      "region": "body",
+      "score": -4,
+      "evidence": [
+        {
+          "code": "BOLD",
+          "weight": 14,
+          "message": "text is bold"
+        },
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        }
+      ]
+    },
+    {
+      "candidateId": "19b71ae46245f42a2986",
+      "visibleText": "Department",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/Textbox(Textbox48)",
+      "region": "body",
+      "score": -18,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "DATA_REGION_LABEL",
+          "weight": -28,
+          "message": "candidate is a label within a data region"
+        }
+      ]
+    },
+    {
+      "candidateId": "bd9dd4837542a77b1986",
+      "visibleText": "Sale Date",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[0]/Textbox(Textbox7)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "09d54b7cbb976fd4f24c",
+      "visibleText": "Representative",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[1]/Textbox(Textbox11)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "e0cbf6a7bb90ea8dcde8",
+      "visibleText": "Units",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[2]/Textbox(Textbox13)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    },
+    {
+      "candidateId": "48cd60582bcef90e6e05",
+      "visibleText": "Revenue",
+      "structuralPath": "section[0]/body/Tablix(DepartmentSalesTable)/row[0]/cell[3]/Textbox(Textbox15)",
+      "region": "body",
+      "score": -30,
+      "evidence": [
+        {
+          "code": "SAFE_VISIBLE_TEXT",
+          "weight": 10,
+          "message": "visible text was safely extracted without expression execution"
+        }
+      ],
+      "negativeEvidence": [
+        {
+          "code": "TABLIX_STATIC_HEADER",
+          "weight": -40,
+          "message": "candidate is a static tablix header"
+        }
+      ]
+    }
+  ],
+  "mutationAuthorized": false,
+  "mutationTargetCreated": false,
+  "gate2GComparison": "ReportTitle was the correct diagnostic candidate.",
+  "remainingLimitations": [
+    "Resolution is read-only and cannot authorize a title mutation.",
+    "No user review or generic target authorization exists.",
+    "Existing checksum-reviewed title mappings remain the only writable path."
+  ]
+}

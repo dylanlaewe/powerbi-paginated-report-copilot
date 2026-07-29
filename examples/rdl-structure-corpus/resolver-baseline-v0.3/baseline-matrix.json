@@ -1,0 +1,111 @@
+{
+  "baselineVersion": 1,
+  "classificationEnum": [
+    "PASS_CORRECT",
+    "PASS_AMBIGUOUSLY_SAFE",
+    "BLOCKED_INSPECTOR",
+    "BLOCKED_UNSUPPORTED_STRUCTURE",
+    "BLOCKED_NO_CANDIDATE",
+    "BLOCKED_AMBIGUOUS",
+    "FAIL_WRONG_TARGET",
+    "FAIL_INCONSISTENT_TARGETS",
+    "NOT_APPLICABLE"
+  ],
+  "deterministicOrdering": "fixture order: simple-table, grouped-report, microsoft-invoice, microsoft-transcript; candidates: score descending then report-item name; numeric candidates: field then report-item name",
+  "fixtures": [
+    {
+      "fixtureId": "simple-table",
+      "productionInspector": "BLOCKED_INSPECTOR",
+      "stoppingStage": "pageSettingsNormalization",
+      "errorCode": "INVALID_REPORT",
+      "error": "ReportSection 0 lacks PageWidth",
+      "rendererReceivesUsableSummary": false,
+      "title": "FAIL_WRONG_TARGET",
+      "numericDisplay": "PASS_CORRECT",
+      "pageOrientation": "BLOCKED_INSPECTOR",
+      "planner": "BLOCKED_INSPECTOR",
+      "plannerParse": "planned"
+    },
+    {
+      "fixtureId": "grouped-report",
+      "productionInspector": "BLOCKED_INSPECTOR",
+      "stoppingStage": "pageSettingsNormalization",
+      "errorCode": "INVALID_REPORT",
+      "error": "ReportSection 0 lacks PageWidth",
+      "rendererReceivesUsableSummary": false,
+      "title": "PASS_CORRECT",
+      "numericDisplay": "PASS_AMBIGUOUSLY_SAFE",
+      "pageOrientation": "BLOCKED_INSPECTOR",
+      "planner": "BLOCKED_INSPECTOR",
+      "plannerParse": "planned"
+    },
+    {
+      "fixtureId": "microsoft-invoice",
+      "productionInspector": "BLOCKED_INSPECTOR",
+      "stoppingStage": "pageSettingsNormalization",
+      "errorCode": "INVALID_REPORT",
+      "error": "ReportSection 0 lacks PageWidth",
+      "rendererReceivesUsableSummary": false,
+      "title": "BLOCKED_NO_CANDIDATE",
+      "numericDisplay": "NOT_APPLICABLE",
+      "pageOrientation": "BLOCKED_INSPECTOR",
+      "planner": "NOT_APPLICABLE",
+      "plannerParse": null
+    },
+    {
+      "fixtureId": "microsoft-transcript",
+      "productionInspector": "BLOCKED_INSPECTOR",
+      "stoppingStage": "pageSettingsNormalization",
+      "errorCode": "INVALID_REPORT",
+      "error": "ReportSection 0 lacks PageWidth",
+      "rendererReceivesUsableSummary": false,
+      "title": "BLOCKED_UNSUPPORTED_STRUCTURE",
+      "numericDisplay": "NOT_APPLICABLE",
+      "pageOrientation": "BLOCKED_INSPECTOR",
+      "planner": "BLOCKED_UNSUPPORTED_STRUCTURE",
+      "plannerParse": "rejected:UNSUPPORTED_REQUEST"
+    }
+  ],
+  "globalFindings": {
+    "allProductionInspectionsBlockedByOmittedPageWidth": true,
+    "productionPartialModelsAvailable": false,
+    "productionRendererSummariesAvailable": false,
+    "productionTitleScoringExists": false,
+    "productionFieldScoringExists": false,
+    "generatedEditedRdlCount": 0
+  },
+  "unchangedProductionSourceIdentities": [
+    {
+      "relativePath": "packages/rdl-copilot/src/inspection.ts",
+      "sha256": "0d0956f8e16be1a9e3bee6b6e908b0ae5b15fc02d90a4ef601fcf30a9a62ceca"
+    },
+    {
+      "relativePath": "packages/rdl-copilot/src/edit-planner.ts",
+      "sha256": "0f42566461403d2963a5be5278730eb7fec0e8027c650fe09b205850c6bf2951"
+    },
+    {
+      "relativePath": "packages/rdl-copilot/src/mutation.ts",
+      "sha256": "15ab59fbb7c91a7e048b3b5759ff89009204bd6ab001d067967025310b144f6e"
+    },
+    {
+      "relativePath": "packages/rdl-copilot/src/sidecar-cli.ts",
+      "sha256": "233899bd3143995c5dfcc78a26ef8b9b5d75614d4be3b4f9717191d8804478b1"
+    },
+    {
+      "relativePath": "apps/desktop/src/main/existing-rdl-sidecar.ts",
+      "sha256": "31e64aee7cbd4619433463c73591e0b1228032762d5dc76b75249f1f521f3a2b"
+    },
+    {
+      "relativePath": "apps/desktop/src/preload/index.ts",
+      "sha256": "33cd7a4346cc1b2cacedc2731fe4b3eff84e8c2a7127d877af17146af09b80d5"
+    },
+    {
+      "relativePath": "apps/desktop/src/renderer/src.tsx",
+      "sha256": "46b56dce8ea48a88ce499ad1c1e8fb22d03f45a82683dd18f37d0c6ba1fdb894"
+    },
+    {
+      "relativePath": "apps/desktop/src/shared/desktop-api.ts",
+      "sha256": "9abd12c768da4c1702b288e1c8c60728573cbde47eb0cb83d3fc2c755d1f73b4"
+    }
+  ]
+}

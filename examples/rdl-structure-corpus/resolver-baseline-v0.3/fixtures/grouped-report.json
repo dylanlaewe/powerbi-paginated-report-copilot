@@ -1,0 +1,477 @@
+{
+  "baselineVersion": 1,
+  "fixtureId": "grouped-report",
+  "source": {
+    "relativePath": "examples/rdl-structure-corpus/grouped-report/source/synthetic-department-sales.rdl",
+    "fileName": "synthetic-department-sales.rdl",
+    "byteSize": 52651,
+    "sha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+    "unchangedAfterEvaluation": true
+  },
+  "productionInspector": {
+    "loadStarted": true,
+    "xmlParse": "PASS",
+    "namespace": "PASS",
+    "modelNormalization": "STARTED_NOT_RETURNED",
+    "pageSettingsNormalization": "FAIL",
+    "structuralInventory": "NOT_REACHED",
+    "candidateDiscovery": "NOT_REACHED",
+    "stoppingStage": "pageSettingsNormalization",
+    "errorCode": "INVALID_REPORT",
+    "error": "ReportSection 0 lacks PageWidth",
+    "partialModelAvailable": false,
+    "rendererReceivesUsableSummary": false,
+    "returnedInventorySha256": null
+  },
+  "corpusAssistedDiagnosticOnly": {
+    "warning": "CORPUS-ASSISTED DIAGNOSTIC ONLY — not current product behavior and not routed into production services",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "title": {
+      "requestedSemanticTarget": "report title",
+      "candidates": [
+        {
+          "reportItemName": "ReportTitle",
+          "container": "reportBody",
+          "tablix": null,
+          "visibleText": "Synthetic Department Sales Summary",
+          "serializedValue": "Synthetic Department Sales Summary",
+          "fontSizes": [
+            "18pt"
+          ],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [],
+          "score": 100,
+          "evidence": [
+            "+40 exact ReportTitle name",
+            "+20 reportBody container",
+            "+25 prominent 18.00pt font",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox64",
+          "container": "tablix",
+          "tablix": "DepartmentSalesTable",
+          "visibleText": "Grand Total",
+          "serializedValue": "Grand Total",
+          "fontSizes": [],
+          "fontWeights": [
+            "Bold"
+          ],
+          "textAlignments": [],
+          "score": -5,
+          "evidence": [
+            "-20 tablix container",
+            "+10 Bold",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox11",
+          "container": "tablix",
+          "tablix": "DepartmentSalesTable",
+          "visibleText": "Representative",
+          "serializedValue": "Representative",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox13",
+          "container": "tablix",
+          "tablix": "DepartmentSalesTable",
+          "visibleText": "Units",
+          "serializedValue": "Units",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox15",
+          "container": "tablix",
+          "tablix": "DepartmentSalesTable",
+          "visibleText": "Revenue",
+          "serializedValue": "Revenue",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox48",
+          "container": "tablix",
+          "tablix": "DepartmentSalesTable",
+          "visibleText": "Department",
+          "serializedValue": "Department",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        },
+        {
+          "reportItemName": "Textbox7",
+          "container": "tablix",
+          "tablix": "DepartmentSalesTable",
+          "visibleText": "Sale Date",
+          "serializedValue": "Sale Date",
+          "fontSizes": [],
+          "fontWeights": [],
+          "textAlignments": [],
+          "score": -15,
+          "evidence": [
+            "-20 tablix container",
+            "+5 single visible constant"
+          ]
+        }
+      ],
+      "productionResolutionArchitecture": {
+        "sidecarAndMutationEntryPoint": "resolveConfiguredReportTitle",
+        "sourceChecksumConfigured": false,
+        "resultIfInspectionWereReachable": {
+          "code": "TITLE_NOT_FOUND",
+          "message": "No checksum-reviewed report-title target is configured for this source"
+        },
+        "genericResolveReportTitleIsNotUsedByProductionSidecar": true,
+        "productionCandidateScoresExist": false
+      },
+      "currentProductionCandidateLogicAppliedToDiagnosticModel": {
+        "outcome": "selected",
+        "reportItemName": "ReportTitle",
+        "scoring": "none; conservative filter requires exactly one candidate"
+      },
+      "expectedVisibleTitle": "Synthetic Department Sales Summary",
+      "classification": "PASS_CORRECT",
+      "textAndStyleUseSameSemanticHandle": true,
+      "containerContextRepresentedInResolvedHandle": false
+    },
+    "numericDisplays": {
+      "requestedField": "Revenue",
+      "allExistingDirectAndSumCandidates": [
+        {
+          "fieldName": "Department",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "Department",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Department.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Representative",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DetailRepresentative",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Representative.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Revenue",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DepartmentRevenueSubtotal",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "aggregate",
+          "expression": "=Sum(Fields!Revenue.Value)",
+          "format": "C2",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Revenue",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DetailRevenue",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Revenue.Value",
+          "format": "C2",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Revenue",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "ReportRevenueTotal",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "aggregate",
+          "expression": "=Sum(Fields!Revenue.Value)",
+          "format": "C2",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "SaleDate",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DetailSaleDate",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!SaleDate.Value",
+          "format": null,
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Units",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DetailUnits",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Units.Value",
+          "format": "0",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Units",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "Textbox54",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "aggregate",
+          "expression": "=Sum(Fields!Units.Value)",
+          "format": "0",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Units",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "Textbox67",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "aggregate",
+          "expression": "=Sum(Fields!Units.Value)",
+          "format": "0",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        }
+      ],
+      "requestedCandidates": [
+        {
+          "fieldName": "Revenue",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DepartmentRevenueSubtotal",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "aggregate",
+          "expression": "=Sum(Fields!Revenue.Value)",
+          "format": "C2",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Revenue",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "DetailRevenue",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "detailOrUnknown",
+          "expression": "=Fields!Revenue.Value",
+          "format": "C2",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        },
+        {
+          "fieldName": "Revenue",
+          "declaringDatasets": [
+            "DepartmentSales"
+          ],
+          "reportItemName": "ReportRevenueTotal",
+          "tablix": "DepartmentSalesTable",
+          "container": "tablix",
+          "role": "aggregate",
+          "expression": "=Sum(Fields!Revenue.Value)",
+          "format": "C2",
+          "ambiguity": "dataset declaration unique; row/group scope not retained",
+          "score": null,
+          "scoreEvidence": "current production resolver uses exact matching and array order; it has no candidate scores"
+        }
+      ],
+      "classification": "PASS_AMBIGUOUSLY_SAFE"
+    },
+    "pageOrientation": {
+      "request": "switch the page to landscape",
+      "serializedPage": {
+        "width": null,
+        "height": null,
+        "margins": {
+          "left": "0.5in",
+          "right": "0.5in",
+          "top": "0.5in",
+          "bottom": "0.5in"
+        }
+      },
+      "normalizedByProduction": false,
+      "effectiveDefaultsRepresented": false,
+      "safeTargetExists": false,
+      "materializationRequired": true,
+      "blocker": "ReportSection 0 lacks PageWidth",
+      "classification": "BLOCKED_INSPECTOR"
+    }
+  },
+  "plannerBaseline": {
+    "request": "Change the report title to \"Quarterly Department Sales\", switch the page to landscape, and format Revenue as currency with no decimal places.",
+    "contextSource": "corpus-assisted diagnostic context because production inventory is unreachable",
+    "result": {
+      "status": "planned",
+      "planner": {
+        "name": "LocalSentenceEditPlanner",
+        "version": 1
+      },
+      "normalizedRequest": "Change the report title to \"Quarterly Department Sales\", switch the page to landscape, and format Revenue as currency with no decimal places.",
+      "plan": {
+        "version": 1,
+        "operations": [
+          {
+            "type": "setText",
+            "target": {
+              "kind": "reportItem",
+              "semanticRole": "reportTitle"
+            },
+            "value": "Quarterly Department Sales"
+          },
+          {
+            "type": "setPageOrientation",
+            "orientation": "landscape"
+          },
+          {
+            "type": "setNumberFormat",
+            "target": {
+              "kind": "fieldDisplay",
+              "fieldName": "Revenue"
+            },
+            "format": "C0"
+          }
+        ]
+      },
+      "planSha256": "6404a33f5eb8bdf15d645aa89727ca5a2fa2eaf25d82179899be737462e61633",
+      "proposal": [
+        "Change report title from \"Synthetic Department Sales Summary\" to \"Quarterly Department Sales\".",
+        "Change page orientation to landscape.",
+        "Format Revenue displays as C0."
+      ],
+      "recognizedClauses": [
+        {
+          "kind": "title",
+          "start": 0,
+          "end": 55,
+          "text": "Change the report title to \"Quarterly Department Sales\""
+        },
+        {
+          "kind": "orientation",
+          "start": 57,
+          "end": 85,
+          "text": "switch the page to landscape"
+        },
+        {
+          "kind": "numberFormat",
+          "start": 91,
+          "end": 140,
+          "text": "format Revenue as currency with no decimal places"
+        }
+      ],
+      "warnings": []
+    },
+    "planCouldReachReviewSafely": false,
+    "mutationBlockedBeforeWrite": true
+  },
+  "operationClassifications": [
+    {
+      "operation": "reportTitle",
+      "classification": "PASS_CORRECT",
+      "evidence": "Production unreachable: ReportSection 0 lacks PageWidth; corpus-assisted current candidate logic: selected ReportTitle"
+    },
+    {
+      "operation": "numericDisplay",
+      "classification": "PASS_AMBIGUOUSLY_SAFE",
+      "evidence": "3 exact direct/Sum Revenue bindings; dataset/group scope is not represented in production targets"
+    },
+    {
+      "operation": "pageOrientation",
+      "classification": "BLOCKED_INSPECTOR",
+      "evidence": "Literal PageWidth/PageHeight are omitted; production rejects before orientation normalization and has no effective/default-page representation"
+    },
+    {
+      "operation": "planner",
+      "classification": "BLOCKED_INSPECTOR",
+      "evidence": "Grammar produced a valid typed plan using diagnostic context, but production inspection prevents review"
+    }
+  ],
+  "falsePositiveNegativeReview": {
+    "visibleTitlesMissed": [],
+    "decorativeTitleRisks": [],
+    "styledPlaceholderPreferred": [],
+    "staticHeadersMistakenForFieldDisplays": false,
+    "aggregatesConflatedWithDetails": true,
+    "datasetIdentityLost": false,
+    "tablixAndGroupContextLost": true,
+    "mutationHasRevenueTargetCountSpecialCase": true,
+    "containerHierarchyReduced": false,
+    "omittedPageDefaultsRejected": true,
+    "forcedAmbiguityRisk": false
+  }
+}

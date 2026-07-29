@@ -1,0 +1,962 @@
+{
+  "inventoryVersion": 1,
+  "source": {
+    "relativePath": "PaginatedReportSamples/Transcript.rdl",
+    "fileName": "Transcript.rdl",
+    "byteSize": 116709,
+    "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81"
+  },
+  "xml": {
+    "wellFormedness": "PASS",
+    "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+    "likelySchemaVersion": "2016/01",
+    "namespaces": [
+      "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2001/XMLSchema-instance"
+    ],
+    "designer": {
+      "name": null,
+      "version": null,
+      "reportId": "52ba059c-e281-4f23-8d15-029d835c9eea"
+    },
+    "xsdValidation": {
+      "status": "PASS",
+      "schema": "ReportDefinition-2016.xsd"
+    }
+  },
+  "dataSources": [
+    {
+      "name": "CertificationDataSource",
+      "provider": "ENTERDATA",
+      "hasConnectionString": false,
+      "integratedSecurity": true,
+      "sharedDataSourceReference": null
+    }
+  ],
+  "datasets": [
+    {
+      "name": "Users",
+      "fields": [
+        {
+          "name": "Id",
+          "typeName": "System.String",
+          "dataField": "Id"
+        },
+        {
+          "name": "Name",
+          "typeName": "System.String",
+          "dataField": "Name"
+        }
+      ],
+      "query": {
+        "dataSourceName": "CertificationDataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    },
+    {
+      "name": "Certification",
+      "fields": [
+        {
+          "name": "UserName",
+          "typeName": "System.String",
+          "dataField": "UserName"
+        },
+        {
+          "name": "UserId",
+          "typeName": "System.String",
+          "dataField": "UserId"
+        },
+        {
+          "name": "Name",
+          "typeName": "System.String",
+          "dataField": "Name"
+        },
+        {
+          "name": "Number",
+          "typeName": "System.String",
+          "dataField": "Number"
+        },
+        {
+          "name": "Version",
+          "typeName": "System.String",
+          "dataField": "Version"
+        },
+        {
+          "name": "Description",
+          "typeName": "System.String",
+          "dataField": "Description"
+        },
+        {
+          "name": "Date",
+          "typeName": "System.String",
+          "dataField": "Date"
+        }
+      ],
+      "query": {
+        "dataSourceName": "CertificationDataSource",
+        "commandType": null,
+        "hasCommandText": true,
+        "sharedDatasetReference": null
+      },
+      "filters": []
+    }
+  ],
+  "parameters": [],
+  "tablixes": [
+    {
+      "name": "Tablix1",
+      "datasetName": "Certification",
+      "body": {
+        "columns": 1,
+        "rows": 6
+      },
+      "groups": [
+        {
+          "name": "Name",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!Name.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!Name.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Details1",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    },
+    {
+      "name": "Tablix2",
+      "datasetName": "Certification",
+      "body": {
+        "columns": 4,
+        "rows": 3
+      },
+      "groups": [
+        {
+          "name": "Name",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!Name.Value"
+          ],
+          "pageBreak": null
+        },
+        {
+          "name": "Details",
+          "hierarchy": "row",
+          "expressions": [
+            "=Fields!Name.Value"
+          ],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    },
+    {
+      "name": "Tablix6",
+      "datasetName": "Certification",
+      "body": {
+        "columns": 3,
+        "rows": 2
+      },
+      "groups": [
+        {
+          "name": "Details1",
+          "hierarchy": "row",
+          "expressions": [],
+          "pageBreak": null
+        }
+      ],
+      "repeatRowHeaders": null,
+      "repeatColumnHeaders": null,
+      "fixedRowHeaders": null,
+      "fixedColumnHeaders": null
+    }
+  ],
+  "expressions": {
+    "groupExpressions": [
+      "=Fields!Name.Value"
+    ],
+    "filterExpressions": [],
+    "sortExpressions": [
+      "=Fields!Name.Value"
+    ],
+    "aggregateExpressions": [
+      "=First(Fields!UserId.Value, \"Certification\")",
+      "=FormatDateTime(Max(Fields!Date.Value, \"Certification\"), Microsoft.VisualBasic.DateFormat.LongDate)",
+      "=UCase(First(Fields!UserName.Value, \"Certification\"))"
+    ],
+    "visibilityExpressions": []
+  },
+  "reportItems": {
+    "textboxes": [
+      {
+        "name": "Textbox233",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"ACTIVE CERTIFICATION PROGRAMS:\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "14pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox84",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox85",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox86",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox87",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Name",
+        "container": "tablix",
+        "values": [
+          "=\"Certification Number:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Number1",
+        "container": "tablix",
+        "values": [
+          "=Fields!Number.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Name2",
+        "container": "tablix",
+        "values": [
+          "=\"Achievement Date:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Date1",
+        "container": "tablix",
+        "values": [
+          "=Fields!Date.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox63",
+        "container": "tablix",
+        "values": [
+          "=\"Certification Version:\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Version",
+        "container": "tablix",
+        "values": [
+          "=Fields!Version.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox74",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox76",
+        "container": "tablix",
+        "values": [],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Name1",
+        "container": "tablix",
+        "values": [
+          "=Fields!Name.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox234",
+        "container": "tablix",
+        "values": [
+          "=UCase(\"CERTIFICATIONS COMPLETED SUCCESSFULLY:\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "14pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox47",
+        "container": "tablix",
+        "values": [
+          "=\"Exam ID\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox49",
+        "container": "tablix",
+        "values": [
+          "=\"Description\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox51",
+        "container": "tablix",
+        "values": [
+          "=\"Date Completed\""
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Number",
+        "container": "tablix",
+        "values": [
+          "=Fields!Number.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Description",
+        "container": "tablix",
+        "values": [
+          "=Fields!Description.Value"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Date",
+        "container": "tablix",
+        "values": [
+          "=FormatDateTime(Fields!Date.Value, DateFormat.LongDate)"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox19",
+        "container": "tablix",
+        "values": [
+          "=\"Disclaimer: This is a sample and is provided 'as is' without warranty of any kind.  Sample data included are for illustration only and are fictitious.  No real association is intended or inferred.\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "8pt"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox1",
+        "container": "pageHeader",
+        "values": [
+          "=\"Contoso Professional Certified Transcript\""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "22pt"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox34",
+        "container": "pageHeader",
+        "values": [
+          "=\"Last activity recorded : \""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "4mm"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox36",
+        "container": "pageHeader",
+        "values": [
+          "=\"Student ID : \""
+        ],
+        "formats": [],
+        "fontSizes": [
+          "4mm"
+        ],
+        "fontWeights": [
+          "Bold"
+        ],
+        "hidden": null
+      },
+      {
+        "name": "Textbox39",
+        "container": "pageHeader",
+        "values": [
+          "=First(Fields!UserId.Value, \"Certification\")"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "4mm"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox41",
+        "container": "pageHeader",
+        "values": [
+          "=UCase(First(Fields!UserName.Value, \"Certification\"))"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "4mm"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "Textbox35",
+        "container": "pageHeader",
+        "values": [
+          "=FormatDateTime(Max(Fields!Date.Value, \"Certification\"), Microsoft.VisualBasic.DateFormat.LongDate)"
+        ],
+        "formats": [],
+        "fontSizes": [
+          "4mm"
+        ],
+        "fontWeights": [],
+        "hidden": null
+      },
+      {
+        "name": "ExecutionTime",
+        "container": "pageFooter",
+        "values": [
+          "=\"Page \" & Globals!PageNumber & \" of  \" &Globals!TotalPages"
+        ],
+        "formats": [],
+        "fontSizes": [],
+        "fontWeights": [],
+        "hidden": null
+      }
+    ],
+    "rectangles": [
+      {
+        "name": "Rectangle9",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle19",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle11",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle21",
+        "container": "tablix",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle2",
+        "container": "pageHeader",
+        "nestingDepth": 0
+      },
+      {
+        "name": "Rectangle3",
+        "container": "pageHeader",
+        "nestingDepth": 1
+      },
+      {
+        "name": "Rectangle5",
+        "container": "pageHeader",
+        "nestingDepth": 1
+      },
+      {
+        "name": "Rectangle6",
+        "container": "pageHeader",
+        "nestingDepth": 2
+      }
+    ],
+    "lists": [],
+    "charts": [],
+    "gauges": [],
+    "maps": [],
+    "images": [
+      {
+        "name": "Image5",
+        "source": "Embedded",
+        "value": "Line"
+      },
+      {
+        "name": "Image6",
+        "source": "Embedded",
+        "value": "Contoso_LogoSmall"
+      }
+    ],
+    "subreports": [],
+    "pageHeaders": 1,
+    "pageFooters": 1
+  },
+  "layout": {
+    "reportSections": [
+      {
+        "bodyWidth": "8.48787in",
+        "pageWidth": null,
+        "pageHeight": null,
+        "orientation": "not serialized",
+        "margins": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "columns": null,
+        "columnSpacing": null
+      }
+    ],
+    "pageBreaks": [],
+    "repeatOnNewPageCount": 0,
+    "hiddenItemCount": 0
+  },
+  "sidecarCompatibility": {
+    "titleCandidates": "not evaluated during discovery gate",
+    "existingFieldNumericFormatCandidates": "not evaluated during discovery gate",
+    "genericInspector": {
+      "status": "stopped before target resolution",
+      "reason": "ReportSection 0 lacks PageWidth"
+    }
+  },
+  "corpusEvidence": {
+    "overlappingFields": [
+      {
+        "name": "Name",
+        "datasets": [
+          "Users",
+          "Certification"
+        ]
+      }
+    ],
+    "title": {
+      "reportItemName": "Textbox1",
+      "location": "pageHeader",
+      "value": "=\"Contoso Professional Certified Transcript\"",
+      "fontSize": "22pt",
+      "fontWeight": "Bold",
+      "textAlign": "Left",
+      "width": "8.48in",
+      "ambiguity": [
+        "Textbox233 and Textbox234 are prominent 14pt Bold section captions in body tablixes",
+        "Textbox34 and Textbox36 are 4mm Bold page-header labels"
+      ]
+    },
+    "tablixLocationsAndRowHierarchy": [
+      {
+        "name": "Tablix1",
+        "datasetName": "Certification",
+        "rectanglePath": [],
+        "parentTablix": null,
+        "rowMembers": [
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 1,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 1,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 1,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          }
+        ]
+      },
+      {
+        "name": "Tablix2",
+        "datasetName": "Certification",
+        "rectanglePath": [
+          "Rectangle9"
+        ],
+        "parentTablix": "Tablix1",
+        "rowMembers": [
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": "Name",
+            "groupExpressions": [
+              "=Fields!Name.Value"
+            ],
+            "static": false
+          },
+          {
+            "depth": 1,
+            "parentGroup": "Name",
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 1,
+            "parentGroup": "Name",
+            "groupName": "Details",
+            "groupExpressions": [
+              "=Fields!Name.Value"
+            ],
+            "static": false
+          },
+          {
+            "depth": 2,
+            "parentGroup": "Details",
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 2,
+            "parentGroup": "Details",
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          }
+        ]
+      },
+      {
+        "name": "Tablix6",
+        "datasetName": "Certification",
+        "rectanglePath": [
+          "Rectangle19"
+        ],
+        "parentTablix": "Tablix1",
+        "rowMembers": [
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": null,
+            "groupExpressions": [],
+            "static": true
+          },
+          {
+            "depth": 0,
+            "parentGroup": null,
+            "groupName": "Details1",
+            "groupExpressions": [],
+            "static": false
+          }
+        ]
+      }
+    ],
+    "rectangleHierarchy": [
+      {
+        "name": "Rectangle9",
+        "parentRectangle": null,
+        "depth": 0,
+        "childReportItems": [
+          {
+            "type": "Tablix",
+            "name": "Tablix2"
+          }
+        ],
+        "path": [
+          "Rectangle9"
+        ]
+      },
+      {
+        "name": "Rectangle19",
+        "parentRectangle": null,
+        "depth": 0,
+        "childReportItems": [
+          {
+            "type": "Tablix",
+            "name": "Tablix6"
+          }
+        ],
+        "path": [
+          "Rectangle19"
+        ]
+      },
+      {
+        "name": "Rectangle11",
+        "parentRectangle": null,
+        "depth": 0,
+        "childReportItems": [],
+        "path": [
+          "Rectangle11"
+        ]
+      },
+      {
+        "name": "Rectangle21",
+        "parentRectangle": null,
+        "depth": 0,
+        "childReportItems": [
+          {
+            "type": "Textbox",
+            "name": "Textbox19"
+          }
+        ],
+        "path": [
+          "Rectangle21"
+        ]
+      },
+      {
+        "name": "Rectangle2",
+        "parentRectangle": null,
+        "depth": 0,
+        "childReportItems": [
+          {
+            "type": "Image",
+            "name": "Image5"
+          },
+          {
+            "type": "Rectangle",
+            "name": "Rectangle3"
+          },
+          {
+            "type": "Rectangle",
+            "name": "Rectangle5"
+          }
+        ],
+        "path": [
+          "Rectangle2"
+        ]
+      },
+      {
+        "name": "Rectangle3",
+        "parentRectangle": "Rectangle2",
+        "depth": 1,
+        "childReportItems": [
+          {
+            "type": "Image",
+            "name": "Image6"
+          }
+        ],
+        "path": [
+          "Rectangle2",
+          "Rectangle3"
+        ]
+      },
+      {
+        "name": "Rectangle5",
+        "parentRectangle": "Rectangle2",
+        "depth": 1,
+        "childReportItems": [
+          {
+            "type": "Rectangle",
+            "name": "Rectangle6"
+          }
+        ],
+        "path": [
+          "Rectangle2",
+          "Rectangle5"
+        ]
+      },
+      {
+        "name": "Rectangle6",
+        "parentRectangle": "Rectangle5",
+        "depth": 2,
+        "childReportItems": [
+          {
+            "type": "Textbox",
+            "name": "Textbox34"
+          },
+          {
+            "type": "Textbox",
+            "name": "Textbox36"
+          },
+          {
+            "type": "Textbox",
+            "name": "Textbox39"
+          },
+          {
+            "type": "Textbox",
+            "name": "Textbox41"
+          },
+          {
+            "type": "Textbox",
+            "name": "Textbox35"
+          }
+        ],
+        "path": [
+          "Rectangle2",
+          "Rectangle5",
+          "Rectangle6"
+        ]
+      }
+    ],
+    "maximumRectangleDepth": 2,
+    "deepestRectanglePaths": [
+      [
+        "Rectangle2",
+        "Rectangle5",
+        "Rectangle6"
+      ]
+    ]
+  }
+}

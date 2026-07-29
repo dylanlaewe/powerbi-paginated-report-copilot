@@ -1,0 +1,35 @@
+{
+  "metadataVersion": 1,
+  "repositoryUrl": "https://github.com/microsoft/Reporting-Services.git",
+  "branch": "master",
+  "commit": "acc2ee0d1884765e4b5213149430fb063d166719",
+  "acquiredAtUtc": "2026-07-28T01:26:36Z",
+  "acquisition": "git clone --depth 1 --branch master into a temporary directory outside the product repository",
+  "sampleDirectory": "PaginatedReportSamples",
+  "licensePath": "License.md",
+  "licenseSha256": "e1406b32500b4622444e91ec3b50a473b97c5c4470b7b1f137c36abcfb248b59",
+  "documentationUrl": "https://learn.microsoft.com/power-bi/paginated-reports/paginated-reports-samples",
+  "inventoryGenerator": "scripts/discover-official-rdl-samples.mts v1",
+  "inventoryOrdering": "relative path ascending; nested names and expressions ascending where order is not structural",
+  "inspectionPolicy": "static XML only; NONET; NO_XXE; no DTD or external resolution; no rendering, query execution, credentials, report code execution, or referenced network access",
+  "imports": [
+    {
+      "gate": "2E",
+      "sourcePath": "PaginatedReportSamples/Invoice.rdl",
+      "canonicalImportedPath": "imported/invoice/source/Invoice.rdl",
+      "byteSize": 222297,
+      "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "byteIdentical": true,
+      "reportBuilderValidation": "NOT_PERFORMED"
+    },
+    {
+      "gate": "2F",
+      "sourcePath": "PaginatedReportSamples/Transcript.rdl",
+      "canonicalImportedPath": "imported/transcript/source/Transcript.rdl",
+      "byteSize": 116709,
+      "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "byteIdentical": true,
+      "reportBuilderValidation": "NOT_PERFORMED"
+    }
+  ]
+}

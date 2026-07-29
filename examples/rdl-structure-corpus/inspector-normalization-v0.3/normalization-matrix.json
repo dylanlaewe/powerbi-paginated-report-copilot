@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "fixtureId": "simple-table",
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "inspection": "PASS",
+      "pageWidthPresence": "omitted",
+      "pageHeightPresence": "omitted",
+      "rendererSummary": "PASS",
+      "orientationCapability": "PAGE_DIMENSIONS_UNSPECIFIED"
+    },
+    {
+      "fixtureId": "grouped-report",
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "inspection": "PASS",
+      "pageWidthPresence": "omitted",
+      "pageHeightPresence": "omitted",
+      "rendererSummary": "PASS",
+      "orientationCapability": "PAGE_DIMENSIONS_UNSPECIFIED"
+    },
+    {
+      "fixtureId": "microsoft-invoice",
+      "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "inspection": "PASS",
+      "pageWidthPresence": "omitted",
+      "pageHeightPresence": "omitted",
+      "rendererSummary": "PASS",
+      "orientationCapability": "PAGE_DIMENSIONS_UNSPECIFIED"
+    },
+    {
+      "fixtureId": "microsoft-transcript",
+      "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "inspection": "PASS",
+      "pageWidthPresence": "omitted",
+      "pageHeightPresence": "omitted",
+      "rendererSummary": "PASS",
+      "orientationCapability": "PAGE_DIMENSIONS_UNSPECIFIED"
+    }
+  ]
+}

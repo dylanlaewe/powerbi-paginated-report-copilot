@@ -15,10 +15,15 @@ import {
   ipcChannels,
   generationRequestSchema,
   generationResultSchema,
+  fieldResolutionRequestSchema,
   actionResultSchema,
   applyEditRequestSchema,
   outputHandleRequestSchema,
   planEditRequestSchema,
+  createReviewRequestSchema,
+  reviewDraftRequestSchema,
+  reviewOperationRequestSchema,
+  reviewSelectionRequestSchema,
   planSessionIdRequestSchema,
   sessionIdRequestSchema,
   type ProjectSelectionResult,
@@ -80,6 +85,78 @@ ipcMain.handle(ipcChannels.selectExistingRdl, async () => {
     choice.canceled ? null : (choice.filePaths[0] ?? null),
   );
 });
+ipcMain.handle(
+  ipcChannels.resolveExistingRdlField,
+  (_event, input: unknown) => {
+    const parsed = fieldResolutionRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().resolveField(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.createExistingRdlReview,
+  async (_event, input: unknown) => {
+    const parsed = createReviewRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().createReview(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.getExistingRdlReview,
+  async (_event, input: unknown) => {
+    const parsed = reviewDraftRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().getReview(parsed.data.reviewDraftId)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.selectExistingRdlReviewCandidates,
+  async (_event, input: unknown) => {
+    const parsed = reviewSelectionRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().selectReviewCandidates(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.confirmExistingRdlReviewOperation,
+  async (_event, input: unknown) => {
+    const parsed = reviewOperationRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().confirmReviewOperation(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.declineExistingRdlReviewOperation,
+  async (_event, input: unknown) => {
+    const parsed = reviewOperationRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().declineReviewOperation(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.resetExistingRdlReviewOperation,
+  async (_event, input: unknown) => {
+    const parsed = reviewOperationRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().resetReviewOperation(parsed.data)
+      : invalidIpc();
+  },
+);
+ipcMain.handle(
+  ipcChannels.createExistingRdlReviewedCopy,
+  async (_event, input: unknown) => {
+    const parsed = reviewDraftRequestSchema.safeParse(input);
+    return parsed.success
+      ? getSidecarService().createReviewedCopy(parsed.data)
+      : invalidIpc();
+  },
+);
 ipcMain.handle(
   ipcChannels.planExistingRdlEdit,
   async (_event, input: unknown) => {

@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "fixtureId": "simple-table",
+      "sourceSha256": "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      "evaluatedFieldCount": 4,
+      "outcomes": [
+        {
+          "fieldName": "Item",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "411d49313861912ba286",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "UnitCost",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "4b25eb7148a21f314a0c",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Units",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "b570d8a610e7123e9c12",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Warehouse",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "a9e7ab0bf8886109535f",
+          "mutationAuthorized": false
+        }
+      ]
+    },
+    {
+      "fixtureId": "grouped-report",
+      "sourceSha256": "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      "evaluatedFieldCount": 5,
+      "outcomes": [
+        {
+          "fieldName": "Department",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "9e2bda76b36e45f7395a",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Representative",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "6d349e10628d5c74264b",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Revenue",
+          "status": "ambiguous",
+          "reason": "MULTIPLE_SCOPE_ROLES",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "SaleDate",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "2a9c47973ebe24687485",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Units",
+          "status": "ambiguous",
+          "reason": "MULTIPLE_SCOPE_ROLES",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        }
+      ]
+    },
+    {
+      "fixtureId": "microsoft-invoice",
+      "sourceSha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "evaluatedFieldCount": 16,
+      "outcomes": [
+        {
+          "fieldName": "Amount",
+          "status": "ambiguous",
+          "reason": "DUPLICATE_VISUAL_LOCATIONS",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "BankAccountNum",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "53b9e21412379c737b82",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "CompanyGiro",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "3e39ed519b9537f2e01d",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "CompanyVATNum",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "2a034e037bb75878df23",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Description",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "781bfab3bd4a6fd4c2d8",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Discount",
+          "status": "ambiguous",
+          "reason": "DUPLICATE_VISUAL_LOCATIONS",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "FormLetterRemarksTxt",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "d1e887f265682466d545",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "HeaderNotes",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "ee812cac864dc4fd0c25",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "InvoiceAccount",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "8624ecc267d5ebb3d54b",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "InvoiceDate",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "aaee29ba2ad3a18b823e",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Item",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "3236f6967f97ce318a03",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Name",
+          "status": "ambiguous",
+          "reason": "MULTIPLE_DATASET_CANDIDATES",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Quantity",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "b3482cc5897d2710f4a3",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "SalesPrice",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "50e0f7d2dc2bdae6698f",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "SalesUnitTxt",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "8023a338145c4a050e18",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Website",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "10adf6872c8be9d9263f",
+          "mutationAuthorized": false
+        }
+      ]
+    },
+    {
+      "fixtureId": "microsoft-transcript",
+      "sourceSha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "evaluatedFieldCount": 6,
+      "outcomes": [
+        {
+          "fieldName": "Date",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "646b0aff6aa67f24ae30",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Description",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "cda526fcf40796f8e835",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Name",
+          "status": "ambiguous",
+          "reason": "MULTIPLE_DATASET_CANDIDATES",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Number",
+          "status": "ambiguous",
+          "reason": "DUPLICATE_VISUAL_LOCATIONS",
+          "confidence": null,
+          "selectedDiagnosticCandidate": null,
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "UserId",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "4c992ba6ac5dbc28626a",
+          "mutationAuthorized": false
+        },
+        {
+          "fieldName": "Version",
+          "status": "resolved",
+          "reason": "FIELD_DISPLAY_RESOLVED",
+          "confidence": "high",
+          "selectedDiagnosticCandidate": "fe9d58fc15a4403e48e4",
+          "mutationAuthorized": false
+        }
+      ]
+    }
+  ]
+}

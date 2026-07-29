@@ -4,9 +4,18 @@ A local-first desktop companion for deterministic generation of real RDL paginat
 
 ## Current status
 
-Existing RDL Sidecar Editor v0.2 is independently accepted on macOS and packaged Windows. It safely inspects an existing RDL, converts constrained sentence-form edits into a reviewed typed plan, writes a deterministic edited copy plus audit manifest, and preserves the original.
+Existing RDL Sidecar Editor v0.3 is independently accepted on packaged Windows.
+It safely inspects Microsoft RDL 2016/01, discovers title and existing-field
+display candidates with dataset and structural scope, requires operation-level
+review and exact candidate confirmation, then writes a validated copy plus
+audit manifest while preserving the original.
 
-The canonical Windows output passed Power BI Report Builder Design and three-page Preview plus three-page PDF and three-worksheet Excel exports. The earlier `rdl-copilot-mvp-v0.1` and `rdl-copilot-windows-v0.1` generation checkpoints remain frozen. See [known limitations](docs/KNOWN_LIMITATIONS.md).
+Four independent Windows scenarios—controlled simple and grouped reports plus
+Microsoft Invoice and Transcript—passed the reviewed-copy workflow, Power BI
+Report Builder open/Preview, PDF export, and Excel export. The v0.3 executable
+is unsigned, and orientation changes remain blocked when page dimensions are
+omitted. Earlier milestone tags remain frozen. See
+[known limitations](docs/KNOWN_LIMITATIONS.md).
 
 ## Development
 
@@ -56,4 +65,6 @@ Launch the existing-RDL sidecar in development:
 pnpm dev
 ```
 
-Select an `.rdl`, enter a supported sentence, review the exact before/after targets, and explicitly apply to a controlled copy under the application user-data directory. The original source is never overwritten.
+Select an `.rdl`, enter a supported sentence, review and confirm the exact
+candidate subset per operation, and create a controlled copy under the
+application user-data directory. The original source is never overwritten.

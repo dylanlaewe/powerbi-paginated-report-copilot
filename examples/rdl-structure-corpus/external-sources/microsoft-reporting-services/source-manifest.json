@@ -1,0 +1,113 @@
+{
+  "manifestVersion": 1,
+  "deterministicOrdering": "relativePath ascending; nested names and expressions ascending where order is not structural",
+  "inventoryGenerator": "scripts/discover-official-rdl-samples.mts v1",
+  "sourceCount": 7,
+  "importedSourceCount": 2,
+  "sources": [
+    {
+      "relativePath": "PaginatedReportSamples/CountrySalesPerformance.rdl",
+      "fileName": "CountrySalesPerformance.rdl",
+      "byteSize": 558507,
+      "sha256": "2af53ac0aaad8d7078e7e05d2f2e3679fbf3010c308526368ad1a67eb13dc6a4",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/CountrySalesPerformance.inventory.json"
+    },
+    {
+      "relativePath": "PaginatedReportSamples/Invoice.rdl",
+      "fileName": "Invoice.rdl",
+      "byteSize": 222297,
+      "sha256": "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/Invoice.inventory.json",
+      "importStatus": "STATICALLY_VALIDATED",
+      "canonicalImportedRelativePath": "imported/invoice/source/Invoice.rdl",
+      "importValidationRelativePath": "imported/invoice/validation/gate-2e-validation.json"
+    },
+    {
+      "relativePath": "PaginatedReportSamples/Labels.rdl",
+      "fileName": "Labels.rdl",
+      "byteSize": 121433,
+      "sha256": "d6f2f0580357efe676dd3b490ed982d5fbddd0a99e059e24fb8df10e014cbd6c",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/Labels.inventory.json"
+    },
+    {
+      "relativePath": "PaginatedReportSamples/Letter.rdl",
+      "fileName": "Letter.rdl",
+      "byteSize": 402292,
+      "sha256": "65c0a4c835954f1756e435a217388276a8cf52ed2ee96763de3ddaa6a0a24815",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/Letter.inventory.json"
+    },
+    {
+      "relativePath": "PaginatedReportSamples/OrganizationExpenditures.rdl",
+      "fileName": "OrganizationExpenditures.rdl",
+      "byteSize": 111790,
+      "sha256": "22a41b7a8f504795ac68c4dad094d6f9bb7aa2d95cd0a3167c457e5d2cbe43f5",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/OrganizationExpenditures.inventory.json"
+    },
+    {
+      "relativePath": "PaginatedReportSamples/RegionalSales.rdl",
+      "fileName": "RegionalSales.rdl",
+      "byteSize": 492869,
+      "sha256": "f5698ddeb06df3267322a34db6749f4e52b1e56aa0b6ad7d06a7713af768ce69",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/RegionalSales.inventory.json"
+    },
+    {
+      "relativePath": "PaginatedReportSamples/Transcript.rdl",
+      "fileName": "Transcript.rdl",
+      "byteSize": 116709,
+      "sha256": "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+      "namespace": "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      "likelySchemaVersion": "2016/01",
+      "xmlWellFormedness": "PASS",
+      "xsdValidation": {
+        "status": "PASS",
+        "schema": "ReportDefinition-2016.xsd"
+      },
+      "inventoryRelativePath": "inventories/Transcript.inventory.json",
+      "importStatus": "STATICALLY_VALIDATED",
+      "canonicalImportedRelativePath": "imported/transcript/source/Transcript.rdl",
+      "importValidationRelativePath": "imported/transcript/validation/gate-2f-validation.json"
+    }
+  ]
+}

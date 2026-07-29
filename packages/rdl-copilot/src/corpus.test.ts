@@ -1,0 +1,133 @@
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+import { rdlStructureCorpusIndexSchema } from "./corpus";
+
+const repositoryRoot = resolve(import.meta.dirname, "../../..");
+const indexPath = resolve(
+  repositoryRoot,
+  "examples/rdl-structure-corpus/index.json",
+);
+
+describe("RDL structure corpus Gate 1 design", () => {
+  it("runtime-validates exactly one fixture per required category", async () => {
+    const index = rdlStructureCorpusIndexSchema.parse(
+      JSON.parse(await readFile(indexPath, "utf8")),
+    );
+    expect(index.fixtures).toHaveLength(4);
+    expect(
+      index.fixtures.map(({ structuralCategory }) => structuralCategory),
+    ).toEqual([
+      "simpleTable",
+      "groupedReport",
+      "multiDatasetOrParameterized",
+      "alternateLayout",
+    ]);
+  });
+
+  it("records accepted simple/grouped identities while later fixtures remain pending", async () => {
+    const index = rdlStructureCorpusIndexSchema.parse(
+      JSON.parse(await readFile(indexPath, "utf8")),
+    );
+    const [simpleTable, groupedReport, ...pending] = index.fixtures;
+    expect(simpleTable).toMatchObject({
+      id: "simple-table",
+      status: "authoredValidated",
+      sourceSha256:
+        "e3a34afe7c29c9f773098d9f5bfd65ad2cf60219f78999d46a447250bb2448e3",
+      namespace:
+        "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      reportBuilderBaseline: {
+        open: "PASS",
+        preview: "PASS — 1 page",
+        pdf: "PASS — 1 page",
+        excel: "PASS — 1 worksheet",
+      },
+    });
+    expect(groupedReport).toMatchObject({
+      id: "grouped-report",
+      status: "authoredValidated",
+      sourceSha256:
+        "03c7a6eacd6b003aeaace0264a361267ce208de6388420f0d465608f3540174b",
+      namespace:
+        "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition",
+      reportBuilderBaseline: {
+        open: "PASS",
+        preview: "PASS — 4 pages",
+        pdf: "PASS — 4 pages",
+        excel: "PASS — 4 worksheets",
+      },
+    });
+    for (const fixture of pending) {
+      expect(fixture).toMatchObject({
+        status: "proposed",
+        sourceSha256: null,
+        namespace: null,
+        reportBuilderBaseline: {
+          open: "pending Gate 2",
+          preview: "pending Gate 2",
+          pdf: "pending Gate 2",
+          excel: "pending Gate 2",
+        },
+      });
+    }
+  });
+
+  it("freezes EditPlan v1 operations and excludes forbidden expansion", async () => {
+    const raw = await readFile(indexPath, "utf8");
+    const index = rdlStructureCorpusIndexSchema.parse(JSON.parse(raw));
+    expect(index.frozenOperations).toEqual([
+      "setText",
+      "setTextStyle",
+      "setPageOrientation",
+      "setNumberFormat",
+    ]);
+    expect(raw).not.toMatch(
+      /"type":\s*"(?:addChart|addField|addDataset|changeSql|addParameter|changeGroup)"/u,
+    );
+  });
+
+  it("registers pinned Microsoft sources separately from controlled fixtures", async () => {
+    const index = rdlStructureCorpusIndexSchema.parse(
+      JSON.parse(await readFile(indexPath, "utf8")),
+    );
+    expect(index.fixtureCount).toBe(4);
+    expect(index.externalFixtureCount).toBe(2);
+    expect(index.externalFixtures).toEqual([
+      expect.objectContaining({
+        id: "microsoft-invoice",
+        sourceKind: "externalPinnedCompatibilityFixture",
+        status: "staticallyValidated",
+        sha256:
+          "6251f6b9f76618dd5c2f9accc614b9e198fc221d2310a39508f6ac4897d53fdc",
+        reportBuilderValidation: "NOT_PERFORMED",
+      }),
+      expect.objectContaining({
+        id: "microsoft-transcript",
+        sourceKind: "externalPinnedCompatibilityFixture",
+        status: "staticallyValidated",
+        sha256:
+          "9693231c79853b0881d0414f1c98242c76216efc00784b3bc81acc69430b2e81",
+        reportBuilderValidation: "NOT_PERFORMED",
+      }),
+    ]);
+  });
+
+  it("requires synthetic, credential-free, MIT-licensed provenance plans", async () => {
+    const index = rdlStructureCorpusIndexSchema.parse(
+      JSON.parse(await readFile(indexPath, "utf8")),
+    );
+    for (const fixture of index.fixtures) {
+      expect(fixture.provenance).toMatchObject({
+        authoringApplication: "Microsoft Power BI Report Builder",
+        author: "Dylan Laewe",
+        ownership: "personally authored synthetic fixture",
+        license: "MIT",
+      });
+      expect(fixture.syntheticDataDesign).toMatchObject({
+        containsCredentials: false,
+        containsProprietaryContent: false,
+      });
+    }
+  });
+});
